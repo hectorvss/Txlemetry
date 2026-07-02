@@ -1,0 +1,61 @@
+import { actions, kea, key, path, props, reducers, selectors } from 'kea'
+import { urlToAction } from 'kea-router'
+
+import { Scene } from 'scenes/sceneTypes'
+import { urls } from 'scenes/urls'
+
+import { Breadcrumb } from '~/types'
+
+import type { workflowSceneLogicType } from './workflowSceneLogicType'
+
+export const WorkflowTabs = ['workflow', 'logs', 'invocations', 'metrics', 'history'] as const
+export type WorkflowTab = (typeof WorkflowTabs)[number]
+
+export interface WorkflowSceneLogicProps {
+    id?: string
+    tab?: WorkflowTab
+}
+
+export const workflowSceneLogic = kea<workflowSceneLogicType>([
+    path(['products', 'workflows', 'frontend', 'workflowSceneLogic']),
+    props({ id: 'new' } as WorkflowSceneLogicProps),
+    key((props) => `workflow-scene-${props.id || 'new'}`),
+    actions({
+        setCurrentTab: (tab: WorkflowTab) => ({ tab }),
+    }),
+    reducers({
+        currentTab: [
+            'workflow' as WorkflowTab,
+            {
+                setCurrentTab: (_, { tab }) => tab,
+            },
+        ],
+    }),
+    selectors({
+        breadcrumbs: [
+            () => [(_, props) => props.id as WorkflowSceneLogicProps['id']],
+            (id): Breadcrumb[] => {
+                return [
+                    {
+                        key: [Scene.Workflows, 'workflows'],
+                        name: 'Workflows',
+                        path: urls.workflows('workflows'),
+                        iconType: 'workflows',
+                    },
+                    {
+                        key: Scene.Workflow,
+                        name: id == 'new' ? 'New workflow' : 'Manage workflow',
+                        iconType: 'workflows',
+                    },
+                ]
+            },
+        ],
+    }),
+    urlToAction(({ actions, values }) => ({
+        '/workflows/:id/:tab': ({ tab }) => {
+            if (tab !== values.currentTab) {
+                actions.setCurrentTab(tab as WorkflowTab)
+            }
+        },
+    })),
+])
