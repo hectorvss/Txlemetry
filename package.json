@@ -1,0 +1,13 @@
+{
+  "name": "txlemetry-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Txlemetry marketing landing — static site wired to Supabase auth, served in front of the Txlemetry (PostHog) SaaS on Oracle Cloud.",
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "start": "node server.cjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.0"
+  }
+}
