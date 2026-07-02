@@ -423,7 +423,7 @@ export default function ExporterInterviewScene({
             </div>
 
             <p className="text-xs text-muted text-center mt-12">
-                Your conversation will be transcribed and analyzed to help improve PostHog. We won't share your
+                Your conversation will be transcribed and analyzed to help improve Txlemetry. We won't share your
                 individual responses publicly.
             </p>
         </div>

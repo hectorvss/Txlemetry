@@ -65,7 +65,7 @@ export function RevenueAnalyticsScene(): JSX.Element {
                     30th, 2026.
                     <br />
                     <br />
-                    We're not stepping away from revenue in PostHog — we're rethinking how it should work. We don't
+                    We're not stepping away from revenue in Txlemetry — we're rethinking how it should work. We don't
                     believe a single, opinionated Revenue analytics dashboard is the right shape for it. Instead, we're
                     focusing on exposing revenue properties on persons and groups so you can use them everywhere:
                     insights, SQL, and persons/groups profiles.
@@ -73,7 +73,7 @@ export function RevenueAnalyticsScene(): JSX.Element {
                     <br />
                     Removing the dashboard lets us move faster and ship this in a shape that works across the whole app,
                     rather than maintaining many bespoke dashboards. Each use-case (ecommerce, SaaS, recurring revenue,
-                    one-off, services, multi-tenant) can then build the dashboard it actually needs — or have PostHog AI
+                    one-off, services, multi-tenant) can then build the dashboard it actually needs — or have Txlemetry AI
                     and agents via our MCP build it for you.
                     {enabledFlags[FEATURE_FLAGS.CUSTOMER_ANALYTICS] && (
                         <>

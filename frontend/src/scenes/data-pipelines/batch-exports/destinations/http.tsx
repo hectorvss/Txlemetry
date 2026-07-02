@@ -12,7 +12,7 @@ export const httpDefinition: DestinationDefinition = {
     Fields: function HttpFields() {
         return (
             <>
-                <LemonField name="url" label="PostHog region">
+                <LemonField name="url" label="Txlemetry region">
                     <LemonSelect
                         options={[
                             { value: 'https://us.i.posthog.com/batch/', label: 'US' },

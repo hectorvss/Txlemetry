@@ -148,7 +148,7 @@ export interface BuildAppOpts {
     identityCredentials?: IdentityCredentialStore
     identityLinks?: IdentityLinkStateStore
     envEncryption?: EncryptedFields
-    /** PostHog API base — the `{kind:posthog}` provider builds its OAuth
+    /** Txlemetry API base — the `{kind:posthog}` provider builds its OAuth
      *  endpoints from this in the link callback. Without it the callback can't
      *  rebuild the posthog provider ("Unknown provider"). */
     posthogApiBaseUrl?: string
@@ -217,7 +217,7 @@ function principalDeciderId(p: SessionPrincipal): string {
 /** Minimal self-contained HTML for the OAuth callback result page. */
 function linkResultPage(message: string): string {
     const safe = message.replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' })[c] ?? c)
-    return `<!doctype html><meta charset="utf-8"><title>PostHog agent linking</title><body style="font-family:system-ui;max-width:32rem;margin:4rem auto;padding:0 1rem;color:#111"><h2>PostHog agent</h2><p style="font-size:1.05rem">${safe}</p></body>`
+    return `<!doctype html><meta charset="utf-8"><title>Txlemetry agent linking</title><body style="font-family:system-ui;max-width:32rem;margin:4rem auto;padding:0 1rem;color:#111"><h2>Txlemetry agent</h2><p style="font-size:1.05rem">${safe}</p></body>`
 }
 
 export function buildApp(opts: BuildAppOpts): Express {
@@ -356,10 +356,10 @@ export function buildApp(opts: BuildAppOpts): Express {
     const mount = opts.routingMode === 'path' ? `${opts.pathPrefix ?? '/agents'}/:slug` : ''
 
     // Principal tool-approval decisions — the lightweight, identity-matched
-    // counterpart to the Slack interactivity handler, for posthog (PostHog Code)
+    // counterpart to the Slack interactivity handler, for posthog (Txlemetry Code)
     // and jwt principals. Authenticated by the same verifier the agent's
     // chat/mcp trigger uses, then required to BE the session principal — a
-    // generic identity match, NOT a PostHog-authority check. `agent`-type
+    // generic identity match, NOT a Txlemetry-authority check. `agent`-type
     // approvals are rejected here; team admins decide those in the console.
     const ApprovalDecideBodySchema = z.object({
         decision: z.enum(['approve', 'reject']),
@@ -367,7 +367,7 @@ export function buildApp(opts: BuildAppOpts): Express {
         edited_args: z.record(z.string(), z.unknown()).optional(),
     })
     // Mount-relative (like the trigger routes) so a client appends it to the
-    // same per-agent ingress base it uses for `/send` (PostHog Code does). The
+    // same per-agent ingress base it uses for `/send` (Txlemetry Code does). The
     // `:slug` is unused — the row is resolved from the approval id, not the
     // slug — but keeping the path under the mount matches how clients address
     // the ingress. In domain mode `mount` is '' so it's `/approvals/:id/decide`.

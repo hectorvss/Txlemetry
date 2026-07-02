@@ -716,11 +716,11 @@ function SchemaBulkActions({
                             status="danger"
                             onClick={() =>
                                 LemonDialog.open({
-                                    title: `Delete ${pluralize(count, 'table', 'tables')} from PostHog?`,
+                                    title: `Delete ${pluralize(count, 'table', 'tables')} from Txlemetry?`,
                                     description:
-                                        'Removes the synced tables from PostHog. The data in the source is not touched.',
+                                        'Removes the synced tables from Txlemetry. The data in the source is not touched.',
                                     primaryButton: {
-                                        children: 'Delete from PostHog',
+                                        children: 'Delete from Txlemetry',
                                         status: 'danger',
                                         onClick: () => run(() => bulkDeleteData(selected)),
                                     },
@@ -728,7 +728,7 @@ function SchemaBulkActions({
                                 })
                             }
                         >
-                            Delete tables from PostHog
+                            Delete tables from Txlemetry
                         </LemonButton>
                     </>
                 }
@@ -850,7 +850,7 @@ function SchemaRowMore({
                             )}
                             {schema.table && (
                                 <Tooltip
-                                    title={`Delete this table from PostHog. ${
+                                    title={`Delete this table from Txlemetry. ${
                                         source?.source_type
                                             ? `This will not delete the data in ${source.source_type}`
                                             : ''
@@ -863,7 +863,7 @@ function SchemaRowMore({
                                         status="danger"
                                         onClick={() => {
                                             LemonDialog.open({
-                                                title: `Delete ${schema.table?.name ?? schema.name} from PostHog?`,
+                                                title: `Delete ${schema.table?.name ?? schema.name} from Txlemetry?`,
                                                 description: source?.source_type
                                                     ? `The data in ${source.source_type} will not be touched.`
                                                     : undefined,
@@ -876,7 +876,7 @@ function SchemaRowMore({
                                             })
                                         }}
                                     >
-                                        Delete table from PostHog
+                                        Delete table from Txlemetry
                                     </LemonButton>
                                 </Tooltip>
                             )}

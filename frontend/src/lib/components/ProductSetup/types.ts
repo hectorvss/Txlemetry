@@ -13,8 +13,8 @@ export type SetupTaskId = AvailableSetupTaskIdsEnumApi
  *   Examples: Create first insight, watch first recording, create first survey
  * - explore: Advanced/optional features to try after getting started
  *   Examples: Create funnel, set up cohorts, create multivariate flag
- * - ai: PostHog's AI surfaces, shown for every product
- *   Examples: PostHog AI, PostHog Code, PostHog MCP, PostHog in Slack
+ * - ai: Txlemetry's AI surfaces, shown for every product
+ *   Examples: Txlemetry AI, Txlemetry Code, Txlemetry MCP, Txlemetry in Slack
  */
 export type TaskType = 'setup' | 'onboarding' | 'explore' | 'ai'
 
@@ -37,7 +37,7 @@ export interface SetupTask {
      * - 'setup': Mandatory configuration (install SDK, enable features)
      * - 'onboarding': Getting started guidance (create first X, explore Y)
      * - 'explore': Advanced/optional features to try after getting started
-     * - 'ai': PostHog's AI surfaces, shown for every product
+     * - 'ai': Txlemetry's AI surfaces, shown for every product
      * Defaults to 'onboarding' if not specified
      */
     taskType?: TaskType

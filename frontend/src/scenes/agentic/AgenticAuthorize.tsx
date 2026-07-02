@@ -52,7 +52,7 @@ export const AgenticAuthorize = (): JSX.Element => {
                         Authorize <strong>{partnerName}</strong>
                     </h2>
                     <p className="text-muted mt-2 text-sm sm:text-base">
-                        {partnerName} is requesting access to your PostHog project.
+                        {partnerName} is requesting access to your Txlemetry project.
                     </p>
                 </div>
 

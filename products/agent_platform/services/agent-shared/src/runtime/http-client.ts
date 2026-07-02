@@ -11,7 +11,7 @@
  *
  *   - **`DirectHttpClient`** — no proxy, ever. Reserved for cluster-
  *     internal services the platform owns and calls itself (ai-gateway,
- *     in-cluster PostHog API). The class divide is the capability gate:
+ *     in-cluster Txlemetry API). The class divide is the capability gate:
  *     `ToolContext.http` is typed `HttpFetcher` and only ever holds a
  *     proxy-bound `HttpClient`, so an agent author cannot reach the
  *     direct path by guessing an internal hostname. A NO_PROXY-style env

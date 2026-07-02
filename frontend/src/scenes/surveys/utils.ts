@@ -65,7 +65,7 @@ export function validateSurveyAppearance(
     hasRatingQuestions: boolean,
     surveyType: SurveyType
 ): DeepPartialMap<SurveyAppearance, ValidationErrorType> {
-    // API surveys are rendered by the customer, so PostHog's appearance CSS is not applied.
+    // API surveys are rendered by the customer, so Txlemetry's appearance CSS is not applied.
     // The Customization section is also hidden in the editor for API surveys (SurveyEdit.tsx),
     // so flagging appearance errors would route submitSurveyFailure to a non-existent section
     // and silently block saves.

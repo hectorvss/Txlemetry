@@ -69,7 +69,7 @@ export { ChartDisplayCategory }
 export { SlackIntegrationScope, SlackIntegrationScopeInReview }
 
 /**
- * PostHog Query Schema definition.
+ * Txlemetry Query Schema definition.
  *
  * This file acts as the source of truth for:
  *
@@ -2159,7 +2159,7 @@ export interface QueryRequest {
     /** @deprecated Use `refresh` instead. */
     async?: boolean
     /**
-     * Submit a JSON string representing a query for PostHog data analysis,
+     * Submit a JSON string representing a query for Txlemetry data analysis,
      * for example a HogQL query.
      *
      * Example payload:
@@ -2171,7 +2171,7 @@ export interface QueryRequest {
      * ```
      *
      * For more details on HogQL queries,
-     * see the [PostHog HogQL documentation](/docs/hogql#api-access).
+     * see the [Txlemetry HogQL documentation](/docs/hogql#api-access).
      */
     query: QuerySchema
     filters_override?: DashboardFilter
@@ -2510,7 +2510,7 @@ interface WebAnalyticsQueryBase<R extends Record<string, any>> extends DataNode<
 
 export interface WebOverviewQuery extends WebAnalyticsQueryBase<WebOverviewQueryResponse> {
     kind: NodeKind.WebOverviewQuery
-    /** Opt this specific query into the web_overview_query precompute path. Requires the `web-analytics-precompute-toggle` PostHog feature flag to be on for the team's organization for the gate to pass. **/
+    /** Opt this specific query into the web_overview_query precompute path. Requires the `web-analytics-precompute-toggle` Txlemetry feature flag to be on for the team's organization for the gate to pass. **/
     useWebAnalyticsPrecompute?: boolean
 }
 
@@ -2780,7 +2780,7 @@ export interface WebStatsTableQuery extends WebAnalyticsQueryBase<WebStatsTableQ
     includeHost?: boolean
     limit?: integer
     offset?: integer
-    /** Opt this specific query into the web stats table precompute path. Requires the `web-analytics-precompute-toggle` PostHog feature flag to be on for the team's organization for the gate to pass. **/
+    /** Opt this specific query into the web stats table precompute path. Requires the `web-analytics-precompute-toggle` Txlemetry feature flag to be on for the team's organization for the gate to pass. **/
     useWebAnalyticsPrecompute?: boolean
 }
 export interface WebStatsTableQueryResponse extends AnalyticsQueryResponseBase {
@@ -2816,7 +2816,7 @@ export type CachedWebExternalClicksTableQueryResponse = CachedQueryResponse<WebE
 export interface WebGoalsQuery extends WebAnalyticsQueryBase<WebGoalsQueryResponse> {
     kind: NodeKind.WebGoalsQuery
     limit?: integer
-    /** Opt this specific query into the web_goals_query precompute path. Requires the `web-analytics-precompute-toggle` PostHog feature flag to be on for the team's organization for the gate to pass. **/
+    /** Opt this specific query into the web_goals_query precompute path. Requires the `web-analytics-precompute-toggle` Txlemetry feature flag to be on for the team's organization for the gate to pass. **/
     useWebAnalyticsPrecompute?: boolean
 }
 
@@ -2867,7 +2867,7 @@ export interface WebVitalsPathBreakdownQuery extends WebAnalyticsQueryBase<WebVi
     // This tuple represents a [good, poor] threshold, where values below good are good and values above poor are poor
     // Values in between the two values are the threshold for needs_improvements
     thresholds: [number, number]
-    /** Opt this specific query into the web vitals path breakdown precompute path. Requires the `web-analytics-precompute-toggle` PostHog feature flag to be on for the team's organization for the gate to pass. **/
+    /** Opt this specific query into the web vitals path breakdown precompute path. Requires the `web-analytics-precompute-toggle` Txlemetry feature flag to be on for the team's organization for the gate to pass. **/
     useWebAnalyticsPrecompute?: boolean
 }
 
@@ -4089,7 +4089,7 @@ export interface ExperimentTrendsQuery extends DataNode<ExperimentTrendsQueryRes
     experiment_id?: integer
     count_query: TrendsQuery
     // Defaults to $feature_flag_called if not specified
-    // https://github.com/PostHog/posthog/blob/master/posthog/hogql_queries/experiments/experiment_trends_query_runner.py
+    // https://github.com/Txlemetry/posthog/blob/master/posthog/hogql_queries/experiments/experiment_trends_query_runner.py
     exposure_query?: TrendsQuery
     fingerprint?: string
 }

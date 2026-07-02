@@ -31,7 +31,7 @@ export const DatabaseTree = memo(function DatabaseTree({
 
     const searchPlaceholder = selectedConnectionId
         ? `Search ${selectedDirectSource?.prefix ? selectedDirectSource.prefix : 'database'}`
-        : 'Search PostHog Warehouse'
+        : 'Search Txlemetry Warehouse'
 
     if (isDatabaseTreeCollapsed) {
         return null

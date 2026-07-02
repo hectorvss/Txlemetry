@@ -96,7 +96,7 @@ export function ensureActivityDescribersLoaded(): Promise<void> {
 
 /**
  * Having this function inside the `humanizeActivity module was causing very weird test errors in other modules
- * see https://github.com/PostHog/posthog/pull/12062
+ * see https://github.com/Txlemetry/posthog/pull/12062
  * So, we inject the function instead
  * **/
 export const describerFor = (logItem?: ActivityLogItem): Describer | undefined => {

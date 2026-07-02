@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from 'react'
 export type AdblockDetectionResult = 'unknown' | 'blocked' | 'ok'
 
 /**
- * Detects whether PostHog requests are being blocked (e.g. by an adblocker).
+ * Detects whether Txlemetry requests are being blocked (e.g. by an adblocker).
  *
  * Two checks are performed:
  *  1. `window.posthog?.__loaded` – if posthog-js failed to initialize the
  *     property will be falsy.
- *  2. A lightweight fetch to the PostHog ingestion `/decide/` endpoint – a
+ *  2. A lightweight fetch to the Txlemetry ingestion `/decide/` endpoint – a
  *     network error (not an HTTP error) strongly suggests the request was
  *     blocked.
  *

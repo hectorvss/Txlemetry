@@ -113,7 +113,7 @@ export function Dashboards(): JSX.Element {
                         productName="Dashboards"
                         thingName="dashboard"
                         titleOverride="Your home for what you actually care about"
-                        description="Keep analytics, session replay, logs, and the rest of your PostHog stack in one place. Below are customer-favorite dashboards to get you started quickly. Or skip them and start blank, up to you."
+                        description="Keep analytics, session replay, logs, and the rest of your Txlemetry stack in one place. Below are customer-favorite dashboards to get you started quickly. Or skip them and start blank, up to you."
                         isEmpty={true}
                         docsURL={DASHBOARD_DOCS_URL}
                         customHog={HedgehogChartHog}

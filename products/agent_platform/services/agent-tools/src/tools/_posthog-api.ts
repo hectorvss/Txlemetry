@@ -1,16 +1,16 @@
 /**
- * Shared helper for native tools that call PostHog HTTP endpoints **as the
+ * Shared helper for native tools that call Txlemetry HTTP endpoints **as the
  * connected user**. Auth resolves through the identity model (`posthog`
- * provider) — PostHog is not a special case. Unlinked → throws
+ * provider) — Txlemetry is not a special case. Unlinked → throws
  * `IdentityAuthRequiredError` (the dispatch wrapper relays an auth_required
  * link); unavailable → `posthog_credentials_unavailable`; non-2xx →
  * `posthog_api_error`. No host check: `ctx.posthogApiBaseUrl` is
- * platform-controlled, so the bearer can only reach the PostHog API host.
+ * platform-controlled, so the bearer can only reach the Txlemetry API host.
  */
 
 import { type Credential, IdentityAuthRequiredError, type ToolContext, Type } from '@posthog/agent-shared'
 
-/** The provider id native PostHog tools resolve their bearer under. */
+/** The provider id native Txlemetry tools resolve their bearer under. */
 export const POSTHOG_IDENTITY_PROVIDER = 'posthog'
 
 function bearerFromCredential(cred: Credential): string {
@@ -21,7 +21,7 @@ function bearerFromCredential(cred: Credential): string {
 }
 
 /**
- * Resolve the asker's PostHog bearer via the identity model. Prefers the
+ * Resolve the asker's Txlemetry bearer via the identity model. Prefers the
  * dispatch wrapper's pre-resolved credential; otherwise resolves live and maps
  * the `IdentityResolution` union onto throws the helper's callers understand.
  */
@@ -92,7 +92,7 @@ export async function callPosthogApi<T = unknown>(ctx: ToolContext, opts: CallPo
  * project the agent is operating on; the agent discovers that project from the
  * `get_context` client tool (the host tells it the user's current project) or,
  * when context is missing/ambiguous, from `@posthog/list-projects`. Standard
- * PostHog access control enforces that the user may actually touch the project.
+ * Txlemetry access control enforces that the user may actually touch the project.
  */
 export function projectPath(projectId: number, suffix: string): string {
     return `/api/projects/${projectId}${suffix}`
@@ -105,5 +105,5 @@ export function projectPath(projectId: number, suffix: string): string {
  */
 export const ProjectIdArg = Type.Number({
     description:
-        "PostHog project (team) id to act in. Resolve it from the `get_context` client tool (the host reports the user's current project as `project_id`), or — when context is missing or ambiguous — call `@posthog/list-projects` and ask the user which project to use. Never guess.",
+        "Txlemetry project (team) id to act in. Resolve it from the `get_context` client tool (the host reports the user's current project as `project_id`), or — when context is missing or ambiguous — call `@posthog/list-projects` and ask the user which project to use. Never guess.",
 })

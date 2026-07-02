@@ -176,7 +176,7 @@ export function SourcesList(): JSX.Element {
                         {iconForType('session_replay')}
                     </div>
                 }
-                title="PostHog Session Replay"
+                title="Txlemetry Session Replay"
                 description="Session recordings + event data → Signals"
                 variant="available"
                 checked={!!sessionAnalysisConfig?.enabled}
@@ -203,7 +203,7 @@ export function SourcesList(): JSX.Element {
                         {iconForType('error_tracking')}
                     </div>
                 }
-                title="PostHog Error Tracking"
+                title="Txlemetry Error Tracking"
                 description="New issues, reopenings, and volume spikes → Signals"
                 variant="available"
                 checked={errorTrackingIsFullyEnabled}
@@ -213,7 +213,7 @@ export function SourcesList(): JSX.Element {
 
             <Source
                 icon={<IconHeartPlus className="size-5 text-danger" />}
-                title="PostHog Health checks"
+                title="Txlemetry Health checks"
                 description="Instrumentation issues – missing events, proxy gaps, outdated SDKs → Signals"
                 variant="available"
                 checked={!!healthChecksConfig?.enabled}

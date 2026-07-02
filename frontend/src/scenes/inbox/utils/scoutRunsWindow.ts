@@ -1,4 +1,4 @@
-// Ported from PostHog Code desktop `packages/core/src/scouts/scoutRunsWindow.ts`
+// Ported from Txlemetry Code desktop `packages/core/src/scouts/scoutRunsWindow.ts`
 // and `scoutPresentation.ts`. Pure metrics + display helpers over scout runs and
 // configs; no I/O. The runs endpoint caps each response at 100 rows newest-first;
 // `scoutFleetLogic.loadRunsWindow` assembles the full window by walking the
@@ -451,11 +451,11 @@ export function sortConfigsForDisplay(configs: SignalScoutConfig[]): SignalScout
 
 // ── Templated chat-task prompts (ported from desktop scoutPrompts.ts) ─────────
 
-export const SCOUT_AUTHOR_PROMPT = `I'd like to make a new scout for this PostHog project.
+export const SCOUT_AUTHOR_PROMPT = `I'd like to make a new scout for this Txlemetry project.
 
-Use the authoring-scouts skill from the PostHog MCP to guide creating a new signals scout.
+Use the authoring-scouts skill from the Txlemetry MCP to guide creating a new signals scout.
 
-First, take a quick scan of this PostHog project to ground your suggestions: skim its events, insights, dashboards, recently emitted signals, and the existing scout fleet so you understand what this product is and where automated monitoring would add value.
+First, take a quick scan of this Txlemetry project to ground your suggestions: skim its events, insights, dashboards, recently emitted signals, and the existing scout fleet so you understand what this product is and where automated monitoring would add value.
 
 Then ask me what sort of scout I'd like to make, and offer a few concrete suggestions tailored to what you found (for example specific funnels, error or latency spikes, churn or activation signals, or revenue metrics worth watching) – and call out gaps the current fleet doesn't already cover. Once I pick a direction, walk me through authoring the scout end to end.
 
@@ -463,7 +463,7 @@ If the skill is unavailable, fall back to the signals-scout MCP tools directly (
 
 export const SCOUT_FLEET_OVERVIEW_PROMPT = `How is my scout fleet performing?
 
-Use the exploring-scouts skill from the PostHog MCP to survey the signals scout fleet on this project and give me a high-level overview:
+Use the exploring-scouts skill from the Txlemetry MCP to survey the signals scout fleet on this project and give me a high-level overview:
 
 - The fleet: which scouts exist, enabled vs disabled, and their cadences
 - Recent run health: success rate, failures and timeouts, anything stuck
@@ -475,7 +475,7 @@ Lead with a short overall verdict, then per-scout notes only where something is 
 
 export const SCOUT_RECENT_SIGNALS_PROMPT = `What signals have my scouts emitted recently?
 
-Use the exploring-scouts skill from the PostHog MCP to pull the most recent scout runs that emitted findings and walk me through the signals:
+Use the exploring-scouts skill from the Txlemetry MCP to pull the most recent scout runs that emitted findings and walk me through the signals:
 
 - What each signal says, in plain language
 - Which scout emitted it, when, and its severity/confidence where available
@@ -487,7 +487,7 @@ Group by scout, newest first. Close with a short note on overall signal quality 
 export function buildScoutCheckinPrompt(skillName: string, displayName: string): string {
     return `How is my ${displayName} scout performing?
 
-Use the exploring-scouts skill from the PostHog MCP to dig into the \`${skillName}\` scout on this project:
+Use the exploring-scouts skill from the Txlemetry MCP to dig into the \`${skillName}\` scout on this project:
 
 - Its config: enabled, cadence, dry-run posture
 - Recent run history: successes, failures, timeouts, durations

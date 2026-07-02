@@ -27,7 +27,7 @@ export interface AgentRosterDefinition {
     alpha?: boolean
     /**
      * For data-warehouse-backed sources, the wizard product passed to
-     * `initiateDataWarehouseSourceToggle`. Absent for native PostHog sources
+     * `initiateDataWarehouseSourceToggle`. Absent for native Txlemetry sources
      * (error tracking, session replay).
      */
     dataWarehouseSource?: DataWarehouseSource
@@ -40,7 +40,7 @@ export interface AgentRosterGroup {
 
 export const AGENT_ROSTER_GROUPS: AgentRosterGroup[] = [
     {
-        label: 'PostHog data',
+        label: 'Txlemetry data',
         agents: [
             {
                 source: 'error_tracking',

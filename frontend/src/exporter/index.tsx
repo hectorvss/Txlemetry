@@ -85,7 +85,7 @@ function renderApp(): void {
             </ErrorBoundary>
         )
     } else {
-        console.error('Attempted, but could not render PostHog app because <div id="root" /> is not found.')
+        console.error('Attempted, but could not render Txlemetry app because <div id="root" /> is not found.')
     }
 }
 

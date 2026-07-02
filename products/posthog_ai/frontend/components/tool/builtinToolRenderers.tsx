@@ -199,7 +199,7 @@ const FetchToolRenderer = memo(function FetchToolRenderer(props: ToolRendererPro
 })
 
 /**
- * PostHog single-exec discovery verbs (`tools` / `search` / `info` / `schema`, plus the `unknown`
+ * Txlemetry single-exec discovery verbs (`tools` / `search` / `info` / `schema`, plus the `unknown`
  * fallback). `getPostHogExecDisplay` turns the `command` into a friendly label ("List tools",
  * "Search tools", "Read <tool>", "Inspect <tool>.<field>") and an optional input preview; the
  * discovery output renders in the body. The `call` verb never reaches here — it resolves to its inner
@@ -273,7 +273,7 @@ const SkillToolRenderer = memo(function SkillToolRenderer(props: ToolRendererPro
 })
 
 /**
- * ToolSearch — Claude's deferred-tool search, rendered like PostHog's MCP tool search: a "Search tools"
+ * ToolSearch — Claude's deferred-tool search, rendered like Txlemetry's MCP tool search: a "Search tools"
  * header with the query on the second line and the matched tool schemas in the body. Falls back to the
  * generic card when the input isn't the expected `{ query, max_results }` shape.
  */

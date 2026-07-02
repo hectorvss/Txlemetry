@@ -2,7 +2,7 @@
  * Chat trigger: POST /run starts a new session, POST /send appends to an
  * existing one, GET /listen streams events (SSE), POST /cancel cancels, and
  * POST /client_tool_result answers a runner-emitted client tool call. Used by
- * the in-PostHog chat scene and any HTTP client that wants a thread-shaped
+ * the in-Txlemetry chat scene and any HTTP client that wants a thread-shaped
  * conversation.
  *
  * Auth: every route is `agent_spec` — the mount guard runs the agent's auth

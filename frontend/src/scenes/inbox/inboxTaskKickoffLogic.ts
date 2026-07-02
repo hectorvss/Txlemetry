@@ -22,7 +22,7 @@ import { SIGNAL_REPORT_TASK_IMPLEMENTATION_RELATIONSHIP, SignalReport, SignalRep
 const REPO_SELECTION_ARTEFACT_FETCH_LIMIT = 1000
 
 function buildCreatePrReportPrompt(report: SignalReport, feedback?: string): string {
-    const base = `Act on PostHog Inbox report "${report.title ?? report.id}" (id ${report.id}). Investigate the root cause using the report's contributing findings, implement the fix, and open a PR.${
+    const base = `Act on Txlemetry Inbox report "${report.title ?? report.id}" (id ${report.id}). Investigate the root cause using the report's contributing findings, implement the fix, and open a PR.${
         report.summary ? `\n\nReport summary:\n${report.summary}` : ''
     }`
     const trimmed = feedback?.trim()
@@ -33,7 +33,7 @@ function buildCreatePrReportPrompt(report: SignalReport, feedback?: string): str
 }
 
 function buildDiscussReportPrompt(report: SignalReport, question?: string): string {
-    const base = `Discuss PostHog Inbox report "${report.title ?? report.id}" (id ${report.id}). Investigate the contributing findings and help the user understand and decide what to do.${
+    const base = `Discuss Txlemetry Inbox report "${report.title ?? report.id}" (id ${report.id}). Investigate the contributing findings and help the user understand and decide what to do.${
         report.summary ? `\n\nReport summary:\n${report.summary}` : ''
     }`
     const trimmed = question?.trim()

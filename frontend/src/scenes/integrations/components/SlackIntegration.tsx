@@ -19,7 +19,7 @@ import { useSlackRequiredScopes } from './slackScopes'
 // Modified version of https://app.slack.com/app-settings/TSS5W8YQZ/A03KWE2FJJ2/app-manifest to match current instance.
 const getSlackAppManifest = (): any => ({
     display_information: {
-        name: 'PostHog',
+        name: 'Txlemetry',
         description: 'Product insights right where you need them',
         background_color: '#f54e00',
     },
@@ -30,7 +30,7 @@ const getSlackAppManifest = (): any => ({
             messages_tab_read_only_enabled: true,
         },
         bot_user: {
-            display_name: 'PostHog',
+            display_name: 'Txlemetry',
             always_online: false,
         },
         unfurl_domains: [window.location.hostname],
@@ -121,7 +121,7 @@ export function SlackIntegration({ next }: { next?: string } = {}): JSX.Element 
                         )
                     ) : (
                         <p className="text-secondary">
-                            This PostHog instance is not configured for Slack. Please contact the instance owner to
+                            This Txlemetry instance is not configured for Slack. Please contact the instance owner to
                             configure it.
                         </p>
                     )}

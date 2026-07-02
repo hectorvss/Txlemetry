@@ -44,7 +44,7 @@ export interface BuildIdentityRegistryDeps {
     /** Resolve an encrypted_env secret by name (for oauth2 client_secret_ref). */
     secret: (name: string) => string | undefined
     /**
-     * PostHog instance base URL (no trailing slash). When set, a `{kind:posthog}`
+     * Txlemetry instance base URL (no trailing slash). When set, a `{kind:posthog}`
      * provider is built against `${base}/oauth/{authorize,token,userinfo}/` using
      * the client_id Django provisioned into the spec. Omit it (or omit the
      * client_id) and posthog providers are skipped — they can't link.
@@ -155,7 +155,7 @@ export interface ToolIdentityDeps {
     /**
      * Trigger-edge credential source — the per-session broker, narrowed to a
      * single `resolve(target)`. Consulted (by `provider.credentialTarget`)
-     * BEFORE the persistent linked store: this is the PostHog Code passthrough
+     * BEFORE the persistent linked store: this is the Txlemetry Code passthrough
      * (a `posthog` principal's bearer seeded at /run) and any other auth that
      * was established at the trigger edge rather than via an OAuth link.
      */
@@ -230,7 +230,7 @@ export function createToolIdentity(deps: ToolIdentityDeps): {
             if (!provider) {
                 return emit({ kind: 'unavailable', provider: providerId, reason: 'unknown_provider' }, 'unavailable')
             }
-            // Trigger-edge seed (PostHog Code passthrough), keyed by target.
+            // Trigger-edge seed (Txlemetry Code passthrough), keyed by target.
             if (deps.seed) {
                 const seeded = await deps.seed.resolve(provider.credentialTarget)
                 if (seeded) {
@@ -297,7 +297,7 @@ export interface BuildAskerIdentityDeps {
     http: HttpFetcher
     /** Resolve an encrypted_env secret by name (oauth2 client_secret_ref). */
     secret: (name: string) => string | undefined
-    /** PostHog instance base URL — builds the managed posthog provider + the
+    /** Txlemetry instance base URL — builds the managed posthog provider + the
      *  implicit seed-only fallback. */
     posthogApiBaseUrl: string
     /** OAuth callback base; `/link/<provider>/callback` is appended. */
@@ -311,8 +311,8 @@ export interface BuildAskerIdentityDeps {
  * `auth.provider`) use, so they resolve identically (same shared-session gate,
  * same edge-seed wiring).
  *
- * Always registers an implicit seed-only PostHog provider when no
- * `{kind:posthog}` provider is declared, so a PostHog Code session resolves the
+ * Always registers an implicit seed-only Txlemetry provider when no
+ * `{kind:posthog}` provider is declared, so a Txlemetry Code session resolves the
  * trigger-edge bearer for `posthog` without the agent having to declare/provision
  * an OAuthApplication it never links against.
  */

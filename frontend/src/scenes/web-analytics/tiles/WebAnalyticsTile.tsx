@@ -445,7 +445,7 @@ const BreakdownValueCell: QueryContextColumnComponent = (props) => {
             }
             return <NotSetBreakdownLabel />
         case WebStatsBreakdown.InitialReferringDomain:
-            // NULL referrer is canonically "Direct" in PostHog (matches the channel-type
+            // NULL referrer is canonically "Direct" in Txlemetry (matches the channel-type
             // bucketing in sessions_v2). Keep that wording to stay consistent across tiles.
             if (value == null) {
                 return <DirectBreakdownLabel />

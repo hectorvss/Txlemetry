@@ -423,7 +423,7 @@ async function respondViaResponseUrl(
  * Decide a `principal`-type tool approval from a Slack button click. The
  * authority is a generic identity match — only the session's own principal may
  * decide (the clicking Slack user must be the session owner), which is NOT a
- * PostHog-authority check.
+ * Txlemetry-authority check.
  *
  * The approval row is fetched scoped to the RESOLVED agent and the session is
  * derived FROM the row (`row.session_id`), never from the attacker-influenceable

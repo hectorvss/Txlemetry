@@ -116,7 +116,7 @@ export function UserInterviews(): JSX.Element {
                         icon={<IconSparkles />}
                         data-attr="new-topic"
                         onClick={() => openMax?.()}
-                        disabledReason={openMax ? undefined : 'PostHog AI is unavailable here'}
+                        disabledReason={openMax ? undefined : 'Txlemetry AI is unavailable here'}
                     >
                         New topic
                     </LemonButton>
@@ -184,7 +184,7 @@ export function UserInterviews(): JSX.Element {
                     dataSource={topics}
                     rowKey="id"
                     loadingSkeletonRows={5}
-                    emptyState="No topics yet. Click 'New topic' to get started with PostHog AI."
+                    emptyState="No topics yet. Click 'New topic' to get started with Txlemetry AI."
                 />
             )}
         </SceneContent>

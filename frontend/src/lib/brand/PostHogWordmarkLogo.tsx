@@ -5,7 +5,7 @@ export interface PostHogWordmarkLogoProps {
     'aria-hidden'?: boolean | 'true' | 'false'
 }
 
-/** Horizontal PostHog mark + wordmark; monochrome strokes use `currentColor` for theme adaptation */
+/** Horizontal Txlemetry mark + wordmark; monochrome strokes use `currentColor` for theme adaptation */
 export function PostHogWordmarkLogo({ className, 'aria-hidden': ariaHidden }: PostHogWordmarkLogoProps): JSX.Element {
     const safeUid = useId().replace(/:/g, '')
     const clipId = `posthog-wordmark-clip-${safeUid}`

@@ -2,7 +2,7 @@ import { sidePanelStateLogic } from '~/layout/navigation-3000/sidepanel/sidePane
 import { SidePanelTab } from '~/types'
 
 /**
- * Open PostHog AI in the side panel with a question pre-filled and auto-submitted — the `!`
+ * Open Txlemetry AI in the side panel with a question pre-filled and auto-submitted — the `!`
  * prefix runs it immediately. The side-panel logic is mounted by the app shell, so we reach
  * for the mounted instance rather than mounting it eagerly.
  */

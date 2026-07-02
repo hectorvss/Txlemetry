@@ -1,14 +1,14 @@
 /**
  * Session driver — runs one claimed session to a turn-boundary stopping point
  * by handing control to pi-agent-core's `runAgentLoop` and translating its
- * `AgentEvent` stream back into PostHog's bus / log / analytics sinks and the
+ * `AgentEvent` stream back into Txlemetry's bus / log / analytics sinks and the
  * persisted conversation.
  *
  * Replaces the hand-rolled turn loop (`run-turn.ts`) + tool dispatcher
  * (`dispatch-one.ts` / `tool-dispatch.ts`) + stream normalizer
  * (`pi-client.ts`). The loop now owns: streaming, tool-arg validation, tool
  * dispatch (via each `AgentTool.execute`), and the turn/tool event stream.
- * This file owns everything PostHog-specific around it:
+ * This file owns everything Txlemetry-specific around it:
  *
  *   - hooks: `getSteeringMessages` drains `pending_inputs`; `shouldStopAfterTurn`
  *     enforces shutdown + `spec.limits.max_turns`; `getApiKey` / `apiKey` and
@@ -140,7 +140,7 @@ export interface RunSessionDeps {
     /**
      * Per-session credential store populated by ingress at /run + /send.
      * Tool dispatch resolves `(session_id, target) → Credential` through
-     * here to get the user's auth materials (e.g. PostHog OAuth bearer
+     * here to get the user's auth materials (e.g. Txlemetry OAuth bearer
      * under target `posthog_api`). Optional — when absent, tools that
      * try to resolve credentials get `null` and degrade.
      */
@@ -175,7 +175,7 @@ export interface RunSessionDeps {
     applicationName?: string
     /**
      * True on the ai-gateway path: the gateway emits its own `$ai_generation`
-     * (settled cost + the `X-PostHog-Properties` attribution), so the runner
+     * (settled cost + the `X-Txlemetry-Properties` attribution), so the runner
      * suppresses its duplicate. Still emits `$ai_span`/`$ai_trace` and still
      * settles cost into the session row via `gatewayUsage`.
      */
@@ -200,8 +200,8 @@ export interface RunSessionDeps {
     webSearchProviders?: readonly WebSearchProvider[]
     /**
      * Per-session static HTTP headers stamped on every outbound model call.
-     * On the ai-gateway path this carries `X-PostHog-Distinct-Id`,
-     * `X-PostHog-Trace-Id`, and `X-PostHog-Properties` (the `$agent_*`
+     * On the ai-gateway path this carries `X-Txlemetry-Distinct-Id`,
+     * `X-Txlemetry-Trace-Id`, and `X-Txlemetry-Properties` (the `$agent_*`
      * attribution) so the gateway-emitted `$ai_generation` events attribute to
      * the right user, trace, and agent application. The `gatewayMetadataStreamFn`
      * wrapper merges these with a per-turn `Idempotency-Key` of the form
@@ -248,7 +248,7 @@ export interface RunSessionDeps {
      * from `HTTPS_PROXY` env (smokescreen in prod, direct in dev).
      */
     http: HttpFetcher
-    /** Base URL for the PostHog API. Forwarded into `ToolContext.posthogApiBaseUrl`. */
+    /** Base URL for the Txlemetry API. Forwarded into `ToolContext.posthogApiBaseUrl`. */
     posthogApiBaseUrl: string
     /** Gateway model catalog; forwarded into `ToolContext.gatewayCatalog`. */
     gatewayCatalog?: GatewayCatalog
@@ -1443,7 +1443,7 @@ export function translateAssistantNamesBack(
 
 /**
  * Stamp `Idempotency-Key` + any caller-supplied gateway headers
- * (`X-PostHog-Distinct-Id`, `X-PostHog-Trace-Id`) on every outbound model call,
+ * (`X-Txlemetry-Distinct-Id`, `X-Txlemetry-Trace-Id`) on every outbound model call,
  * and capture the gateway's settlement reference into `turnRequestIds` (keyed
  * by the outbound-call counter) so the sink can fetch settled cost via
  * `GET /v1/usage/<id>` after `turn_end`.

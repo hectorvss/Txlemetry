@@ -1,7 +1,7 @@
 /**
- * Build a pi-ai `Model` that routes through PostHog's ai-gateway (the
+ * Build a pi-ai `Model` that routes through Txlemetry's ai-gateway (the
  * external Go service that fronts every provider and owns usage / billing —
- * see github.com/PostHog/ai-gateway).
+ * see github.com/Txlemetry/ai-gateway).
  *
  * The gateway is designed as a drop-in proxy: a customer points an existing
  * OpenAI / Anthropic SDK at `<gateway>/v1` instead of the provider's URL and

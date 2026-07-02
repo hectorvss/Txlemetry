@@ -28,14 +28,14 @@ const templatesTableLogic = dashboardTemplatesLogic({ scope: 'default', template
 
 const POPULAR_TEMPLATE_TOOLTIP = 'One of our most popular templates'
 
-/** Global template with no owning team (PostHog built-ins). Staff may still narrow to the current team via API; used here for delete restrictions. */
+/** Global template with no owning team (Txlemetry built-ins). Staff may still narrow to the current team via API; used here for delete restrictions. */
 function isBuiltInOfficialTemplate(record: Pick<DashboardTemplateType, 'scope' | 'team_id'>): boolean {
     return record.scope === 'global' && record.team_id == null
 }
 
 function createdBySortKey(record: DashboardTemplateType): string {
     if (record.scope === 'global') {
-        return 'PostHog'
+        return 'Txlemetry'
     }
     return record.created_by?.first_name || record.created_by?.email || ''
 }
@@ -261,7 +261,7 @@ export const DashboardTemplatesTable = (): JSX.Element | null => {
                             <span aria-hidden className="text-base leading-none">
                                 🦔
                             </span>
-                            <span>PostHog</span>
+                            <span>Txlemetry</span>
                         </div>
                     )
                 }

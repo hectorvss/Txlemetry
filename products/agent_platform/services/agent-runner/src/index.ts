@@ -1,7 +1,7 @@
 /**
  * Worker entrypoint. Two Postgres pools:
  *
- *   - posthogDb (POSTHOG_DB_URL): the main Django/PostHog database, owns
+ *   - posthogDb (POSTHOG_DB_URL): the main Django/Txlemetry database, owns
  *     the *authoring* tables (agent_application, agent_revision). The
  *     runner reads from these via `PgRevisionStore`; never writes.
  *
@@ -169,7 +169,7 @@ async function main(): Promise<void> {
     // runner emits is also shipped to the shared `log_entries` CH table
     // via Kafka, so the console's session-detail page can render them.
     // Connect at boot — failing here is louder than silently dropping
-    // logs into a NoopLogSink in prod. Local dev: PostHog's flox env
+    // logs into a NoopLogSink in prod. Local dev: Txlemetry's flox env
     // brings up Kafka on `localhost:9092` by default.
     const logSink = new KafkaLogSink({
         brokers: config.kafkaHosts,
@@ -181,7 +181,7 @@ async function main(): Promise<void> {
     })
     await logSink.connect()
 
-    // Resolves a team's `phc_` project key from the main PostHog DB (cached per
+    // Resolves a team's `phc_` project key from the main Txlemetry DB (cached per
     // team) for the LLM-analytics sink's per-team routing (below). The gateway
     // bearer is a single static phs_ now, so this no longer feeds it.
     const teamApiKeys = new PgTeamApiKeyResolver(posthogDb)
@@ -192,7 +192,7 @@ async function main(): Promise<void> {
     const mcpConnections = new PgMcpConnectionStore(posthogDb, encryption, http)
 
     // LLM analytics sink. Captures `$ai_generation` per pi-ai call, `$ai_span`
-    // per tool dispatch, and one `$ai_trace` per session via PostHog's standard
+    // per tool dispatch, and one `$ai_trace` per session via Txlemetry's standard
     // ingestion path (posthog-node /capture). Routes each event to the owning
     // team's OWN project (`team_id → phc_`), so agent traffic shows up natively
     // in that team's LLM Analytics with zero per-agent config; `phc_`-less teams
@@ -317,20 +317,20 @@ async function main(): Promise<void> {
         broker: new SecretBroker(),
         credentialBroker,
         approvals,
-        // Clickable deep link that opens the approval in PostHog Code (the agent
+        // Clickable deep link that opens the approval in Txlemetry Code (the agent
         // console now lives in the desktop/web app). Surfaced to the model on a
         // gated tool call and whatever it posts to chat / Slack. Carries the
         // agent slug (`?agent=<slug>`) so the approval modal can address the
         // slug-routed ingress directly and decide under the user's own auth — no
         // project-scoped lookup. Handled by the `approval` deep-link key in
-        // PostHog Code (posthog-code://approval/<id>?agent=<slug>).
+        // Txlemetry Code (posthog-code://approval/<id>?agent=<slug>).
         buildApprovalUrl: (requestId, slug) =>
             `${config.approvalLinkScheme}://approval/${requestId}${slug ? `?agent=${encodeURIComponent(slug)}` : ''}`,
         bus,
         logs: logSink,
         resolveSecrets,
         resolveModel: config.useAiGateway
-            ? // Route every model through PostHog's ai-gateway as a drop-in proxy.
+            ? // Route every model through Txlemetry's ai-gateway as a drop-in proxy.
               // pi-ai picks the right api shape per provider; we override baseUrl
               // (per shape: openai keeps /v1, anthropic strips it) + provider tag.
               (specModel) =>
@@ -348,12 +348,12 @@ async function main(): Promise<void> {
         resolveApiKey: config.useAiGateway ? () => config.posthogAiGatewayKey : () => defaultApiKey,
         resolveGatewayHeaders: config.useAiGateway
             ? (session) => ({
-                  'X-PostHog-Distinct-Id': analyticsDistinctId(session),
-                  'X-PostHog-Trace-Id': session.id,
+                  'X-Txlemetry-Distinct-Id': analyticsDistinctId(session),
+                  'X-Txlemetry-Trace-Id': session.id,
                   // Agent attribution onto the gateway's `$ai_generation` so the
                   // observability board can slice per agent. The gateway strips
                   // `$ai_*` from this passthrough but keeps `$agent_*`.
-                  'X-PostHog-Properties': JSON.stringify({
+                  'X-Txlemetry-Properties': JSON.stringify({
                       $agent_application_id: session.application_id,
                       $agent_session_id: session.id,
                   }),
@@ -429,7 +429,7 @@ async function main(): Promise<void> {
     )
     await worker.loop()
     // Drain the analytics buffer BEFORE closing pools so the final batch of
-    // `$ai_*` events lands in PostHog even on a rolling deploy.
+    // `$ai_*` events lands in Txlemetry even on a rolling deploy.
     if (analytics instanceof RoutingAnalyticsSink) {
         await analytics.shutdown()
     }

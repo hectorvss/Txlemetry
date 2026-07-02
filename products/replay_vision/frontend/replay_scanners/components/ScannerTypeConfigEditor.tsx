@@ -78,7 +78,7 @@ function ScannerPromptField({
                         onClick={() => openMax()}
                         data-attr="replay-vision-write-prompt-with-ai"
                     >
-                        Write with PostHog AI
+                        Write with Txlemetry AI
                     </LemonButton>
                 )}
             </div>
@@ -175,7 +175,7 @@ function ClassifierTagsField({ scannerId }: { scannerId: string }): JSX.Element 
                             onClick={() => loadTagSuggestions()}
                             data-attr="replay-vision-suggest-tags-with-ai"
                         >
-                            Suggest tags with PostHog AI
+                            Suggest tags with Txlemetry AI
                         </LemonButton>
                     </span>
                 }

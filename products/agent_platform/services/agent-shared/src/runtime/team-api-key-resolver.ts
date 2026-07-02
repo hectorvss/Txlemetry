@@ -1,6 +1,6 @@
 /**
- * Resolves the PostHog `phc_` project key for an agent's owning team. The
- * runner uses it as the bearer when calls go through PostHog's ai-gateway:
+ * Resolves the Txlemetry `phc_` project key for an agent's owning team. The
+ * runner uses it as the bearer when calls go through Txlemetry's ai-gateway:
  * the gateway authenticates `phc_` against a hypercache mirror of Django's
  * team metadata and bills the team's prepaid wallet.
  *
@@ -27,12 +27,12 @@ export interface PgTeamApiKeyResolverOpts {
 }
 
 /**
- * Reads `posthog_team.api_token` from the main PostHog database. The token is
+ * Reads `posthog_team.api_token` from the main Txlemetry database. The token is
  * the team's public capture key (`phc_...`) — not secret-grade, but treated
- * as the team's bearer to PostHog services. The gateway resolves it to the
+ * as the team's bearer to Txlemetry services. The gateway resolves it to the
  * same `(team_id, allow_list, tier)` triple any SDK customer would.
  *
- * Pass the existing `pg.Pool` for the main PostHog DB; the resolver does not
+ * Pass the existing `pg.Pool` for the main Txlemetry DB; the resolver does not
  * own connection lifecycle.
  */
 export class PgTeamApiKeyResolver implements TeamApiKeyResolver {

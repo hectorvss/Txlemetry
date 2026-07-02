@@ -15,7 +15,7 @@
  *
  * Env vars:
  *   probe mode:
- *     POSTHOG_DB_URL              required — main PostHog DB (reads posthog_team.api_token)
+ *     POSTHOG_DB_URL              required — main Txlemetry DB (reads posthog_team.api_token)
  *     POSTHOG_AI_GATEWAY_URL     default http://localhost:8080/v1
  *     TEAM_ID                     default 1
  *     PROBE_MODEL                 default openai/gpt-4o-mini
@@ -83,8 +83,8 @@ async function probeMode(): Promise<number> {
     const headers: Record<string, string> = {
         Authorization: `Bearer ${phc}`,
         'Content-Type': 'application/json',
-        'X-PostHog-Distinct-Id': `agent:smoke-${opts.teamId}`,
-        'X-PostHog-Trace-Id': sessionId,
+        'X-Txlemetry-Distinct-Id': `agent:smoke-${opts.teamId}`,
+        'X-Txlemetry-Trace-Id': sessionId,
         'Idempotency-Key': `agent:${sessionId}:1`,
     }
     // Send the canonical provider-prefixed id ("openai/gpt-4o"). The gateway

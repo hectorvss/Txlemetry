@@ -45,7 +45,7 @@ export enum SignalSourceType {
 // carry it.
 
 export interface SignalRemediation {
-    /** Human-facing fix steps (PostHog UI / alert destinations). Surfaced in the report for the reader. */
+    /** Human-facing fix steps (Txlemetry UI / alert destinations). Surfaced in the report for the reader. */
     human: string
     /** Agent-facing guidance: how to investigate (which MCP tools to call) and, where the fix lives
      *  in the user's codebase, how to apply it. The research agent treats this as authoritative — it

@@ -146,7 +146,7 @@ function EmptyDashboardContent({ canEdit }: { canEdit: boolean }): JSX.Element {
 
     const aiDisabledReason =
         !dataProcessingAccepted &&
-        (dataProcessingApprovalDisabledReason ?? 'Approve AI data processing to use PostHog AI')
+        (dataProcessingApprovalDisabledReason ?? 'Approve AI data processing to use Txlemetry AI')
 
     const onOpenAiWithPrompt = (prompt: string): void => {
         const trimmed = prompt.trim()

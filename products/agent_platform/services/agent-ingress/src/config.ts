@@ -30,13 +30,13 @@ export const AgentIngressConfigSchema = PlatformConfigSchema.extend({
         .default(() => (isDev() ? 3030 : 8080))
         .describe('HTTP listen port. Dev defaults to 3030; deployed sets it explicitly.'),
     // /listen SSE subscribes to the bus; HTTPS_PROXY routes outbound (Slack bridge,
-    // PostHog introspect) through smokescreen. Both required in prod, enforced here
+    // Txlemetry introspect) through smokescreen. Both required in prod, enforced here
     // rather than via boot guards in index.ts.
     redisUrl: requiredInProd(DEV_REDIS_URL, 'REDIS_URL', { url: true }).describe(
         'SessionEventBus backing for cross-host /listen SSE. Required in prod; dev defaults to local Redis.'
     ),
     httpsProxy: requiredInProdUnsetInDev('HTTPS_PROXY', { url: true }).describe(
-        'Outbound HTTP proxy (smokescreen) for Slack bridge + PostHog introspect. Required in prod; unset in dev (fetches go direct).'
+        'Outbound HTTP proxy (smokescreen) for Slack bridge + Txlemetry introspect. Required in prod; unset in dev (fetches go direct).'
     ),
     // EncryptedFields (Slack bot-token + credential broker) throws on empty keys;
     // the introspector needs the API base. Required in prod, enforced at config-load.
@@ -44,7 +44,7 @@ export const AgentIngressConfigSchema = PlatformConfigSchema.extend({
         'Comma-separated UTF-8 Fernet keys (match Django EncryptedTextField). Required in prod; deterministic dev default.'
     ),
     posthogApiBaseUrl: requiredInProd(DEV_POSTHOG_API_BASE_URL, 'POSTHOG_API_BASE_URL', { url: true }).describe(
-        'PostHog API the oauth/pat verifiers introspect against. Required in prod; dev defaults to localhost:8010.'
+        'Txlemetry API the oauth/pat verifiers introspect against. Required in prod; dev defaults to localhost:8010.'
     ),
     routingMode: z
         .enum(['path', 'domain'])

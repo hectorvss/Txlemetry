@@ -306,7 +306,7 @@ export const QUERY_TYPES_METADATA: Record<NodeKind, InsightTypeMetadata> = {
     },
     [NodeKind.DatabaseSchemaQuery]: {
         name: 'Database Schema',
-        description: 'Introspect the PostHog database schema.',
+        description: 'Introspect the Txlemetry database schema.',
         icon: IconHogQL,
         inMenu: true,
     },
@@ -760,7 +760,7 @@ export function NewInsightButton(): JSX.Element {
                 <div className="flex flex-col text-sm py-1">
                     <strong>AI</strong>
                     <span className="text-xs font-normal">
-                        Ask PostHog AI to create insights using natural language and query any of your data
+                        Ask Txlemetry AI to create insights using natural language and query any of your data
                     </span>
                 </div>
             ),

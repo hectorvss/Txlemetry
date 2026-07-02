@@ -221,7 +221,7 @@ export const mockIntegration: IntegrationType = {
     config: {
         team: {
             id: '123',
-            name: 'PostHog',
+            name: 'Txlemetry',
         },
     },
     icon_url: '',

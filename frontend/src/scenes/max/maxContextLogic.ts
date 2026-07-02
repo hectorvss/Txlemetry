@@ -65,8 +65,8 @@ const addOrUpdateEntity = <TContext extends EntityWithIdAndType>(state: TContext
 const removeEntity = <TContext extends EntityWithIdAndType>(state: TContext[], id: string | number): TContext[] =>
     state.filter((item) => item.id !== id)
 
-// A throw while building scene context blanks out ALL of PostHog AI's auto-collected context
-// (e.g. PostHog AI reporting it has no dashboard and falling back to search). The selector that
+// A throw while building scene context blanks out ALL of Txlemetry AI's auto-collected context
+// (e.g. Txlemetry AI reporting it has no dashboard and falling back to search). The selector that
 // catches it runs on every read, so dedupe by message to avoid spamming when it keeps
 // throwing — but never let the failure stay silent.
 const reportedSceneContextErrors = new Set<string>()
@@ -83,7 +83,7 @@ const reportSceneContextError = (error: unknown): void => {
     reportedSceneContextErrors.add(key)
     // eslint-disable-next-line no-console
     console.error(
-        '[PostHog AI] Failed to build scene context — it will have no auto-collected context for this scene:',
+        '[Txlemetry AI] Failed to build scene context — it will have no auto-collected context for this scene:',
         err
     )
     posthog.captureException(err, { feature: 'max_scene_context' })

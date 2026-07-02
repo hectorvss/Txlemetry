@@ -11,7 +11,7 @@ const SEVERITY_MAP: Record<LogLevel, { text: string; number: number }> = {
 
 /**
  * Structured logger for the toolbar. Logs to the browser console and sends
- * log records to PostHog's /i/v1/logs endpoint (OTLP format).
+ * log records to Txlemetry's /i/v1/logs endpoint (OTLP format).
  *
  * Usage:
  *   toolbarLogger.warn('auth', 'PKCE verifier expired', { ttl_ms: PKCE_TTL_MS })
@@ -132,7 +132,7 @@ function sendLog(level: LogLevel, context: string, message: string, properties?:
 }
 
 function log(level: LogLevel, context: string, message: string, properties?: Record<string, unknown>): void {
-    const prefix = `[PostHog Toolbar][${context}]`
+    const prefix = `[Txlemetry Toolbar][${context}]`
     const args: unknown[] = [`${prefix} ${message}`]
 
     if (properties && Object.keys(properties).length > 0) {

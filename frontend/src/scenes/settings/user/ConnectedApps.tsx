@@ -57,7 +57,7 @@ export function ConnectedApps(): JSX.Element {
 
         LemonDialog.open({
             title: `Revoke access for ${name}?`,
-            description: `This will revoke all tokens and permissions granted to ${name}. The app will no longer be able to access your PostHog account. You can re-authorize it at any time through the application's own interface.`,
+            description: `This will revoke all tokens and permissions granted to ${name}. The app will no longer be able to access your Txlemetry account. You can re-authorize it at any time through the application's own interface.`,
             primaryButton: {
                 children: 'Revoke',
                 status: 'danger',
@@ -95,7 +95,7 @@ export function ConnectedApps(): JSX.Element {
                             <span className="font-medium">{decode(app.name)}</span>
                             {app.is_first_party ? (
                                 <LemonTag type="highlight" size="small">
-                                    PostHog
+                                    Txlemetry
                                 </LemonTag>
                             ) : app.is_verified ? (
                                 <LemonTag type="success" size="small">

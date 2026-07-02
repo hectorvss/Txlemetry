@@ -436,7 +436,7 @@ function WebhookDeleteSection({
         LemonDialog.open({
             title: 'Delete webhook',
             description:
-                'This will delete the webhook from PostHog and attempt to remove it from the source. This action cannot be undone.',
+                'This will delete the webhook from Txlemetry and attempt to remove it from the source. This action cannot be undone.',
             primaryButton: {
                 children: 'Delete webhook',
                 status: 'danger',
@@ -467,7 +467,7 @@ function WebhookDeleteSection({
             <h3 className="text-lg font-semibold">Danger zone</h3>
             <div className="flex items-center justify-between">
                 <div>
-                    <p className="mb-0">Remove the webhook from PostHog and the source.</p>
+                    <p className="mb-0">Remove the webhook from Txlemetry and the source.</p>
                     {!canDelete && (
                         <p className="text-muted text-xs mt-1 mb-0">
                             Tables using webhook sync mode depend on this webhook. Switch them to an alternative sync

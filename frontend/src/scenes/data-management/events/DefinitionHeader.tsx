@@ -56,7 +56,7 @@ export function getPropertyDefinitionIcon(definition: PropertyDefinition): JSX.E
         return (
             <IconWithBadge
                 icon={<IconLogomark />}
-                tooltipTitle="PostHog event property"
+                tooltipTitle="Txlemetry event property"
                 className="taxonomy-icon taxonomy-icon-muted"
                 verified={definition.verified}
                 hidden={definition.hidden}
@@ -93,7 +93,7 @@ export function getEventDefinitionIcon(definition: EventDefinition & { value?: s
                 icon={<IconLeave />}
                 verified={definition.verified}
                 hidden={definition.hidden}
-                tooltipTitle="PostHog event"
+                tooltipTitle="Txlemetry event"
                 className="taxonomy-icon taxonomy-icon-ph taxonomy-icon-muted"
             />
         )
@@ -115,7 +115,7 @@ export function getEventDefinitionIcon(definition: EventDefinition & { value?: s
                 icon={<IconLogomark />}
                 verified={definition.verified}
                 hidden={definition.hidden}
-                tooltipTitle="PostHog event"
+                tooltipTitle="Txlemetry event"
                 className="taxonomy-icon taxonomy-icon-muted"
             />
         )

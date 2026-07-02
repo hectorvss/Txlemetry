@@ -4,7 +4,7 @@
  * external dependencies (HTTP introspect, secret lookup) come in via factory
  * args so tests can inject fakes.
  *
- * `posthogVerifier` covers the PostHog identity path — it accepts a bearer
+ * `posthogVerifier` covers the Txlemetry identity path — it accepts a bearer
  * (Personal API key today, OAuth later) and validates it against
  * `/api/users/@me/` via the `PosthogIdentityIntrospector`.
  */
@@ -26,8 +26,8 @@ import {
 import { AuthVerifier, publicVerifier, readBearer, VerifyResult } from './auth'
 
 /**
- * Shape returned by PostHog's `/api/users/@me/`. We only depend on the
- * stable fields here so a serializer change in PostHog doesn't break
+ * Shape returned by Txlemetry's `/api/users/@me/`. We only depend on the
+ * stable fields here so a serializer change in Txlemetry doesn't break
  * the verifier.
  */
 export interface PosthogMeResponse {
@@ -41,9 +41,9 @@ export interface PosthogMeResponse {
 }
 
 /**
- * The thing that takes a bearer and resolves PostHog access. `introspect`
+ * The thing that takes a bearer and resolves Txlemetry access. `introspect`
  * returns the user identity (+ their org memberships); `canAccessTeam` answers
- * the `project`-audience entitlement question by delegating to PostHog's own
+ * the `project`-audience entitlement question by delegating to Txlemetry's own
  * access control. Default impl hits `/api/users/@me/` and `/api/projects/{id}/`;
  * tests inject a fake to avoid standing up Django.
  */
@@ -71,11 +71,11 @@ export interface TeamOrgLookup {
 }
 
 export interface DefaultIntrospectorOpts {
-    /** Base URL for the PostHog API. Default: `http://localhost:8010`. */
+    /** Base URL for the Txlemetry API. Default: `http://localhost:8010`. */
     baseUrl?: string
     /**
      * Outbound HTTP. Production wires a `DirectHttpClient` so the call
-     * to PostHog's in-cluster `/api/users/@me/` doesn't get refused by
+     * to Txlemetry's in-cluster `/api/users/@me/` doesn't get refused by
      * smokescreen as RFC1918. **Never pass the proxy-bound `HttpClient`
      * here** — every authenticated request would 401. Defaults to a
      * fresh `DirectHttpClient` for tests.
@@ -103,7 +103,7 @@ export function defaultPosthogIntrospector(opts: DefaultIntrospectorOpts = {}): 
         async canAccessTeam(bearer: string, teamId: number): Promise<boolean> {
             // Reading the project at all requires team access, so Django's
             // permission stack is the oracle: 2xx ⇒ access, any failure (incl.
-            // 404, which is what PostHog returns for a project you may not see)
+            // 404, which is what Txlemetry returns for a project you may not see)
             // ⇒ no access. Fails closed on 5xx / network.
             const res = await http.fetch(`${baseUrl}/api/projects/${teamId}/`, {
                 headers: { Authorization: `Bearer ${bearer}`, Accept: 'application/json' },
@@ -128,19 +128,19 @@ function posthogPrincipalFrom(me: PosthogMeResponse): SessionPrincipal {
 }
 
 /**
- * PostHog credential verifier. Accepts a bearer (Personal API key or OAuth
+ * Txlemetry credential verifier. Accepts a bearer (Personal API key or OAuth
  * access token) and validates it against `/api/users/@me/`. Produces a
  * `posthog` principal + a `posthog_api` credential for tools.
  *
- * The bearer proves "is a valid PostHog user"; it carries no tenant binding,
+ * The bearer proves "is a valid Txlemetry user"; it carries no tenant binding,
  * so the agent declares its invocation boundary via `mode.audience`:
  *   - `project` (default): the caller must be able to access the agent's owning
- *     team — delegated to PostHog access control via `canAccessTeam`.
+ *     team — delegated to Txlemetry access control via `canAccessTeam`.
  *   - `organization`: the caller must be a member of the agent's owning org —
  *     `orgForTeam(application.team_id)` ∈ the caller's org memberships.
  * Either way the agent then acts AS the caller: the `@posthog/*` tools call
- * PostHog with this user's bearer against an explicit `project_id`, so RBAC is
- * enforced again at the data layer. (Opening an agent to ANY PostHog user
+ * Txlemetry with this user's bearer against an explicit `project_id`, so RBAC is
+ * enforced again at the data layer. (Opening an agent to ANY Txlemetry user
  * across orgs is intentionally not expressible here yet.)
  */
 export function posthogVerifier(introspector: PosthogIdentityIntrospector, teamOrg: TeamOrgLookup): AuthVerifier {
@@ -324,7 +324,7 @@ export function sharedSecretVerifier(resolver: SecretResolver): AuthVerifier {
 }
 
 /**
- * PostHog-internal server-to-server verifier. Matches the `x-posthog-internal`
+ * Txlemetry-internal server-to-server verifier. Matches the `x-posthog-internal`
  * header against the platform's shared internal secret (`AGENT_INTERNAL_SIGNING_KEY`,
  * also held by Django + janitor). No header → skip; mismatch → 403.
  */

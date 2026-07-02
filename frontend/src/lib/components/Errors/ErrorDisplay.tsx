@@ -80,7 +80,7 @@ export function ErrorDisplayContent(): JSX.Element {
                                     Sentry
                                 </Link>
                             ) : (
-                                'PostHog'
+                                'Txlemetry'
                             )
                         }
                     />

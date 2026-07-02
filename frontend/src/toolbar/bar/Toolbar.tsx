@@ -482,8 +482,8 @@ export function Toolbar(): JSX.Element | null {
             >
                 <ToolbarButton
                     onClick={isAuthenticated ? toggleMinimized : authenticate}
-                    title={isAuthenticated ? 'Minimize' : 'Authenticate the PostHog Toolbar'}
-                    titleMinimized={isAuthenticated ? 'Expand the toolbar' : 'Authenticate the PostHog Toolbar'}
+                    title={isAuthenticated ? 'Minimize' : 'Authenticate the Txlemetry Toolbar'}
+                    titleMinimized={isAuthenticated ? 'Expand the toolbar' : 'Authenticate the Txlemetry Toolbar'}
                 >
                     <AnimatedLogomark
                         animate={isLoading || authStatus === 'checking' || authStatus === 'authenticating'}
@@ -559,7 +559,7 @@ export function Toolbar(): JSX.Element | null {
                     <ToolbarButton
                         flex
                         onClick={openUiHostConfigModal}
-                        title="PostHog app unreachable — click for help"
+                        title="Txlemetry app unreachable — click for help"
                     >
                         <span className="flex items-center gap-1">
                             Authenticate <IconWarning className="text-warning" />

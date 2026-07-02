@@ -47,7 +47,7 @@ const projects = feature(
 const ssoEnforcement = feature(
     'sso_enforcement',
     'Enforce SSO login',
-    'Users can only sign up and log in to your PostHog organization with your specified SSO provider.'
+    'Users can only sign up and log in to your Txlemetry organization with your specified SSO provider.'
 )
 const twoFaEnforcement = feature(
     '2fa_enforcement',
@@ -73,7 +73,7 @@ const accessControl = feature(
 const hipaaBaa = feature(
     'hipaa_baa',
     'HIPAA BAA',
-    'Get a signed HIPAA Business Associate Agreement (BAA) to use PostHog in a HIPAA-compliant manner.'
+    'Get a signed HIPAA Business Associate Agreement (BAA) to use Txlemetry in a HIPAA-compliant manner.'
 )
 const automaticProvisioning = feature(
     'automatic_provisioning',
@@ -106,7 +106,7 @@ const auditLogs = (months: number): AddonPlanFeature =>
     feature(
         'audit_logs',
         'Activity logs',
-        'See who in your organization has accessed or modified entities within PostHog.',
+        'See who in your organization has accessed or modified entities within Txlemetry.',
         { limit: months, unit: 'months' }
     )
 const highFrequencyAlerts = feature(
@@ -138,16 +138,16 @@ const roleBasedAccess = feature(
     'Role-based access control',
     'Set up custom access control rules for roles within your organization.'
 )
-const scim = feature('scim', 'SCIM', 'Automatically sync users and roles from your identity provider to PostHog.')
+const scim = feature('scim', 'SCIM', 'Automatically sync users and roles from your identity provider to Txlemetry.')
 const dedicatedSupport = feature(
     'dedicated_support',
     'Dedicated account manager',
-    'Work with a dedicated account manager via Slack or email to help you get the most out of PostHog.'
+    'Work with a dedicated account manager via Slack or email to help you get the most out of Txlemetry.'
 )
 const training = feature(
     'training',
     'Ongoing training',
-    'Get training from our team to help you quickly get up and running with PostHog.'
+    'Get training from our team to help you quickly get up and running with Txlemetry.'
 )
 const termsAndConditions = feature(
     'terms_and_conditions',
@@ -159,7 +159,7 @@ const bespokePricing = feature('bespoke_pricing', 'Bespoke pricing', "Custom pri
 const invoicePayments = feature(
     'invoice_payments',
     'Payment via invoicing',
-    'Pay for your PostHog subscription via invoice.'
+    'Pay for your Txlemetry subscription via invoice.'
 )
 
 const TEAMS_FEATURES: AddonPlanFeature[] = [

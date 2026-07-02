@@ -191,12 +191,12 @@ const MenuActions = ({ size }: { size: PlayerMetaBreakpoints }): JSX.Element => 
                 icon: <IconBlank />,
             },
             isStandardMode && {
-                label: 'PostHog .json',
+                label: 'Txlemetry .json',
                 status: 'default',
                 icon: <IconDownload />,
                 onClick: () => exportRecordingToFile(),
                 tooltip:
-                    'Export PostHog recording data to a JSON file. This can be loaded later into PostHog for playback.',
+                    'Export Txlemetry recording data to a JSON file. This can be loaded later into Txlemetry for playback.',
                 disabledReason: exportAccessControlDisabledReason ?? undefined,
                 'data-attr': 'replay-export-posthog-json',
             },
@@ -207,7 +207,7 @@ const MenuActions = ({ size }: { size: PlayerMetaBreakpoints }): JSX.Element => 
                 onClick: () => exportRecordingToVideoFile(),
                 tooltip: hasReachedExportFullVideoLimit
                     ? 'You have reached your export limit.'
-                    : 'Export PostHog recording data to MP4 video file.',
+                    : 'Export Txlemetry recording data to MP4 video file.',
                 disabledReason:
                     (hasReachedExportFullVideoLimit ? 'You have reached your export limit.' : undefined) ??
                     exportAccessControlDisabledReason ??

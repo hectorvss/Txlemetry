@@ -19,8 +19,8 @@ export function AddCustomServerForm(): JSX.Element {
 
     const title = customServerFormPrefilled ? `Connect ${customServerForm.name}` : 'Add MCP server'
     const subtitle = customServerFormPrefilled
-        ? 'This server is pre-configured by PostHog. Just paste your credentials below.'
-        : 'Connect any MCP server. PostHog will register a client via Dynamic Client Registration when needed.'
+        ? 'This server is pre-configured by Txlemetry. Just paste your credentials below.'
+        : 'Connect any MCP server. Txlemetry will register a client via Dynamic Client Registration when needed.'
 
     return (
         <LemonModal
@@ -89,7 +89,7 @@ export function AddCustomServerForm(): JSX.Element {
                                         <LemonField
                                             name="client_id"
                                             label="OAuth client ID"
-                                            help="Leave blank to let PostHog register a client for you via Dynamic Client Registration."
+                                            help="Leave blank to let Txlemetry register a client for you via Dynamic Client Registration."
                                         >
                                             <LemonInput placeholder="Optional" fullWidth />
                                         </LemonField>

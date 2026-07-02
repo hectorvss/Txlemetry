@@ -102,7 +102,7 @@ export function AddWidgetModal({ isOpen, onClose, loading, onAdd }: AddWidgetMod
             isOpen={isOpen}
             onClose={onClose}
             title="Add widget"
-            description="Bring context from your different PostHog products into one dashboard."
+            description="Bring context from your different Txlemetry products into one dashboard."
             width={1200}
             footer={
                 <>

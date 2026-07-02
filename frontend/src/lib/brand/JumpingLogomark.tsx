@@ -11,8 +11,8 @@ interface LogomarkJumpCSSProperties extends React.CSSProperties {
 }
 
 /**
- * The PostHog logomark that springs up when clicked – rapid repeat clicks escalate the jump. Used as
- * the playful mascot in the PostHog AI (Max) intro and the Inbox self-driving onboarding.
+ * The Txlemetry logomark that springs up when clicked – rapid repeat clicks escalate the jump. Used as
+ * the playful mascot in the Txlemetry AI (Max) intro and the Inbox self-driving onboarding.
  */
 export function JumpingLogomark({ className }: { className?: string }): JSX.Element {
     const [lastJumped, setLastJumped] = useState<number | null>(() => Date.now())

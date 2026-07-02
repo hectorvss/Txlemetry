@@ -33,9 +33,9 @@ function getBaseName(resource: TerraformExportResource): string {
 }
 
 function getDescription(resource: TerraformExportResource, result: TerraformExportResult | null): JSX.Element {
-    const providerDocsUrl = 'https://registry.terraform.io/providers/PostHog/posthog/latest/docs'
+    const providerDocsUrl = 'https://registry.terraform.io/providers/Txlemetry/posthog/latest/docs'
     const exampleRepoUrl =
-        'https://github.com/PostHog/posthog/tree/master/terraform/us/project-2/team-analytics-platform'
+        'https://github.com/Txlemetry/posthog/tree/master/terraform/us/project-2/team-analytics-platform'
 
     const getExportPrefix = (): string => {
         const hasRelatedResources =
@@ -56,7 +56,7 @@ function getDescription(resource: TerraformExportResource, result: TerraformExpo
         <>
             {prefix} Use this configuration with the{' '}
             <Link to={providerDocsUrl} target="_blank">
-                PostHog Terraform provider
+                Txlemetry Terraform provider
             </Link>{' '}
             to manage this {resource.type} as code. See{' '}
             <Link to={exampleRepoUrl} target="_blank">

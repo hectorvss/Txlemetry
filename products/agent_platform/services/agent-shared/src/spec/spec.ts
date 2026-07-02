@@ -49,10 +49,10 @@ export const AuthModeSchema = z.discriminatedUnion('type', [
         type: z.literal('public'),
         acknowledge_public_exposure: z.literal(true, {
             message:
-                'public auth must set acknowledge_public_exposure: true. Public agents accept anonymous requests — confirm this is intentional. If you only need PostHog console / MCP access, use posthog_internal or posthog instead.',
+                'public auth must set acknowledge_public_exposure: true. Public agents accept anonymous requests — confirm this is intentional. If you only need Txlemetry console / MCP access, use posthog_internal or posthog instead.',
         }),
     }),
-    /** A PostHog credential bearer — a Personal API key today, OAuth in future.
+    /** A Txlemetry credential bearer — a Personal API key today, OAuth in future.
      *  Both validate against `/api/users/@me/`; produces a `posthog` principal
      *  + `posthog_api` credential for tools. `scopes` is reserved for future
      *  OAuth scope-gating.
@@ -66,7 +66,7 @@ export const AuthModeSchema = z.discriminatedUnion('type', [
      *      one "agent builder" used across an org's projects.
      *  Either way the agent still acts AS the caller (their bearer + an explicit
      *  `project_id` per tool), so data access is RBAC-enforced on top of this.
-     *  Opening an agent to ANY PostHog user across orgs is deliberately NOT an
+     *  Opening an agent to ANY Txlemetry user across orgs is deliberately NOT an
      *  option here yet — that needs a dedicated cross-tenant concept. */
     z.object({
         type: z.literal('posthog'),
@@ -95,7 +95,7 @@ export const AuthModeSchema = z.discriminatedUnion('type', [
         header: z.string().min(1),
         secret_ref: z.string().min(1),
     }),
-    /** PostHog-internal server-to-server token (for Django ↔ ingress). */
+    /** Txlemetry-internal server-to-server token (for Django ↔ ingress). */
     z.object({ type: z.literal('posthog_internal') }),
 ])
 
@@ -321,13 +321,13 @@ export const TriggerSchema = z.discriminatedUnion('type', [
  * Approval `type` — who clears a gated call. Two independent authorities:
  *   - `principal` (default) — the session's principal: whoever drove this
  *     session. A *generic identity match* (slack user id / jwt sub / posthog
- *     uuid == the session principal), NOT a PostHog-authority check, so it works
- *     for a Slack or embedded-app asker with no PostHog account. Decided via the
+ *     uuid == the session principal), NOT a Txlemetry-authority check, so it works
+ *     for a Slack or embedded-app asker with no Txlemetry account. Decided via the
  *     lightweight ingress decision API (a Slack button, a client tool, or the
- *     PostHog Code approval card).
+ *     Txlemetry Code approval card).
  *   - `agent` — the agent's owning-team admins (org-membership ADMIN level on
  *     the owning team; see Django `_require_team_admin`). The one intrinsically-
- *     PostHog authority; decided only in the authenticated console / approvals
+ *     Txlemetry authority; decided only in the authenticated console / approvals
  *     inbox. (A creator who isn't a team admin can't decide today — kept simple
  *     until a finer owner grant exists.)
  *
@@ -927,7 +927,7 @@ export const ResumeConfigSchema = z.object({
  *   - `posthog` — managed: on promote the backend provisions a normal,
  *     user-consented OAuthApplication for the agent's org and injects its
  *     `client_id` here (the author supplies nothing but optional scopes).
- *     Linking runs PostHog's standard consent flow, so the user explicitly
+ *     Linking runs Txlemetry's standard consent flow, so the user explicitly
  *     authorises the agent to act as them.
  *   - `oauth2`  — bring-your-own: the author registers an OAuth app at a third
  *     party (GitHub, Linear, the `dogs` test IdP), points its redirect at our
@@ -1216,7 +1216,7 @@ export interface AgentRevisionRaw extends Omit<AgentRevision, 'spec'> {
  */
 export type SessionPrincipal =
     | { kind: 'anonymous' }
-    /** PostHog credential (PAT today, OAuth later) — resolves through `/api/users/@me/`. */
+    /** Txlemetry credential (PAT today, OAuth later) — resolves through `/api/users/@me/`. */
     | {
           kind: 'posthog'
           user_id: string
@@ -1236,7 +1236,7 @@ export type SessionPrincipal =
     /**
      * Slack user resolved through the slack integration. Pure Slack
      * identity only — any cross-platform linkage (e.g. "this Slack user
-     * maps to a PostHog user") is a credential-resolution concern, not
+     * maps to a Txlemetry user") is a credential-resolution concern, not
      * an identity property. The broker resolves `posthog_api` for a
      * Slack principal by looking up `agent_user_id → posthog user →
      * stored auth`; if nothing's stored, the broker returns null and
@@ -1248,7 +1248,7 @@ export type SessionPrincipal =
           slack_user_id: string
           agent_user_id?: string
       }
-    /** Internal / service-to-service caller (PostHog backend → ingress). */
+    /** Internal / service-to-service caller (Txlemetry backend → ingress). */
     | { kind: 'posthog_internal'; team_id?: number }
     /** Shared-secret bearer (webhook-style). One secret == one trust principal —
      *  every holder of the agent's secret is the same principal, and they share

@@ -64,12 +64,12 @@ export const maxSettingsLogic = kea<maxSettingsLogicType>([
             updateCoreMemory: async (data: CoreMemoryForm) => {
                 if (!values.coreMemory) {
                     const response = await api.coreMemory.create(data)
-                    lemonToast.success('PostHog AI memory has been created.')
+                    lemonToast.success('Txlemetry AI memory has been created.')
                     return response
                 }
 
                 const response = await api.coreMemory.update(values.coreMemory.id, data)
-                lemonToast.success('PostHog AI memory has been updated.')
+                lemonToast.success('Txlemetry AI memory has been updated.')
                 return response
             },
         },

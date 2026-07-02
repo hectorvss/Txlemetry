@@ -47,11 +47,11 @@ export type ActivityLogItem = {
     team_id?: number | null
     /** Present if the log is used as a notification. Whether the notification is unread. */
     unread?: boolean
-    /** Whether the activity was initiated by a PostHog staff member impersonating a user. */
+    /** Whether the activity was initiated by a Txlemetry staff member impersonating a user. */
     is_staff?: boolean
-    /** Whether the activity was initiated by the PostHog backend. Example: an exported image when sharing an insight. */
+    /** Whether the activity was initiated by the Txlemetry backend. Example: an exported image when sharing an insight. */
     is_system?: boolean
-    /** Whether a PostHog team member was impersonating the user when this activity was logged. */
+    /** Whether a Txlemetry team member was impersonating the user when this activity was logged. */
     was_impersonated?: boolean
     /** SDK or integration that triggered this action (from x-posthog-client header). */
     client?: string | null
@@ -119,7 +119,7 @@ export function humanize(
                 id: logItem.id,
                 email: logItem.was_impersonated ? undefined : logItem.user?.email,
                 name: logItem.was_impersonated
-                    ? `PostHog Support${impersonatedUserName ? ` (as ${impersonatedUserName})` : ''}`
+                    ? `Txlemetry Support${impersonatedUserName ? ` (as ${impersonatedUserName})` : ''}`
                     : impersonatedUserName,
                 isSystem: logItem.is_system,
                 wasImpersonated: logItem.was_impersonated,
@@ -136,11 +136,11 @@ export function humanize(
 
 export function userNameForLogItem(logItem: ActivityLogItem): string {
     if (logItem.is_system) {
-        return 'PostHog'
+        return 'Txlemetry'
     }
     if (logItem.was_impersonated) {
         const impersonatedUserName = logItem.user ? fullName(logItem.user) : 'a user'
-        return `PostHog Support (as ${impersonatedUserName})`
+        return `Txlemetry Support (as ${impersonatedUserName})`
     }
     return logItem.user ? fullName(logItem.user) : 'A user'
 }

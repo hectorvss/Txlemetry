@@ -49,7 +49,7 @@ export function AISection(): JSX.Element {
         <SceneSection
             title="AI suggestions"
             className="my-8"
-            description="When enabled, PostHog will automatically generate a suggested reply as a private note whenever a new ticket arrives. Suggestions are grounded in your business knowledge sources."
+            description="When enabled, Txlemetry will automatically generate a suggested reply as a private note whenever a new ticket arrives. Suggestions are grounded in your business knowledge sources."
         >
             <LemonCard hoverEffect={false} className="flex flex-col gap-y-3 max-w-[800px] px-4 py-3">
                 <LemonSwitch

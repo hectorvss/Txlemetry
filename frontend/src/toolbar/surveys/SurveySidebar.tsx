@@ -384,7 +384,7 @@ export function SurveySidebar(): JSX.Element | null {
         }
         if (
             window.confirm(
-                'Archive this survey? It will be hidden from the toolbar list. You can restore it from the PostHog surveys page.'
+                'Archive this survey? It will be hidden from the toolbar list. You can restore it from the Txlemetry surveys page.'
             )
         ) {
             archiveSurvey(editingSurvey)
@@ -569,7 +569,7 @@ export function SurveySidebar(): JSX.Element | null {
                     <p className="text-xs text-muted m-0 leading-snug">
                         Quick editor for single-question surveys. Need branching or multiple questions?{' '}
                         <Link to={joinWithUiHost(uiHost, urls.surveys())} target="_blank" subtle>
-                            Open in PostHog <IconExternal className="inline w-3 h-3" />
+                            Open in Txlemetry <IconExternal className="inline w-3 h-3" />
                         </Link>
                     </p>
                     <QuestionSection />

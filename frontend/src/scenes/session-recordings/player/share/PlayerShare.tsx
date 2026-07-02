@@ -47,7 +47,7 @@ function PublicLink(props: PlayerShareLogicProps): JSX.Element {
     return (
         <>
             <p>
-                You can share or embed the recording outside of PostHog. Be aware that all the content of the recording
+                You can share or embed the recording outside of Txlemetry. Be aware that all the content of the recording
                 will be accessible to anyone with the link.
             </p>
 
@@ -72,7 +72,7 @@ function PrivateLink(props: PlayerShareLogicProps): JSX.Element {
                 <div>
                     <b>Click the button below</b> to copy a direct link to this recording.
                 </div>
-                <div>Make sure the person you share it with has access to this PostHog project.</div>
+                <div>Make sure the person you share it with has access to this Txlemetry project.</div>
             </div>
             <LemonButton
                 type="secondary"

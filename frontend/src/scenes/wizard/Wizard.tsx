@@ -27,7 +27,7 @@ export function Wizard(): JSX.Element {
                         <div className="mb-8">
                             <h1 className="text-3xl font-bold mb-3">AI wizard</h1>
                             <p className="text-muted-alt">
-                                Select which project the wizard should use to install PostHog.
+                                Select which project the wizard should use to install Txlemetry.
                             </p>
                         </div>
 
@@ -70,7 +70,7 @@ export function Wizard(): JSX.Element {
                         <div className="max-w-60 mb-12">
                             <HeartHog className="w-48 h-48" />
                         </div>
-                        <p className="text-lg">You're all set! You can return to the PostHog setup wizard.</p>
+                        <p className="text-lg">You're all set! You can return to the Txlemetry setup wizard.</p>
                     </>
                 )}
                 {view === 'invalid' && (

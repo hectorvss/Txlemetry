@@ -90,7 +90,7 @@ export function getIncidentStatus(): NormalizedStatus {
     return currentStatus
 }
 
-// incident.io component name for the PostHog AI service. An incident is treated as affecting AI only
+// incident.io component name for the Txlemetry AI service. An incident is treated as affecting AI only
 // when it tags a component with this exact name under the current region's group (see getRelevantGroupName).
 export const AI_COMPONENT_NAME = 'PostHog AI'
 

@@ -34,10 +34,10 @@ export function SidebarQuestionInputWithSuggestions({
 
     const tip =
         !coreMemoryLoading && !coreMemory?.text
-            ? 'Tip: Run /init to initialize PostHog AI in this project'
+            ? 'Tip: Run /init to initialize Txlemetry AI in this project'
             : agentMode === AgentMode.Research
-              ? 'Try PostHog AI Research Mode for…'
-              : 'Try PostHog AI for…'
+              ? 'Try Txlemetry AI Research Mode for…'
+              : 'Try Txlemetry AI for…'
 
     return (
         <DismissableLayer
@@ -71,13 +71,13 @@ export function SidebarQuestionInputWithSuggestions({
                             size="xsmall"
                             type="secondary"
                             icon={<IconGear />}
-                            tooltip="Edit PostHog AI memory"
+                            tooltip="Edit Txlemetry AI memory"
                         />,
                     ]}
                 />
             </div>
             <LemonModal
-                title="PostHog AI memory"
+                title="Txlemetry AI memory"
                 isOpen={settingsModalOpen}
                 onClose={() => setSettingsModalOpen(false)}
                 width="40rem"

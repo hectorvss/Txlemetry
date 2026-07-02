@@ -27,7 +27,7 @@ import { ModelBreakdownTable, SpendChart, UsageMetrics } from './gatewayUsage'
 
 const AI_GATEWAY_DESCRIPTION =
     'One endpoint for every major LLM, billed at cost — no markup on tokens. Point your app at the gateway and ' +
-    'PostHog tracks its usage, cost, and spend for you. Any project secret key with the llm_gateway:read scope ' +
+    'Txlemetry tracks its usage, cost, and spend for you. Any project secret key with the llm_gateway:read scope ' +
     'can call it, and you can add or rotate keys anytime with no downtime.'
 
 export const scene: SceneExport = {
@@ -81,7 +81,7 @@ export function AIGatewayScene(): JSX.Element {
                 description={
                     <>
                         Every request is tracked in <Link to={urls.aiObservabilityDashboard()}>AI observability</Link>{' '}
-                        with no SDK instrumentation needed. Already sending generations through a PostHog LLM SDK?
+                        with no SDK instrumentation needed. Already sending generations through a Txlemetry LLM SDK?
                         Switch back to the official provider packages so each one is counted once.
                     </>
                 }

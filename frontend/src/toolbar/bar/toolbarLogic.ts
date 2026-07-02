@@ -723,7 +723,7 @@ export const toolbarLogic = kea<toolbarLogicType>([
         if (isInIframe) {
             cache.disposables.add(() => {
                 const iframeEventListener = (e: MessageEvent): void => {
-                    // Only the PostHog app at uiHost should be driving these actions.
+                    // Only the Txlemetry app at uiHost should be driving these actions.
                     const expectedOrigin = toolbarConfigLogic.findMounted()?.values.uiHost
                     if (!expectedOrigin || e.origin !== expectedOrigin) {
                         if (e?.data?.type && typeof e.data.type === 'string' && e.data.type.startsWith('ph-')) {

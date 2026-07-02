@@ -9,10 +9,10 @@ export { isPostHogExecTool } from '../components/tool/posthogExecDisplay'
  * Default sandbox tool-permission policy, ported from Twig
  * (`packages/agent/src/adapters/claude/permissions/posthog-exec-gate.ts`).
  *
- * The deployed agent-server runs in `default` mode and asks for approval on every PostHog `exec`
+ * The deployed agent-server runs in `default` mode and asks for approval on every Txlemetry `exec`
  * call. We mirror Twig's policy on the client instead: auto-approve every built-in (default) tool
- * and every PostHog `exec` operation EXCEPT the destructive ones (update/delete/destroy/
- * partial-update), which still surface the approval card. Non-PostHog MCP tools fall outside the
+ * and every Txlemetry `exec` operation EXCEPT the destructive ones (update/delete/destroy/
+ * partial-update), which still surface the approval card. Non-Txlemetry MCP tools fall outside the
  * default-allow contract and also prompt.
  */
 
@@ -25,7 +25,7 @@ export function isPostHogDestructiveSubTool(subTool: string): boolean {
 
 export type PermissionDecision = 'auto_allow' | 'prompt'
 
-/** Read-only exec discovery verbs — safe to auto-approve since they never mutate PostHog data. */
+/** Read-only exec discovery verbs — safe to auto-approve since they never mutate Txlemetry data. */
 const POSTHOG_EXEC_READ_ONLY_KEYS = new Set([
     '__posthog_exec_tools__',
     '__posthog_exec_search__',
@@ -37,7 +37,7 @@ const POSTHOG_EXEC_READ_ONLY_KEYS = new Set([
  * Decide whether a permission request can be auto-approved or must prompt the user. The policy fails
  * closed: a request only auto-approves when it is positively identified as safe.
  *
- * PostHog `exec` is detected by canonical tool name and by the parsed verb/sub-tool (robust to a
+ * Txlemetry `exec` is detected by canonical tool name and by the parsed verb/sub-tool (robust to a
  * missing `_meta.claudeCode.toolName`): read-only discovery verbs (`tools`/`search`/`info`/`schema`)
  * and non-mutating `call <sub-tool>`s auto-approve; mutating sub-tools prompt, and an exec call whose
  * sub-tool can't be resolved (malformed, unknown verb, unrecognized flags) prompts rather than

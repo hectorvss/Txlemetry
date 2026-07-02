@@ -225,7 +225,7 @@ function EventTriggerOptions(): JSX.Element | null {
                 </LemonLabel>
                 <IngestionControls.EventTriggerSelect events={eventTriggerConfig} onChange={updateEventTriggerConfig} />
             </div>
-            <p>Start recording when a PostHog event is queued.</p>
+            <p>Start recording when a Txlemetry event is queued.</p>
 
             <div className="flex gap-2 flex-wrap">
                 {eventTriggerConfig?.map((trigger) => (

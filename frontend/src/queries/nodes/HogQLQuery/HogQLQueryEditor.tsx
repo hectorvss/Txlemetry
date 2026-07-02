@@ -109,7 +109,7 @@ export function HogQLQueryEditor(props: HogQLQueryEditorProps): JSX.Element {
                         placeholder={
                             aiAvailable
                                 ? 'What do you want to know? How would you like to tweak the query?'
-                                : 'To use AI features, set environment variable OPENAI_API_KEY for this instance of PostHog'
+                                : 'To use AI features, set environment variable OPENAI_API_KEY for this instance of Txlemetry'
                         }
                         disabled={!aiAvailable}
                         maxLength={400}
@@ -119,7 +119,7 @@ export function HogQLQueryEditor(props: HogQLQueryEditorProps): JSX.Element {
                         onClick={() => draftFromPrompt()}
                         disabledReason={
                             !aiAvailable
-                                ? 'Environment variable OPENAI_API_KEY is unset for this instance of PostHog'
+                                ? 'Environment variable OPENAI_API_KEY is unset for this instance of Txlemetry'
                                 : !prompt
                                   ? 'Provide a prompt first'
                                   : null

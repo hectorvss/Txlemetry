@@ -8,8 +8,8 @@ import { ToolBody, ToolBodySection, ToolOutput } from './ToolOutput'
 import type { ToolRendererProps } from './toolRegistry'
 
 /**
- * The catch-all tool card — user-installed MCP tools, unmapped PostHog `exec` inner tools, and Claude
- * built-ins without a bespoke renderer. PostHog `exec` inner tools read `Call <tool>`; other MCP tools
+ * The catch-all tool card — user-installed MCP tools, unmapped Txlemetry `exec` inner tools, and Claude
+ * built-ins without a bespoke renderer. Txlemetry `exec` inner tools read `Call <tool>`; other MCP tools
  * read `Call <server> – <tool> (MCP)`; non-MCP built-ins show their friendly title. A compact input
  * preview sits on the second line and the body shows any text output. Replaces the old
  * `FallbackMcpToolRenderer`.

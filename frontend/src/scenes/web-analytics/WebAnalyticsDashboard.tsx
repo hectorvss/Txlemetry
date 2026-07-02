@@ -921,7 +921,7 @@ const getEmptyOnboardingContent = (
                     thingName="event"
                     isEmpty={true}
                     titleOverride="Nothing to investigate yet!"
-                    description="Install PostHog on your site or app to start capturing events. Head to the installation guide to get set up in just a few minutes."
+                    description="Install Txlemetry on your site or app to start capturing events. Head to the installation guide to get set up in just a few minutes."
                     actionElementOverride={
                         <div className="flex items-center gap-2">
                             <LemonButton

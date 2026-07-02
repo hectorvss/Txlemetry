@@ -15,9 +15,9 @@ export interface RunComposerProps {
 
 /**
  * Prepackaged composer for the sandbox run surface — a thin composition of the logic-free
- * {@link Composer} primitives that reproduces the PostHog AI input look (bordered rounded container,
+ * {@link Composer} primitives that reproduces the Txlemetry AI input look (bordered rounded container,
  * large textarea with an overlaid placeholder, an absolutely-positioned primary send button) without
- * any of PostHog AI's conversation-only features. It holds no draft or send state of its own: callers
+ * any of Txlemetry AI's conversation-only features. It holds no draft or send state of its own: callers
  * own the value and the submit handler. Surfaces that need to slot extra chrome should compose the
  * `Composer.*` parts directly instead of using this wrapper.
  */

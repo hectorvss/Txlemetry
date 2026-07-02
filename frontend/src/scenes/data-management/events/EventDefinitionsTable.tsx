@@ -35,7 +35,7 @@ const eventTypeOptions: LemonSelectOptions<EventDefinitionType> = [
     },
     {
         value: EventDefinitionType.EventPostHog,
-        label: 'PostHog events',
+        label: 'Txlemetry events',
         'data-attr': 'event-type-option-event-posthog',
     },
 ]
@@ -132,7 +132,7 @@ export function EventDefinitionsTable(): JSX.Element {
                 {filters.event_type === 'event_custom'
                     ? 'custom '
                     : filters.event_type === 'event_posthog'
-                      ? 'PostHog '
+                      ? 'Txlemetry '
                       : ''}
                 event usage statistics?{' '}
                 <Link

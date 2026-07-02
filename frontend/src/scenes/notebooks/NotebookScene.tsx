@@ -112,7 +112,7 @@ export function NotebookScene(): JSX.Element {
                 </h2>
 
                 <p>
-                    You can navigate around PostHog and <b>drag and drop</b> thing into it. Or you can close the sidebar
+                    You can navigate around Txlemetry and <b>drag and drop</b> thing into it. Or you can close the sidebar
                     and it will be full screen here instead.
                 </p>
 
@@ -199,7 +199,7 @@ export function NotebookScene(): JSX.Element {
                             tooltip={
                                 <>
                                     Opens the notebook in a context panel, that can be accessed from anywhere in the
-                                    PostHog app. This is great for dragging and dropping elements like insights,
+                                    Txlemetry app. This is great for dragging and dropping elements like insights,
                                     recordings or even feature flags into your active notebook.
                                 </>
                             }

@@ -1,4 +1,4 @@
-// Utility functions for parsing PostHog exception events
+// Utility functions for parsing Txlemetry exception events
 // Only used to properly forward an exception information via the support form
 
 interface ExceptionMetadata {
@@ -18,7 +18,7 @@ interface StackTraceInfo {
 type ParsedExceptionData = string
 
 /**
- * Extracts basic metadata from a PostHog exception event
+ * Extracts basic metadata from a Txlemetry exception event
  */
 function extractExceptionMetadata(event: any): ExceptionMetadata {
     return {
@@ -73,7 +73,7 @@ Line: ${stackTrace.lineNumber}`
 }
 
 /**
- * Main function to parse a PostHog exception event into a structured format
+ * Main function to parse a Txlemetry exception event into a structured format
  */
 export function parseExceptionEvent(event: any): ParsedExceptionData {
     const metadata = extractExceptionMetadata(event)

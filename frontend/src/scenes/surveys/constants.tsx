@@ -381,7 +381,7 @@ export const defaultSurveyTemplates: SurveyTemplate[] = [
         questions: [
             {
                 type: SurveyQuestionType.Rating,
-                question: 'How satisfied are you with PostHog surveys?',
+                question: 'How satisfied are you with Txlemetry surveys?',
                 description: '',
                 descriptionContentType: 'text' as SurveyQuestionDescriptionContentType,
                 display: 'emoji',
@@ -428,7 +428,7 @@ export const defaultSurveyTemplates: SurveyTemplate[] = [
         questions: [
             {
                 type: SurveyQuestionType.Rating,
-                question: 'PostHog made it easy for me to resolve my issue',
+                question: 'Txlemetry made it easy for me to resolve my issue',
                 description: '',
                 descriptionContentType: 'text' as SurveyQuestionDescriptionContentType,
                 display: 'number',

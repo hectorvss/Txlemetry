@@ -16,7 +16,7 @@ interface HogQLQueryResponse {
 export const posthogQueryV1 = defineNativeTool({
     id: '@posthog/query',
     description:
-        'Run a HogQL query against a PostHog project as the connected user (requires `posthog` auth). Returns rows and column names. Pass the `project_id` of the project to query.',
+        'Run a HogQL query against a Txlemetry project as the connected user (requires `posthog` auth). Returns rows and column names. Pass the `project_id` of the project to query.',
     args: Type.Object({
         project_id: ProjectIdArg,
         query: Type.String({ minLength: 1, description: 'HogQL query string' }),
@@ -33,7 +33,7 @@ export const posthogQueryV1 = defineNativeTool({
     async run(args, ctx) {
         // Resolves the `posthog` identity (trigger-edge seed or per-asker link)
         // exactly like the sibling `@posthog/agent-applications-*` tools, so the
-        // query executes AS the connected PostHog user and Django enforces that
+        // query executes AS the connected Txlemetry user and Django enforces that
         // user's access to `args.project_id` (a 403 surfaces as a tool error).
         const res = await callPosthogApi<HogQLQueryResponse>(ctx, {
             method: 'POST',

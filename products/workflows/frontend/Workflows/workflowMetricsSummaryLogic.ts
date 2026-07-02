@@ -21,7 +21,7 @@ import { isEmailAction } from './hogflows/steps/types'
 import { workflowLogic } from './workflowLogic'
 import type { workflowMetricsSummaryLogicType } from './workflowMetricsSummaryLogicType'
 
-// Each conversion is emitted as a `$workflows_conversion` PostHog event carrying `$workflow_id`, so
+// Each conversion is emitted as a `$workflows_conversion` Txlemetry event carrying `$workflow_id`, so
 // "View converted users" deep-links to the events explorer scoped to this workflow and date range.
 const CONVERSION_EVENT = '$workflows_conversion'
 
@@ -116,7 +116,7 @@ export const WORKFLOW_EMAIL_METRICS: Record<
     email_failed: {
         name: 'Failed',
         description:
-            'Total number of emails that were not attempted to be sent. This typically indicates the PostHog email service determined the email contained a virus.',
+            'Total number of emails that were not attempted to be sent. This typically indicates the Txlemetry email service determined the email contained a virus.',
         color: getColorVar('danger'),
         metricNames: ['email_failed'],
     },

@@ -151,7 +151,7 @@ export function FeedbackPrompt({ conversationId, traceId }: FeedbackPromptProps)
     if (status === 'done') {
         return (
             <MessageTemplate type="ai">
-                <p className="m-0 text-sm text-secondary">Thanks for making PostHog AI better!</p>
+                <p className="m-0 text-sm text-secondary">Thanks for making Txlemetry AI better!</p>
             </MessageTemplate>
         )
     }
@@ -163,7 +163,7 @@ export function FeedbackPrompt({ conversationId, traceId }: FeedbackPromptProps)
                     <div className="flex flex-col gap-2">
                         <p className="m-0 font-medium">What could we improve?</p>
                         <LemonInput
-                            placeholder="Help us improve PostHog AI..."
+                            placeholder="Help us improve Txlemetry AI..."
                             value={feedbackText}
                             onChange={setFeedbackText}
                             onPressEnter={submitFeedback}
@@ -194,7 +194,7 @@ export function FeedbackPrompt({ conversationId, traceId }: FeedbackPromptProps)
                         <span className="font-medium">Support ticket ready for review</span>
                     </div>
                     <p className="m-0 text-sm text-secondary">
-                        Here's a draft of your support ticket. Please review and submit it to get help from PostHog
+                        Here's a draft of your support ticket. Please review and submit it to get help from Txlemetry
                         support.
                     </p>
                     <div className="bg-bg-light border rounded p-3">

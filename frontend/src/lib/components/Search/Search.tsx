@@ -688,7 +688,7 @@ function SearchInput({ autoFocus, className }: SearchInputProps): JSX.Element {
                 />
                 {searchValue ? null : (
                     <span className="text-tertiary pointer-events-none absolute left-8 top-1/2 -translate-y-1/2 ">
-                        <span className="text-tertiary">Ask PostHog AI or search </span>
+                        <span className="text-tertiary">Ask Txlemetry AI or search </span>
                         <span
                             className="transition-opacity duration-200"
                             style={{ opacity: placeholderVisible ? 1 : 0 }}
@@ -711,7 +711,7 @@ function SearchInput({ autoFocus, className }: SearchInputProps): JSX.Element {
                     <ButtonPrimitive
                         size="sm"
                         tabIndex={-1}
-                        aria-label="Ask PostHog AI"
+                        aria-label="Ask Txlemetry AI"
                         className="shrink-0 gap-1 text-tertiary hover:text-ai "
                         variant="panel"
                         onClick={() => {

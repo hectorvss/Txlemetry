@@ -9,14 +9,14 @@ export function SourcesTab(): JSX.Element {
         <div className="flex flex-col gap-4">
             <SceneSection
                 title="Managed data warehouse sources"
-                description="PostHog can connect to external sources and automatically import data from them into the PostHog data warehouse"
+                description="Txlemetry can connect to external sources and automatically import data from them into the Txlemetry data warehouse"
             >
                 <ManagedSourcesTable />
             </SceneSection>
             <SceneDivider />
             <SceneSection
                 title="Self-managed data warehouse sources"
-                description="Connect to your own data sources, making them queryable in PostHog"
+                description="Connect to your own data sources, making them queryable in Txlemetry"
             >
                 <SelfManagedSourcesTable />
             </SceneSection>

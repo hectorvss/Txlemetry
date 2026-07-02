@@ -2,13 +2,13 @@ import { LemonTag, Tooltip } from '@posthog/lemon-ui'
 
 import { ScoutOrigin } from '../../../types'
 
-/** Canonical (PostHog-maintained) vs Custom (team-authored) scout badge. */
+/** Canonical (Txlemetry-maintained) vs Custom (team-authored) scout badge. */
 export function ScoutOriginBadge({ origin }: { origin: ScoutOrigin }): JSX.Element {
     return (
         <Tooltip
             title={
                 origin === 'canonical'
-                    ? 'Part of the standard scout troop built and maintained by PostHog'
+                    ? 'Part of the standard scout troop built and maintained by Txlemetry'
                     : 'A scout your team created as a signals-scout-* skill in this project'
             }
         >

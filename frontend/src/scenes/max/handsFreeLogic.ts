@@ -154,7 +154,7 @@ export const handsFreeLogic = kea<handsFreeLogicType>([
             actions.setStatus('starting')
             actions.setConnection('connecting')
 
-            // Per-session analytics counters, captured at exit so a single PostHog query can
+            // Per-session analytics counters, captured at exit so a single Txlemetry query can
             // build session-length and turn-count distributions without re-aggregating events.
             cache.sessionStartedAt = Date.now()
             cache.userTurnCount = 0
@@ -193,7 +193,7 @@ export const handsFreeLogic = kea<handsFreeLogicType>([
             if (!Scribe || typeof Scribe.connect !== 'function') {
                 // Should be unreachable — the mount-time probe should have already hidden the
                 // button when the SDK doesn't expose Scribe. If we get here, capture so we can
-                // see it in PostHog and bail without confusing the user.
+                // see it in Txlemetry and bail without confusing the user.
                 posthog.captureException(new Error('handsFree: Scribe namespace missing from @elevenlabs/client'))
                 actions.setSdkAvailable(false)
                 actions.exitHandsFree('sdk_missing_scribe')
@@ -490,7 +490,7 @@ export const handsFreeLogic = kea<handsFreeLogicType>([
 
     afterMount(({ actions, cache }) => {
         // Probe the SDK once on mount so the mic button can decide whether to render itself.
-        // We capture failures to PostHog instead of surfacing dev-facing errors to end users.
+        // We capture failures to Txlemetry instead of surfacing dev-facing errors to end users.
         // Skip the probe entirely when the feature flag is off — the logic mounts for every
         // Max session, so an unconditional dynamic import would download the SDK chunk for
         // every user even though only flagged users can ever use it.
@@ -546,7 +546,7 @@ export type SuppressionReason = 'too_short' | 'substring' | null
 
 // Returns null when the partial should be treated as real user speech (barge in), or a
 // reason string when it should be suppressed as TTS bleed. Callers should emit the
-// reason to PostHog so we can measure misfire rate before tuning the heuristic.
+// reason to Txlemetry so we can measure misfire rate before tuning the heuristic.
 export function classifyPartial(spokenLower: string, partialLower: string): SuppressionReason {
     if (!partialLower) {
         return 'too_short'

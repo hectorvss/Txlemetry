@@ -53,7 +53,7 @@ export const endSessionTool = defineNativeTool({
 
 export const emitEventTool = defineNativeTool({
     id: '@posthog/meta-emit-event',
-    description: "Emit a structured event into the team's PostHog project.",
+    description: "Emit a structured event into the team's Txlemetry project.",
     args: Type.Object({
         event: Type.String(),
         distinct_id: Type.String(),

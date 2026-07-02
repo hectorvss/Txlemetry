@@ -145,7 +145,7 @@ export const billingJson: BillingType = {
                             key: 'subscriptions',
                             name: 'Insight & dashboard subscriptions',
                             description:
-                                'Create a subscription for any insight or dashboard in PostHog to receive regular reports with their updates.',
+                                'Create a subscription for any insight or dashboard in Txlemetry to receive regular reports with their updates.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -600,7 +600,7 @@ export const billingJson: BillingType = {
                     key: 'subscriptions',
                     name: 'Insight & dashboard subscriptions',
                     description:
-                        'Create a subscription for any insight or dashboard in PostHog to receive regular reports with their updates.',
+                        'Create a subscription for any insight or dashboard in Txlemetry to receive regular reports with their updates.',
                     images: null,
                     icon_key: 'IconNotification',
                     type: 'secondary',
@@ -665,7 +665,7 @@ export const billingJson: BillingType = {
                     key: 'autocapture',
                     name: 'Autocapture',
                     description:
-                        'Add PostHog.js to your website or web app to track all event data and retroactively define events.',
+                        'Add Txlemetry.js to your website or web app to track all event data and retroactively define events.',
                     images: null,
                     icon_key: 'IconBolt',
                     type: 'secondary',
@@ -682,7 +682,7 @@ export const billingJson: BillingType = {
                     key: 'product_analytics_sql_queries',
                     name: 'Query with SQL',
                     description:
-                        'Use PostHog’s filtering interface or switch into SQL mode for more powerful querying.',
+                        'Use Txlemetry’s filtering interface or switch into SQL mode for more powerful querying.',
                     images: null,
                     icon_key: 'IconTerminal',
                     type: 'secondary',
@@ -1437,7 +1437,7 @@ export const billingJson: BillingType = {
                 {
                     key: 'works_with_posthog_js',
                     name: 'Capture sessions without extra code',
-                    description: 'Works with PostHog.js',
+                    description: 'Works with Txlemetry.js',
                     images: null,
                     icon_key: 'IconBolt',
                     type: 'secondary',
@@ -2104,7 +2104,7 @@ export const billingJson: BillingType = {
                             key: 'surveys_api_mode',
                             name: 'API mode',
                             description:
-                                'Using PostHog.js? No more code required. But if want to create your own UI, we have a full API.',
+                                'Using Txlemetry.js? No more code required. But if want to create your own UI, we have a full API.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2217,7 +2217,7 @@ export const billingJson: BillingType = {
                             key: 'surveys_api_mode',
                             name: 'API mode',
                             description:
-                                'Using PostHog.js? No more code required. But if want to create your own UI, we have a full API.',
+                                'Using Txlemetry.js? No more code required. But if want to create your own UI, we have a full API.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2413,7 +2413,7 @@ export const billingJson: BillingType = {
                     key: 'surveys_api_mode',
                     name: 'API mode',
                     description:
-                        'Using PostHog.js? No more code required. But if want to create your own UI, we have a full API.',
+                        'Using Txlemetry.js? No more code required. But if want to create your own UI, we have a full API.',
                     images: {
                         light: 'https://posthog.com/images/products/surveys/api.png',
                         dark: 'https://posthog.com/images/products/surveys/api-dark.png',
@@ -2482,7 +2482,7 @@ export const billingJson: BillingType = {
         {
             name: 'Integrations',
             headline: null,
-            description: 'Connect PostHog to your favorite tools.',
+            description: 'Connect Txlemetry to your favorite tools.',
             price_description: null,
             usage_key: null,
             image_url: 'https://posthog.com/images/product/product-icons/integrations.svg',
@@ -2495,7 +2495,7 @@ export const billingJson: BillingType = {
                     plan_key: 'free-20230117',
                     product_key: 'integrations',
                     name: 'Free',
-                    description: 'Connect PostHog to your favorite tools.',
+                    description: 'Connect Txlemetry to your favorite tools.',
                     image_url: 'https://posthog.com/images/product/product-icons/integrations.svg',
                     docs_url: 'https://posthog.com/docs/cdp',
                     note: null,
@@ -2507,7 +2507,7 @@ export const billingJson: BillingType = {
                             key: 'zapier',
                             name: 'Zapier',
                             description:
-                                'Zapier lets you connect PostHog with thousands of the most popular apps, so you can automate your work and have more time for what matters most—no code required.',
+                                'Zapier lets you connect Txlemetry with thousands of the most popular apps, so you can automate your work and have more time for what matters most—no code required.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2556,7 +2556,7 @@ export const billingJson: BillingType = {
                     plan_key: 'paid-20230117',
                     product_key: 'integrations',
                     name: 'Paid',
-                    description: 'Connect PostHog to your favorite tools.',
+                    description: 'Connect Txlemetry to your favorite tools.',
                     image_url: 'https://posthog.com/images/product/product-icons/integrations.svg',
                     docs_url: 'https://posthog.com/docs/cdp',
                     note: null,
@@ -2568,7 +2568,7 @@ export const billingJson: BillingType = {
                             key: 'zapier',
                             name: 'Zapier',
                             description:
-                                'Zapier lets you connect PostHog with thousands of the most popular apps, so you can automate your work and have more time for what matters most—no code required.',
+                                'Zapier lets you connect Txlemetry with thousands of the most popular apps, so you can automate your work and have more time for what matters most—no code required.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2682,7 +2682,7 @@ export const billingJson: BillingType = {
                     key: 'zapier',
                     name: 'Zapier',
                     description:
-                        'Zapier lets you connect PostHog with thousands of the most popular apps, so you can automate your work and have more time for what matters most—no code required.',
+                        'Zapier lets you connect Txlemetry with thousands of the most popular apps, so you can automate your work and have more time for what matters most—no code required.',
                     images: null,
                     icon_key: null,
                     type: null,
@@ -2733,7 +2733,7 @@ export const billingJson: BillingType = {
                         {
                             key: 'team_members',
                             name: 'Team members',
-                            description: "PostHog doesn't charge per seat add your entire team!",
+                            description: "Txlemetry doesn't charge per seat add your entire team!",
                             unit: null,
                             limit: null,
                             note: 'Unlimited',
@@ -2758,7 +2758,7 @@ export const billingJson: BillingType = {
                         {
                             key: 'social_sso',
                             name: 'SSO via Google, Github, or Gitlab',
-                            description: 'Log in to PostHog with your Google, Github, or Gitlab account.',
+                            description: 'Log in to Txlemetry with your Google, Github, or Gitlab account.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2766,7 +2766,7 @@ export const billingJson: BillingType = {
                         {
                             key: 'community_support',
                             name: 'Community support',
-                            description: 'Get help from other users and PostHog team members in our Community forums.',
+                            description: 'Get help from other users and Txlemetry team members in our Community forums.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2774,7 +2774,7 @@ export const billingJson: BillingType = {
                         {
                             key: '2fa',
                             name: '2FA',
-                            description: 'Secure your PostHog account with two-factor authentication.',
+                            description: 'Secure your Txlemetry account with two-factor authentication.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2809,7 +2809,7 @@ export const billingJson: BillingType = {
                         {
                             key: 'team_members',
                             name: 'Team members',
-                            description: "PostHog doesn't charge per seat add your entire team!",
+                            description: "Txlemetry doesn't charge per seat add your entire team!",
                             unit: null,
                             limit: null,
                             note: 'Unlimited',
@@ -2834,7 +2834,7 @@ export const billingJson: BillingType = {
                         {
                             key: 'social_sso',
                             name: 'SSO via Google, Github, or Gitlab',
-                            description: 'Log in to PostHog with your Google, Github, or Gitlab account.',
+                            description: 'Log in to Txlemetry with your Google, Github, or Gitlab account.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2842,7 +2842,7 @@ export const billingJson: BillingType = {
                         {
                             key: 'community_support',
                             name: 'Community support',
-                            description: 'Get help from other users and PostHog team members in our Community forums.',
+                            description: 'Get help from other users and Txlemetry team members in our Community forums.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2851,7 +2851,7 @@ export const billingJson: BillingType = {
                             key: 'dedicated_support',
                             name: 'Dedicated account manager',
                             description:
-                                'Work with a dedicated account manager via Slack or email to help you get the most out of PostHog.',
+                                'Work with a dedicated account manager via Slack or email to help you get the most out of Txlemetry.',
                             unit: null,
                             limit: null,
                             note: '$2k+/month spend',
@@ -2868,7 +2868,7 @@ export const billingJson: BillingType = {
                         {
                             key: '2fa',
                             name: '2FA',
-                            description: 'Secure your PostHog account with two-factor authentication.',
+                            description: 'Secure your Txlemetry account with two-factor authentication.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2895,7 +2895,7 @@ export const billingJson: BillingType = {
                         {
                             key: 'team_members',
                             name: 'Team members',
-                            description: "PostHog doesn't charge per seat add your entire team!",
+                            description: "Txlemetry doesn't charge per seat add your entire team!",
                             unit: null,
                             limit: null,
                             note: 'Unlimited',
@@ -2946,7 +2946,7 @@ export const billingJson: BillingType = {
                         {
                             key: 'social_sso',
                             name: 'SSO via Google, Github, or Gitlab',
-                            description: 'Log in to PostHog with your Google, Github, or Gitlab account.',
+                            description: 'Log in to Txlemetry with your Google, Github, or Gitlab account.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2955,7 +2955,7 @@ export const billingJson: BillingType = {
                             key: 'sso_enforcement',
                             name: 'Enforce SSO login',
                             description:
-                                'Users can only sign up and log in to your PostHog organization with your specified SSO provider.',
+                                'Users can only sign up and log in to your Txlemetry organization with your specified SSO provider.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -2971,7 +2971,7 @@ export const billingJson: BillingType = {
                         {
                             key: '2fa',
                             name: '2FA',
-                            description: 'Secure your PostHog account with two-factor authentication.',
+                            description: 'Secure your Txlemetry account with two-factor authentication.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -3015,7 +3015,7 @@ export const billingJson: BillingType = {
                             key: 'audit_logs',
                             name: 'Audit logs',
                             description:
-                                'See who in your organization has accessed or modified entities within PostHog.',
+                                'See who in your organization has accessed or modified entities within Txlemetry.',
                             unit: null,
                             limit: null,
                             note: 'Advanced',
@@ -3024,7 +3024,7 @@ export const billingJson: BillingType = {
                             key: 'hipaa_baa',
                             name: 'HIPAA BAA',
                             description:
-                                'Get a signed HIPAA Business Associate Agreement (BAA) to use PostHog in a HIPAA-compliant manner.',
+                                'Get a signed HIPAA Business Associate Agreement (BAA) to use Txlemetry in a HIPAA-compliant manner.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -3033,7 +3033,7 @@ export const billingJson: BillingType = {
                             key: 'custom_msa',
                             name: 'Custom MSA',
                             description:
-                                "Get a custom Master Services Agreement (MSA) to use PostHog in a way that fits your company's needs.",
+                                "Get a custom Master Services Agreement (MSA) to use Txlemetry in a way that fits your company's needs.",
                             unit: null,
                             limit: null,
                             note: null,
@@ -3041,7 +3041,7 @@ export const billingJson: BillingType = {
                         {
                             key: 'community_support',
                             name: 'Community support',
-                            description: 'Get help from other users and PostHog team members in our Community forums.',
+                            description: 'Get help from other users and Txlemetry team members in our Community forums.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -3059,7 +3059,7 @@ export const billingJson: BillingType = {
                             key: 'dedicated_support',
                             name: 'Dedicated account manager',
                             description:
-                                'Work with a dedicated account manager via Slack or email to help you get the most out of PostHog.',
+                                'Work with a dedicated account manager via Slack or email to help you get the most out of Txlemetry.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -3084,7 +3084,7 @@ export const billingJson: BillingType = {
                             key: 'training',
                             name: 'Ongoing training',
                             description:
-                                'Get training from our team to help you quickly get up and running with PostHog.',
+                                'Get training from our team to help you quickly get up and running with Txlemetry.',
                             unit: null,
                             limit: null,
                             note: null,
@@ -3139,7 +3139,7 @@ export const billingJson: BillingType = {
                 {
                     key: 'team_members',
                     name: 'Team members',
-                    description: "PostHog doesn't charge per seat add your entire team!",
+                    description: "Txlemetry doesn't charge per seat add your entire team!",
                     images: null,
                     icon_key: null,
                     type: null,
@@ -3164,7 +3164,7 @@ export const billingJson: BillingType = {
                 {
                     key: 'social_sso',
                     name: 'SSO via Google, Github, or Gitlab',
-                    description: 'Log in to PostHog with your Google, Github, or Gitlab account.',
+                    description: 'Log in to Txlemetry with your Google, Github, or Gitlab account.',
                     images: null,
                     icon_key: null,
                     type: null,
@@ -3206,7 +3206,7 @@ export const billingJson: BillingType = {
                     key: 'sso_enforcement',
                     name: 'Enforce SSO login',
                     description:
-                        'Users can only sign up and log in to your PostHog organization with your specified SSO provider.',
+                        'Users can only sign up and log in to your Txlemetry organization with your specified SSO provider.',
                     images: null,
                     icon_key: null,
                     type: null,
@@ -3214,7 +3214,7 @@ export const billingJson: BillingType = {
                 {
                     key: '2fa',
                     name: '2FA',
-                    description: 'Secure your PostHog account with two-factor authentication.',
+                    description: 'Secure your Txlemetry account with two-factor authentication.',
                     images: null,
                     icon_key: null,
                     type: null,
@@ -3238,7 +3238,7 @@ export const billingJson: BillingType = {
                 {
                     key: 'community_support',
                     name: 'Community support',
-                    description: 'Get help from other users and PostHog team members in our Community forums.',
+                    description: 'Get help from other users and Txlemetry team members in our Community forums.',
                     images: null,
                     icon_key: null,
                     type: null,
@@ -3247,7 +3247,7 @@ export const billingJson: BillingType = {
                     key: 'dedicated_support',
                     name: 'Dedicated account manager',
                     description:
-                        'Work with a dedicated account manager via Slack or email to help you get the most out of PostHog.',
+                        'Work with a dedicated account manager via Slack or email to help you get the most out of Txlemetry.',
                     images: null,
                     icon_key: null,
                     type: null,
@@ -3272,7 +3272,7 @@ export const billingJson: BillingType = {
                 {
                     key: 'training',
                     name: 'Ongoing training',
-                    description: 'Get training from our team to help you quickly get up and running with PostHog.',
+                    description: 'Get training from our team to help you quickly get up and running with Txlemetry.',
                     images: null,
                     icon_key: null,
                     type: null,
@@ -3313,7 +3313,7 @@ export const billingJson: BillingType = {
                 {
                     key: 'invoice_payments',
                     name: 'Payment via invoicing',
-                    description: 'Pay for your PostHog subscription via invoice.',
+                    description: 'Pay for your Txlemetry subscription via invoice.',
                     images: null,
                     icon_key: null,
                     type: null,
@@ -3329,7 +3329,7 @@ export const billingJson: BillingType = {
                 {
                     key: 'audit_logs',
                     name: 'Audit logs',
-                    description: 'See who in your organization has accessed or modified entities within PostHog.',
+                    description: 'See who in your organization has accessed or modified entities within Txlemetry.',
                     images: null,
                     icon_key: null,
                     type: null,
@@ -3338,7 +3338,7 @@ export const billingJson: BillingType = {
                     key: 'hipaa_baa',
                     name: 'HIPAA BAA',
                     description:
-                        'Get a signed HIPAA Business Associate Agreement (BAA) to use PostHog in a HIPAA-compliant manner.',
+                        'Get a signed HIPAA Business Associate Agreement (BAA) to use Txlemetry in a HIPAA-compliant manner.',
                     images: null,
                     icon_key: null,
                     type: null,
@@ -3347,7 +3347,7 @@ export const billingJson: BillingType = {
                     key: 'custom_msa',
                     name: 'Custom MSA',
                     description:
-                        "Get a custom Master Services Agreement (MSA) to use PostHog in a way that fits your company's needs.",
+                        "Get a custom Master Services Agreement (MSA) to use Txlemetry in a way that fits your company's needs.",
                     images: null,
                     icon_key: null,
                     type: null,

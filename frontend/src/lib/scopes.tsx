@@ -25,7 +25,7 @@ export const API_SCOPES: APIScope[] = [
         key: 'agent_approvals',
         objectName: 'Agent approval',
         objectPlural: 'agent approvals',
-        info: 'Grants the ability to approve or reject queued agent tool-approval requests on behalf of the consenting user, including requests whose spec sets `allow_agent_approver: false` (human-only). Only grant this to OAuth clients that put a human in the loop at decide time, like the PostHog Code desktop app.',
+        info: 'Grants the ability to approve or reject queued agent tool-approval requests on behalf of the consenting user, including requests whose spec sets `allow_agent_approver: false` (human-only). Only grant this to OAuth clients that put a human in the loop at decide time, like the Txlemetry Code desktop app.',
         disabledActions: ['read'],
     },
     { key: 'alert', objectName: 'Alert', objectPlural: 'alerts' },
@@ -275,7 +275,7 @@ export const PROJECT_SECRET_API_KEY_SCOPE_PRESETS: ProjectSecretAPIKeyScopePrese
 
 export const DEFAULT_OAUTH_SCOPES = ['openid', 'email', 'profile']
 
-// Scopes required by the PostHog MCP server (https://mcp.posthog.com)
+// Scopes required by the Txlemetry MCP server (https://mcp.posthog.com)
 // These match the scopes_supported in the MCP server's OAuth protected resource metadata
 export const MCP_SERVER_OAUTH_SCOPES = [
     'openid',
@@ -307,7 +307,7 @@ export const MCP_SERVER_OAUTH_SCOPES = [
 
 export const getScopeDescription = (scope: string): string | undefined => {
     if (scope === '*') {
-        return 'Read and write access to all PostHog data'
+        return 'Read and write access to all Txlemetry data'
     }
 
     if (scope === 'openid') {

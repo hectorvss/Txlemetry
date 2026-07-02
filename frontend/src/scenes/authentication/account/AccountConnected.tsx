@@ -92,7 +92,7 @@ export const scene: SceneExport<AccountConnectedProps> = {
 }
 
 /**
- * Unified return page for PostHog Code / web: social SSO link (`github-login`), personal GitHub
+ * Unified return page for Txlemetry Code / web: social SSO link (`github-login`), personal GitHub
  * integration (`github-integration`), or team Slack integration (`slack-integration`). Navigates
  * to the matching `posthog-code://…` deep link so the desktop app refreshes its integrations —
  * except when started from Slack (`connect_from=slack`), where it shows a terminal success state
@@ -109,7 +109,7 @@ export function AccountConnected({ kind }: AccountConnectedProps): JSX.Element {
     const errorCode = getGithubSetupErrorCode(searchParams)
     const isError = errorCode.length > 0
     // The Slack flow has no deep link back — the user just returns to Slack themselves, so we only
-    // show the success state. PostHog Code refreshes its integrations via a desktop deep link.
+    // show the success state. Txlemetry Code refreshes its integrations via a desktop deep link.
     const startedFromSlack = searchParams.connect_from === 'slack'
     // Allowlist-style check — `paramsToProps` is expected to map unknown kinds to `'invalid'`,
     // but guarding directly against the valid set means a route mismatch (e.g. project-prefix
@@ -127,7 +127,7 @@ export function AccountConnected({ kind }: AccountConnectedProps): JSX.Element {
             <BridgePage view="account-connected">
                 <div className="flex flex-col items-center gap-4 text-center max-w-lg mx-auto">
                     <p className="text-muted mb-0">
-                        This link is not valid. Return to PostHog from the product you started from.
+                        This link is not valid. Return to Txlemetry from the product you started from.
                     </p>
                 </div>
             </BridgePage>
@@ -145,7 +145,7 @@ export function AccountConnected({ kind }: AccountConnectedProps): JSX.Element {
                     <IconCheckCircle className="text-success text-5xl shrink-0" />
                 )}
                 <h2 className="text-xl font-semibold m-0">{headline(kind, label, isError)}</h2>
-                {showLoginLine && <p className="text-muted mb-0">You can now log into PostHog using {label}.</p>}
+                {showLoginLine && <p className="text-muted mb-0">You can now log into Txlemetry using {label}.</p>}
                 {startedFromSlack ? (
                     <p className="text-muted mb-0">
                         {isError
@@ -154,9 +154,9 @@ export function AccountConnected({ kind }: AccountConnectedProps): JSX.Element {
                     </p>
                 ) : (
                     <p className="text-muted mb-0">
-                        <strong>Returning to PostHog Code…</strong>
+                        <strong>Returning to Txlemetry Code…</strong>
                         <br />
-                        <em>If this hasn't happened automatically, get back to the PostHog Code app manually.</em>
+                        <em>If this hasn't happened automatically, get back to the Txlemetry Code app manually.</em>
                     </p>
                 )}
             </div>

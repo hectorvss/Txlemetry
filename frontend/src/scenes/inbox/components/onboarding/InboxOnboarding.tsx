@@ -72,7 +72,7 @@ function Hero(): JSX.Element {
                 <strong>Scouts and Signal Sources identify product issues and opportunities</strong>. Bugs in error
                 tracking, users expressing their needs in Slack, and more.
                 <br />
-                <strong>PostHog then ships quality PRs for you to merge.</strong> Prioritized by impact, assigned to
+                <strong>Txlemetry then ships quality PRs for you to merge.</strong> Prioritized by impact, assigned to
                 relevant team members. <u>The work lands right here in your Inbox.</u>
             </p>
         </div>

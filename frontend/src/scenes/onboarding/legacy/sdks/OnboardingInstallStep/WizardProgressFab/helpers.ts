@@ -24,13 +24,13 @@ export function simulatedTaskFraction(startedAtMs: number | undefined, nowMs: nu
 export function headlineFor(state: DisplayState): string {
     switch (state) {
         case 'completed':
-            return 'PostHog is set up'
+            return 'Txlemetry is set up'
         case 'error':
             return 'Wizard hit a snag'
         case 'connecting':
             return 'Reconnecting…'
         default:
-            return 'PostHog is being installed'
+            return 'Txlemetry is being installed'
     }
 }
 

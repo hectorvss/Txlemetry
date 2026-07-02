@@ -62,7 +62,7 @@ export function PostHogLogo({
             viewBox={viewBox}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            aria-label="PostHog logo"
+            aria-label="Txlemetry logo"
             role="img"
         >
             {variant === 'gradient' && <GradientLogomark uid={uid} clipId={clipId} solid={solid} />}

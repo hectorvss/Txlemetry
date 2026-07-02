@@ -63,7 +63,7 @@ export const DATA_WAREHOUSE_SOURCE_ICON_MAP: Record<string, string> = {
     'cloudflare-r2': IconCloudflare,
     azure: Iconazure,
     BlushingHog: BlushingHog, // fallback, we don't know what this is
-    PostHog: IconPostHog,
+    Txlemetry: IconPostHog,
 }
 
 export const DATA_WAREHOUSE_SOURCE_ICON_COMPONENT_MAP: Record<string, JSX.Element> = {

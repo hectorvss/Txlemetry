@@ -365,7 +365,7 @@ function EditSubscriptionForm({
                                         <code>{window.location.origin}</code>
                                     </b>
                                     . <br />
-                                    If this value is not configured correctly PostHog may be unable to correctly send
+                                    If this value is not configured correctly Txlemetry may be unable to correctly send
                                     Subscriptions.{' '}
                                     <Link
                                         to="https://posthog.com/docs/configuring-posthog/environment-variables?utm_medium=in-product&utm_campaign=subcriptions-system-status-site-url-misconfig"
@@ -450,7 +450,7 @@ function EditSubscriptionForm({
                                 {emailDisabled && (
                                     <LemonBanner type="error">
                                         <>
-                                            Email subscriptions are not currently possible as this PostHog instance
+                                            Email subscriptions are not currently possible as this Txlemetry instance
                                             isn't{' '}
                                             <Link
                                                 to="https://posthog.com/docs/self-host/configure/email"
@@ -524,7 +524,7 @@ function EditSubscriptionForm({
                                                             to="https://posthog.com/docs/webhooks/slack"
                                                             target="_blank"
                                                         >
-                                                            added the PostHog Slack App
+                                                            added the Txlemetry Slack App
                                                         </Link>{' '}
                                                         to them. You can also paste the channel ID (e.g.{' '}
                                                         <code>C1234567890</code>) to search for channels.

@@ -283,7 +283,7 @@ export const OAuthAuthorize = (): JSX.Element => {
                     <div className="flex items-center gap-2 p-3 mb-4 bg-warning-highlight border border-warning rounded text-sm">
                         <IconWarning className="text-warning shrink-0" />
                         <span>
-                            <strong>Unverified application.</strong> This application has not been verified by PostHog.
+                            <strong>Unverified application.</strong> This application has not been verified by Txlemetry.
                             Only continue if you recognize and trust this application.
                         </span>
                     </div>

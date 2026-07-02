@@ -286,7 +286,7 @@ export function SDKInstallFlutterTrackScreenInstructions(): JSX.Element {
         <>
             <p>
                 With the <Link to="https://posthog.com/docs/libraries/flutter#example">PosthogObserver</Link> Observer,
-                PostHog will try to record all screen changes automatically.
+                Txlemetry will try to record all screen changes automatically.
             </p>
             <p>
                 If you want to manually send a new screen capture event, use the <code>screen</code> function.

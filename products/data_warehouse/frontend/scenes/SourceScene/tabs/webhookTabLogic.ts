@@ -295,8 +295,8 @@ export const webhookTabLogic = kea<webhookTabLogicType>([
                 if (result.success) {
                     lemonToast.success(
                         result.external_deleted
-                            ? 'Webhook deleted from source and PostHog'
-                            : 'Webhook deleted from PostHog'
+                            ? 'Webhook deleted from source and Txlemetry'
+                            : 'Webhook deleted from Txlemetry'
                     )
                     if (result.error) {
                         lemonToast.warning(result.error)

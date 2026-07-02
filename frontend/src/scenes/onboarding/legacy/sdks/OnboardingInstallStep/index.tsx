@@ -35,7 +35,7 @@ interface OnboardingInstallStepProps {
 
 /**
  * Onboarding install step — wizard-centered layout for non-Logs products, bare
- * SDK grid for Logs (which uses OpenTelemetry, not the PostHog JS wizard).
+ * SDK grid for Logs (which uses OpenTelemetry, not the Txlemetry JS wizard).
  */
 export const OnboardingInstallStep: OnboardingStepComponentType<OnboardingInstallStepProps> = ({
     sdkInstructionMap,
@@ -67,7 +67,7 @@ export const OnboardingInstallStep: OnboardingStepComponentType<OnboardingInstal
 
     const isLogsProduct = currentStepProductKey === ProductKey.LOGS
 
-    // Both gates required: the flag controls enrollment (targeted in PostHog),
+    // Both gates required: the flag controls enrollment (targeted in Txlemetry),
     // isMobile() is the hard guarantee the mobile UI never appears on desktop.
     const isMobileHandoffTest = useFeatureFlag('ONBOARDING_MOBILE_INSTALL_HELPER', 'test')
     const showMobileHandoff = isMobileHandoffTest && isMobile() && !mobileHandoffDismissed
@@ -163,7 +163,7 @@ export const OnboardingInstallStep: OnboardingStepComponentType<OnboardingInstal
         return <WizardInstallStep {...variantProps} />
     }
 
-    // Logs: bare SDK grid — OpenTelemetry, not the PostHog JS wizard.
+    // Logs: bare SDK grid — OpenTelemetry, not the Txlemetry JS wizard.
     return (
         <OnboardingStep
             title={installTitle}

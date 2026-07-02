@@ -13,7 +13,7 @@ function openJoinExistingOrgDialog(): void {
                 </div>
                 <h2 className="text-xl font-bold mb-2">You'll need your invite link to join</h2>
                 <p className="text-secondary mb-2">
-                    When a teammate invites you to a PostHog organization, we email you a personal invite link. You can
+                    When a teammate invites you to a Txlemetry organization, we email you a personal invite link. You can
                     only join the existing organization by opening that email and clicking the link.
                 </p>
                 <p className="text-secondary text-sm mb-0">

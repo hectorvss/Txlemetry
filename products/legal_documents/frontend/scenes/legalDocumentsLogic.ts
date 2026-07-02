@@ -172,7 +172,7 @@ export const legalDocumentsLogic = kea<legalDocumentsLogicType>([
                 // detail so the user knows to retry rather than assuming success.
                 lemonToast.error(
                     error?.detail ||
-                        `Could not delete the ${documentType}. Please try again, or contact PostHog support.`
+                        `Could not delete the ${documentType}. Please try again, or contact Txlemetry support.`
                 )
             } finally {
                 actions.setDeletingId(null)

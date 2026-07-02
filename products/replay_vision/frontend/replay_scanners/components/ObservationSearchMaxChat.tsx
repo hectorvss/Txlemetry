@@ -23,7 +23,7 @@ function exampleQuestion(scannerType?: string): string {
     }
 }
 
-/** PostHog AI entry point for any scanner type — lets the user search this scanner's observations by the meaning of their model reasoning. */
+/** Txlemetry AI entry point for any scanner type — lets the user search this scanner's observations by the meaning of their model reasoning. */
 export function ObservationSearchMaxChat({ scannerId }: { scannerId: string }): JSX.Element | null {
     const { scanner } = useValues(replayScannerLogic({ id: scannerId }))
     const example = exampleQuestion(scanner?.scanner_type)
@@ -49,7 +49,7 @@ export function ObservationSearchMaxChat({ scannerId }: { scannerId: string }): 
             <div>
                 <h3 className="text-base font-semibold mb-1">Chat about these sessions</h3>
                 <p className="text-sm text-muted m-0">
-                    Ask PostHog AI about this scanner's sessions and results. For example, "{example}"
+                    Ask Txlemetry AI about this scanner's sessions and results. For example, "{example}"
                 </p>
             </div>
             <LemonButton
@@ -59,7 +59,7 @@ export function ObservationSearchMaxChat({ scannerId }: { scannerId: string }): 
                 className="shrink-0"
                 data-attr="vision-scanner-search-ai"
             >
-                Ask PostHog AI
+                Ask Txlemetry AI
             </LemonButton>
         </div>
     )

@@ -189,7 +189,7 @@ export function InboxScene(): JSX.Element {
                     name="Inbox"
                     // The takeover's hero carries its own headline + pitch, so the scene description
                     // would be redundant there; keep it for the normal/banner states.
-                    description="Self-driving for your product. Look through work done by PostHog agents – code changes and reports."
+                    description="Self-driving for your product. Look through work done by Txlemetry agents – code changes and reports."
                     resourceType={{ type: 'inbox' }}
                     actions={
                         isDev ? (

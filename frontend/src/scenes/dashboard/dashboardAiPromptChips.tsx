@@ -32,7 +32,7 @@ export function DashboardAiPromptChips({
     dataAttrPrefix,
     className,
     maxChips,
-    description = 'Pick a topic below. PostHog AI does the work so you can look at the data you care about quickly.',
+    description = 'Pick a topic below. Txlemetry AI does the work so you can look at the data you care about quickly.',
 }: DashboardAiPromptChipsProps): JSX.Element {
     const { reportDashboardEmptyAiPromptClicked } = useActions(eventUsageLogic)
 
@@ -43,7 +43,7 @@ export function DashboardAiPromptChips({
             <div className="rounded-xl border-2 border-[var(--color-ai)] bg-bg-surface-primary p-4">
                 <div className="flex items-center gap-2 mb-1">
                     <IconSparkles className="text-ai size-4 shrink-0" />
-                    <span className="text-sm font-semibold">Try PostHog AI</span>
+                    <span className="text-sm font-semibold">Try Txlemetry AI</span>
                 </div>
                 <p className="text-sm text-secondary m-0 mb-3">{description}</p>
                 <div className="flex flex-wrap gap-2">

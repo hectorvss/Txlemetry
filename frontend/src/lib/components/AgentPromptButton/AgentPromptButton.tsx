@@ -103,14 +103,14 @@ function openDeepLink(buildDeepLink: (prompt: string) => string): (prompt: strin
 const AGENTS: AgentDef[] = [
     {
         key: 'posthog-ai',
-        name: 'PostHog AI',
+        name: 'Txlemetry AI',
         logo: <IconSparkles className="size-4 shrink-0 text-ai" />,
         verb: 'Open',
         open: (prompt, { askSidePanelMax }) => askSidePanelMax(prompt),
     },
     {
         key: 'posthog-code',
-        name: 'PostHog Code',
+        name: 'Txlemetry Code',
         logo: <IconLogomark className="size-4 shrink-0" />,
         verb: 'Open',
         open: openDeepLink((p) => `posthog-code://new?prompt=${encodeURIComponent(p)}`),

@@ -22,7 +22,7 @@ import {
     type ToolRendererProps,
 } from 'products/posthog_ai/frontend/api/tools'
 
-// Product-specific tool-call renderers for the PostHog AI agent run surface. These render PostHog
+// Product-specific tool-call renderers for the Txlemetry AI agent run surface. These render Txlemetry
 // product entities (insights, dashboards, recordings, error-tracking issues, notebooks, query results)
 // and therefore live in scenes/max — the shared `toolRegistry` must not import them. Importing
 // this module (done once by the Max scene, see Thread.tsx) registers them into the shared registry so

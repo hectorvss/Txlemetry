@@ -6,9 +6,9 @@ import { preflightLogic } from 'scenes/PreflightCheck/preflightLogic'
 import { Region, SLACK_INTEGRATION_SCOPES, SLACK_INTEGRATION_SCOPES_IN_REVIEW } from '~/types'
 
 /**
- * Required Slack OAuth scopes for the current PostHog instance.
+ * Required Slack OAuth scopes for the current Txlemetry instance.
  *
- * On the DEV instance and local dev the PostHog Slack app manifest lists the in-review
+ * On the DEV instance and local dev the Txlemetry Slack app manifest lists the in-review
  * scopes, so we both request them at install and compare against them here. Anywhere
  * else (US / EU / self-hosted) Slack rejects them as ``invalid_scope`` so we stay on
  * the always-on list.

@@ -36,7 +36,7 @@ import { sidePanelStateLogic } from './sidePanelStateLogic'
 
 export const SIDE_PANEL_TABS: Record<SidePanelTab, { label: string; Icon: any; Content: any }> = {
     [SidePanelTab.Max]: {
-        label: 'PostHog AI',
+        label: 'Txlemetry AI',
         Icon: IconLogomark,
         Content: SidePanelMax,
     },

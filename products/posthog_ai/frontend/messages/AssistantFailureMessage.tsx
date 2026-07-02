@@ -3,7 +3,7 @@ import React from 'react'
 import { MarkdownMessage } from './MarkdownMessage'
 import { MessageTemplate } from './MessageTemplate'
 
-const DEFAULT_FAILURE_MESSAGE = '*PostHog AI has failed to generate an answer. Please try again.*'
+const DEFAULT_FAILURE_MESSAGE = '*Txlemetry AI has failed to generate an answer. Please try again.*'
 
 export interface AssistantFailureMessageProps {
     id: string

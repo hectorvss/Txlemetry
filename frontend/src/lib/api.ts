@@ -2139,7 +2139,7 @@ function oauthAuthHeaders(url: string): Record<string, string> {
 }
 
 /**
- * PostHog session/distinct tracing headers. Omitted in OAuth mode because the cross-origin CORS
+ * Txlemetry session/distinct tracing headers. Omitted in OAuth mode because the cross-origin CORS
  * allowlist (CORS_ALLOWED_TRACING_HEADERS) doesn't include them, so a preflight would fail —
  * they're debugging aids, not functionally required.
  */
@@ -2189,7 +2189,7 @@ function getDistinctId(): string | undefined {
 
 // TEMPORARY DEBUG — remove once livestream 401 root cause is identified.
 // Decodes the (unverified) JWT payload from an Authorization header and captures
-// a PostHog event so we can aggregate which claim shape is causing 401s. Sensitive
+// a Txlemetry event so we can aggregate which claim shape is causing 401s. Sensitive
 // fields are masked.
 function captureLivestream401Debug(url: string, authHeader: string | undefined, serverErrorData: any): void {
     try {

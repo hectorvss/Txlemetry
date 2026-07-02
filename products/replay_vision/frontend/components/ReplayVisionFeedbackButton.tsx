@@ -4,7 +4,7 @@ import posthog from 'lib/posthog-typed'
 
 /**
  * Feedback button for the Replay vision product. Clicking it captures the `replay_vision_feedback_clicked`
- * event, which triggers the Replay vision feedback survey (a popover) configured in PostHog.
+ * event, which triggers the Replay vision feedback survey (a popover) configured in Txlemetry.
  */
 export function ReplayVisionFeedbackButton({
     label = 'Feedback',

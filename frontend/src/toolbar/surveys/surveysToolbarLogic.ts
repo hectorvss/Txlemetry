@@ -677,7 +677,7 @@ export const surveysToolbarLogic = kea<surveysToolbarLogicType>([
             lemonToast.success(message, {
                 button: surveyUrl
                     ? {
-                          label: 'Open in PostHog',
+                          label: 'Open in Txlemetry',
                           action: () => window.open(surveyUrl, '_blank'),
                       }
                     : undefined,

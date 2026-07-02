@@ -34,7 +34,7 @@ export const MAX_SLASH_COMMANDS: SlashCommand[] = [
     {
         name: SlashCommandName.SlashRemember,
         arg: '[information]',
-        description: "Add [information] to PostHog AI's project-level memory",
+        description: "Add [information] to Txlemetry AI's project-level memory",
         icon: <IconMemory />,
         hiddenInSandbox: true,
     },
@@ -46,7 +46,7 @@ export const MAX_SLASH_COMMANDS: SlashCommand[] = [
     {
         name: SlashCommandName.SlashFeedback,
         arg: '[your feedback]',
-        description: 'Share feedback about your PostHog AI experience',
+        description: 'Share feedback about your Txlemetry AI experience',
         icon: <IconThumbsUp />,
     },
     {

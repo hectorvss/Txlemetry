@@ -57,7 +57,7 @@ export type ProductIntroductionProps = {
      */
     contentClassName?: string
     /**
-     * When set, renders an MCP use-case card below the actions, promoting the same product via PostHog MCP from
+     * When set, renders an MCP use-case card below the actions, promoting the same product via Txlemetry MCP from
      * the user's IDE. Auto-hides if the user has opted out of MCP hints.
      */
     mcpSurfaceKey?: SurfaceKey

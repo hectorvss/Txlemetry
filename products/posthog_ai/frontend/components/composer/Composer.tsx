@@ -17,7 +17,7 @@ import { LemonButton, LemonTextArea } from '@posthog/lemon-ui'
 import { cn } from 'lib/utils/css-classes'
 
 // Radix-style compound composer: a set of logic-free, presentational surfaces that reproduce the
-// PostHog AI input look (see scenes/max/components/QuestionInput.tsx) without any of its conversation
+// Txlemetry AI input look (see scenes/max/components/QuestionInput.tsx) without any of its conversation
 // logic. `Composer.Root` owns nothing but the controlled value/submit plumbing it's handed; every
 // other part is a styled slot that reads that plumbing from context. Consumers compose the parts and
 // own all state.
@@ -277,7 +277,7 @@ export interface ComposerTextareaProps {
     autoFocus?: boolean
     minRows?: number
     maxRows?: number
-    /** `'enter'` submits on Enter (PostHog AI), `'cmd-enter'` on Cmd/Ctrl+Enter (tasks composer). */
+    /** `'enter'` submits on Enter (Txlemetry AI), `'cmd-enter'` on Cmd/Ctrl+Enter (tasks composer). */
     submitShortcut?: 'enter' | 'cmd-enter'
     'data-attr'?: string
 }

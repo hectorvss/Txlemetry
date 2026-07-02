@@ -44,7 +44,7 @@ export function SDKInstallLaravelInstructions(): JSX.Element {
             <LaravelConfigSnippet />
             <h3>Configure</h3>
             <p>
-                Initialize PostHog in the <code>boot</code> method of <code>app/Providers/AppServiceProvider.php</code>
+                Initialize Txlemetry in the <code>boot</code> method of <code>app/Providers/AppServiceProvider.php</code>
             </p>
             <LaravelInstallSnippet />
         </>

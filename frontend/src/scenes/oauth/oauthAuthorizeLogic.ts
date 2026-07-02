@@ -31,7 +31,7 @@ const scopeObjectKey = (scope: string): string => (scope === '*' ? '*' : scope.s
 
 const toReadOnlyScope = (scope: string): string => (scope.endsWith(':write') ? `${scope.split(':')[0]}:read` : scope)
 
-const WILDCARD_READ_DESCRIPTION = 'Read access to all PostHog data'
+const WILDCARD_READ_DESCRIPTION = 'Read access to all Txlemetry data'
 
 // Required scopes are tracked per object at the action level that's required, so a
 // required `obj:read` still lets the read-only toggle downgrade an optional `obj:write`.

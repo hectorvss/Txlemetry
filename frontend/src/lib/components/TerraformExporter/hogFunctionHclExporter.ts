@@ -13,7 +13,7 @@ export interface HogFunctionHclExportOptions extends HclExportOptions {
 }
 
 /**
- * @see https://registry.terraform.io/providers/PostHog/posthog/latest/docs/resources/hog_function
+ * @see https://registry.terraform.io/providers/Txlemetry/posthog/latest/docs/resources/hog_function
  */
 const HOG_FUNCTION_FIELD_MAPPINGS: FieldMapping<Partial<HogFunctionType>, HogFunctionHclExportOptions>[] = [
     {

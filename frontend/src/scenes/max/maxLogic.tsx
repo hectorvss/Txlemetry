@@ -614,7 +614,7 @@ export const maxLogic = kea<maxLogicType>([
             }
         }
 
-        // If there is a prefill question from side panel state (from opening PostHog AI within the app), use it
+        // If there is a prefill question from side panel state (from opening Txlemetry AI within the app), use it
         if (
             !values.question &&
             sidePanelStateLogic.isMounted() &&
@@ -761,7 +761,7 @@ export const QUESTION_SUGGESTIONS_DATA: readonly SuggestionGroup[] = [
                 requiresUserInput: true,
             },
         ],
-        tooltip: 'PostHog AI can generate insights from natural language and tweak existing ones.',
+        tooltip: 'Txlemetry AI can generate insights from natural language and tweak existing ones.',
     },
     {
         label: 'SQL',
@@ -773,7 +773,7 @@ export const QUESTION_SUGGESTIONS_DATA: readonly SuggestionGroup[] = [
             },
         ],
         url: urls.sqlEditor(),
-        tooltip: 'PostHog AI can generate SQL queries for your PostHog data, both analytics and the data warehouse.',
+        tooltip: 'Txlemetry AI can generate SQL queries for your Txlemetry data, both analytics and the data warehouse.',
     },
     {
         label: 'Session replay',
@@ -785,7 +785,7 @@ export const QUESTION_SUGGESTIONS_DATA: readonly SuggestionGroup[] = [
             },
         ],
         url: productUrls.replay(),
-        tooltip: 'PostHog AI can find session recordings for you.',
+        tooltip: 'Txlemetry AI can find session recordings for you.',
     },
     {
         label: 'SDK setup',
@@ -820,7 +820,7 @@ export const QUESTION_SUGGESTIONS_DATA: readonly SuggestionGroup[] = [
                 requiresUserInput: true,
             },
         ],
-        tooltip: 'PostHog AI can help you set up PostHog SDKs in your stack.',
+        tooltip: 'Txlemetry AI can help you set up Txlemetry SDKs in your stack.',
     },
     {
         label: 'Feature flags',
@@ -884,7 +884,7 @@ export const QUESTION_SUGGESTIONS_DATA: readonly SuggestionGroup[] = [
             },
         ],
         url: urls.surveys(),
-        tooltip: 'PostHog AI can help you create surveys to collect feedback from your users.',
+        tooltip: 'Txlemetry AI can help you create surveys to collect feedback from your users.',
     },
     {
         label: 'Docs',
@@ -906,7 +906,7 @@ export const QUESTION_SUGGESTIONS_DATA: readonly SuggestionGroup[] = [
                 content: 'How can I capture an exception?',
             },
         ],
-        tooltip: 'PostHog AI has access to PostHog docs and can help you get the most out of PostHog.',
+        tooltip: 'Txlemetry AI has access to Txlemetry docs and can help you get the most out of Txlemetry.',
     },
 ]
 

@@ -17,7 +17,7 @@ import toolQualityQueryTemplate from '../backend/templates/tool_quality.sql?raw'
 import type { mcpAnalyticsToolQualityLogicType } from './mcpAnalyticsToolQualityLogicType'
 
 // `$mcp_tool_category` is stamped onto every $mcp_tool_call event by the producer
-// (PostHog's MCP server from its catalog; external servers via the SDK). We read
+// (Txlemetry's MCP server from its catalog; external servers via the SDK). We read
 // the available categories straight from the data so the scope selector works for
 // any project's taxonomy without a hardcoded tool→category map.
 const CATEGORIES_QUERY = hogql`

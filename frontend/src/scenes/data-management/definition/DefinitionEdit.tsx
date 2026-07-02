@@ -286,7 +286,7 @@ export function DefinitionEdit(props: DefinitionLogicProps): JSX.Element {
                                 }
                                 return (
                                     <div className="ph-ignore-input">
-                                        <LemonLabel info="This event has a built-in primary property that PostHog ships with — it can't be overridden on a per-team basis.">
+                                        <LemonLabel info="This event has a built-in primary property that Txlemetry ships with — it can't be overridden on a per-team basis.">
                                             Primary property
                                         </LemonLabel>
                                         <div
@@ -312,7 +312,7 @@ export function DefinitionEdit(props: DefinitionLogicProps): JSX.Element {
                                     <LemonField
                                         name="primary_property"
                                         label={
-                                            <LemonLabel info="When set, PostHog surfaces like the session replay inspector show this property's value alongside the event. Choose the single property that best summarizes each occurrence of the event.">
+                                            <LemonLabel info="When set, Txlemetry surfaces like the session replay inspector show this property's value alongside the event. Choose the single property that best summarizes each occurrence of the event.">
                                                 Primary property
                                             </LemonLabel>
                                         }
@@ -344,7 +344,7 @@ export function DefinitionEdit(props: DefinitionLogicProps): JSX.Element {
                         <SceneDivider />
                         <SceneSection
                             title="Access control"
-                            description="Control who can see this property's values, and who can edit them from the PostHog UI."
+                            description="Control who can see this property's values, and who can edit them from the Txlemetry UI."
                         >
                             <PayGateMini feature={AvailableFeature.PROPERTY_ACCESS_CONTROL}>
                                 <PropertyAccessControl

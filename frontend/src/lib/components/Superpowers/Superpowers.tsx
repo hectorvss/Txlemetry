@@ -104,7 +104,7 @@ function SuperpowersContent(): JSX.Element {
             <LemonDivider />
 
             <div>
-                <h3 className="font-semibold mb-2">PostHog status</h3>
+                <h3 className="font-semibold mb-2">Txlemetry status</h3>
                 <div className="space-y-2">
                     <div className="flex items-center justify-between p-2 border rounded">
                         <div>

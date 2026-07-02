@@ -61,7 +61,7 @@ export function WizardCommandBlock(): JSX.Element {
                 <img
                     key={`hog-${castKey}`}
                     src={WIZARD_HOG_URL}
-                    alt="PostHog wizard hedgehog"
+                    alt="Txlemetry wizard hedgehog"
                     className={cn(
                         'w-28 h-28 hidden sm:block shrink-0 self-center',
                         castKey > 0 && 'WizardCommandBlock__hogCast'

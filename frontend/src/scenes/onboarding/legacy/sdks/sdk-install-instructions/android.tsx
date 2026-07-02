@@ -77,7 +77,7 @@ export function SDKInstallAndroidTrackScreenInstructions(): JSX.Element {
     return (
         <>
             <p>
-                With <code>captureScreenViews = true</code>, PostHog will try to record all screen changes
+                With <code>captureScreenViews = true</code>, Txlemetry will try to record all screen changes
                 automatically.
             </p>
             <p>

@@ -305,7 +305,7 @@ const RecordingSummaryIcon = memo(function RecordingSummaryIcon({
             </Tooltip>
         )
     }
-    // AI summaries are PostHog Cloud only — hide the per-row trigger on self-hosted. The upsell
+    // AI summaries are Txlemetry Cloud only — hide the per-row trigger on self-hosted. The upsell
     // lives on the replay page dock (PlayerSummaryDock) rather than repeating per list row.
     if (!isCloudOrDev) {
         return null

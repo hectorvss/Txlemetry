@@ -56,7 +56,7 @@ const WEB_HEALTH_CHECKS: WebHealthCheckConfig[] = [
         title: '$pageview',
         passingDescription:
             'Events are flowing in as expected. Head over to the Web Analytics tab to start reviewing your analytics!',
-        failingDescription: 'Complete the PostHog installation to start seeing events in your dashboard.',
+        failingDescription: 'Complete the Txlemetry installation to start seeing events in your dashboard.',
         failingAction: INSTALL_GUIDE_ACTION,
         docsUrl: 'https://posthog.com/docs/product-analytics/capture-events',
         urgent: true,
@@ -100,7 +100,7 @@ const WEB_HEALTH_CHECKS: WebHealthCheckConfig[] = [
         title: 'Reverse proxy',
         passingDescription: 'Reverse proxy is configured! Your tracking requests are routed through your own domain.',
         failingDescription:
-            'A reverse proxy routes PostHog requests through your own domain and helps prevent ad blockers from blocking tracking. Some metrics may not be accurate until this is configured.',
+            'A reverse proxy routes Txlemetry requests through your own domain and helps prevent ad blockers from blocking tracking. Some metrics may not be accurate until this is configured.',
         failingAction: { label: 'Set up reverse proxy', to: urls.settings('organization-proxy') },
         docsUrl: 'https://posthog.com/docs/advanced/proxy',
         urgent: true,

@@ -70,7 +70,7 @@ export function EditKnowledgeSourceModal({
                     <LemonField
                         name="refresh_interval"
                         label="Auto-refresh"
-                        info="How often PostHog re-fetches this source in the background. Changing it alone does not trigger an immediate re-crawl."
+                        info="How often Txlemetry re-fetches this source in the background. Changing it alone does not trigger an immediate re-crawl."
                     >
                         <LemonSelect options={refreshIntervalOptions} />
                     </LemonField>

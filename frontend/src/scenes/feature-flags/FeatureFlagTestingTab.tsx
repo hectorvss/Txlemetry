@@ -121,7 +121,7 @@ export function FeatureFlagTestingTab({ featureFlag }: { featureFlag: FeatureFla
                             />
                         </div>
                         <p className="text-xs text-muted">
-                            Search and select a person from your PostHog instance. You can search by name, email, or
+                            Search and select a person from your Txlemetry instance. You can search by name, email, or
                             distinct ID.
                         </p>
 
@@ -149,7 +149,7 @@ export function FeatureFlagTestingTab({ featureFlag }: { featureFlag: FeatureFla
                                         <div className="text-sm">
                                             This person has {personDistinctIds.length} merged distinct IDs. Rollout and
                                             variant assignment are computed by hashing the distinct ID, so the result
-                                            can differ depending on which one you pick. At runtime PostHog buckets using
+                                            can differ depending on which one you pick. At runtime Txlemetry buckets using
                                             the distinct ID from the incoming request, which may not be the one selected
                                             here.
                                         </div>

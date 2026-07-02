@@ -267,7 +267,7 @@ function ConfigureStep(): JSX.Element {
                                                 <div className="text-sm font-medium">Hand off to Responder agents</div>
                                                 <div className="text-xs text-muted">
                                                     Adds a side mission to each scan: clear, actionable product issues
-                                                    are handled by PostHog Responder agents.
+                                                    are handled by Txlemetry Responder agents.
                                                 </div>
                                             </div>
                                         </div>

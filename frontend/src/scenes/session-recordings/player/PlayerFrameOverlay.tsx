@@ -93,7 +93,7 @@ const PlayerFrameOverlayContent = (): JSX.Element | null => {
                 <div className="font-bold text-text-3000 text-lg">We're unable to play this recording</div>
                 <div className="text-secondary text-sm text-center">
                     {isMissingFullSnapshot
-                        ? 'This part of the recording is missing the snapshot data needed to render it. The data never reached PostHog, usually because the browser was closed or went offline before the recording finished uploading.'
+                        ? 'This part of the recording is missing the snapshot data needed to render it. The data never reached Txlemetry, usually because the browser was closed or went offline before the recording finished uploading.'
                         : 'An error occurred that is preventing this recording from being played. You can refresh the page to reload the recording.'}
                 </div>
                 {!isMissingFullSnapshot && (

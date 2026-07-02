@@ -160,7 +160,7 @@ export const maxChangelogLogic = kea<maxChangelogLogicType>([
                 return parseChangelogPayload(payload)
             },
         ],
-        // Derive alerts from ongoing incident.io incidents tagged to PostHog AI
+        // Derive alerts from ongoing incident.io incidents tagged to Txlemetry AI
         alerts: [(s) => [s.aiIncidentAlerts], (aiIncidentAlerts): AlertEntry[] => aiIncidentAlerts],
         entriesHash: [
             (s) => [s.entries],

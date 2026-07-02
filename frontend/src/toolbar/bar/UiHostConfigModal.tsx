@@ -36,15 +36,15 @@ export function UiHostConfigModal({ visible, onClose }: UiHostConfigModalProps):
                     <Logomark />
                 </div>
                 <div className="UiHostConfigModal__header">
-                    <strong>PostHog could not be reached</strong>
+                    <strong>Txlemetry could not be reached</strong>
                 </div>
                 <p>
-                    The toolbar tried to connect to the PostHog app at <code>{uiHost}</code> but could not reach it.
+                    The toolbar tried to connect to the Txlemetry app at <code>{uiHost}</code> but could not reach it.
                     This happens when you use a reverse proxy for <code>api_host</code> — the toolbar needs to know the
-                    direct URL of the PostHog app to authenticate.
+                    direct URL of the Txlemetry app to authenticate.
                 </p>
                 <p>
-                    Add <code>ui_host</code> to your PostHog JS initialisation to point directly to PostHog:
+                    Add <code>ui_host</code> to your Txlemetry JS initialisation to point directly to Txlemetry:
                 </p>
                 <pre className="UiHostConfigModal__code">
                     {`posthog.init('<ph_project_api_key>', {
@@ -53,7 +53,7 @@ export function UiHostConfigModal({ visible, onClose }: UiHostConfigModalProps):
 })`}
                 </pre>
                 <p className="UiHostConfigModal__hint">
-                    Replace <code>{'<ph_app_host>'}</code> with the PostHog app URL for your region:{' '}
+                    Replace <code>{'<ph_app_host>'}</code> with the Txlemetry app URL for your region:{' '}
                     <code>https://us.posthog.com</code> (US) or <code>https://eu.posthog.com</code> (EU).
                 </p>
             </div>

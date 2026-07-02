@@ -2,7 +2,7 @@
  * Generic OAuth2 (auth-code + PKCE) identity provider. One implementation
  * serves every bring-your-own provider (GitHub, Linear, the `dogs` test IdP) —
  * the differences are all config (endpoints, client id/secret, scopes). Never
- * asserts a PostHog identity (`establishesIdentity = false`).
+ * asserts a Txlemetry identity (`establishesIdentity = false`).
  */
 
 import { createHash, randomBytes } from 'node:crypto'
@@ -147,7 +147,7 @@ export class Oauth2AuthProvider implements IdentityProvider {
     /**
      * The external subject this link proves, if any. Base provider establishes
      * no identity → undefined. An identity-establishing subclass overrides this
-     * (e.g. PostHog reads /oauth/userinfo `sub`) so `complete()` stamps it on
+     * (e.g. Txlemetry reads /oauth/userinfo `sub`) so `complete()` stamps it on
      * the stored credential. Runs once, at link time, with a fresh access token.
      */
     protected async deriveSubject(_accessToken: string): Promise<string | undefined> {

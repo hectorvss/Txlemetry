@@ -288,8 +288,8 @@ function InternalSourcesWizard(props: NewSourcesWizardProps): JSX.Element {
                             <h4 className="text-lg font-semibold mb-0">{modalTitle}</h4>
                             <p className="text-sm text-muted-alt mb-0">
                                 {selectedAccessMethod === 'direct'
-                                    ? `Query selected ${selectedConnector.label ?? selectedConnector.name} tables live from PostHog. Tables stay in the source database and are not synced into the data warehouse.`
-                                    : `Sync data from ${selectedConnector.label ?? selectedConnector.name} into the PostHog data warehouse.`}
+                                    ? `Query selected ${selectedConnector.label ?? selectedConnector.name} tables live from Txlemetry. Tables stay in the source database and are not synced into the data warehouse.`
+                                    : `Sync data from ${selectedConnector.label ?? selectedConnector.name} into the Txlemetry data warehouse.`}
                             </p>
                         </div>
                     </div>
@@ -351,7 +351,7 @@ function CDCSelfManagedSetupDialog(): JSX.Element | null {
             ? cdcTableNames.map((t) => `"${schema}"."${t}"`).join(', ')
             : `"${schema}"."your_table"`
 
-    const sql = `-- 1. Grants for the PostHog user
+    const sql = `-- 1. Grants for the Txlemetry user
 --    Reading a replication slot requires REPLICATION (or rds_replication on RDS).
 --    Run ONE of the lines below, depending on your environment:
 ALTER USER "${dbUser}" WITH REPLICATION;             -- self-hosted / most clouds
@@ -360,7 +360,7 @@ GRANT USAGE ON SCHEMA "${schema}" TO "${dbUser}";
 GRANT SELECT ON ${tableList} TO "${dbUser}";
 
 -- 2. Publication covering the ${cdcTableNames.length} selected table${cdcTableNames.length === 1 ? '' : 's'}
---    Run this as the table owner (or a superuser). PostHog will create and manage
+--    Run this as the table owner (or a superuser). Txlemetry will create and manage
 --    the replication slot itself once the source is created.
 CREATE PUBLICATION "${pubName}" FOR TABLE ${tableList}
   WITH (publish_via_partition_root = true);
@@ -384,7 +384,7 @@ CREATE PUBLICATION "${pubName}" FOR TABLE ${tableList}
             isOpen
             onClose={closeCdcSelfManagedSetupDialog}
             title="Create your publication"
-            description={`Self-managed CDC needs the publication to exist before PostHog connects — PostHog will create and manage the replication slot itself. Run the SQL below (covering the ${cdcTableNames.length} table${cdcTableNames.length === 1 ? '' : 's'} you selected for CDC) as the table owner, then click Verify & create.`}
+            description={`Self-managed CDC needs the publication to exist before Txlemetry connects — Txlemetry will create and manage the replication slot itself. Run the SQL below (covering the ${cdcTableNames.length} table${cdcTableNames.length === 1 ? '' : 's'} you selected for CDC) as the table owner, then click Verify & create.`}
             width={720}
             footer={
                 <>

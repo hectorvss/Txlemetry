@@ -1,22 +1,22 @@
-// Legacy PostHog hedgehog illustrations.
+// Legacy Txlemetry hedgehog illustrations.
 //
 // ⚠️ We're migrating away from these hand-rolled hogs to the shared `@posthog/brand`
 // hoggie library — `import { Hedgehog... } from '@posthog/brand/hoggies'`. Do NOT add
 // new usages of anything exported here; reach for a `@posthog/brand` hoggie instead.
 // Everything left below is still rendered somewhere, and we'll slowly remove all of
 // them as the remaining usages are migrated over. Tracked by:
-//   - https://github.com/PostHog/posthog.com/issues/17972
-//   - https://github.com/PostHog/posthog.com/issues/17973
-//   - https://github.com/PostHog/posthog.com/issues/17974
-//   - https://github.com/PostHog/posthog.com/issues/17975
-//   - https://github.com/PostHog/posthog.com/issues/17976
-//   - https://github.com/PostHog/posthog.com/issues/17977
-//   - https://github.com/PostHog/posthog.com/issues/17978
-//   - https://github.com/PostHog/posthog.com/issues/17979
-//   - https://github.com/PostHog/posthog.com/issues/17980
-//   - https://github.com/PostHog/posthog.com/issues/17981
-//   - https://github.com/PostHog/posthog.com/issues/17982
-//   - https://github.com/PostHog/posthog.com/issues/17983
+//   - https://github.com/Txlemetry/posthog.com/issues/17972
+//   - https://github.com/Txlemetry/posthog.com/issues/17973
+//   - https://github.com/Txlemetry/posthog.com/issues/17974
+//   - https://github.com/Txlemetry/posthog.com/issues/17975
+//   - https://github.com/Txlemetry/posthog.com/issues/17976
+//   - https://github.com/Txlemetry/posthog.com/issues/17977
+//   - https://github.com/Txlemetry/posthog.com/issues/17978
+//   - https://github.com/Txlemetry/posthog.com/issues/17979
+//   - https://github.com/Txlemetry/posthog.com/issues/17980
+//   - https://github.com/Txlemetry/posthog.com/issues/17981
+//   - https://github.com/Txlemetry/posthog.com/issues/17982
+//   - https://github.com/Txlemetry/posthog.com/issues/17983
 import React, { ImgHTMLAttributes } from 'react'
 
 import bigLeaguesHog from 'public/hedgehog/big-leagues.png'
@@ -40,13 +40,13 @@ type HedgehogProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'>
 // w400 x h400
 const SquaredHedgehog = React.forwardRef<HTMLImageElement, ImgHTMLAttributes<HTMLImageElement>>(
     function SquaredHedgehog(props, ref): JSX.Element {
-        return <img src={props.src} width={400} height={400} alt="PostHog hedgehog" {...props} ref={ref} />
+        return <img src={props.src} width={400} height={400} alt="Txlemetry hedgehog" {...props} ref={ref} />
     }
 )
 // any width x h400
 const RectangularHedgehog = React.forwardRef<HTMLImageElement, ImgHTMLAttributes<HTMLImageElement>>(
     function RectangularHedgehog(props, ref): JSX.Element {
-        return <img src={props.src} height={400} alt="PostHog hedgehog" {...props} ref={ref} />
+        return <img src={props.src} height={400} alt="Txlemetry hedgehog" {...props} ref={ref} />
     }
 )
 

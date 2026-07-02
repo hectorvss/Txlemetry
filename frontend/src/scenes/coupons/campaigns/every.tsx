@@ -22,17 +22,17 @@ const EveryHero: React.FC = () => {
 
 export const everyCampaign: CampaignConfig = {
     name: 'Every Goodie Bag',
-    heroTitle: '5x your free PostHog AI credits for 12 months',
-    heroSubtitle: 'An exclusive PostHog offer for Every Goodie Bag annual subscribers',
+    heroTitle: '5x your free Txlemetry AI credits for 12 months',
+    heroSubtitle: 'An exclusive Txlemetry offer for Every Goodie Bag annual subscribers',
     HeroImage: EveryHero,
     benefits: [
         {
-            title: '5x PostHog AI credits',
-            description: 'Get 5x the standard monthly free allowance for PostHog AI after redeeming your code.',
+            title: '5x Txlemetry AI credits',
+            description: 'Get 5x the standard monthly free allowance for Txlemetry AI after redeeming your code.',
         },
         {
-            title: '$2K credits to spend across PostHog products*',
-            description: `Organizations without paid invoices before ${EVERY_CREDIT_ELIGIBILITY_CUTOFF} also receive $2K in PostHog credits.`,
+            title: '$2K credits to spend across Txlemetry products*',
+            description: `Organizations without paid invoices before ${EVERY_CREDIT_ELIGIBILITY_CUTOFF} also receive $2K in Txlemetry credits.`,
         },
         {
             title: '12-month access',
@@ -41,9 +41,9 @@ export const everyCampaign: CampaignConfig = {
     ],
     eligibilityCriteria: [
         'Active Every Goodie Bag annual subscriber',
-        'Organization admin or owner in PostHog',
-        'Active paid subscription to PostHog',
-        `Organizations already paying before ${EVERY_CREDIT_ELIGIBILITY_CUTOFF} receive the PostHog AI benefit only`,
+        'Organization admin or owner in Txlemetry',
+        'Active paid subscription to Txlemetry',
+        `Organizations already paying before ${EVERY_CREDIT_ELIGIBILITY_CUTOFF} receive the Txlemetry AI benefit only`,
     ],
-    footerNote: <span className="text-xs">*Excludes PostHog Code.</span>,
+    footerNote: <span className="text-xs">*Excludes Txlemetry Code.</span>,
 }

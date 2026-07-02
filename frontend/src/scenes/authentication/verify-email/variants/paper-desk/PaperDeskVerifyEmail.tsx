@@ -125,7 +125,7 @@ function VerifyEmail(): JSX.Element {
                         <div className="PaperDesk__progress mb-4 w-full h-1.5 overflow-hidden bg-[#e0e1d9] rounded-sm">
                             <div className="PaperDesk__progress-fill w-full h-full bg-warning rounded-sm" />
                         </div>
-                        <p className="m-0 text-sm text-secondary text-center">Taking you to PostHog…</p>
+                        <p className="m-0 text-sm text-secondary text-center">Taking you to Txlemetry…</p>
                     </div>
                 </PaperDeskCard>
             </PaperDeskScene>

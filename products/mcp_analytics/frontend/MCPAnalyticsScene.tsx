@@ -78,7 +78,7 @@ export function MCPAnalyticsScene(): JSX.Element {
                                 onClick={() => askPostHogAI(TAB_AI_PROMPTS[activeTab])}
                                 data-attr="mcp-analytics-ask-ai"
                             >
-                                Ask PostHog AI
+                                Ask Txlemetry AI
                             </LemonButton>
                         )}
                         <LemonButton to={DEFAULT_DOCS_URL} type="secondary" targetBlank size="small">

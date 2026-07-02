@@ -1,7 +1,7 @@
 /**
  * Decide how an MCP connection's tools reach the model: listed inline, or behind
  * a proxy. Front-loading every tool's schema is fine for a small server but
- * overflows the model for a rich one (the PostHog MCP: 603 tools, ~2.7 MB), so
+ * overflows the model for a rich one (the Txlemetry MCP: 603 tools, ~2.7 MB), so
  * past a budget we expose a proxy (mcp-proxy.ts) instead and load schemas on demand.
  */
 import type { RemoteMcpTool } from './mcp-clients'
@@ -12,7 +12,7 @@ export interface McpExposureBudget {
     maxInlineChars: number
 }
 
-/** incident.io (38 tools, ~85k chars) stays inline; the PostHog MCP (603, ~2.7M) proxies. */
+/** incident.io (38 tools, ~85k chars) stays inline; the Txlemetry MCP (603, ~2.7M) proxies. */
 export const DEFAULT_MCP_EXPOSURE_BUDGET: McpExposureBudget = {
     maxInlineTools: 40,
     maxInlineChars: 100_000,

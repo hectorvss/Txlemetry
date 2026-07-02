@@ -248,7 +248,7 @@ export function ProductSetupPopover({
                                     <>
                                         {setupTasks.length > 0 && (
                                             <TaskSection
-                                                title="PostHog setup"
+                                                title="Txlemetry setup"
                                                 tasks={setupTasks}
                                                 onTaskClick={handleTaskClick}
                                                 onSkip={handleSkip}

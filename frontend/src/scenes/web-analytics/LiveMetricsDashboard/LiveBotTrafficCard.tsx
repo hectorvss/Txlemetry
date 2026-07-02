@@ -50,7 +50,7 @@ const LiveBotTrafficCardInner = ({
                     <IconRobot className="text-base text-muted" />
                     Bot traffic
                 </h3>
-                <Tooltip title="Based on PostHog's experimental user agent bot detection, matching search engines, AI crawlers, monitoring tools and more.">
+                <Tooltip title="Based on Txlemetry's experimental user agent bot detection, matching search engines, AI crawlers, monitoring tools and more.">
                     <span className="text-xs text-muted">Preview</span>
                 </Tooltip>
             </div>

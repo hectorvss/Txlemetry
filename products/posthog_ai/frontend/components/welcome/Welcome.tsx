@@ -8,7 +8,7 @@ import { JumpingLogomark } from 'lib/brand/JumpingLogomark'
 
 export interface WelcomeProps {
     headline: string
-    /** Defaults to the PostHog AI tagline; pass `null` to hide it entirely. */
+    /** Defaults to the Txlemetry AI tagline; pass `null` to hide it entirely. */
     subheadline?: string | null
     /** Rendered after the header — e.g. a liability notice or changelog the consumer owns. */
     children?: ReactNode

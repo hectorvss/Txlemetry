@@ -1621,7 +1621,7 @@ export interface AssistantTraceQuery {
 
 export interface AssistantHogQLQuery {
     kind: NodeKind.HogQLQuery
-    /** SQL SELECT statement to execute. Mostly standard ClickHouse SQL with PostHog-specific additions. */
+    /** SQL SELECT statement to execute. Mostly standard ClickHouse SQL with Txlemetry-specific additions. */
     query: string
 }
 

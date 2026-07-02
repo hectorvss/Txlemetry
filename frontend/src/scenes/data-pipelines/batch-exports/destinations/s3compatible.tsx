@@ -55,7 +55,7 @@ export const s3CompatibleDefinition: DestinationDefinition = {
                 endpointUrlRequired
                 showVirtualStyleAddressing
                 integrationKind="s3-compatible"
-                migrationNotice="PostHog is moving S3 batch exports to integration-based credentials. This export will be migrated automatically — no action required."
+                migrationNotice="Txlemetry is moving S3 batch exports to integration-based credentials. This export will be migrated automatically — no action required."
             />
         )
     },

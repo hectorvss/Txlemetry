@@ -187,11 +187,11 @@ export const availableOnboardingProducts: AvailableOnboardingProducts = {
     },
     [ProductKey.DATA_WAREHOUSE]: {
         name: 'Data Warehouse',
-        description: 'Query external data alongside your PostHog data',
+        description: 'Query external data alongside your Txlemetry data',
         userCentricDescription: 'Bring in data from Stripe, Salesforce, and more',
         capabilities: ['Sync Stripe, Salesforce & more', 'SQL queries on all your data', 'Scheduled data imports'],
         valueProps: [
-            { title: 'External data joins', problem: 'Combine Stripe, Hubspot, or Postgres data with PostHog' },
+            { title: 'External data joins', problem: 'Combine Stripe, Hubspot, or Postgres data with Txlemetry' },
             { title: 'SQL queries', problem: 'Ask questions no pre-built dashboard can answer' },
         ],
         hedgehog: HedgehogConstruction1,

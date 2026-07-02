@@ -94,7 +94,7 @@ function ElementSettings({ tourId }: StepSettingsPanelProps): JSX.Element | null
                             {step.inferenceData?.text && (
                                 <div className="flex flex-col gap-1">
                                     <Tooltip
-                                        title="Whether this element's text is static or dynamic (e.g. 'Hello, {name}!'). When set to 'Dynamic', PostHog will not attempt to find your element based on its text content."
+                                        title="Whether this element's text is static or dynamic (e.g. 'Hello, {name}!'). When set to 'Dynamic', Txlemetry will not attempt to find your element based on its text content."
                                         docLink="https://posthog.com/docs/product-tours/element-selection#dynamic-text"
                                     >
                                         <label className="text-[0.6875rem] font-medium text-muted uppercase tracking-wide">

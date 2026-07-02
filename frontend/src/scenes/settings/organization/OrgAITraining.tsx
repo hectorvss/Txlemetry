@@ -31,8 +31,8 @@ function AITrainingDescription({ isHipaa, isLocked }: { isHipaa: boolean; isLock
     return (
         <div className="mb-2 text-sm text-secondary">
             <p>
-                Enable PostHog to use anonymized aggregated data to train AI features that benefit all PostHog
-                customers. <strong>Your and your customers' data stays with PostHog.</strong>
+                Enable Txlemetry to use anonymized aggregated data to train AI features that benefit all Txlemetry
+                customers. <strong>Your and your customers' data stays with Txlemetry.</strong>
             </p>
             <p className="mt-2">Opting out means that you cannot access certain AI features.</p>
         </div>

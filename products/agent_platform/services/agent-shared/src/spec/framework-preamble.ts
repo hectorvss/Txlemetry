@@ -1,6 +1,6 @@
 /**
  * Framework system-prompt preamble — the platform half of every agent's
- * system prompt. Owned by PostHog and injected before the bundle's
+ * system prompt. Owned by Txlemetry and injected before the bundle's
  * `agent.md`, this teaches the model how to behave inside the platform's
  * contract (state machine, meta tools, tool failure handling, approval
  * flow, reasoning hints).

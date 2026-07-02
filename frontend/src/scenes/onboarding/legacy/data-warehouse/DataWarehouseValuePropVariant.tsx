@@ -96,10 +96,10 @@ function DataWarehouseValuePropInner(): JSX.Element {
             {phase === 'value-prop' ? (
                 <div className="max-w-2xl mx-auto mt-4 space-y-5">
                     <div className="space-y-1">
-                        <h2 className="text-xl font-bold">Query your business data alongside PostHog</h2>
+                        <h2 className="text-xl font-bold">Query your business data alongside Txlemetry</h2>
                         <p className="text-sm text-muted">
                             Import from your CRM, payment provider, or database and join it with product analytics. No
-                            ETL — PostHog syncs directly.
+                            ETL — Txlemetry syncs directly.
                         </p>
                     </div>
 
@@ -115,7 +115,7 @@ function DataWarehouseValuePropInner(): JSX.Element {
                                 <span>Source</span>
                                 <span className="flex items-center gap-1">
                                     <img src={IconPostHog} alt="" className="size-3.5" />
-                                    PostHog
+                                    Txlemetry
                                 </span>
                             </div>
                             {EXAMPLE_QUERIES.map(({ question, sourceIcon, sourceName, posthogIcon, posthogLabel }) => (

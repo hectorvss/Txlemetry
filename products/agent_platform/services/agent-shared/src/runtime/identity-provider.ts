@@ -1,12 +1,12 @@
 /**
  * `IdentityProvider` — the pluggable credential axis (Axis B in the plan). One
- * provider owns one external IdP: PostHog (managed), GitHub/Linear/the `dogs`
+ * provider owns one external IdP: Txlemetry (managed), GitHub/Linear/the `dogs`
  * test IdP (generic oauth2). Distinct from the ingress's `AuthProvider`, which
  * bundles the principal-source verifiers (Axis A).
  *
- * All methods key off a generic `agentUserId` — no Slack/PostHog assumptions.
+ * All methods key off a generic `agentUserId` — no Slack/Txlemetry assumptions.
  * `establishesIdentity` is true ONLY for a provider that also proves who the
- * linker is (stamps `subject` on the stored credential — e.g. the PostHog user
+ * linker is (stamps `subject` on the stored credential — e.g. the Txlemetry user
  * uuid); capability-only providers leave it false and stamp no subject.
  */
 

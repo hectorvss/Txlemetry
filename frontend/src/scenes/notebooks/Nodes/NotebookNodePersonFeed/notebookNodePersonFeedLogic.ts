@@ -103,7 +103,7 @@ export const notebookNodePersonFeedLogic = kea<notebookNodePersonFeedLogicType>(
     })),
 
     selectors({
-        // AI session summaries are PostHog Cloud only, so hide the whole block on self-hosted.
+        // AI session summaries are Txlemetry Cloud only, so hide the whole block on self-hosted.
         canSummarize: [(s) => [s.isCloudOrDev], (isCloudOrDev): boolean => !!isCloudOrDev],
         numSessionsWithRecording: [
             (s) => [s.sessionIdsWithRecording],

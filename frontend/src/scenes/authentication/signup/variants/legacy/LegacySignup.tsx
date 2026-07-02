@@ -22,7 +22,7 @@ function Signup(): JSX.Element | null {
     const signupAATestVariant = featureFlags[FEATURE_FLAGS.SIGNUP_AA_TEST_4_WAY]
 
     const footerHighlights = {
-        cloud: ['Hosted & managed by PostHog', 'Pay per event, cancel anytime', 'Fast and reliable support'],
+        cloud: ['Hosted & managed by Txlemetry', 'Pay per event, cancel anytime', 'Fast and reliable support'],
         selfHosted: ['Fully featured product, unlimited events', 'Data in your own infrastructure', 'Community forum'],
     }
 
@@ -59,8 +59,8 @@ const productBenefits = [
         description: 'Integrate with developer-friendly APIs or a low-code web snippet.',
     },
     {
-        benefit: 'Join industry leaders that run on PostHog',
-        description: 'Airbus, Hasura, Y Combinator, Staples, and thousands more trust PostHog as their Product OS.',
+        benefit: 'Join industry leaders that run on Txlemetry',
+        description: 'Airbus, Hasura, Y Combinator, Staples, and thousands more trust Txlemetry as their Product OS.',
     },
 ]
 
@@ -94,7 +94,7 @@ export function SignupLeftContainer(): JSX.Element {
                         {' '}
                         You can use our{' '}
                         <Link to={getRegionUrl(preflight?.region === Region.EU ? Region.US : Region.EU)}>
-                            <strong>PostHog Cloud {preflight?.region === Region.EU ? 'US' : 'EU'}</strong>
+                            <strong>Txlemetry Cloud {preflight?.region === Region.EU ? 'US' : 'EU'}</strong>
                         </Link>
                         {preflight?.region === Region.EU ? ', too' : ' for a GDPR-ready deployment'}.
                     </span>

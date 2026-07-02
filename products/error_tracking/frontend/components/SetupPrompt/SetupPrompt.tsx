@@ -107,7 +107,7 @@ export function ErrorTrackingIngestionPrompt({
             productName="Error tracking"
             thingName="issue"
             titleOverride="You haven't captured any exceptions"
-            description="PostHog captures exceptions from any of our SDKs. JavaScript apps can flip on exception autocapture; other platforms wire it up in code – the docs have per-SDK instructions."
+            description="Txlemetry captures exceptions from any of our SDKs. JavaScript apps can flip on exception autocapture; other platforms wire it up in code – the docs have per-SDK instructions."
             isEmpty={true}
             productKey={ProductKey.ERROR_TRACKING}
             className={cn(introductionClassName, className)}

@@ -125,7 +125,7 @@ function InviteNewUser({ invite }: { invite: PrevalidatedInvite }): JSX.Element 
                 <p className="pb-1.5 mt-0.5 mb-0 font-title text-3xl font-extrabold text-primary tracking-tight border-b border-dashed border-[#c5c6bd]">
                     {org}
                 </p>
-                <p className="m-0 mt-1.5 text-sm text-secondary">on PostHog</p>
+                <p className="m-0 mt-1.5 text-sm text-secondary">on Txlemetry</p>
             </div>
         </div>
     )
@@ -293,7 +293,7 @@ function InviteExistingAccount({ invite }: { invite: PrevalidatedInvite }): JSX.
                 </div>
                 <CardTitle
                     title={`Join ${org}`}
-                    sub="You'll accept this invite with your existing PostHog account:"
+                    sub="You'll accept this invite with your existing Txlemetry account:"
                     className="mb-4"
                 />
                 {user && (
@@ -346,7 +346,7 @@ function InviteExistingAccount({ invite }: { invite: PrevalidatedInvite }): JSX.
                                 window.location.href = '/'
                             }}
                         >
-                            Not now, back to PostHog
+                            Not now, back to Txlemetry
                         </LemonButton>
                     </div>
                 )}
@@ -447,7 +447,7 @@ function InviteInvalid(): JSX.Element {
                     <div className="flex flex-col gap-2.5 w-full">
                         {user ? (
                             <LemonButton size="large" center fullWidth type="primary" to={urls.default()}>
-                                Go back to PostHog
+                                Go back to Txlemetry
                             </LemonButton>
                         ) : code === ErrorCodes.InvalidRecipient ? (
                             <LemonButton

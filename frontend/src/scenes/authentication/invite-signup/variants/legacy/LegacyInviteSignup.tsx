@@ -41,7 +41,7 @@ function HelperLinks(): JSX.Element {
         <div className="font-bold text-center">
             <Link to="/">App Home</Link>
             <span className="mx-2">|</span>
-            <Link to={`https://posthog.com?${UTM_TAGS}&utm_message=invalid-invite`}>PostHog Website</Link>
+            <Link to={`https://posthog.com?${UTM_TAGS}&utm_message=invalid-invite`}>Txlemetry Website</Link>
         </div>
     )
 }
@@ -49,7 +49,7 @@ function HelperLinks(): JSX.Element {
 function BackToPostHog(): JSX.Element {
     return (
         <LemonButton type="secondary" icon={<IconChevronLeft />} center fullWidth to={urls.default()}>
-            Go back to PostHog
+            Go back to Txlemetry
         </LemonButton>
     )
 }
@@ -144,7 +144,7 @@ function AuthenticatedAcceptInvite({ invite }: { invite: PrevalidatedInvite }): 
             <div className="deprecated-space-y-2">
                 <h2>You have been invited to join {invite.organization_name}</h2>
                 <div>
-                    You will accept the invite under your <b>existing PostHog account</b>:
+                    You will accept the invite under your <b>existing Txlemetry account</b>:
                 </div>
                 {user && (
                     <div
@@ -176,7 +176,7 @@ function AuthenticatedAcceptInvite({ invite }: { invite: PrevalidatedInvite }): 
                             </LemonButton>
                             <div className="mt-2">
                                 <LemonButton type="secondary" center fullWidth icon={<IconChevronLeft />} to="/">
-                                    Go back to PostHog
+                                    Go back to Txlemetry
                                 </LemonButton>
                             </div>
                         </>
@@ -188,7 +188,7 @@ function AuthenticatedAcceptInvite({ invite }: { invite: PrevalidatedInvite }): 
                             sideIcon={<IconChevronRight />}
                             onClick={() => (window.location.href = '/')}
                         >
-                            Go to PostHog
+                            Go to Txlemetry
                         </LemonButton>
                     )}
                 </div>
@@ -233,13 +233,13 @@ function UnauthenticatedAcceptInvite({ invite }: { invite: PrevalidatedInvite })
                         <span className="text-4xl font-bold border-b border-dashed pb-2">
                             {invite?.organization_name || 'us'}
                         </span>
-                        <span>on PostHog</span>
+                        <span>on Txlemetry</span>
                     </div>
                 </div>
             }
             footer={<SupportModalButton name={invite.first_name} email={invite.target_email} />}
         >
-            <h2 className="text-center">Create your PostHog account</h2>
+            <h2 className="text-center">Create your Txlemetry account</h2>
             {signupManualErrors?.generic && (
                 <LemonBanner type="error" className="mb-4">
                     {signupManualErrors.generic.detail || 'Could not complete your signup.'}{' '}

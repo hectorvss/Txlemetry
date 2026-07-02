@@ -24,7 +24,7 @@ export { Welcome } from '../components/welcome/Welcome'
 export type { WelcomeProps } from '../components/welcome/Welcome'
 export { DEFAULT_HEADLINES, pickHeadline } from '../components/welcome/welcomeDefaults'
 
-// Suggestions compound (the "Try PostHog AI for…" button row + in-input dropdown) and its default content.
+// Suggestions compound (the "Try Txlemetry AI for…" button row + in-input dropdown) and its default content.
 export { Suggestions } from '../components/suggestions/Suggestions'
 export type {
     SuggestionItem,

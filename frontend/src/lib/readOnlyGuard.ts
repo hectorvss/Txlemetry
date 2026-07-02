@@ -76,7 +76,7 @@ type AllowedPattern = RegExp | { pattern: RegExp; methods: ReadonlyArray<ReadOnl
 //      PATCH /session_recordings/:id (markViewed view-tracking — restricted to
 //      PATCH because DELETE on the same path is the destructive recording
 //      delete endpoint and must stay blocked).
-//   3. PostHog AI (Max) conversations — the read-only toast tells users to
+//   3. Txlemetry AI (Max) conversations — the read-only toast tells users to
 //      "Use Max or the MCP to make this change", so Max must remain usable.
 //      Matches /conversations except the two ticket sub-features (`views` and
 //      `tickets`). Mount-path-agnostic — works under /environments/ or
@@ -89,7 +89,7 @@ const READ_ONLY_ALLOWED_PATTERNS: ReadonlyArray<AllowedPattern> = [
     /\/insights\/viewed(?:\/|$|\?)/, // /api/environments/:team_id/insights/viewed — passive "recently viewed" telemetry
     /\/insights\/timing(?:\/|$|\?)/, // /api/projects/:team_id/insights/timing — time-to-see-data telemetry fired after every dashboard/insight load
     /\/metalytics(?:\/|$|\?)/, // /api/projects/:team_id/metalytics — side-panel scene view tracking (only accepts metric_name=viewed)
-    /\/conversations(?!\/(?:views|tickets))(?:\/|$|\?)/, // /api/.../conversations[/:id[/queue|/append_message|/cancel|...]] — PostHog AI (Max), excluding /conversations/views and /conversations/tickets
+    /\/conversations(?!\/(?:views|tickets))(?:\/|$|\?)/, // /api/.../conversations[/:id[/queue|/append_message|/cancel|...]] — Txlemetry AI (Max), excluding /conversations/views and /conversations/tickets
     /\/exports\/?(?:\?|$)/, // /api/.../exports[/] — create export jobs only; detail paths like /exports/:id/ stay blocked
     { pattern: /\/session_recordings\/[^/]+(?:\/|$|\?)/, methods: ['PATCH'] }, // PATCH /api/.../session_recordings/:id — markViewed view-tracking ({viewed: true, ...} then {analyzed: true, ...}). DELETE on the same path stays blocked.
 ]

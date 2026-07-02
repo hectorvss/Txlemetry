@@ -16,7 +16,7 @@
  *   - `public`             — always succeeds, anonymous principal, no creds
  *   - `posthog`            — Authorization: Bearer <token> (PAT today, OAuth
  *                            later); verified via an `IdentityIntrospector`
- *                            (PostHog: hit `/api/users/@me/`); produces
+ *                            (Txlemetry: hit `/api/users/@me/`); produces
  *                            `posthog` principal + `posthog_api` credential
  *   - `jwt`                — Authorization: Bearer <jwt>; signature
  *                            verified with the agent's encrypted-env

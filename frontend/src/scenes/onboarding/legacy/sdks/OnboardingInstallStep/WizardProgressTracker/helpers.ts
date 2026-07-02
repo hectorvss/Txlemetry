@@ -13,7 +13,7 @@ export function bannerTypeFor(state: DisplayState): 'ai' | 'success' | 'error' {
 export function headlineFor(state: DisplayState): string {
     switch (state) {
         case 'completed':
-            return 'PostHog is set up.'
+            return 'Txlemetry is set up.'
         case 'error':
             return 'The wizard hit a snag.'
         case 'connecting':

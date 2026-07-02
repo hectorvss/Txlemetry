@@ -26,7 +26,7 @@ export function MaxMemorySettings(): JSX.Element {
             className="w-full deprecated-space-y-4"
         >
             <p className="max-w-160 text-sm text-secondary mb-4">
-                When memory exceeds 5,000 characters, only the first and last 2,500 characters are visible to PostHog
+                When memory exceeds 5,000 characters, only the first and last 2,500 characters are visible to Txlemetry
                 AI. The maximum memory size is 10,000 characters.
             </p>
             {currentProjectLoading || isLoading ? (
@@ -35,10 +35,10 @@ export function MaxMemorySettings(): JSX.Element {
                     <LemonSkeleton className="h-16" />
                 </div>
             ) : (
-                <LemonField name="text" label="PostHog AI's memory">
+                <LemonField name="text" label="Txlemetry AI's memory">
                     <LemonTextArea
                         id="product-description-textarea" // Slightly dirty ID for .focus() elsewhere
-                        placeholder={`What should PostHog AI know about ${
+                        placeholder={`What should Txlemetry AI know about ${
                             currentProject ? currentProject.name : 'your company or this product'
                         }?`}
                         maxLength={10000}

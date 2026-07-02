@@ -99,7 +99,7 @@ export function StartupProgram(): JSX.Element {
                     )}
                     <p>If you have any questions, please contact our support team.</p>
                     <LemonButton type="primary" to={urls.projectRoot()} className="mt-2">
-                        Return to PostHog
+                        Return to Txlemetry
                     </LemonButton>
                 </LemonBanner>
             </div>
@@ -117,7 +117,7 @@ export function StartupProgram(): JSX.Element {
                         questions, please contact our support team.
                     </p>
                     <LemonButton type="primary" to={urls.projectRoot()} className="mt-2">
-                        Return to PostHog
+                        Return to Txlemetry
                     </LemonButton>
                 </LemonBanner>
             </div>
@@ -133,11 +133,11 @@ export function StartupProgram(): JSX.Element {
                         It looks like your organization is already on our annual plan. If you have any questions, please
                         contact{' '}
                         {accountOwner?.name && accountOwner?.email
-                            ? `your PostHog human ${accountOwner.name.split(' ')[0]} at ${accountOwner.email}`
+                            ? `your Txlemetry human ${accountOwner.name.split(' ')[0]} at ${accountOwner.email}`
                             : 'our support team'}
                     </p>
                     <LemonButton type="primary" to={urls.projectRoot()} className="mt-2">
-                        Return to PostHog
+                        Return to Txlemetry
                     </LemonButton>
                 </LemonBanner>
             </div>
@@ -154,7 +154,7 @@ export function StartupProgram(): JSX.Element {
                         your organization admin for assistance.
                     </p>
                     <LemonButton type="primary" to={urls.projectRoot()} className="mt-2">
-                        Return to PostHog
+                        Return to Txlemetry
                     </LemonButton>
                 </LemonBanner>
             </div>
@@ -191,8 +191,8 @@ export function StartupProgram(): JSX.Element {
                         <div className="text-center">
                             <h1 className="text-xl sm:text-3xl mb-2 sm:mb-3">
                                 {isReferralProgram && referrerDisplayName
-                                    ? `PostHog x ${referrerDisplayName}`
-                                    : "Apply for PostHog's startup program"}
+                                    ? `Txlemetry x ${referrerDisplayName}`
+                                    : "Apply for Txlemetry's startup program"}
                             </h1>
                             <p className="text-sm sm:text-base text-muted">
                                 Get $50,000 in credits (plus extras you'll actually use) to help you get to
@@ -220,7 +220,7 @@ export function StartupProgram(): JSX.Element {
                             <IconCheck className="text-success shrink-0 mt-1 mr-2" />
                             <div>
                                 <h4 className="font-semibold">
-                                    $50,000 in PostHog credit{}
+                                    $50,000 in Txlemetry credit{}
                                     {isYC && (
                                         <>
                                             {' '}
@@ -308,7 +308,7 @@ export function StartupProgram(): JSX.Element {
                                 </div>
                                 <div className="flex gap-1">
                                     <span className="text-xxs align-super">2</span>
-                                    Boring international customs reasons mean users outside US/Canada get a $150 PostHog
+                                    Boring international customs reasons mean users outside US/Canada get a $150 Txlemetry
                                     merch voucher instead.
                                 </div>
                             </div>
@@ -337,7 +337,7 @@ export function StartupProgram(): JSX.Element {
                             )}
                             <p className="mt-2">If you have any questions, please contact our support team.</p>
                             <LemonButton type="primary" to={urls.projectRoot()} className="mt-4">
-                                Return to PostHog
+                                Return to Txlemetry
                             </LemonButton>
                         </div>
                     ) : (
@@ -402,10 +402,10 @@ export function StartupProgram(): JSX.Element {
                                         </div>
                                         <p className="text-muted">
                                             Thank you for your application! We'll review it and get back to you as soon
-                                            as possible. In the meantime, you can continue using PostHog.
+                                            as possible. In the meantime, you can continue using Txlemetry.
                                         </p>
                                         <LemonButton type="primary" to={urls.projectRoot()}>
-                                            Return to PostHog
+                                            Return to Txlemetry
                                         </LemonButton>
                                     </div>
                                 ) : (
@@ -437,10 +437,10 @@ export function StartupProgram(): JSX.Element {
 
                                         <LemonField
                                             name="organization_name"
-                                            label="PostHog organization"
+                                            label="Txlemetry organization"
                                             info="To apply for a different organization, switch to that organization first"
                                         >
-                                            <LemonInput placeholder="Your PostHog organization" disabled />
+                                            <LemonInput placeholder="Your Txlemetry organization" disabled />
                                         </LemonField>
 
                                         <LemonField name="organization_id" className="hidden">
@@ -483,12 +483,12 @@ export function StartupProgram(): JSX.Element {
                                                         <span>
                                                             Screenshot showing you're using{' '}
                                                             <Link target="_blank" to={YC_DEAL_BOOKFACE}>
-                                                                PostHog deal
+                                                                Txlemetry deal
                                                             </Link>{' '}
                                                             on Bookface
                                                         </span>
                                                     }
-                                                    info="Open PostHog deal on Bookface, click 'Mark Using', take a screenshot and attach it below"
+                                                    info="Open Txlemetry deal on Bookface, click 'Mark Using', take a screenshot and attach it below"
                                                 >
                                                     <LemonFileInput
                                                         accept="image/*"

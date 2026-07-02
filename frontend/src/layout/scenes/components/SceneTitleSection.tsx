@@ -55,7 +55,7 @@ export function SceneTitlePanelButton({
     const { featureFlags } = useValues(featureFlagLogic)
     const sceneMenuBarEnabled = !!featureFlags[FEATURE_FLAGS.SCENE_MENU_BAR]
 
-    // Open Info tab if scene has panel content, otherwise default to PostHog AI
+    // Open Info tab if scene has panel content, otherwise default to Txlemetry AI
     const defaultTab = scenePanelIsPresent ? SidePanelTab.Info : SidePanelTab.Max
 
     if (sidePanelOpen) {
@@ -79,7 +79,7 @@ export function SceneTitlePanelButton({
                     tooltip={
                         definition ? (
                             <>
-                                Open PostHog AI
+                                Open Txlemetry AI
                                 <br />
                                 <div className="flex items-center">
                                     {definition.icon || <IconWrench />}
@@ -87,7 +87,7 @@ export function SceneTitlePanelButton({
                                 </div>
                             </>
                         ) : (
-                            'Open PostHog AI'
+                            'Open Txlemetry AI'
                         )
                     }
                     tooltipPlacement="bottom-end"

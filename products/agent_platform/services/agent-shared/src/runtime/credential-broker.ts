@@ -30,7 +30,7 @@
 
 export type Credential =
     /**
-     * PostHog credential bearer (PAT today, OAuth later), usable as
+     * Txlemetry credential bearer (PAT today, OAuth later), usable as
      * `Authorization: Bearer <token>`. Available to tools under `posthog_api`.
      */
     | { kind: 'posthog_bearer'; token: string; scopes?: string[]; expires_at?: number }

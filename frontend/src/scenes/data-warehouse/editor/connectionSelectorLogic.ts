@@ -124,7 +124,7 @@ export const connectionSelectorLogic = kea<connectionSelectorLogicType>([
                         options: [
                             {
                                 value: POSTHOG_WAREHOUSE,
-                                label: 'PostHog (ClickHouse)',
+                                label: 'Txlemetry (ClickHouse)',
                                 iconSrc: IconPostHog,
                             },
                             ...sourceOptions,

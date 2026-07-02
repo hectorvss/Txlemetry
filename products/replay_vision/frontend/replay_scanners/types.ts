@@ -37,7 +37,7 @@ const FAILURE_KINDS: Record<FailureKind, { label: string; description: string }>
     provider_transient: {
         label: 'AI provider unavailable',
         description:
-            "The AI provider was temporarily unreachable. PostHog will retry on the scanner's next scheduled run.",
+            "The AI provider was temporarily unreachable. Txlemetry will retry on the scanner's next scheduled run.",
     },
     provider_rejected: {
         label: 'AI provider rejected video',
@@ -46,7 +46,7 @@ const FAILURE_KINDS: Record<FailureKind, { label: string; description: string }>
     rasterization_failed: {
         label: 'Recording video failed',
         description:
-            "PostHog couldn't render this recording into a video for the AI. Try again, or run the scanner on a different recording.",
+            "Txlemetry couldn't render this recording into a video for the AI. Try again, or run the scanner on a different recording.",
     },
     validation_failed: {
         label: 'AI output invalid',
@@ -55,7 +55,7 @@ const FAILURE_KINDS: Record<FailureKind, { label: string; description: string }>
     },
     internal_error: {
         label: 'Internal error',
-        description: 'An unexpected PostHog error occurred. Please contact support.',
+        description: 'An unexpected Txlemetry error occurred. Please contact support.',
     },
 }
 

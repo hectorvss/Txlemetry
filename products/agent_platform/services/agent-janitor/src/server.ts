@@ -248,7 +248,7 @@ async function deriveSpec(args: {
 
 /**
  * Auto-wire the managed `posthog` identity provider when a Slack-triggered agent
- * uses native PostHog tools: a Slack asker has no trigger-edge seed, so the link
+ * uses native Txlemetry tools: a Slack asker has no trigger-edge seed, so the link
  * flow needs a provisioned OAuthApplication. We add (or scope-union) the provider
  * with exactly the scopes its tools declare, so promote provisions an app with
  * the right scopes. Chat/MCP agents resolve `posthog` off the seed and don't need
@@ -450,7 +450,7 @@ export function buildJanitorApp(opts: JanitorServerOpts): Express {
     // The served-model catalog (id, provider, context, pricing per Mtok) plus
     // the curated auto-level → model map, both from the single source the
     // runner/validation already use. Powers the config-UI model browser (via
-    // Django REST) and, through the PostHog MCP, the agent builder's
+    // Django REST) and, through the Txlemetry MCP, the agent builder's
     // model-choosing skill. Pricing-free on an unreachable gateway (empty list).
     app.get(
         '/models',
@@ -887,7 +887,7 @@ export function buildJanitorApp(opts: JanitorServerOpts): Express {
             const interactivityUrl =
                 typeof req.query.interactivity_url === 'string' ? req.query.interactivity_url : null
             // Slack scopes only: a tool contributes to the Slack app manifest
-            // iff its single credential provider is the `slack` bot. PostHog /
+            // iff its single credential provider is the `slack` bot. Txlemetry /
             // other identity-provider scopes never leak into the Slack manifest.
             const scopeByTool = new Map(
                 listNativeTools().map((t) => [

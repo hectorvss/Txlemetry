@@ -1,7 +1,7 @@
 /**
  * AnalyticsSink — the runner's LLM-analytics out-bound. One `$ai_generation`
  * per pi-ai call, one `$ai_span` per tool dispatch, captured through the
- * standard PostHog ingestion path:
+ * standard Txlemetry ingestion path:
  *
  *   runner ──posthog-node──▶ /capture ──ingestion──▶ clickhouse_ai_events_json ──▶ ai_events (CH)
  *
@@ -12,7 +12,7 @@
  *
  * Sinks:
  *   - InMemoryAnalyticsSink (tests + local dev assertions)
- *   - NoopAnalyticsSink (dev/local without a PostHog destination)
+ *   - NoopAnalyticsSink (dev/local without a Txlemetry destination)
  *   - CaptureAnalyticsSink (prod) — thin wrapper over posthog-node.
  *
  * Future "platform-originated == free billing" handling: every event carries
@@ -161,7 +161,7 @@ export function toolSpanId(sessionId: string, turn: number, toolCallId: string):
 }
 
 /**
- * Build the `$ai_*` property bag PostHog's LLM Analytics surface keys on.
+ * Build the `$ai_*` property bag Txlemetry's LLM Analytics surface keys on.
  * Names match the existing `ai_events` MV schema
  * (`posthog/models/ai_events/sql.py:HEAVY_AI_PROPERTIES`) and what the
  * `ai-gateway` PostHogCallback emits. Exposed for tests + the future
@@ -246,13 +246,13 @@ export function eventNameFor(event: AnalyticsEvent): '$ai_generation' | '$ai_spa
 }
 
 /* -------------------------------------------------------------------------- */
-/* Noop sink — dev fallback when no PostHog destination is configured.        */
+/* Noop sink — dev fallback when no Txlemetry destination is configured.        */
 /* -------------------------------------------------------------------------- */
 
 /**
  * Drops every event on the floor. Wired in dev / local when the runner has no
  * `POSTHOG_ANALYTICS_API_KEY` to talk to. Prod and the test harness use
- * `CaptureAnalyticsSink` against a real PostHog endpoint; there is no
+ * `CaptureAnalyticsSink` against a real Txlemetry endpoint; there is no
  * in-memory test variant — assertions on analytics go through the sink's
  * `tap` option below, the same way `KafkaLogSink` exposes wire payloads.
  */
@@ -263,7 +263,7 @@ export class NoopAnalyticsSink implements AnalyticsSink {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Capture sink — production path. Goes through standard PostHog ingestion.   */
+/* Capture sink — production path. Goes through standard Txlemetry ingestion.   */
 /* -------------------------------------------------------------------------- */
 
 export interface CaptureAnalyticsSinkOptions {
@@ -424,7 +424,7 @@ const DEFAULT_MAX_CLIENTS = 64
 
 /**
  * Production analytics sink. Resolves each event's destination project key from
- * its `team_id` and captures into that team's own PostHog project, so agent
+ * its `team_id` and captures into that team's own Txlemetry project, so agent
  * traffic shows up natively in the owning team's LLM Analytics. Holds a bounded
  * LRU of `posthog-node` clients (one per distinct key); `shutdown()` drains all.
  *

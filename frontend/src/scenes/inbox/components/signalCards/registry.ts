@@ -43,13 +43,13 @@ export {
  * order is not load-bearing — but keep richer/more-specific variants first as a safety net.
  */
 export const SIGNAL_CARD_REGISTRY: SignalCardEntry[] = [
-    // PostHog products with live embeds
+    // Txlemetry products with live embeds
     errorTrackingSignalCardEntry,
     sessionReplaySignalCardEntry,
     // LLM analytics: report variant first (mutually exclusive guards, but explicit)
     llmEvalReportSignalCardEntry,
     llmEvalTraceSignalCardEntry,
-    // Other PostHog-native products
+    // Other Txlemetry-native products
     healthCheckSignalCardEntry,
     conversationsTicketSignalCardEntry,
     endpointExecutionFailedSignalCardEntry,

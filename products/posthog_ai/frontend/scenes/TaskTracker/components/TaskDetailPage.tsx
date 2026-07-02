@@ -52,7 +52,7 @@ export function TaskDetailPage({ taskId, isMobile }: TaskDetailPageProps): JSX.E
                     icon={<IconExternal />}
                     onClick={() => window.open(`posthog-code://task/${task.id}`, '_blank')}
                 >
-                    Open in PostHog Code
+                    Open in Txlemetry Code
                 </LemonButton>
                 {prUrl && (
                     <LemonButton

@@ -38,7 +38,7 @@ const initResult = posthog.init(
     'ph_toolbar_internal'
 )
 if (!initResult) {
-    throw new Error('Failed to initialize PostHog toolbar instance')
+    throw new Error('Failed to initialize Txlemetry toolbar instance')
 }
 export const toolbarPosthogJS = initResult
 

@@ -929,7 +929,7 @@ export const maxThreadLogic = kea<maxThreadLogicType>([
                             // Use server-provided message (includes research beta messaging)
                             relevantErrorMessage.content =
                                 e.detail ||
-                                `You've reached PostHog AI's usage limit for the moment. Please try again ${e.formattedRetryAfter}.`
+                                `You've reached Txlemetry AI's usage limit for the moment. Please try again ${e.formattedRetryAfter}.`
                         }
 
                         if (e.status === 402) {
@@ -1692,7 +1692,7 @@ export const maxThreadLogic = kea<maxThreadLogicType>([
             if (!handler) {
                 result = {
                     client_execution_error:
-                        'The PostHog view that executes this tool client-side is no longer open, so the call could not be completed.',
+                        'The Txlemetry view that executes this tool client-side is no longer open, so the call could not be completed.',
                 }
             } else {
                 try {

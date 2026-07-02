@@ -452,7 +452,7 @@ export function TaxonomicFilterMenu({
     //
     // `dwh-config` deliberately excluded — when the user opens the DWH
     // config dialog we close the popover (not just stack on top of it),
-    // so PostHog's stock z-order (`--z-popover` > `--z-modal`) keeps
+    // so Txlemetry's stock z-order (`--z-popover` > `--z-modal`) keeps
     // Selects inside the dialog above the modal as expected. Cancelling
     // the dialog returns to `dwh-pick` and the popover re-opens at the
     // table list.

@@ -60,7 +60,7 @@ const StatusPageAlert = (): JSX.Element | null => {
                         </Link>
                     </p>
                     <div className="text-sm">
-                        <p className="mb-1">We're aware of an issue that may be affecting your PostHog experience.</p>
+                        <p className="mb-1">We're aware of an issue that may be affecting your Txlemetry experience.</p>
                         <p className="mb-0">
                             You may wish to check our{' '}
                             <Link to={statusPageUrl} target="_blank">
@@ -362,11 +362,11 @@ export function SidePanelSupport(): JSX.Element {
                     ) : (
                         <>
                             {showMaxAI && isBillingLoaded && (
-                                <Section title="Ask PostHog AI">
+                                <Section title="Ask Txlemetry AI">
                                     <div>
-                                        <p>PostHog AI can now answer 80%+ of the support questions we receive! Nice.</p>
+                                        <p>Txlemetry AI can now answer 80%+ of the support questions we receive! Nice.</p>
                                         <p>
-                                            Let PostHog AI read 100s of pages of docs for you, write SQL queries and
+                                            Let Txlemetry AI read 100s of pages of docs for you, write SQL queries and
                                             expressions, regex patterns, etc.
                                         </p>
                                         <LemonButton
@@ -379,7 +379,7 @@ export function SidePanelSupport(): JSX.Element {
                                             targetBlank={false}
                                             className="mt-2"
                                         >
-                                            Chat with PostHog AI
+                                            Chat with Txlemetry AI
                                         </LemonButton>
                                     </div>
                                 </Section>
@@ -389,7 +389,7 @@ export function SidePanelSupport(): JSX.Element {
                                 <Section title="Contact us">
                                     <StatusPageAlert />
                                     <SupportMessageOverride />
-                                    <p>Can't find what you need and PostHog AI unable to help?</p>
+                                    <p>Can't find what you need and Txlemetry AI unable to help?</p>
                                     <SidePanelTickets />
                                 </Section>
                             )}
@@ -398,7 +398,7 @@ export function SidePanelSupport(): JSX.Element {
                                 <Section title="Contact us">
                                     <StatusPageAlert />
                                     <SupportMessageOverride />
-                                    <p>Can't find what you need and PostHog AI unable to help?</p>
+                                    <p>Can't find what you need and Txlemetry AI unable to help?</p>
                                     <LemonButton
                                         type="secondary"
                                         fullWidth
@@ -482,7 +482,7 @@ export function SidePanelSupport(): JSX.Element {
                                         <LemonButton
                                             type="secondary"
                                             status="alt"
-                                            to="https://github.com/PostHog/posthog/issues/new?&labels=enhancement&template=feature_request.yml"
+                                            to="https://github.com/Txlemetry/posthog/issues/new?&labels=enhancement&template=feature_request.yml"
                                             icon={<IconFeatures />}
                                             targetBlank
                                         >

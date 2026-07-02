@@ -443,7 +443,7 @@ export const alertWizardLogic = kea<alertWizardLogicType>([
                     event: subTemplate.filters?.events?.[0]?.id || triggerKey,
                     properties: {
                         name: 'Test issue',
-                        description: 'This is a test alert from PostHog',
+                        description: 'This is a test alert from Txlemetry',
                     },
                 },
                 project: {

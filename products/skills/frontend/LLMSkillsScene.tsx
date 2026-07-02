@@ -411,13 +411,13 @@ function ConnectToClaudeCodeModal(): JSX.Element {
                 <LemonDivider />
 
                 <section className="flex flex-col gap-2">
-                    <h4 className="m-0 font-semibold">Any agent (PostHog MCP)</h4>
+                    <h4 className="m-0 font-semibold">Any agent (Txlemetry MCP)</h4>
                     <p className="m-0 text-sm text-secondary">
-                        If the PostHog MCP is connected, an agent can list and load these skills directly via its{' '}
+                        If the Txlemetry MCP is connected, an agent can list and load these skills directly via its{' '}
                         <code>skill-*</code> tools — no marketplace needed. Just ask:
                     </p>
                     <CodeSnippet language={Language.Text} thing="agent prompt">
-                        List my PostHog skills, then load the one that fits this task.
+                        List my Txlemetry skills, then load the one that fits this task.
                     </CodeSnippet>
                 </section>
             </div>

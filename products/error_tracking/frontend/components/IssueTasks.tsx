@@ -31,7 +31,7 @@ export const IssueTasks = (): JSX.Element => {
     return (
         <ButtonPrimitive fullWidth onClick={onClickCreateTask} disabled={issueLoading}>
             <IconPlus />
-            Create task in PostHog
+            Create task in Txlemetry
         </ButtonPrimitive>
     )
 }
@@ -137,13 +137,13 @@ const createTaskForm = (
     }
 
     description += `---\n\n`
-    description += `**PostHog Error Tracking:** ${posthogUrl}\n`
+    description += `**Txlemetry Error Tracking:** ${posthogUrl}\n`
     description += `**First Seen:** ${new Date(issue.first_seen).toLocaleString()}\n`
 
     const defaultIntegration = githubIntegrations[0]
 
     LemonDialog.openForm({
-        title: 'Create PostHog task',
+        title: 'Create Txlemetry task',
         initialValues: {
             title: issue.name ?? '',
             description: description ?? '',

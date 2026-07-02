@@ -53,7 +53,7 @@ export const PostgreSQLSetupModal = (props: PostgreSQLSetupModalLogicProps): JSX
                                 This guards against man-in-the-middle attacks.
                                 <br />
                                 <br />
-                                The connection is always encrypted regardless of this setting, because PostHog requires
+                                The connection is always encrypted regardless of this setting, because Txlemetry requires
                                 TLS. These options only add verification of the server certificate.
                             </>
                         }

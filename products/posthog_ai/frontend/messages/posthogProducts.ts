@@ -1,5 +1,5 @@
 /**
- * PostHog product taxonomy for the sandbox resources bar. Ported from the agent's
+ * Txlemetry product taxonomy for the sandbox resources bar. Ported from the agent's
  * `POSTHOG_PRODUCTS` (ids + labels are authoritative there) with icons sourced from
  * `@posthog/icons`. The `_posthog/resources_used` wire frame already carries `{id, label}`, so this
  * map is the icon source plus a fallback label for any id the wire omits. Labels are NOT a
@@ -58,7 +58,7 @@ export const POSTHOG_PRODUCTS: Record<PostHogProductId, PostHogProductMeta> = {
     logs: { label: 'Logs', Icon: IconServer },
     apm: { label: 'APM', Icon: IconCursor },
     sql: { label: 'SQL', Icon: IconHogQL },
-    posthog: { label: 'PostHog', Icon: IconLogomark },
+    posthog: { label: 'Txlemetry', Icon: IconLogomark },
 }
 
 /** Fallback icon for ids absent from the taxonomy — degrade gracefully rather than disappearing. */

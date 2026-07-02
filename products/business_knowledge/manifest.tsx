@@ -19,7 +19,7 @@ export const manifest: ProductManifest = {
             projectBased: true,
             activityScope: 'KnowledgeSource',
             description:
-                'Upload text, public URLs, or files so PostHog AI can understand your business context, vision, and policies.',
+                'Upload text, public URLs, or files so Txlemetry AI can understand your business context, vision, and policies.',
         },
     },
     routes: {

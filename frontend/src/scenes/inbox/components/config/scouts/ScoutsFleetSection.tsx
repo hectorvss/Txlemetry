@@ -193,7 +193,7 @@ function ScoutsFleetList(): JSX.Element {
             <div className="flex flex-col gap-1">
                 <span className="text-xs text-muted">
                     Run counts and emitted totals cover the last {SCOUT_RUNS_WINDOW_SPAN} of troop runs. New scouts are
-                    created as <span className="font-mono text-[11px]">signals-scout-*</span> skills in your PostHog
+                    created as <span className="font-mono text-[11px]">signals-scout-*</span> skills in your Txlemetry
                     project.
                 </span>
                 <ScoutHelperSkillLinks />
@@ -236,7 +236,7 @@ function ScoutsEmptyState(): JSX.Element {
             <p className="max-w-2xl text-xs text-secondary leading-snug mb-0">
                 Scouts are rolling out gradually. Once your project is enrolled, the canonical troop appears here
                 automatically and you can add custom scouts by creating{' '}
-                <span className="font-mono text-[11px]">signals-scout-*</span> skills in PostHog.
+                <span className="font-mono text-[11px]">signals-scout-*</span> skills in Txlemetry.
             </p>
             <ScoutHelperSkillLinks />
         </div>

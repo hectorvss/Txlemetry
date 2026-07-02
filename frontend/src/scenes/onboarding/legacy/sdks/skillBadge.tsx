@@ -35,8 +35,8 @@ export const WIZARD_SKILL_IDS = [
 ] as const
 
 /**
- * Wizard `skill_id` → PostHog SDKKey. The CLI uses hyphenated framework names
- * (`react-native`) while PostHog's SDK catalogue uses underscored enum keys
+ * Wizard `skill_id` → Txlemetry SDKKey. The CLI uses hyphenated framework names
+ * (`react-native`) while Txlemetry's SDK catalogue uses underscored enum keys
  * (`react_native`), and a handful of frameworks don't map 1:1 — this table
  * resolves both kinds of divergence.
  */
@@ -59,7 +59,7 @@ const WIZARD_SKILL_TO_SDK_KEY: Record<string, SDKKey> = {
     swift: SDKKey.IOS,
     'tanstack-start': SDKKey.TANSTACK_START,
     vue: SDKKey.VUE_JS,
-    // No PostHog SDK match yet — fastapi, flask, tanstack-router fall through to
+    // No Txlemetry SDK match yet — fastapi, flask, tanstack-router fall through to
     // the IconCode placeholder + tidied display name.
 }
 

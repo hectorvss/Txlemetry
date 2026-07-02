@@ -47,7 +47,7 @@ export function dismissActionColumn(
                             size="xsmall"
                             type="tertiary"
                             icon={<IconSparkles />}
-                            tooltip="Ask PostHog AI about this issue"
+                            tooltip="Ask Txlemetry AI about this issue"
                             onClick={() =>
                                 sidePanelStateLogic.actions.openSidePanel(
                                     SidePanelTab.Max,

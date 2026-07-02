@@ -318,7 +318,7 @@ export function MenuFilterDwhConfig({
                         {/* `data-not-quill` resets the colour-token rebinds
                             that `[data-quill]` applies on the popover root,
                             so the legacy DatabaseTablePreview keeps its
-                            PostHog colours instead of inheriting Quill's. */}
+                            Txlemetry colours instead of inheriting Quill's. */}
                         <div data-not-quill className="flex min-w-0 overflow-x-auto">
                             <DatabaseTablePreview
                                 table={previewTable as never}

@@ -76,7 +76,7 @@ export function CreateProjectModal({
                         <strong>Tip:</strong> We recommend using the same project for both your website and app to track
                         conversion fully.{' '}
                         <Link to="https://posthog.com/docs/settings/projects" target="_blank" disableDocsPanel>
-                            Learn more in PostHog docs.
+                            Learn more in Txlemetry docs.
                         </Link>
                     </p>
                     {currentOrganization?.projects?.some(

@@ -10,9 +10,9 @@ export function PendingInviteBanner({ invite, email }: { invite: PendingInvite; 
 
     return (
         <div className="deprecated-space-y-4 Signup__panel__pending-invite">
-            <h2 className="m-0">You've already been invited to PostHog</h2>
+            <h2 className="m-0">You've already been invited to Txlemetry</h2>
             <p className="text-secondary mb-0">
-                <b>{invite.organization_name}</b> sent you an invite to join them on PostHog. Look for it in your inbox,
+                <b>{invite.organization_name}</b> sent you an invite to join them on Txlemetry. Look for it in your inbox,
                 or have us resend it.
             </p>
             {pendingInviteResent ? (

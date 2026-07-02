@@ -41,7 +41,7 @@ function formatTileObject(tile: DashboardTile<any>, insightIdReplacements: Map<n
 }
 
 /**
- * @see https://registry.terraform.io/providers/PostHog/posthog/latest/docs/resources/dashboard_layout
+ * @see https://registry.terraform.io/providers/Txlemetry/posthog/latest/docs/resources/dashboard_layout
  */
 const DASHBOARD_LAYOUT_FIELD_MAPPINGS: FieldMapping<Partial<DashboardType<any>>, DashboardLayoutHclExportOptions>[] = [
     {

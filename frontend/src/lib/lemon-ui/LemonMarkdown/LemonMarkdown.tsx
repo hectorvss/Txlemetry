@@ -32,7 +32,7 @@ export interface LemonMarkdownProps {
      * Whether to treat images as untrusted. Use for content we don't control (e.g. LLM/agent or
      * externally-sourced output), where auto-loading an image would fire a request to an arbitrary
      * URL — leaking the viewer's IP, acting as a tracking pixel, or probing internal addresses.
-     * When set, only images served from PostHog (same-origin or a `posthog.com` host) render inline
+     * When set, only images served from Txlemetry (same-origin or a `posthog.com` host) render inline
      * as <img>; every other image is rendered as a plain click-to-open link instead.
      */
     disableImages?: boolean
@@ -62,7 +62,7 @@ export function slugifyHeading(text: string): string {
 
 /**
  * Whether an image source is trusted enough to render inline within untrusted content.
- * Trusted = served from PostHog itself: same-origin (incl. relative URLs) or any `posthog.com` host.
+ * Trusted = served from Txlemetry itself: same-origin (incl. relative URLs) or any `posthog.com` host.
  * Anything else (including `data:`/`blob:` URIs) is untrusted and should be rendered as a link.
  */
 export function isTrustedImageSrc(src: string | undefined): boolean {

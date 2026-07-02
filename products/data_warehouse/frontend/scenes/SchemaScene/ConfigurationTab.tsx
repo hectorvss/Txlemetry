@@ -183,7 +183,7 @@ function DetailsSection({
                     <div className="flex flex-col">
                         <span>Enabled</span>
                         <span className="text-xs text-muted max-w-md">
-                            When enabled, this schema runs on the configured schedule and data is imported into PostHog.
+                            When enabled, this schema runs on the configured schedule and data is imported into Txlemetry.
                             Disabling pauses all syncs — existing data stays in place but is not updated until you
                             re-enable.
                         </span>
@@ -746,7 +746,7 @@ function ScheduleSection({
                 <div className="flex flex-col gap-1">
                     <span>Sync frequency</span>
                     <span className="text-xs text-muted max-w-md">
-                        How often PostHog pulls new data from the source. Shorter intervals mean fresher data but more
+                        How often Txlemetry pulls new data from the source. Shorter intervals mean fresher data but more
                         load on the source database
                         {isCdc ? ' — CDC supports sub-minute replication for near-real-time syncs.' : '.'}
                     </span>
@@ -986,7 +986,7 @@ function DangerZoneSection({
                             )}
                             {canDeleteTable && (
                                 <Tooltip
-                                    title={`Delete this table from PostHog. ${
+                                    title={`Delete this table from Txlemetry. ${
                                         source?.source_type
                                             ? `This will not delete the data in ${source.source_type}`
                                             : ''
@@ -997,7 +997,7 @@ function DangerZoneSection({
                                         status="danger"
                                         onClick={() => {
                                             LemonDialog.open({
-                                                title: `Delete ${schema.table?.name ?? schema.name} from PostHog?`,
+                                                title: `Delete ${schema.table?.name ?? schema.name} from Txlemetry?`,
                                                 description: source?.source_type
                                                     ? `The data in ${source.source_type} will not be touched.`
                                                     : undefined,
@@ -1011,7 +1011,7 @@ function DangerZoneSection({
                                         }}
                                         disabledReason={disabledReason}
                                     >
-                                        Delete table from PostHog
+                                        Delete table from Txlemetry
                                     </LemonButton>
                                 </Tooltip>
                             )}
@@ -1124,7 +1124,7 @@ function DescriptionsSectionContent({
         <div>
             <SectionHeader
                 title="Descriptions"
-                description="Describe what this table and its columns mean. These descriptions help PostHog AI write correct queries against your data. Descriptions are generated automatically (from the source's documentation or AI) and anything you edit here is preserved."
+                description="Describe what this table and its columns mean. These descriptions help Txlemetry AI write correct queries against your data. Descriptions are generated automatically (from the source's documentation or AI) and anything you edit here is preserved."
             />
             <div className="border rounded p-4 bg-surface-primary">
                 <DescriptionRow

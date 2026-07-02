@@ -9,7 +9,7 @@ import { iconForType } from '~/layout/panel-layout/ProjectTree/defaultTree'
 
 import { replayScannerLogic } from '../replayScannerLogic'
 
-/** PostHog AI entry point for summarizer scanners — lets the user chat about / digest the per-session summaries. */
+/** Txlemetry AI entry point for summarizer scanners — lets the user chat about / digest the per-session summaries. */
 export function SummarizerMaxChat({ scannerId }: { scannerId: string }): JSX.Element | null {
     const { scanner } = useValues(replayScannerLogic({ id: scannerId }))
     const isSummarizer = scanner?.scanner_type === 'summarizer'
@@ -33,7 +33,7 @@ export function SummarizerMaxChat({ scannerId }: { scannerId: string }): JSX.Ele
             <div>
                 <h3 className="text-base font-semibold mb-1">Chat about these summaries</h3>
                 <p className="text-sm text-muted m-0">
-                    Ask PostHog AI to find themes and patterns across this scanner's session summaries.
+                    Ask Txlemetry AI to find themes and patterns across this scanner's session summaries.
                 </p>
             </div>
             <LemonButton
@@ -43,7 +43,7 @@ export function SummarizerMaxChat({ scannerId }: { scannerId: string }): JSX.Ele
                 className="shrink-0"
                 data-attr="vision-scanner-ask-ai"
             >
-                Ask PostHog AI
+                Ask Txlemetry AI
             </LemonButton>
         </div>
     )

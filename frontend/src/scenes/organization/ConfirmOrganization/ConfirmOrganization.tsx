@@ -53,7 +53,7 @@ export function ConfirmOrganization(): JSX.Element {
                         </p>
                         <ul className="list-disc pl-4">
                             <li>You're logging in with the wrong email address</li>
-                            <li>Your PostHog account is at a different URL</li>
+                            <li>Your Txlemetry account is at a different URL</li>
                             <li>You need an invitation from a colleague</li>
                         </ul>
                     </div>

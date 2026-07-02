@@ -3,8 +3,8 @@
  *
  * Two mutually-exclusive states (core defs can't be team-verified — see
  * `DefinitionPopoverContents`'s `allowVerification`):
- *   - `core`     — a built-in PostHog definition (`isCoreFilter`). Badge
- *                  reads "By PostHog" with the logomark.
+ *   - `core`     — a built-in Txlemetry definition (`isCoreFilter`). Badge
+ *                  reads "By Txlemetry" with the logomark.
  *   - `verified` — a custom definition a team explicitly marked verified
  *                  (`item.verified`). Badge reads "Verified".
  */
@@ -18,8 +18,8 @@ import { MenuFilterEntry } from './types'
 type Verification = { kind: 'core' } | { kind: 'verified' }
 
 export function getVerification(entry: MenuFilterEntry): Verification | null {
-    // Core PostHog definitions ($pageview, $browser, …) are inherently
-    // verified — surfaced as "By PostHog" rather than a team flag.
+    // Core Txlemetry definitions ($pageview, $browser, …) are inherently
+    // verified — surfaced as "By Txlemetry" rather than a team flag.
     if (isCoreFilter(entry.name)) {
         return { kind: 'core' }
     }
@@ -55,7 +55,7 @@ export function VerificationBadge({
                     <span {...triggerProps} className={cn('inline-flex', className)}>
                         <Badge variant={isCore ? 'default' : 'success'} className="gap-1 shrink-0">
                             {isCore ? <IconLogomark className="size-3" /> : <IconBadge className="size-3" />}
-                            {isCore ? 'PostHog' : 'Verified'}
+                            {isCore ? 'Txlemetry' : 'Verified'}
                         </Badge>
                     </span>
                 )}
@@ -63,7 +63,7 @@ export function VerificationBadge({
             <TooltipContent className="max-w-64 flex-col items-start">
                 {isCore ? (
                     <>
-                        <strong>Built into PostHog.</strong> A core definition PostHog ships, maintains, and documents.
+                        <strong>Built into Txlemetry.</strong> A core definition Txlemetry ships, maintains, and documents.
                         Its name, type, and description are managed for you, so you don't need to verify it.
                     </>
                 ) : (

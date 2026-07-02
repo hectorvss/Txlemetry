@@ -219,7 +219,7 @@ const PROMPT_OVERRIDES: Record<TailoredRole, Partial<Record<SurfaceKey, SurfaceP
             toast: '"Connect Stripe and sync invoices and subscriptions daily"',
             examples: [
                 '"Connect Stripe and sync invoices and subscriptions daily"',
-                '"Import Stripe charges so I can track MRR in PostHog"',
+                '"Import Stripe charges so I can track MRR in Txlemetry"',
                 '"Set up Stripe to see revenue next to product usage"',
             ],
         },
@@ -511,7 +511,7 @@ export interface ResolveOptions {
 }
 
 function buildSqlExamplesFromEvents(topEvents: string[]): string[] {
-    // Filter out PostHog-internal events (lead with `$`) so we surface the user's own product events,
+    // Filter out Txlemetry-internal events (lead with `$`) so we surface the user's own product events,
     // also be conservative to avoid surface events that look like SQL injection vectors.
     const owned = topEvents
         .filter((name) => name && !name.startsWith('$') && /^[A-Za-z0-9_.:-]{1,80}$/.test(name))

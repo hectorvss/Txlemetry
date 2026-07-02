@@ -642,7 +642,7 @@ export default function SurveyEdit({ id }: { id: string }): JSX.Element {
                                                                     }
                                                                 }}
                                                                 title={SURVEY_TYPE_LABEL_MAP[SurveyType.Popover]}
-                                                                description="Automatically appears when PostHog JS is installed"
+                                                                description="Automatically appears when Txlemetry JS is installed"
                                                                 value={SurveyType.Popover}
                                                             >
                                                                 <div className="scale-[0.8] absolute -top-4 -left-4">
@@ -661,7 +661,7 @@ export default function SurveyEdit({ id }: { id: string }): JSX.Element {
                                                                     }
                                                                 }}
                                                                 title={SURVEY_TYPE_LABEL_MAP[SurveyType.API]}
-                                                                description="Use the PostHog API to show/hide your survey programmatically"
+                                                                description="Use the Txlemetry API to show/hide your survey programmatically"
                                                                 value={SurveyType.API}
                                                             >
                                                                 <div className="absolute left-4 w-[350px]">
@@ -715,7 +715,7 @@ export default function SurveyEdit({ id }: { id: string }): JSX.Element {
                                                                 </div>
                                                                 <ul className="space-y-2 text-sm">
                                                                     <li>
-                                                                        • The survey will be hosted by PostHog and you
+                                                                        • The survey will be hosted by Txlemetry and you
                                                                         can share the URL with your customers
                                                                     </li>
                                                                     <li>

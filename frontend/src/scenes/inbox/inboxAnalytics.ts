@@ -7,7 +7,7 @@ import { SignalReport, SignalReportActionability, SignalReportPriority } from '.
 /**
  * Inbox telemetry. Mirrors the desktop "Code" app's inbox analytics (event names + property
  * shapes from `packages/shared/src/analytics-events.ts`) so the two clients are comparable in
- * one PostHog project. Every event carries `inbox_client` so funnels and breakdowns can split
+ * one Txlemetry project. Every event carries `inbox_client` so funnels and breakdowns can split
  * cloud from desktop — cloud sends `'cloud'`, the desktop app sends `'desktop'`.
  */
 export const INBOX_CLIENT = 'cloud' as const

@@ -23,7 +23,7 @@ const DEFAULT_HOG_FUNCTION_CONFIGURATION: Partial<HogFunctionConfigurationType> 
 
 const DEFAULT_SLACK_INPUTS: Record<string, any> = {
     icon_emoji: { value: ':hedgehog:' },
-    username: { value: 'PostHog' },
+    username: { value: 'Txlemetry' },
     blocks: {
         value: [
             { type: 'header', text: { type: 'plain_text', text: '🔴 {event.properties.name}' } },

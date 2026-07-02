@@ -28,7 +28,7 @@ function HideProperties(): JSX.Element {
         <SettingsMenu
             items={[
                 {
-                    label: <>{hidePostHogPropertiesInTable ? <IconCheck /> : <BaseIcon />} Hide PostHog properties</>,
+                    label: <>{hidePostHogPropertiesInTable ? <IconCheck /> : <BaseIcon />} Hide Txlemetry properties</>,
                     onClick: () => setHidePostHogPropertiesInTable(!hidePostHogPropertiesInTable),
                     active: hidePostHogPropertiesInTable,
                     disabledReason:

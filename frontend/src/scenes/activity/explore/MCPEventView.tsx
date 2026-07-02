@@ -92,7 +92,7 @@ const MCP_PROPERTY_ORDER: readonly string[] = [
     '$mcp_server_version',
     '$mcp_protocol_version',
     '$mcp_version',
-    // PostHog target
+    // Txlemetry target
     '$mcp_organization_id',
     '$mcp_project_id',
     '$mcp_project_name',

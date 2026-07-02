@@ -266,7 +266,7 @@ export function EmailSection(): JSX.Element {
     return (
         <SceneSection
             title="Email channel"
-            description="Receive customer emails as support tickets and reply directly from PostHog. Set up forwarding and verify your domain to enable two-way email."
+            description="Receive customer emails as support tickets and reply directly from Txlemetry. Set up forwarding and verify your domain to enable two-way email."
         >
             <div className="flex flex-col gap-3 max-w-[800px]">
                 {emailConfigs.length > 0 && (

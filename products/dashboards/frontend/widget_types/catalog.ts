@@ -185,7 +185,7 @@ export const DASHBOARD_WIDGET_CATALOG = {
         titleHref: urls.errorTracking(),
         sharedPlaceholder: {
             title: 'Top issues',
-            message: 'Log in to PostHog to see which errors are affecting your users.',
+            message: 'Log in to Txlemetry to see which errors are affecting your users.',
         },
         tileFilters: {
             quickFilterContext: QuickFilterContext.ErrorTrackingIssueFilters,
@@ -213,7 +213,7 @@ export const DASHBOARD_WIDGET_CATALOG = {
         titleHref: urls.replay(),
         sharedPlaceholder: {
             title: 'Recent recordings',
-            message: 'Log in to PostHog to watch session replays from this dashboard.',
+            message: 'Log in to Txlemetry to watch session replays from this dashboard.',
         },
         availability: {
             requirement: 'session_replay_enabled',
@@ -241,7 +241,7 @@ export const DASHBOARD_WIDGET_CATALOG = {
         titleHref: urls.experiments(),
         sharedPlaceholder: {
             title: 'Experiments',
-            message: 'Log in to PostHog to see experiments from this dashboard.',
+            message: 'Log in to Txlemetry to see experiments from this dashboard.',
         },
     },
     experiment_results: {
@@ -256,7 +256,7 @@ export const DASHBOARD_WIDGET_CATALOG = {
         productAccess: 'experiment',
         sharedPlaceholder: {
             title: 'Experiment results',
-            message: 'Log in to PostHog to see experiment results from this dashboard.',
+            message: 'Log in to Txlemetry to see experiment results from this dashboard.',
         },
     },
     activity_events_list: {
@@ -271,7 +271,7 @@ export const DASHBOARD_WIDGET_CATALOG = {
         titleHref: urls.activity(ActivityTab.ExploreEvents),
         sharedPlaceholder: {
             title: 'Recent events',
-            message: 'Log in to PostHog to explore the latest events from this dashboard.',
+            message: 'Log in to Txlemetry to explore the latest events from this dashboard.',
         },
     },
     logs_list: {
@@ -287,7 +287,7 @@ export const DASHBOARD_WIDGET_CATALOG = {
         titleHref: urls.logs(),
         sharedPlaceholder: {
             title: 'Recent logs',
-            message: 'Log in to PostHog to see the latest logs from this dashboard.',
+            message: 'Log in to Txlemetry to see the latest logs from this dashboard.',
         },
     },
 } as const satisfies Record<string, DashboardWidgetCatalogEntry>
@@ -335,7 +335,7 @@ export function tryGetDashboardWidgetCatalogEntry(widgetType: string): ResolvedD
 
 export const DEFAULT_SHARED_DASHBOARD_WIDGET_PLACEHOLDER = {
     title: 'Widget data',
-    message: "Log in to PostHog to see this widget's data.",
+    message: "Log in to Txlemetry to see this widget's data.",
 } as const
 
 export function getUnknownDashboardWidgetCatalogFallback(widgetType: string): ResolvedDashboardWidgetCatalogEntry {

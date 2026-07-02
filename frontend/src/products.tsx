@@ -587,7 +587,7 @@ export const productConfiguration: Record<string, any> = {
         projectBased: true,
         activityScope: 'KnowledgeSource',
         description:
-            'Upload text, public URLs, or files so PostHog AI can understand your business context, vision, and policies.',
+            'Upload text, public URLs, or files so Txlemetry AI can understand your business context, vision, and policies.',
     },
     Transformations: {
         projectBased: true,
@@ -640,7 +640,7 @@ export const productConfiguration: Record<string, any> = {
         projectBased: true,
         name: 'Sources',
         description:
-            'Import data into PostHog from external sources including webhooks, application connectors, and self-managed databases.',
+            'Import data into Txlemetry from external sources including webhooks, application connectors, and self-managed databases.',
         activityScope: ActivityScope.HOG_FUNCTION,
         iconType: 'data_pipeline',
     },
@@ -840,7 +840,7 @@ export const productConfiguration: Record<string, any> = {
         name: 'Session summaries',
         projectBased: true,
         description:
-            'View and deep-dive into AI-generated summaries of session recordings. Create summaries from the Session replay page by applying filters and asking PostHog AI to summarize sessions.',
+            'View and deep-dive into AI-generated summaries of session recordings. Create summaries from the Session replay page by applying filters and asking Txlemetry AI to summarize sessions.',
         iconType: 'notebook',
     },
     SessionGroupSummary: {
@@ -861,7 +861,7 @@ export const productConfiguration: Record<string, any> = {
     Toolbar: {
         name: 'Toolbar',
         projectBased: true,
-        description: 'PostHog toolbar launches PostHog right in your app or website.',
+        description: 'Txlemetry toolbar launches Txlemetry right in your app or website.',
         iconType: 'toolbar',
     },
     Tracing: {

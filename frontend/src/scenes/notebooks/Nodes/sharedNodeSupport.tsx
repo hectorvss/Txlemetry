@@ -17,7 +17,7 @@ import { NotebookNodeType } from '../types'
  *   3. Add the entry below.
  *
  * Built-in ProseMirror / StarterKit / Tiptap node names (paragraph, heading, bulletList, etc.) are
- * registered separately in `Editor.tsx` and aren't gated through this list \u2014 only PostHog widget
+ * registered separately in `Editor.tsx` and aren't gated through this list \u2014 only Txlemetry widget
  * nodes (`ph-*`) flow through `createPostHogWidgetNode` where this check runs.
  */
 export const SHARED_NOTEBOOK_SUPPORTED_NODE_TYPES: ReadonlySet<string> = new Set([

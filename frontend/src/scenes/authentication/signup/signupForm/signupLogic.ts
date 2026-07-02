@@ -524,7 +524,7 @@ export const signupLogic = kea<signupLogicType>([
                     return ''
                 }
                 if (preflight?.demo) {
-                    return 'Explore PostHog yourself'
+                    return 'Explore Txlemetry yourself'
                 }
 
                 if (passkeySignupEnabled) {

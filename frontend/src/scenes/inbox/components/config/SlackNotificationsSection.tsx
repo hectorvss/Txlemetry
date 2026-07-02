@@ -127,8 +127,8 @@ export function SlackNotificationsSection(): JSX.Element {
                     <div className="min-w-0">
                         <div className="font-medium text-sm text-default">Notify me directly</div>
                         <p className="text-xs text-secondary mt-0.5 mb-0 max-w-xl">
-                            When you're a suggested reviewer, get pinged in your own channel. PostHog must be in the
-                            channel – invite it with <code>/invite @PostHog</code>.
+                            When you're a suggested reviewer, get pinged in your own channel. Txlemetry must be in the
+                            channel – invite it with <code>/invite @Txlemetry</code>.
                         </p>
                     </div>
                 </div>

@@ -24,7 +24,7 @@ export function SourcesList({ action }: { action: JSX.Element }): JSX.Element {
                     productName="Data Warehouse Source"
                     productKey={ProductKey.DATA_WAREHOUSE}
                     thingName="data source"
-                    description="Use data warehouse sources to import data from your external data into PostHog."
+                    description="Use data warehouse sources to import data from your external data into Txlemetry."
                     isEmpty={dataWarehouseSources.results.length === 0 && !dataWarehouseSourcesLoading}
                     docsURL="https://posthog.com/docs/data-warehouse"
                     actionElementOverride={action}
@@ -33,7 +33,7 @@ export function SourcesList({ action }: { action: JSX.Element }): JSX.Element {
 
             <SceneSection
                 title="Managed data warehouse sources"
-                description="PostHog can connect to external sources and automatically import data from them into the PostHog data warehouse"
+                description="Txlemetry can connect to external sources and automatically import data from them into the Txlemetry data warehouse"
             >
                 <ManagedSourcesTable />
             </SceneSection>
@@ -50,7 +50,7 @@ export function SourcesList({ action }: { action: JSX.Element }): JSX.Element {
                                 </LemonTag>
                             </span>
                         }
-                        description="PostHog can expose a webhook that you can configure however you need to receive data from a 3rd party with no in-between service necessary"
+                        description="Txlemetry can expose a webhook that you can configure however you need to receive data from a 3rd party with no in-between service necessary"
                     >
                         <HogFunctionList logicKey="data-pipelines-hog-functions-source-webhook" type="source_webhook" />
                     </SceneSection>
@@ -60,7 +60,7 @@ export function SourcesList({ action }: { action: JSX.Element }): JSX.Element {
 
             <SceneSection
                 title="Self-managed data warehouse sources"
-                description="Connect to your own data sources, making them queryable in PostHog"
+                description="Connect to your own data sources, making them queryable in Txlemetry"
             >
                 <SelfManagedSourcesTable />
             </SceneSection>

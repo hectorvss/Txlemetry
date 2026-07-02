@@ -100,7 +100,7 @@ export const SURVEY_SDK_REQUIREMENTS: SurveyFeatureRequirement[] = [
         unsupportedSdks: [
             { sdk: 'posthog-android', issue: false }, // delegate pattern - no built-in UI
             { sdk: 'posthog-react-native', issue: 'https://github.com/PostHog/posthog-js/issues/2959' },
-            { sdk: 'posthog_flutter', issue: 'https://github.com/PostHog/posthog-flutter/issues/258' },
+            { sdk: 'posthog_flutter', issue: 'https://github.com/Txlemetry/posthog-flutter/issues/258' },
         ],
         check: (s) => s.appearance?.fontFamily !== undefined && s.appearance?.fontFamily !== 'inherit',
     },
@@ -136,9 +136,9 @@ export const SURVEY_SDK_REQUIREMENTS: SurveyFeatureRequirement[] = [
             'posthog-react-native': '4.43.13',
         },
         unsupportedSdks: [
-            { sdk: 'posthog-ios', issue: 'https://github.com/PostHog/posthog-ios/issues/581' },
-            { sdk: 'posthog-android', issue: 'https://github.com/PostHog/posthog-android/issues/502' },
-            { sdk: 'posthog_flutter', issue: 'https://github.com/PostHog/posthog-flutter/issues/379' },
+            { sdk: 'posthog-ios', issue: 'https://github.com/Txlemetry/posthog-ios/issues/581' },
+            { sdk: 'posthog-android', issue: 'https://github.com/Txlemetry/posthog-android/issues/502' },
+            { sdk: 'posthog_flutter', issue: 'https://github.com/Txlemetry/posthog-flutter/issues/379' },
         ],
         // True when a non-default popover position is set. NextToTrigger is excluded
         // here because it is covered by the "Feedback button surveys" entry above.
@@ -152,9 +152,9 @@ export const SURVEY_SDK_REQUIREMENTS: SurveyFeatureRequirement[] = [
         sdkVersions: { 'posthog-js': '1.240.0' },
         unsupportedSdks: [
             { sdk: 'posthog-react-native', issue: 'https://github.com/PostHog/posthog-js/issues/2962' },
-            { sdk: 'posthog-ios', issue: 'https://github.com/PostHog/posthog-ios/issues/447' },
-            { sdk: 'posthog-android', issue: 'https://github.com/PostHog/posthog-android/issues/390' },
-            { sdk: 'posthog_flutter', issue: 'https://github.com/PostHog/posthog-flutter/issues/261' },
+            { sdk: 'posthog-ios', issue: 'https://github.com/Txlemetry/posthog-ios/issues/447' },
+            { sdk: 'posthog-android', issue: 'https://github.com/Txlemetry/posthog-android/issues/390' },
+            { sdk: 'posthog_flutter', issue: 'https://github.com/Txlemetry/posthog-flutter/issues/261' },
         ],
         check: (s) => s.enable_partial_responses === true,
     },
@@ -165,9 +165,9 @@ export const SURVEY_SDK_REQUIREMENTS: SurveyFeatureRequirement[] = [
             'posthog-react-native': '4.26.0',
         },
         unsupportedSdks: [
-            { sdk: 'posthog-ios', issue: 'https://github.com/PostHog/posthog-ios/issues/448' },
-            { sdk: 'posthog-android', issue: 'https://github.com/PostHog/posthog-android/issues/391' },
-            { sdk: 'posthog_flutter', issue: 'https://github.com/PostHog/posthog-flutter/issues/262' },
+            { sdk: 'posthog-ios', issue: 'https://github.com/Txlemetry/posthog-ios/issues/448' },
+            { sdk: 'posthog-android', issue: 'https://github.com/Txlemetry/posthog-android/issues/391' },
+            { sdk: 'posthog_flutter', issue: 'https://github.com/Txlemetry/posthog-flutter/issues/262' },
         ],
         check: (s) =>
             s.questions.some(
@@ -185,9 +185,9 @@ export const SURVEY_SDK_REQUIREMENTS: SurveyFeatureRequirement[] = [
             'posthog-react-native': '4.4.0',
         },
         unsupportedSdks: [
-            { sdk: 'posthog-ios', issue: 'https://github.com/PostHog/posthog-ios/issues/445' },
-            { sdk: 'posthog-android', issue: 'https://github.com/PostHog/posthog-android/issues/388' },
-            { sdk: 'posthog_flutter', issue: 'https://github.com/PostHog/posthog-flutter/issues/259' },
+            { sdk: 'posthog-ios', issue: 'https://github.com/Txlemetry/posthog-ios/issues/445' },
+            { sdk: 'posthog-android', issue: 'https://github.com/Txlemetry/posthog-android/issues/388' },
+            { sdk: 'posthog_flutter', issue: 'https://github.com/Txlemetry/posthog-flutter/issues/259' },
         ],
         check: (s) => !!s.conditions?.linkedFlagVariant,
     },
@@ -210,9 +210,9 @@ export const SURVEY_SDK_REQUIREMENTS: SurveyFeatureRequirement[] = [
         sdkVersions: { 'posthog-js': '1.299.0' },
         unsupportedSdks: [
             { sdk: 'posthog-react-native', issue: 'https://github.com/PostHog/posthog-js/issues/2964' },
-            { sdk: 'posthog-ios', issue: 'https://github.com/PostHog/posthog-ios/issues/450' },
-            { sdk: 'posthog-android', issue: 'https://github.com/PostHog/posthog-android/issues/393' },
-            { sdk: 'posthog_flutter', issue: 'https://github.com/PostHog/posthog-flutter/issues/264' },
+            { sdk: 'posthog-ios', issue: 'https://github.com/Txlemetry/posthog-ios/issues/450' },
+            { sdk: 'posthog-android', issue: 'https://github.com/Txlemetry/posthog-android/issues/393' },
+            { sdk: 'posthog_flutter', issue: 'https://github.com/Txlemetry/posthog-flutter/issues/264' },
         ],
         check: (s) => (s.conditions?.cancelEvents?.values?.length ?? 0) > 0,
     },
@@ -221,9 +221,9 @@ export const SURVEY_SDK_REQUIREMENTS: SurveyFeatureRequirement[] = [
         sdkVersions: { 'posthog-js': '1.301.0' },
         unsupportedSdks: [
             { sdk: 'posthog-react-native', issue: 'https://github.com/PostHog/posthog-js/issues/2965' },
-            { sdk: 'posthog-ios', issue: 'https://github.com/PostHog/posthog-ios/issues/451' },
-            { sdk: 'posthog-android', issue: 'https://github.com/PostHog/posthog-android/issues/394' },
-            { sdk: 'posthog_flutter', issue: 'https://github.com/PostHog/posthog-flutter/issues/265' },
+            { sdk: 'posthog-ios', issue: 'https://github.com/Txlemetry/posthog-ios/issues/451' },
+            { sdk: 'posthog-android', issue: 'https://github.com/Txlemetry/posthog-android/issues/394' },
+            { sdk: 'posthog_flutter', issue: 'https://github.com/Txlemetry/posthog-flutter/issues/265' },
         ],
         check: (s) => (s.conditions?.actions?.values?.length ?? 0) > 0,
     },
@@ -271,9 +271,9 @@ export const SURVEY_SDK_REQUIREMENTS: SurveyFeatureRequirement[] = [
         sdkVersions: { 'posthog-js': '1.131.5' },
         unsupportedSdks: [
             { sdk: 'posthog-react-native', issue: 'https://github.com/PostHog/posthog-js/issues/3162' },
-            { sdk: 'posthog-ios', issue: 'https://github.com/PostHog/posthog-ios/issues/492' },
-            { sdk: 'posthog-android', issue: 'https://github.com/PostHog/posthog-android/issues/442' },
-            { sdk: 'posthog_flutter', issue: 'https://github.com/PostHog/posthog-flutter/issues/310' },
+            { sdk: 'posthog-ios', issue: 'https://github.com/Txlemetry/posthog-ios/issues/492' },
+            { sdk: 'posthog-android', issue: 'https://github.com/Txlemetry/posthog-android/issues/442' },
+            { sdk: 'posthog_flutter', issue: 'https://github.com/Txlemetry/posthog-flutter/issues/310' },
         ],
         check: (s) => s.appearance?.shuffleQuestions === true,
     },
@@ -282,9 +282,9 @@ export const SURVEY_SDK_REQUIREMENTS: SurveyFeatureRequirement[] = [
         sdkVersions: { 'posthog-js': '1.131.5' },
         unsupportedSdks: [
             { sdk: 'posthog-react-native', issue: 'https://github.com/PostHog/posthog-js/issues/3162' },
-            { sdk: 'posthog-ios', issue: 'https://github.com/PostHog/posthog-ios/issues/492' },
+            { sdk: 'posthog-ios', issue: 'https://github.com/Txlemetry/posthog-ios/issues/492' },
             { sdk: 'posthog-android', issue: false }, // delegate pattern - no built-in UI; flag exposed on display model
-            { sdk: 'posthog_flutter', issue: 'https://github.com/PostHog/posthog-flutter/issues/310' },
+            { sdk: 'posthog_flutter', issue: 'https://github.com/Txlemetry/posthog-flutter/issues/310' },
         ],
         check: (s) =>
             s.questions.some(
@@ -313,7 +313,7 @@ export const SURVEY_SDK_REQUIREMENTS: SurveyFeatureRequirement[] = [
         },
         unsupportedSdks: [
             { sdk: 'posthog-react-native', issue: 'https://github.com/PostHog/posthog-js/issues/3193' },
-            { sdk: 'posthog_flutter', issue: 'https://github.com/PostHog/posthog-flutter/issues/322' },
+            { sdk: 'posthog_flutter', issue: 'https://github.com/Txlemetry/posthog-flutter/issues/322' },
         ],
         check: (s) => (s.appearance?.surveyPopupDelaySeconds ?? 0) > 0,
     },

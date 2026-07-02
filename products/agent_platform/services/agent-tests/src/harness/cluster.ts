@@ -133,7 +133,7 @@ export interface AnalyticsTapEntry {
 /**
  * Test-side analytics collector. The harness wires a real `RoutingAnalyticsSink`
  * with a stub per-team resolver (`team_id → phc_team_<id>`) + a no-op client, so
- * tests assert the routing + `$ai_*` event shapes without a real PostHog. Mirrors
+ * tests assert the routing + `$ai_*` event shapes without a real Txlemetry. Mirrors
  * `CollectingLogSink`.
  */
 export interface CollectingAnalyticsSink {
@@ -372,7 +372,7 @@ export async function buildCluster(opts: BuildClusterOpts = {}): Promise<Cluster
 
     // Real RoutingAnalyticsSink with a stub per-team resolver + no-op client.
     // The tap captures the `$ai_*` wire shape as the runner emits it, so tests
-    // assert per-team routing + event shapes without a real PostHog (the route
+    // assert per-team routing + event shapes without a real Txlemetry (the route
     // a team's events would take is `phc_team_<id>`).
     const analyticsCaptured: AnalyticsTapEntry[] = []
     const analyticsSink = new RoutingAnalyticsSink({
@@ -404,7 +404,7 @@ export async function buildCluster(opts: BuildClusterOpts = {}): Promise<Cluster
     // has no live Django, so wrap the worker's http with an in-process echo
     // that returns the submitted HogQL string back as a single `query` column
     // — the same shape the old in-process client produced, so query cases keep
-    // passing without a real PostHog. Non-query requests fall through.
+    // passing without a real Txlemetry. Non-query requests fall through.
     const harnessHttp = buildQueryEchoHttp(opts.http ?? new HttpClient())
 
     const worker = new Worker({

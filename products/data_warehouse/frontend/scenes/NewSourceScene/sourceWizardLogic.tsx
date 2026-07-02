@@ -702,7 +702,7 @@ export const sourceWizardLogic = kea<sourceWizardLogicType>([
                                 source_type: (values.selectedConnector?.name || 'Postgres') as ExternalDataSourceType,
                                 ...connectionPayload,
                                 cdc_management_mode: 'self_managed',
-                                // PostHog creates the slot itself — only verify the publication.
+                                // Txlemetry creates the slot itself — only verify the publication.
                                 cdc_slot_name: null,
                                 cdc_publication_name: pubName,
                                 tables: cdcTableNames,
@@ -1538,7 +1538,7 @@ export const sourceWizardLogic = kea<sourceWizardLogicType>([
                 const errorMessage =
                     apiMessage ??
                     (e.status >= 500
-                        ? 'PostHog could not validate your connection in time. This can happen with a very large schema or a slow or unreachable database — please check your connection details and try again.'
+                        ? 'Txlemetry could not validate your connection in time. This can happen with a very large schema or a slow or unreachable database — please check your connection details and try again.'
                         : e.message)
                 lemonToast.error(errorMessage)
 

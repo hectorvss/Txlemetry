@@ -12,7 +12,7 @@ import { groupsModel } from '~/models/groupsModel'
  * @deprecated
  * Legacy funnel aggregation select for ExperimentView.
  * Frozen copy for legacy experiments - do not modify.
- * Forked from https://github.com/PostHog/posthog/blob/master/frontend/src/scenes/insights/filters/AggregationSelect.tsx
+ * Forked from https://github.com/Txlemetry/posthog/blob/master/frontend/src/scenes/insights/filters/AggregationSelect.tsx
  */
 export function LegacyFunnelAggregationSelect({
     value,

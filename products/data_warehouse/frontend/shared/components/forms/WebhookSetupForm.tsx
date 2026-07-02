@@ -81,7 +81,7 @@ export function WebhookSetupForm({
                 <h3 className="text-lg font-semibold">Set up webhook for {sourceName}</h3>
                 <p>
                     Instead of polling for changes on a schedule, we'll set up a webhook on your {sourceName} account so
-                    that new data is pushed to PostHog. This means faster syncs and less load on your source.
+                    that new data is pushed to Txlemetry. This means faster syncs and less load on your source.
                 </p>
                 {webhookTablesList}
                 <LemonBanner type="info">
@@ -240,7 +240,7 @@ export function WebhookStatusTags({
                 <LemonTag type={externalStateLabel.tagType}>{externalStateLabel.label}</LemonTag>
             </div>
             <div className="space-y-1">
-                <p className="text-xs font-semibold text-muted uppercase">PostHog processing</p>
+                <p className="text-xs font-semibold text-muted uppercase">Txlemetry processing</p>
                 <LemonTag type={internalStateLabel.tagType}>{internalStateLabel.label}</LemonTag>
             </div>
         </div>

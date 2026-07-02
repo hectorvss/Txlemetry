@@ -21,7 +21,7 @@ export const TAB_DESCRIPTIONS: Record<MCPAnalyticsTab, string> = {
         'Cluster semantically similar user intents and see which tools each cluster routes to. Highlights inconsistent routing.',
 }
 
-// Per-tab question seeded into PostHog AI so the answer is grounded in what the user is looking at.
+// Per-tab question seeded into Txlemetry AI so the answer is grounded in what the user is looking at.
 export const TAB_AI_PROMPTS: Record<MCPAnalyticsTab, string> = {
     dashboard:
         "Summarize how agents are using my MCP server from $mcp_tool_call events — top tools, error rates, and what they're trying to do.",

@@ -53,7 +53,7 @@ export function IntegrationFullPage({
 
             <Link to={urls.projectHomepage()} className="flex items-center gap-1 mt-6 text-secondary">
                 <IconArrowLeft />
-                Back to PostHog
+                Back to Txlemetry
             </Link>
         </div>
     )
@@ -200,7 +200,7 @@ function ConnectedView({
             ) : null}
 
             <LemonButton type="primary" to={urls.projectHomepage()}>
-                Go to PostHog
+                Go to Txlemetry
             </LemonButton>
         </>
     )

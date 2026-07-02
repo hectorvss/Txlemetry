@@ -48,7 +48,7 @@ export const HealthIssueCard = ({
                             size="xsmall"
                             type="tertiary"
                             icon={<IconSparkles />}
-                            tooltip="Ask PostHog AI about this issue"
+                            tooltip="Ask Txlemetry AI about this issue"
                             onClick={askMax}
                         />
                     )}

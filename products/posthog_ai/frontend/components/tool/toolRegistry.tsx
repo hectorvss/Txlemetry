@@ -42,7 +42,7 @@ type ToolRendererComponent = ComponentType<ToolRendererProps> | LazyExoticCompon
 
 export interface ToolRegistryEntry {
     /**
-     * Registry key. For single-exec PostHog tools, this is the **inner** tool name parsed from
+     * Registry key. For single-exec Txlemetry tools, this is the **inner** tool name parsed from
      * `rawInput.command` (e.g. "execute-sql", "insight-create"); for `exec`'s discovery verbs,
      * the sentinel "__posthog_exec_tools__" etc.; for non-exec MCP tools and Claude built-ins,
      * the wire `toolName` directly (e.g. "TodoWrite", "WebSearch").
@@ -141,7 +141,7 @@ for (const key of ['Edit', 'Write', 'NotebookEdit', 'MultiEdit']) {
     toolRegistry.register({ key, displayName: 'Edit', icon: <IconPencil />, Renderer: EditToolRenderer })
 }
 
-// PostHog single-exec discovery verbs. `resolveToolKey` parses `exec tools|search|info|schema` into
+// Txlemetry single-exec discovery verbs. `resolveToolKey` parses `exec tools|search|info|schema` into
 // these sentinel keys; PostHogExecRenderer (inside the built-in chunk) derives the friendly label and
 // input preview from the command. Registered so they get a fitting icon instead of the wrench fallback.
 const POSTHOG_EXEC_VERBS: { key: string; displayName: string; icon: JSX.Element }[] = [

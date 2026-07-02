@@ -236,7 +236,7 @@ export function Comments(): JSX.Element {
                         productName="Comments"
                         productKey={ProductKey.COMMENTS}
                         thingName="comment"
-                        description="Comments allow you to provide context and discussions on various elements in PostHog."
+                        description="Comments allow you to provide context and discussions on various elements in Txlemetry."
                         isEmpty={shouldShowEmptyState}
                         customHog={HedgehogReporter}
                     />

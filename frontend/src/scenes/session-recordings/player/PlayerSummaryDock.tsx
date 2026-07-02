@@ -160,16 +160,16 @@ export function PlayerSummaryDock(): JSX.Element | null {
                         Cancel summarization
                     </LemonButton>
                 ) : !isCloudOrDev ? (
-                    // AI session summaries run on PostHog Cloud only — show the standard upsell.
+                    // AI session summaries run on Txlemetry Cloud only — show the standard upsell.
                     <LemonButton
                         size="small"
                         type="secondary"
                         icon={<IconMagicWand />}
                         to={urls.moveToPostHogCloud()}
-                        tooltip="AI session summaries are a PostHog Cloud feature (separate from PostHog AI, which runs on your own provider key)"
+                        tooltip="AI session summaries are a Txlemetry Cloud feature (separate from Txlemetry AI, which runs on your own provider key)"
                         data-attr="session-summary-move-to-cloud"
                     >
-                        Summarize with PostHog Cloud
+                        Summarize with Txlemetry Cloud
                     </LemonButton>
                 ) : (
                     <LemonButton

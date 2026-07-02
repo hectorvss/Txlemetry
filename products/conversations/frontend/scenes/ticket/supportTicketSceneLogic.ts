@@ -391,7 +391,7 @@ export const supportTicketSceneLogic = kea<supportTicketSceneLogicType>([
                             message.created_by.email ||
                             'Support'
                     } else if (authorType === 'AI') {
-                        displayName = 'PostHog Assistant'
+                        displayName = 'Txlemetry Assistant'
                     } else if (authorType === 'customer') {
                         const slackAuthorName = message.item_context?.slack_author_name
                         const emailAuthorName = message.item_context?.email_from_name

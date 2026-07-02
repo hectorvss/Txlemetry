@@ -120,7 +120,7 @@ export function OnboardingExitModal(): JSX.Element {
                     />
                     <div className="flex items-start justify-between gap-2 mt-1">
                         <p className="text-secondary text-xs m-0">
-                            They'll be added as an admin so they can finish setting up PostHog.
+                            They'll be added as an admin so they can finish setting up Txlemetry.
                         </p>
                         <p
                             className={
@@ -164,14 +164,14 @@ export function OnboardingExitModal(): JSX.Element {
                     <div className="rounded-lg border border-primary bg-surface-primary overflow-hidden">
                         <div className="flex items-center gap-2 px-3 py-2 border-b border-primary bg-surface-secondary">
                             <MailHog className="w-8 h-6 object-contain shrink-0" />
-                            <span className="text-xs font-semibold">PostHog invitation</span>
+                            <span className="text-xs font-semibold">Txlemetry invitation</span>
                         </div>
                         <div className="p-3 flex flex-col gap-2">
                             <p className="m-0 text-xs text-muted">To: {recipientDisplay}</p>
                             {/* Match the real email's H1 (see posthog/templates/email/delegation_invite.html)
                                 so the live preview reflects what the recipient will actually see. */}
                             <p className="m-0 text-sm font-semibold">
-                                {senderName} asked you to finish setting up PostHog for {orgName}
+                                {senderName} asked you to finish setting up Txlemetry for {orgName}
                             </p>
                             {hasMessage ? (
                                 <div className="rounded bg-surface-secondary px-2 py-2 text-xs italic text-default whitespace-pre-line">

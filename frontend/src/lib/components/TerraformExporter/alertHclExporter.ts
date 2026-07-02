@@ -14,7 +14,7 @@ export interface AlertHclExportOptions extends HclExportOptions {
 }
 
 /**
- * @see https://registry.terraform.io/providers/PostHog/posthog/latest/docs/resources/alert
+ * @see https://registry.terraform.io/providers/Txlemetry/posthog/latest/docs/resources/alert
  */
 const ALERT_FIELD_MAPPINGS: FieldMapping<Partial<AlertType>, AlertHclExportOptions>[] = [
     {
@@ -118,7 +118,7 @@ function validateAlert(alert: Partial<AlertType>, options?: AlertHclExportOption
 
     if (alert.subscribed_users && alert.subscribed_users.length > 0) {
         warnings.push(
-            '`subscribed_users` contains internal user IDs. These IDs are specific to this PostHog instance and will need to be updated if deploying to a different environment.'
+            '`subscribed_users` contains internal user IDs. These IDs are specific to this Txlemetry instance and will need to be updated if deploying to a different environment.'
         )
     }
 

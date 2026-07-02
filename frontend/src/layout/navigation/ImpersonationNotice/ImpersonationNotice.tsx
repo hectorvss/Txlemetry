@@ -103,7 +103,7 @@ function ImpersonationExpiredOverlay({ expiredSessionInfo }: { expiredSessionInf
                         placement: 'top-end',
                         overlay: (
                             <LemonButton fullWidth onClick={() => returnToPostHog()}>
-                                Return to PostHog
+                                Return to Txlemetry
                             </LemonButton>
                         ),
                     },
@@ -165,7 +165,7 @@ function ImpersonationNoticeContent(): JSX.Element {
                             placement: 'top-end',
                             overlay: (
                                 <LemonButton fullWidth size="small" onClick={() => returnToPostHog()}>
-                                    Log out to PostHog
+                                    Log out to Txlemetry
                                 </LemonButton>
                             ),
                         },

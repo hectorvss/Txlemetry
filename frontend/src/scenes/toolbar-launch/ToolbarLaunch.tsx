@@ -69,7 +69,7 @@ export function ToolbarLaunch(): JSX.Element {
         <SceneContent>
             <SceneTitleSection
                 name="Toolbar"
-                description="PostHog toolbar launches PostHog right in your app or website."
+                description="Txlemetry toolbar launches Txlemetry right in your app or website."
                 resourceType={{
                     type: 'toolbar',
                 }}

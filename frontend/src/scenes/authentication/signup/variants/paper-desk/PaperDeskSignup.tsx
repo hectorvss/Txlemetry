@@ -145,7 +145,7 @@ function PendingInvitePanel(): JSX.Element {
                 sub={
                     <span>
                         <b className="text-primary">{org}</b> invited{' '}
-                        <span className="PaperDesk__mono">{signupPanelEmail.email}</span> to join them on PostHog. The
+                        <span className="PaperDesk__mono">{signupPanelEmail.email}</span> to join them on Txlemetry. The
                         invite link is in your inbox.
                     </span>
                 }

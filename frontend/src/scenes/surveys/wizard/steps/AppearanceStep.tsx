@@ -159,7 +159,7 @@ export function AppearanceStep(): JSX.Element {
 
                 {/* Branding */}
                 <LemonCheckbox
-                    label="Hide PostHog branding"
+                    label="Hide Txlemetry branding"
                     checked={appearance.whiteLabel}
                     onChange={(checked) => {
                         if (checked) {

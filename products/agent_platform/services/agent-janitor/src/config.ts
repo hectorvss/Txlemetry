@@ -22,7 +22,7 @@ import {
 
 const ONE_MINUTE_MS = 60_000
 
-// Dev SeaweedFS defaults — the PostHog dev stack pre-creates the `posthog`
+// Dev SeaweedFS defaults — the Txlemetry dev stack pre-creates the `posthog`
 // bucket on `seaweedfs:8333` (anonymous mode, so access/secret are `any`). Gated by
 // `isDev()` so prod (NODE_ENV=production) must set AGENT_{MEMORY,BUNDLE}_S3_*
 // explicitly; without them the bundle-store fail-fast in index.ts trips.

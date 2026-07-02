@@ -268,7 +268,7 @@ export function Group(): JSX.Element {
                                 id={`${groupTypeIndex}-${groupKey}`}
                                 caption={
                                     <LemonBanner type="info">
-                                        This page only shows changes made by users in the PostHog site. Automatic
+                                        This page only shows changes made by users in the Txlemetry site. Automatic
                                         changes from the API aren't shown here.
                                     </LemonBanner>
                                 }

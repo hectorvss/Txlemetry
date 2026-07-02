@@ -51,7 +51,7 @@ export function SignatureBlock(): JSX.Element {
                 </div>
             </div>
             <div>
-                <div className="font-semibold mb-2">PostHog, Inc.</div>
+                <div className="font-semibold mb-2">Txlemetry, Inc.</div>
                 <div className="grid grid-cols-[minmax(100px,200px)_1fr] items-baseline gap-y-3">
                     <span>Signature</span>
                     <span className="border-b border-current">&nbsp;</span>

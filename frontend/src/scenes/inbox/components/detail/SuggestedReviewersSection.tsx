@@ -110,7 +110,7 @@ export function SuggestedReviewersSection({ report }: { report: SignalReport }):
             title="Reviewers"
             rightSlot={
                 <div className="flex items-center gap-2">
-                    <Tooltip title="Suggested reviewers are tracked in PostHog. To request a review on GitHub, add them on the pull request directly.">
+                    <Tooltip title="Suggested reviewers are tracked in Txlemetry. To request a review on GitHub, add them on the pull request directly.">
                         <span className="-m-1 flex cursor-help items-center p-1 text-base text-tertiary">
                             <IconInfo />
                         </span>
@@ -261,7 +261,7 @@ function ReviewerRow({
                         ? githubUrl
                             ? `@${reviewer.github_login} on GitHub`
                             : undefined
-                        : `${displayName} hasn't connected their GitHub account to PostHog. Ask them to do so in Settings!`
+                        : `${displayName} hasn't connected their GitHub account to Txlemetry. Ask them to do so in Settings!`
                 }
             >
                 <span className={!reviewer.user ? 'opacity-75' : undefined}>

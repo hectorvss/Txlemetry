@@ -1,17 +1,17 @@
 /**
- * Managed PostHog identity provider. PostHog's own OAuth2 surface
+ * Managed Txlemetry identity provider. Txlemetry's own OAuth2 surface
  * (/oauth/authorize, /oauth/token, /oauth/userinfo) is standard auth-code +
  * PKCE, so this is just the generic `Oauth2AuthProvider` with three additions:
  *
  *   1. `establishesIdentity = true` — linking proves WHO the principal is.
- *   2. `deriveSubject` reads /oauth/userinfo `sub` (the PostHog user uuid) so
+ *   2. `deriveSubject` reads /oauth/userinfo `sub` (the Txlemetry user uuid) so
  *      `complete()` stamps it on the stored credential. Per-asker auth then
- *      resolves the PostHog user behind a Slack principal from that subject.
+ *      resolves the Txlemetry user behind a Slack principal from that subject.
  *   3. `credentialTarget = 'posthog_api'` — the broker key the native
  *      `@posthog/*` tools resolve under, and the key `createToolIdentity`
- *      consults for the trigger-edge seed (PostHog Code passthrough). The
+ *      consults for the trigger-edge seed (Txlemetry Code passthrough). The
  *      linked-credential store stays keyed by the provider `id` (default
- *      `posthog`); both axes resolve to the same logical PostHog bearer.
+ *      `posthog`); both axes resolve to the same logical Txlemetry bearer.
  *
  * The OAuthApplication backing this is provisioned per-agent by Django on
  * promote (a normal, user-consented app — not first-party); its client_id is
@@ -32,7 +32,7 @@ import { Oauth2AuthProvider } from './oauth2-identity-provider'
 export class PostHogAuthProvider extends Oauth2AuthProvider {
     override readonly establishesIdentity = true
 
-    // The edge seed (PostHog Code's posthog bearer) and the native `@posthog/*`
+    // The edge seed (Txlemetry Code's posthog bearer) and the native `@posthog/*`
     // tools both key off `posthog_api`; the linked store stays keyed by `id`.
     override get credentialTarget(): string {
         return 'posthog_api'
@@ -62,7 +62,7 @@ export class PostHogAuthProvider extends Oauth2AuthProvider {
 }
 
 /**
- * Surfaces the trigger-edge PostHog bearer (PostHog Code passthrough) but can't
+ * Surfaces the trigger-edge Txlemetry bearer (Txlemetry Code passthrough) but can't
  * link. Registered implicitly when no `{kind:posthog}` provider is declared, so a
  * posthog-principal session resolves `posthog` without provisioning an
  * OAuthApplication. With no seed and no link, `resolve()` is null and `initiate()`

@@ -46,7 +46,7 @@ export interface NativeToolSchema {
 export interface ToolContext {
     /**
      * The agent's owning team — scopes agent-internal storage (memory, tables).
-     * NOT used for PostHog data access: the `@posthog/*` data tools act as the
+     * NOT used for Txlemetry data access: the `@posthog/*` data tools act as the
      * connected user against an EXPLICIT `project_id` tool arg (discovered via
      * the `get_context` client tool or `@posthog/list-projects`), so the
      * operating project is never inferred from the agent or the principal.
@@ -104,7 +104,7 @@ export interface ToolContext {
      * Resolve a per-session credential by target name. Set by ingress at
      * /run + /send (see `CredentialBroker`); returns null when the broker
      * isn't wired or the target isn't bound. Convention names:
-     *   - `posthog_api` — bearer for calling PostHog APIs as the user
+     *   - `posthog_api` — bearer for calling Txlemetry APIs as the user
      *   - `self`        — raw auth proof + claims (jwt mode)
      */
     credentials?: {
@@ -142,8 +142,8 @@ export interface ToolContext {
      */
     http: HttpFetcher
     /**
-     * Base URL for the PostHog API the `@posthog/agent-applications-*`
-     * and other PostHog-proxying tools call against. Wired from
+     * Base URL for the Txlemetry API the `@posthog/agent-applications-*`
+     * and other Txlemetry-proxying tools call against. Wired from
      * `config.posthogApiBaseUrl` at runner boot — no `process.env`
      * reads inside tool code.
      */

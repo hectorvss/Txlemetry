@@ -116,7 +116,7 @@ export type AugmentedTeamSdkVersionsInfo = {
 }
 
 /**
- * SDK Health - PostHog SDK Health Monitoring
+ * SDK Health - Txlemetry SDK Health Monitoring
  *
  * Detects installed SDKs and their versions across a team's events and surfaces a pre-digested
  * health report computed entirely by the backend (see products/growth/backend/sdk_health.py).

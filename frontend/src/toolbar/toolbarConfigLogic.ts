@@ -97,7 +97,7 @@ export const toolbarConfigLogic = kea<toolbarConfigLogicType>([
 
     selectors({
         posthog: [(s) => [s.props], (props) => props.posthog ?? null],
-        // PostHog app URL used for OAuth and navigation links.
+        // Txlemetry app URL used for OAuth and navigation links.
         //
         // Every candidate (props.uiHost, requestRouter, config.ui_host, apiURL) is
         // sanitized via canonicalizeUiHost — it rejects non-http(s) schemes, URLs with
@@ -186,7 +186,7 @@ export const toolbarConfigLogic = kea<toolbarConfigLogicType>([
         dataAttributes: [(s) => [s.props], (props): string[] => props.dataAttributes ?? []],
         isAuthenticated: [(s) => [s.accessToken], (accessToken) => !!accessToken],
         toolbarFlagsKey: [(s) => [s.props], (props): string | undefined => props.toolbarFlagsKey],
-        // True when uiHost is a PostHog Cloud host (us/eu) — safe to skip the
+        // True when uiHost is a Txlemetry Cloud host (us/eu) — safe to skip the
         // "are you sure you want to authenticate here?" confirmation.
         isTrustedUiHost: [(s) => [s.uiHost], (uiHost: string): boolean => isPostHogCloudHost(uiHost)],
     }),
@@ -210,7 +210,7 @@ export const toolbarConfigLogic = kea<toolbarConfigLogicType>([
             // Show the user which domain they'll be redirected to before proceeding.
             // This prevents phishing via crafted #__posthog= hash params with a
             // malicious uiHost — the user sees the target domain and can cancel.
-            // Skip for PostHog Cloud (us/eu) where the target is already trusted.
+            // Skip for Txlemetry Cloud (us/eu) where the target is already trusted.
             if (values.isTrustedUiHost) {
                 actions.confirmAuthenticate()
                 return
@@ -348,12 +348,12 @@ export const toolbarConfigLogic = kea<toolbarConfigLogicType>([
         // stored tokens.
         //
         // Skip the HEAD when:
-        // - uiHost is a trusted PostHog Cloud host (always reachable, no value in
+        // - uiHost is a trusted Txlemetry Cloud host (always reachable, no value in
         //   probing; avoids false-positive errors for Cloud users behind strict
         //   corporate proxies that block CORS preflights)
         // - user is already authenticated AND there's no pending OAuth code (the
         //   existing session is valid; probing on every mount would degrade UX for
-        //   self-hosted / SSO / reverse-proxy customers whose PostHog app works
+        //   self-hosted / SSO / reverse-proxy customers whose Txlemetry app works
         //   fine for real API calls but CORS-rejects the cheap HEAD)
         if (isPostHogCloudHost(values.uiHost)) {
             if (authParams) {
@@ -510,7 +510,7 @@ function restoreOAuthTokens(
     const canonicalStoredUiHost =
         typeof storedUiHost === 'string' && storedUiHost ? canonicalizeUiHost(storedUiHost) : null
     if (canonicalStoredUiHost && canonicalStoredUiHost !== values.uiHost) {
-        // Stored tokens were issued for a different PostHog app — an attacker may
+        // Stored tokens were issued for a different Txlemetry app — an attacker may
         // have injected a malicious uiHost via crafted hash params hoping to receive
         // the token on the next API call. Discard and clean up.
         toolbarLogger.warn('auth', 'Stored OAuth tokens are for a different uiHost, discarding', {
@@ -526,7 +526,7 @@ function restoreOAuthTokens(
         return
     }
     // Legacy tokens (stored before uiHost binding was added) have no storedUiHost.
-    // Accept them only when the current uiHost is a trusted PostHog Cloud host —
+    // Accept them only when the current uiHost is a trusted Txlemetry Cloud host —
     // otherwise an attacker-injected uiHost would receive the token on the next API
     // call. Self-hosted users with legacy tokens will need to re-authenticate once,
     // which is the intended trade-off.
@@ -559,7 +559,7 @@ function maybeMigrateTemporaryToken(
     }
 }
 
-/** Set up PostHog instrumentation and capture the "toolbar loaded" event. */
+/** Set up Txlemetry instrumentation and capture the "toolbar loaded" event. */
 function initInstrumentation(
     props: ToolbarProps,
     values: {
@@ -607,7 +607,7 @@ function classifyFetchError(error: unknown): string {
 }
 
 /**
- * Run a CORS HEAD check against the PostHog app to verify uiHost is reachable.
+ * Run a CORS HEAD check against the Txlemetry app to verify uiHost is reachable.
  * If a pending OAuth code exchange exists, it runs after the check succeeds
  * (or shows the config modal on failure).
  */

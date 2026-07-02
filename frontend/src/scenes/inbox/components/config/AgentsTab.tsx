@@ -62,7 +62,7 @@ function BackLink({ onClick }: { onClick: () => void }): JSX.Element {
 
 /**
  * Full-page Agents tab body for cloud Inbox – a high-fidelity port of the
- * PostHog Code desktop Agents view. Composes Connections, the agent roster,
+ * Txlemetry Code desktop Agents view. Composes Connections, the agent roster,
  * Slack, and MCP servers. Session-analysis and data-source setup
  * render inline (replacing the roster) when their sub-flow is open.
  */
@@ -133,7 +133,7 @@ export function AgentsTab(): JSX.Element {
                 {featureFlags[FEATURE_FLAGS.INBOX_SLACK_NOTIFICATIONS] && (
                     <Subsection
                         title="Slack"
-                        description="Post reports to channels and ping suggested reviewers. Invite PostHog with /invite @PostHog in each channel you use."
+                        description="Post reports to channels and ping suggested reviewers. Invite Txlemetry with /invite @Txlemetry in each channel you use."
                     >
                         <SlackNotificationsSection />
                     </Subsection>
@@ -141,7 +141,7 @@ export function AgentsTab(): JSX.Element {
 
                 <Subsection
                     title="MCP servers"
-                    description="External tools agents can read from. PostHog data is always available; this is everything else."
+                    description="External tools agents can read from. Txlemetry data is always available; this is everything else."
                 >
                     <McpServersSection />
                 </Subsection>

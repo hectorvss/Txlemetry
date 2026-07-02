@@ -69,7 +69,7 @@ export function SourceAccessMethodSelector({
     onChange: (value: 'warehouse' | 'direct') => void
 }): JSX.Element {
     return (
-        <LemonField.Pure label="How should PostHog query this source?">
+        <LemonField.Pure label="How should Txlemetry query this source?">
             <LemonRadio
                 data-attr="postgres-access-method"
                 value={value}
@@ -81,7 +81,7 @@ export function SourceAccessMethodSelector({
                             <div>
                                 <div>Sync to warehouse</div>
                                 <div className="text-xs text-secondary">
-                                    Sync selected tables into PostHog-managed storage for querying.
+                                    Sync selected tables into Txlemetry-managed storage for querying.
                                 </div>
                             </div>
                         ),
@@ -98,7 +98,7 @@ export function SourceAccessMethodSelector({
                                 </div>
                                 <div className="text-xs text-secondary">
                                     Run queries live against this database connection. Data from this source can&apos;t
-                                    be joined with PostHog data.
+                                    be joined with Txlemetry data.
                                 </div>
                             </div>
                         ),
@@ -364,19 +364,19 @@ function CDCRequirementsPanel(): JSX.Element {
                         </li>
                         <li>
                             <code>max_replication_slots</code> and <code>max_wal_senders</code> with at least one free
-                            slot for PostHog. Postgres' defaults (10) are plenty unless other consumers share the same
+                            slot for Txlemetry. Postgres' defaults (10) are plenty unless other consumers share the same
                             database.
                         </li>
                         <li>
                             Database user with <code>REPLICATION</code> (
                             <code>ALTER USER &lt;user&gt; WITH REPLICATION</code>) — or, on AWS RDS, membership in{' '}
-                            <code>rds_replication</code>. Required for both PostHog-managed and self-managed modes;
-                            PostHog creates and reads the replication slot either way.
+                            <code>rds_replication</code>. Required for both Txlemetry-managed and self-managed modes;
+                            Txlemetry creates and reads the replication slot either way.
                         </li>
                         <li>
-                            <strong>PostHog-managed mode</strong> additionally needs ownership of the synced tables (or
-                            a superuser) so PostHog can run <code>CREATE PUBLICATION</code>. In{' '}
-                            <strong>self-managed mode</strong> the owner creates just the publication once — PostHog
+                            <strong>Txlemetry-managed mode</strong> additionally needs ownership of the synced tables (or
+                            a superuser) so Txlemetry can run <code>CREATE PUBLICATION</code>. In{' '}
+                            <strong>self-managed mode</strong> the owner creates just the publication once — Txlemetry
                             connects with a user that only needs <code>SELECT</code> on the tables and{' '}
                             <code>REPLICATION</code>.
                         </li>
@@ -446,7 +446,7 @@ function CDCPrerequisitesCheck(): JSX.Element {
                             {checkedManagementMode === 'self_managed' && (
                                 <p className="m-0 text-xs mt-1">
                                     After you pick your tables in the next step, we'll show you the{' '}
-                                    <code>CREATE PUBLICATION</code> statement to run as the table owner. PostHog creates
+                                    <code>CREATE PUBLICATION</code> statement to run as the table owner. Txlemetry creates
                                     the replication slot itself.
                                 </p>
                             )}
@@ -480,7 +480,7 @@ function CDCConfigSection({ sourceName }: { sourceName: string }): JSX.Element {
                         <p className="text-xs m-0">
                             Logical replication doesn't work through the Supabase pooler. Use the{' '}
                             <strong>direct host</strong> (<code>db.&lt;ref&gt;.supabase.co</code>) and enable Supabase's{' '}
-                            <strong>IPv4 add-on</strong> (Project settings → Add-ons) so PostHog can reach it. The
+                            <strong>IPv4 add-on</strong> (Project settings → Add-ons) so Txlemetry can reach it. The
                             pooler host is fine for standard syncs but won't work for CDC.
                         </p>
                     </LemonBanner>
@@ -531,9 +531,9 @@ function CDCConfigSection({ sourceName }: { sourceName: string }): JSX.Element {
                                                     value: 'posthog',
                                                     label: (
                                                         <div>
-                                                            <div>PostHog-managed</div>
+                                                            <div>Txlemetry-managed</div>
                                                             <div className="text-xs text-secondary">
-                                                                PostHog creates and manages the replication slot and
+                                                                Txlemetry creates and manages the replication slot and
                                                                 publication. Requires a database user with REPLICATION
                                                                 privileges.
                                                             </div>
@@ -547,7 +547,7 @@ function CDCConfigSection({ sourceName }: { sourceName: string }): JSX.Element {
                                                             <div>Self-managed</div>
                                                             <div className="text-xs text-secondary">
                                                                 You (or your DBA) create just the publication once as
-                                                                the table owner. PostHog creates and manages the
+                                                                the table owner. Txlemetry creates and manages the
                                                                 replication slot itself, and still needs REPLICATION (or
                                                                 rds_replication on RDS) plus SELECT on the synced
                                                                 tables.
@@ -578,7 +578,7 @@ function CDCConfigSection({ sourceName }: { sourceName: string }): JSX.Element {
                                                     <p className="text-xs m-0">
                                                         After you pick the tables to sync, we'll show you a{' '}
                                                         <code>CREATE PUBLICATION</code> statement to run as the table
-                                                        owner. PostHog creates and manages the replication slot itself.
+                                                        owner. Txlemetry creates and manages the replication slot itself.
                                                     </p>
                                                 </LemonBanner>
                                             </div>
@@ -605,7 +605,7 @@ function CDCConfigSection({ sourceName }: { sourceName: string }): JSX.Element {
                                                         <LemonField
                                                             name="cdc_auto_drop_slot"
                                                             label="Automatic slot protection"
-                                                            info="When enabled, PostHog will automatically drop the replication slot if WAL lag exceeds the critical threshold, preventing disk exhaustion on your database."
+                                                            info="When enabled, Txlemetry will automatically drop the replication slot if WAL lag exceeds the critical threshold, preventing disk exhaustion on your database."
                                                         >
                                                             {({ value: autoDropSlot, onChange }) => (
                                                                 <>
@@ -618,7 +618,7 @@ function CDCConfigSection({ sourceName }: { sourceName: string }): JSX.Element {
                                                                             <LemonField
                                                                                 name="cdc_lag_warning_threshold_mb"
                                                                                 label="WAL lag warning threshold (MB)"
-                                                                                info="PostHog will log a warning when replication slot lag exceeds this value."
+                                                                                info="Txlemetry will log a warning when replication slot lag exceeds this value."
                                                                             >
                                                                                 {({
                                                                                     value: warnVal,
@@ -635,7 +635,7 @@ function CDCConfigSection({ sourceName }: { sourceName: string }): JSX.Element {
                                                                             <LemonField
                                                                                 name="cdc_lag_critical_threshold_mb"
                                                                                 label="WAL lag critical threshold (MB)"
-                                                                                info="PostHog will drop the replication slot when lag exceeds this value (requires automatic slot protection to be enabled)."
+                                                                                info="Txlemetry will drop the replication slot when lag exceeds this value (requires automatic slot protection to be enabled)."
                                                                             >
                                                                                 {({
                                                                                     value: critVal,

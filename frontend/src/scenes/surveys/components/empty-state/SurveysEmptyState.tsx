@@ -121,7 +121,7 @@ function SurveysEmptyStateContent(): JSX.Element {
 
                         <div className="flex items-center gap-x-4 gap-y-2 flex-wrap">
                             <LemonButton type="primary" icon={<IconSparkles />} onClick={() => openMax?.()}>
-                                Create your own custom survey with PostHog AI
+                                Create your own custom survey with Txlemetry AI
                             </LemonButton>
                             <LemonButton type="secondary" onClick={() => router.actions.push(urls.surveyWizard())}>
                                 See all other templates
@@ -202,7 +202,7 @@ function SurveysEmptyStateAIContent(): JSX.Element {
                     <div className="flex items-center justify-between px-4 pb-3">
                         <div className="flex items-center gap-1.5 text-xs text-tertiary">
                             <IconSparkles className="text-ai size-3.5" />
-                            <span>PostHog AI</span>
+                            <span>Txlemetry AI</span>
                         </div>
                         <LemonButton
                             type="primary"

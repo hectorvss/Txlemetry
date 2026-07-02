@@ -143,7 +143,7 @@ export const HOG_FUNCTION_SUB_TEMPLATE_COMMON_PROPERTIES: Record<
     },
 }
 
-const FLAG_ACTOR_NAME = "{event.properties.user.first_name ? event.properties.user.first_name : 'PostHog'}"
+const FLAG_ACTOR_NAME = "{event.properties.user.first_name ? event.properties.user.first_name : 'Txlemetry'}"
 
 function buildFlagChangeVerbPhrase(): string {
     const activity = 'event.properties.activity'
@@ -383,7 +383,7 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
                             elements: [
                                 {
                                     url: '{person.url}',
-                                    text: { text: 'View Person in PostHog', type: 'plain_text' },
+                                    text: { text: 'View Person in Txlemetry', type: 'plain_text' },
                                     type: 'button',
                                 },
                             ],
@@ -404,7 +404,7 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
             description: 'Send a webhook when a team activity occurs',
             inputs: {
                 content: {
-                    value: "**{event.properties.user.first_name ? event.properties.user.first_name : 'PostHog'}** {event.properties.activity} {event.properties.scope} `{event.properties.item_id}`",
+                    value: "**{event.properties.user.first_name ? event.properties.user.first_name : 'Txlemetry'}** {event.properties.activity} {event.properties.scope} `{event.properties.item_id}`",
                 },
             },
         },
@@ -415,7 +415,7 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
             description: 'Posts a message to Discord when a team activity occurs',
             inputs: {
                 content: {
-                    value: "**{event.properties.user.first_name ? event.properties.user.first_name : 'PostHog'}** {event.properties.activity} {event.properties.scope} `{event.properties.item_id}`",
+                    value: "**{event.properties.user.first_name ? event.properties.user.first_name : 'Txlemetry'}** {event.properties.activity} {event.properties.scope} `{event.properties.item_id}`",
                 },
             },
         },
@@ -426,7 +426,7 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
             description: 'Posts a message to Microsoft Teams when a team activity occurs',
             inputs: {
                 content: {
-                    value: "**{event.properties.user.first_name ? event.properties.user.first_name : 'PostHog'}** {event.properties.activity} {event.properties.scope} `{event.properties.item_id}`",
+                    value: "**{event.properties.user.first_name ? event.properties.user.first_name : 'Txlemetry'}** {event.properties.activity} {event.properties.scope} `{event.properties.item_id}`",
                 },
             },
         },
@@ -440,7 +440,7 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
                     value: [
                         {
                             text: {
-                                text: "*{event.properties.user.first_name ? event.properties.user.first_name : 'PostHog'}* {event.properties.activity} {event.properties.scope} {event.properties.item_id}",
+                                text: "*{event.properties.user.first_name ? event.properties.user.first_name : 'Txlemetry'}* {event.properties.activity} {event.properties.scope} {event.properties.item_id}",
                                 type: 'mrkdwn',
                             },
                             type: 'section',
@@ -448,7 +448,7 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
                     ],
                 },
                 text: {
-                    value: "*{event.properties.user.first_name ? event.properties.user.first_name : 'PostHog'}* {event.properties.activity} {event.properties.scope} {event.properties.item_id}",
+                    value: "*{event.properties.user.first_name ? event.properties.user.first_name : 'Txlemetry'}* {event.properties.activity} {event.properties.scope} {event.properties.item_id}",
                 },
             },
         },
@@ -610,7 +610,7 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
             description: 'Posts a message to Microsoft Teams when an issue is created',
             inputs: {
                 text: {
-                    value: '**🔴 {event.properties.name} created:** {event.properties.description} (View in [PostHog]({project.url}/error_tracking/{event.distinct_id}?fingerprint={event.properties.fingerprint}&timestamp={event.properties.exception_timestamp}&utm_source=alert&utm_campaign=error_tracking_alert&utm_medium=microsoft_teams))',
+                    value: '**🔴 {event.properties.name} created:** {event.properties.description} (View in [Txlemetry]({project.url}/error_tracking/{event.distinct_id}?fingerprint={event.properties.fingerprint}&timestamp={event.properties.exception_timestamp}&utm_source=alert&utm_campaign=error_tracking_alert&utm_medium=microsoft_teams))',
                 },
             },
         },
@@ -731,7 +731,7 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
             description: 'Posts a message to Microsoft Teams when an issue is reopened',
             inputs: {
                 text: {
-                    value: '**🔄 {event.properties.name} reopened:** {event.properties.description} (View in [PostHog]({project.url}/error_tracking/{event.distinct_id}?fingerprint={event.properties.fingerprint}&timestamp={event.properties.exception_timestamp}&utm_source=alert&utm_campaign=error_tracking_alert&utm_medium=microsoft_teams))',
+                    value: '**🔄 {event.properties.name} reopened:** {event.properties.description} (View in [Txlemetry]({project.url}/error_tracking/{event.distinct_id}?fingerprint={event.properties.fingerprint}&timestamp={event.properties.exception_timestamp}&utm_source=alert&utm_campaign=error_tracking_alert&utm_medium=microsoft_teams))',
                 },
             },
         },
@@ -810,7 +810,7 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
             description: 'Posts a message to Microsoft Teams when an issue is spiking',
             inputs: {
                 text: {
-                    value: "**📈 Issue spiking: {event.properties.name}:** {event.properties.description}\n**Exceptions in last 5 minutes:** {event.properties.current_bucket_value} ({event.properties.computed_baseline > 0 ? concat(round(event.properties.current_bucket_value / event.properties.computed_baseline), 'x over baseline') : 'no baseline yet'}) (View in [PostHog]({project.url}/error_tracking/{event.distinct_id}?utm_source=alert&utm_campaign=error_tracking_alert&utm_medium=microsoft_teams))",
+                    value: "**📈 Issue spiking: {event.properties.name}:** {event.properties.description}\n**Exceptions in last 5 minutes:** {event.properties.current_bucket_value} ({event.properties.computed_baseline > 0 ? concat(round(event.properties.current_bucket_value / event.properties.computed_baseline), 'x over baseline') : 'no baseline yet'}) (View in [Txlemetry]({project.url}/error_tracking/{event.distinct_id}?utm_source=alert&utm_campaign=error_tracking_alert&utm_medium=microsoft_teams))",
                 },
             },
         },
@@ -1152,10 +1152,10 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
         slackBody: '{event.properties.summary}',
         webhookSummary: '{event.properties.title}: {event.properties.summary}',
         discordContent:
-            '**🩺 PostHog health check**\n\n*{event.properties.title}*\n{event.properties.summary}\n\n[View in PostHog]({project.url}{event.properties.link})',
+            '**🩺 Txlemetry health check**\n\n*{event.properties.title}*\n{event.properties.summary}\n\n[View in Txlemetry]({project.url}{event.properties.link})',
         teamsText:
-            '**🩺 PostHog health check:** *{event.properties.title}* — {event.properties.summary} (View in [PostHog]({project.url}{event.properties.link}))',
-        actionButtonText: 'View in PostHog',
+            '**🩺 Txlemetry health check:** *{event.properties.title}* — {event.properties.summary} (View in [Txlemetry]({project.url}{event.properties.link}))',
+        actionButtonText: 'View in Txlemetry',
         namePrefix: 'health check fires',
         descriptionVerb: 'fires',
     }),
@@ -1164,10 +1164,10 @@ export const HOG_FUNCTION_SUB_TEMPLATES: Record<HogFunctionSubTemplateIdType, Ho
         slackBody: '{event.properties.summary}',
         webhookSummary: 'Resolved: {event.properties.title} — {event.properties.summary}',
         discordContent:
-            '**✅ PostHog health check resolved**\n\n*{event.properties.title}*\n{event.properties.summary}\n\n[View in PostHog]({project.url}{event.properties.link})',
+            '**✅ Txlemetry health check resolved**\n\n*{event.properties.title}*\n{event.properties.summary}\n\n[View in Txlemetry]({project.url}{event.properties.link})',
         teamsText:
-            '**✅ Resolved:** *{event.properties.title}* — {event.properties.summary} (View in [PostHog]({project.url}{event.properties.link}))',
-        actionButtonText: 'View in PostHog',
+            '**✅ Resolved:** *{event.properties.title}* — {event.properties.summary} (View in [Txlemetry]({project.url}{event.properties.link}))',
+        actionButtonText: 'View in Txlemetry',
         namePrefix: 'health check resolves',
         descriptionVerb: 'resolves',
     }),

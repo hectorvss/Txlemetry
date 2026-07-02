@@ -167,7 +167,7 @@ export function UserInterview({ id }: UserInterviewLogicProps): JSX.Element {
                                 </div>
                             ) : allIdentifiers.length === 0 ? (
                                 <div className="p-4 text-muted text-center">
-                                    No people targeted yet. Use PostHog AI to set up targeting and generate interview
+                                    No people targeted yet. Use Txlemetry AI to set up targeting and generate interview
                                     links.
                                 </div>
                             ) : (

@@ -1,5 +1,5 @@
 /**
- * Bridge hook between PostHog's kea logics and the pure `buildTaxonomicGroups`
+ * Bridge hook between Txlemetry's kea logics and the pure `buildTaxonomicGroups`
  * builder. Reads the same connections that `taxonomicFilterLogic.connect`
  * declares, layers in prop-derived defaults, and returns a memoised
  * `BuildTaxonomicGroupsContext` ready to feed into `buildTaxonomicGroups(ctx)`.

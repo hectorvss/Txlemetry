@@ -24,7 +24,7 @@ The final output of your efforts should be:
 - An implemented fix for the issue applied directly to the code
 - A brief explanation of what was changed and why
 
-PostHog issue: ${issueUrl(issueId)}
+Txlemetry issue: ${issueUrl(issueId)}
 `
 }
 
@@ -49,6 +49,6 @@ The final output should be:
 - A walkthrough of the relevant code paths
 - A detailed summary of exactly how the issue occurs
 
-PostHog issue: ${issueUrl(issueId)}
+Txlemetry issue: ${issueUrl(issueId)}
 `
 }

@@ -117,7 +117,7 @@ export function ManageAlertsModal(props: ManageAlertsModalProps): JSX.Element {
             </LemonModal.Header>
             <LemonModal.Content>
                 <div className="mb-4">
-                    With alerts, PostHog will monitor your insight and notify you when certain conditions are met. We do
+                    With alerts, Txlemetry will monitor your insight and notify you when certain conditions are met. We do
                     not evaluate alerts in real-time, but rather on a schedule (hourly, daily...).
                     <br />
                     <Link to={urls.alerts()} target="_blank">

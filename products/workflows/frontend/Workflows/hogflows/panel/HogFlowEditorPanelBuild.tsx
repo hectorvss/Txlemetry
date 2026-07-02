@@ -122,19 +122,19 @@ export const POSTHOG_NODES_TO_SHOW: CreateActionType[] = [
     {
         type: 'function',
         name: 'Capture event',
-        description: 'Capture an event to PostHog.',
+        description: 'Capture an event to Txlemetry.',
         config: { template_id: 'template-posthog-capture', inputs: {} },
     },
     {
         type: 'function',
         name: 'Update person property',
-        description: 'Set properties of a person in PostHog.',
+        description: 'Set properties of a person in Txlemetry.',
         config: { template_id: 'template-posthog-update-person-properties', inputs: {} },
     },
     {
         type: 'function',
         name: 'Set group property',
-        description: 'Set properties of a group in PostHog.',
+        description: 'Set properties of a group in Txlemetry.',
         config: { template_id: 'template-posthog-group-identify', inputs: {} },
     },
 ]
@@ -318,7 +318,7 @@ export function HogFlowEditorPanelBuild(): JSX.Element {
             )}
 
             <span className="flex gap-2 text-sm font-semibold mt-2 items-center">
-                PostHog actions <LemonDivider className="flex-1" />
+                Txlemetry actions <LemonDivider className="flex-1" />
             </span>
             {POSTHOG_NODES_TO_SHOW.map((action, index) => (
                 <HogFlowEditorToolbarNode key={`${action.type}-${index}`} action={action} />

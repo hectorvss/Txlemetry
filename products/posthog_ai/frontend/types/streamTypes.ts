@@ -2,7 +2,7 @@
  * Thread shapes for the sandbox agent runtime (`agent_runtime === 'sandbox'`).
  *
  * The sandbox path consumes the products/tasks SSE endpoint directly (the same endpoint
- * PostHog Code uses). `runStreamLogic` folds the raw wire frames (typed in
+ * Txlemetry Code uses). `runStreamLogic` folds the raw wire frames (typed in
  * `./wireTypes`) into `ToolInvocation` / `ThreadItem` stream state.
  */
 
@@ -44,7 +44,7 @@ export interface RunConnectionState {
 /**
  * One merged tool call: a `tool_call` creation plus N × `tool_call_update`s folded into a
  * single raw stream record keyed on `toolCallId`. Renderer-specific parsing, such as resolving
- * the inner tool name for PostHog's single-exec MCP server, happens outside this stream state.
+ * the inner tool name for Txlemetry's single-exec MCP server, happens outside this stream state.
  */
 export interface ToolInvocation {
     toolCallId: string
@@ -127,7 +127,7 @@ export interface ThreadItem {
     debugLevel?: string
 }
 
-/** One PostHog product the agent grounded an answer in, accumulated across the whole session. */
+/** One Txlemetry product the agent grounded an answer in, accumulated across the whole session. */
 export interface ResourceProduct {
     /** Wire product id, e.g. 'product_analytics'. The local taxonomy maps it to an icon + label. */
     id: string

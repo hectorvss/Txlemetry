@@ -68,7 +68,7 @@ function Header(): JSX.Element {
                                     menuItem: true,
                                 }}
                             >
-                                <IconDocument /> Playback from PostHog JSON file
+                                <IconDocument /> Playback from Txlemetry JSON file
                             </Link>
                             <Link
                                 to={urls.replayKiosk()}

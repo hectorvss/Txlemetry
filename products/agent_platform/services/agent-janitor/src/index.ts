@@ -6,7 +6,7 @@
  *     Holds the authoring tables (agent_application + agent_revision, read by
  *     the revision store for /revisions/*) alongside the runtime queue +
  *     sandbox-instances the sweep reaps. Unlike the runner + ingress, the
- *     janitor never touches the main PostHog DB.
+ *     janitor never touches the main Txlemetry DB.
  *
  * Bundle storage: S3-backed via `S3BundleStore` (AGENT_BUNDLE_S3_BUCKET +
  * endpoint required at boot). Dev runs SeaweedFS; prod uses real S3 with the

@@ -8,7 +8,7 @@ import posthog from 'posthog-js'
  * suggesting serialization issues that create infinite loops in the URL sync cycle.
  *
  * Owner: team-web-analytics
- * Context: https://github.com/PostHog/posthog/pull/49891
+ * Context: https://github.com/Txlemetry/posthog/pull/49891
  *
  * This is observability-only code - it does not suppress or modify URL updates,
  * only logs warnings and captures events when thresholds are exceeded.
@@ -148,7 +148,7 @@ export function captureRapidUrlChangeWarning(
 
     // Console warning for local debugging
     // eslint-disable-next-line no-console
-    console.warn('[PostHog] Rapid URL changes detected - possible infinite loop', {
+    console.warn('[Txlemetry] Rapid URL changes detected - possible infinite loop', {
         currentUrl,
         logicPath,
         actionName,
@@ -156,7 +156,7 @@ export function captureRapidUrlChangeWarning(
         sessionReplayUrl,
     })
 
-    // Capture exception to PostHog for monitoring
+    // Capture exception to Txlemetry for monitoring
     const error = new Error('Rapid URL changes detected in kea router')
     posthog.captureException(error, {
         tag: 'web_analytics_rapid_url_changes',
@@ -201,7 +201,7 @@ export function trackUrlChange(response: ActionToUrlResponse, logicPath: string,
 
         if (containsSerializationBug(urlString)) {
             // eslint-disable-next-line no-console
-            console.error('[PostHog] Invalid URL detected - contains [object Object]', {
+            console.error('[Txlemetry] Invalid URL detected - contains [object Object]', {
                 url: urlString,
                 action: actionName,
                 logic: logicPath,

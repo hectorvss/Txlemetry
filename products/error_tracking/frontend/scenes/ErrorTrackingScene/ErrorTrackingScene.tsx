@@ -243,7 +243,7 @@ const IngestionStatusCheck = (): JSX.Element | null => {
             <p>
                 To use the Error tracking product, please{' '}
                 <Link to="https://posthog.com/docs/error-tracking/installation">
-                    enable exception capture within the PostHog SDK
+                    enable exception capture within the Txlemetry SDK
                 </Link>{' '}
                 (otherwise it'll be a little empty!)
             </p>

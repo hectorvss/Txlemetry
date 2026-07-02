@@ -8,7 +8,7 @@ import { useAnimatedPresence } from 'lib/hooks/useAnimatedPresence'
 import { useOutsideClickHandler } from 'lib/hooks/useOutsideClickHandler'
 import { cn } from 'lib/utils/css-classes'
 
-// Radix-style compound suggestions surface: a logic-free button row ("Try PostHog AI for…") plus an
+// Radix-style compound suggestions surface: a logic-free button row ("Try Txlemetry AI for…") plus an
 // in-input dropdown that opens when a multi-suggestion category is picked. Reproduces the look of
 // scenes/max's FloatingSuggestionsDisplay + SuggestionsList without any conversation logic — the caller owns
 // the open state and decides what a chosen suggestion does (fill, submit, navigate). The dropdown attaches
@@ -123,7 +123,7 @@ function SuggestionsRoot({
 
 export interface SuggestionsButtonsProps {
     data: readonly SuggestionGroup[]
-    /** The label above the row. Defaults to the PostHog AI prompt; pass `null` to hide it. */
+    /** The label above the row. Defaults to the Txlemetry AI prompt; pass `null` to hide it. */
     tip?: ReactNode
     type?: 'primary' | 'secondary' | 'tertiary'
     /** Extra buttons appended after the category buttons (e.g. a settings affordance). */
@@ -133,7 +133,7 @@ export interface SuggestionsButtonsProps {
 
 function SuggestionsButtons({
     data,
-    tip = 'Try PostHog AI for…',
+    tip = 'Try Txlemetry AI for…',
     type = 'secondary',
     additionalSuggestions,
     className,

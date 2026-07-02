@@ -17,51 +17,51 @@ export const SDK_TYPE_READABLE_NAME: Record<SdkType, string> = {
 
 export const SDK_DOCS_LINKS: Record<SdkType, { releases: string; docs: string }> = {
     web: {
-        releases: 'https://github.com/PostHog/posthog-js/blob/main/packages/browser/CHANGELOG.md',
+        releases: 'https://github.com/Txlemetry/posthog-js/blob/main/packages/browser/CHANGELOG.md',
         docs: 'https://posthog.com/docs/libraries/js',
     },
     'posthog-ios': {
-        releases: 'https://github.com/PostHog/posthog-ios/releases',
+        releases: 'https://github.com/Txlemetry/posthog-ios/releases',
         docs: 'https://posthog.com/docs/libraries/ios',
     },
     'posthog-android': {
-        releases: 'https://github.com/PostHog/posthog-android/releases',
+        releases: 'https://github.com/Txlemetry/posthog-android/releases',
         docs: 'https://posthog.com/docs/libraries/android',
     },
     'posthog-node': {
-        releases: 'https://github.com/PostHog/posthog-js/blob/main/packages/node/CHANGELOG.md',
+        releases: 'https://github.com/Txlemetry/posthog-js/blob/main/packages/node/CHANGELOG.md',
         docs: 'https://posthog.com/docs/libraries/node',
     },
     'posthog-python': {
-        releases: 'https://github.com/PostHog/posthog-python/releases',
+        releases: 'https://github.com/Txlemetry/posthog-python/releases',
         docs: 'https://posthog.com/docs/libraries/python',
     },
     'posthog-php': {
-        releases: 'https://github.com/PostHog/posthog-php/releases',
+        releases: 'https://github.com/Txlemetry/posthog-php/releases',
         docs: 'https://posthog.com/docs/libraries/php',
     },
     'posthog-ruby': {
-        releases: 'https://github.com/PostHog/posthog-ruby/releases',
+        releases: 'https://github.com/Txlemetry/posthog-ruby/releases',
         docs: 'https://posthog.com/docs/libraries/ruby',
     },
     'posthog-go': {
-        releases: 'https://github.com/PostHog/posthog-go/releases',
+        releases: 'https://github.com/Txlemetry/posthog-go/releases',
         docs: 'https://posthog.com/docs/libraries/go',
     },
     'posthog-flutter': {
-        releases: 'https://github.com/PostHog/posthog-flutter/releases',
+        releases: 'https://github.com/Txlemetry/posthog-flutter/releases',
         docs: 'https://posthog.com/docs/libraries/flutter',
     },
     'posthog-react-native': {
-        releases: 'https://github.com/PostHog/posthog-js/blob/main/packages/react-native/CHANGELOG.md',
+        releases: 'https://github.com/Txlemetry/posthog-js/blob/main/packages/react-native/CHANGELOG.md',
         docs: 'https://posthog.com/docs/libraries/react-native',
     },
     'posthog-dotnet': {
-        releases: 'https://github.com/PostHog/posthog-dotnet/releases',
+        releases: 'https://github.com/Txlemetry/posthog-dotnet/releases',
         docs: 'https://posthog.com/docs/libraries/dotnet',
     },
     'posthog-elixir': {
-        releases: 'https://github.com/PostHog/posthog-elixir/releases',
+        releases: 'https://github.com/Txlemetry/posthog-elixir/releases',
         docs: 'https://posthog.com/docs/libraries/elixir',
     },
 }

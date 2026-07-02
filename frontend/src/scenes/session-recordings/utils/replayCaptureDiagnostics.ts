@@ -111,7 +111,7 @@ export function diagnoseReplayCapture(eventProperties: Record<string, any> | nul
             verdict: 'captured',
             headline: 'A recording exists for this session',
             reasons: [
-                'PostHog has a stored recording linked to this event\u2019s session (`$has_recording = true`).',
+                'Txlemetry has a stored recording linked to this event\u2019s session (`$has_recording = true`).',
                 'If the replay still appears missing in the UI, try refreshing — it may still be processing.',
             ],
             rawSignals,
@@ -212,7 +212,7 @@ export function diagnoseReplayCapture(eventProperties: Record<string, any> | nul
             verdict: 'captured',
             headline: 'A recording should exist for this session',
             reasons: [
-                'The SDK reported `$recording_status = active` and flushed recording data to PostHog.',
+                'The SDK reported `$recording_status = active` and flushed recording data to Txlemetry.',
                 'If the replay still appears missing, it may still be processing, or it may have been deleted due to retention.',
             ],
             rawSignals,

@@ -51,8 +51,8 @@ function getCurrentLocationLink(): string {
     return `\nLocation: ${cleanedCurrentUrl}`
 }
 
-// The recording lives in PostHog's own telemetry project, which the reporting user is not a member
-// of, so this link is for PostHog staff triaging the ticket/issue — never the user. We rewrite to the
+// The recording lives in Txlemetry's own telemetry project, which the reporting user is not a member
+// of, so this link is for Txlemetry staff triaging the ticket/issue — never the user. We rewrite to the
 // internal http://go/session/ golink to make that explicit.
 function getSessionReplayLink(): string {
     const replayUrl = posthog.get_session_replay_url?.({ withTimestamp: true, timestampLookBack: 30 })
@@ -263,12 +263,12 @@ const TARGET_AREA_TO_NAME_PRODUCTS = [
     {
         value: 'posthog-ai',
         'data-attr': `support-form-target-area-posthog-ai`,
-        label: 'PostHog AI',
+        label: 'Txlemetry AI',
     },
     {
         value: 'posthog-mcp',
         'data-attr': `support-form-target-area-posthog-mcp`,
-        label: 'PostHog MCP',
+        label: 'Txlemetry MCP',
     },
     {
         value: 'analytics',
@@ -527,7 +527,7 @@ export const supportLogic = kea<supportLogicType>([
             (sendSupportRequest) =>
                 sendSupportRequest.kind
                     ? SUPPORT_TICKET_KIND_TO_TITLE[sendSupportRequest.kind]
-                    : 'Leave a message with PostHog',
+                    : 'Leave a message with Txlemetry',
         ],
         targetArea: [
             (s) => [s.sendSupportRequest],

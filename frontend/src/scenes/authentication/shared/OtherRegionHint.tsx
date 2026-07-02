@@ -17,7 +17,7 @@ export function otherRegionLoginUrl(region: Region, search: string): string {
 }
 
 /**
- * Region-aware hint for users who may be authenticating on the wrong PostHog Cloud region (US vs EU).
+ * Region-aware hint for users who may be authenticating on the wrong Txlemetry Cloud region (US vs EU).
  *
  * Shown unconditionally whenever it's rendered on cloud — it never checks whether an account actually
  * exists on the other region, so it cannot be used to probe for account existence across regions.
@@ -33,7 +33,7 @@ export function OtherRegionHint(): JSX.Element | null {
 
     return (
         <LemonBanner type="info">
-            Already have a PostHog Cloud account? It may live in our {otherRegion} region. You're currently on{' '}
+            Already have a Txlemetry Cloud account? It may live in our {otherRegion} region. You're currently on{' '}
             {preflight.region}.{' '}
             <Link
                 to={otherRegionLoginUrl(preflight.region, location.search)}

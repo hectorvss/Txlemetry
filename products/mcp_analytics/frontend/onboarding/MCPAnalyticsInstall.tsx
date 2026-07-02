@@ -84,7 +84,7 @@ export function MCPAnalyticsInstallHero(): JSX.Element {
                 <div className="flex items-center gap-6">
                     <img
                         src={WIZARD_HOG_URL}
-                        alt="PostHog wizard hedgehog"
+                        alt="Txlemetry wizard hedgehog"
                         className={cn('w-28 h-28 hidden md:block shrink-0')}
                     />
                     <div className="flex-1 min-w-0 flex flex-col gap-3">

@@ -14,11 +14,11 @@ export function BAAPreview(): JSX.Element {
 
     return (
         <div className="legal-document-preview prose prose-sm dark:prose-invert max-w-none">
-            <h3>Business Associate Agreement — PostHog Inc.</h3>
+            <h3>Business Associate Agreement — Txlemetry Inc.</h3>
             <p>
                 This Business Associate Amendment (this "<strong>BAA</strong>"), effective as of the date electronically
                 agreed and accepted by you (the "<strong>BAA Effective Date</strong>"), is entered into by and between
-                PostHog Inc ("<strong>PostHog</strong>", "<strong>we</strong>", or "<strong>us</strong>") and the party
+                Txlemetry Inc ("<strong>Txlemetry</strong>", "<strong>we</strong>", or "<strong>us</strong>") and the party
                 that electronically accepts or otherwise agrees or opts-in to this BAA ("<strong>Customer</strong>", or
                 "<strong>you</strong>").
             </p>
@@ -29,7 +29,7 @@ export function BAAPreview(): JSX.Element {
                 BAA will amend the terms of the Agreement to reflect the parties' rights and responsibilities with
                 respect to the processing and security of your Protected Health Information (defined below) under the
                 Agreement; provided, however, that this BAA, and any obligations relating to compliance with HIPAA
-                hereunder, do not apply with respect to any Services (or features or functionality thereof) that PostHog
+                hereunder, do not apply with respect to any Services (or features or functionality thereof) that Txlemetry
                 designates as not subject to this BAA, as indicated in the applicable service interface, guidance,
                 documentation, ordering materials, or otherwise, even if such Services involve the processing of PHI. If
                 you are accepting this BAA in your capacity as an employee, consultant or agent of Customer (
@@ -45,7 +45,7 @@ export function BAAPreview(): JSX.Element {
                 executed.
             </p>
             <p>
-                This BAA applies only to PostHog's processing of PHI for Customer in Customer's capacity as a Covered
+                This BAA applies only to Txlemetry's processing of PHI for Customer in Customer's capacity as a Covered
                 Entity or Business Associate.
             </p>
             <p>
@@ -68,7 +68,7 @@ export function BAAPreview(): JSX.Element {
             </p>
             <p>
                 "<strong>Protected Health Information</strong>" or "<strong>PHI</strong>" is any information, whether
-                oral or recorded in any form or medium that is created, received, maintained, or transmitted by PostHog
+                oral or recorded in any form or medium that is created, received, maintained, or transmitted by Txlemetry
                 for or on behalf of Customer pursuant to this BAA, that identifies an individual or might reasonably be
                 used to identify an individual and relates to: (i) the individual's past, present or future physical or
                 mental health; (ii) the provision of health care to the individual; or (iii) the past, present or future
@@ -97,84 +97,84 @@ export function BAAPreview(): JSX.Element {
                 in the Service to facilitate Customer's compliance with HIPAA's minimum necessary requirement;
             </p>
             <p>
-                (c) That it will not request that PostHog take any action that would violate HIPAA if performed by
+                (c) That it will not request that Txlemetry take any action that would violate HIPAA if performed by
                 Customer; and
             </p>
             <p>
-                (d) That it will not request PostHog to use or disclose PHI in any manner that would violate applicable
+                (d) That it will not request Txlemetry to use or disclose PHI in any manner that would violate applicable
                 federal or state laws if such use or disclosure were made by Customer.
             </p>
 
-            <h4>3. PostHog's Assurances</h4>
+            <h4>3. Txlemetry's Assurances</h4>
             <p>
-                (a) PostHog (1) shall not use or disclose PHI, other than as permitted or required by this BAA and
+                (a) Txlemetry (1) shall not use or disclose PHI, other than as permitted or required by this BAA and
                 Agreement, or as required by law; (2) shall not use or disclose PHI in any manner that violates
                 applicable federal or state laws or would violate such laws if used or disclosed in such manner by
                 Customer; and (3) shall only use and disclose the minimum necessary PHI for its specific purposes.
-                Customer agrees that PostHog may rely on Customer's instructions to determine if uses and disclosures
+                Customer agrees that Txlemetry may rely on Customer's instructions to determine if uses and disclosures
                 meet this minimum necessary requirement.
             </p>
             <p>
-                (b) PostHog may use the information received from Customer if necessary for (i) the proper management
-                and administration of PostHog; or (ii) to carry out the legal responsibilities of PostHog. PostHog may
+                (b) Txlemetry may use the information received from Customer if necessary for (i) the proper management
+                and administration of Txlemetry; or (ii) to carry out the legal responsibilities of Txlemetry. Txlemetry may
                 disclose PHI for its proper management and administration provided that: (1) disclosures are required by
-                law; or (2) PostHog obtains reasonable assurances from the person or entity to whom the information is
+                law; or (2) Txlemetry obtains reasonable assurances from the person or entity to whom the information is
                 disclosed that it will remain confidential and used or further disclosed only as required by law or for
                 the purpose for which it was disclosed to the person or entity, and the person or entity notifies
-                PostHog of any instances of which it is aware in which the confidentiality of the information has been
+                Txlemetry of any instances of which it is aware in which the confidentiality of the information has been
                 breached.
             </p>
             <p>
-                (c) PostHog will report to Customer any use or disclosure of PHI not provided for by this BAA of which
-                PostHog becomes aware, including breaches of Unsecured PHI subject to the following:
+                (c) Txlemetry will report to Customer any use or disclosure of PHI not provided for by this BAA of which
+                Txlemetry becomes aware, including breaches of Unsecured PHI subject to the following:
             </p>
             <p>
                 (i) The parties acknowledge that unsuccessful attempts to access Unsecured PHI (e.g., pings and other
                 broadcast attacks on a firewall, denial of service attacks, port scans, unsuccessful login attempts)
                 occur within the normal course of business and the parties stipulate and agree that this paragraph
-                constitutes notice by PostHog to Customer for such unsuccessful attempts; and
+                constitutes notice by Txlemetry to Customer for such unsuccessful attempts; and
             </p>
             <p>
-                (ii) Communications by or on behalf of PostHog with Customer in connection with this Section 3(c) shall
-                not be construed as an acknowledgment by PostHog of any fault or liability with respect to the breaches
+                (ii) Communications by or on behalf of Txlemetry with Customer in connection with this Section 3(c) shall
+                not be construed as an acknowledgment by Txlemetry of any fault or liability with respect to the breaches
                 of Unsecured PHI.
             </p>
             <p>
-                (d) PostHog will ensure that any subcontractors that create, receive, maintain, or transmit PHI on
-                PostHog's behalf agree to the same restrictions and conditions that apply to PostHog with respect to
+                (d) Txlemetry will ensure that any subcontractors that create, receive, maintain, or transmit PHI on
+                Txlemetry's behalf agree to the same restrictions and conditions that apply to Txlemetry with respect to
                 such PHI.
             </p>
             <p>
-                (e) Upon request of Customer or an individual, PostHog will promptly provide information to Customer as
+                (e) Upon request of Customer or an individual, Txlemetry will promptly provide information to Customer as
                 may be reasonably necessary to facilitate Customer's compliance with its obligation to: (i) make
-                available to requesting individuals a copy of any PHI about such individuals held by PostHog in a
+                available to requesting individuals a copy of any PHI about such individuals held by Txlemetry in a
                 designated record set, in accordance with 45 CFR 164.524; (ii) amend PHI or records about the requesting
-                individual held by PostHog in a designated record set, in accordance with 45 CFR 164.526; and (iii)
+                individual held by Txlemetry in a designated record set, in accordance with 45 CFR 164.526; and (iii)
                 provide to requesting individuals an accounting of disclosures of PHI about such individuals made by
                 Customer in the six (6) years prior to the date of request, in accordance with 45 CFR 164.528.
             </p>
             <p>
-                (f) In the event that any individual requests from PostHog access, amendment, or an accounting of PHI,
-                PostHog shall forward such request to Customer within five (5) business days. Customer shall be
-                responsible for responding to the individual's request and Customer agrees that PostHog may respond to
+                (f) In the event that any individual requests from Txlemetry access, amendment, or an accounting of PHI,
+                Txlemetry shall forward such request to Customer within five (5) business days. Customer shall be
+                responsible for responding to the individual's request and Customer agrees that Txlemetry may respond to
                 the individual directing them to make such request to Customer.
             </p>
             <p>
-                (g) PostHog will comply with HIPAA security standards for electronic PHI. All Privacy and security
+                (g) Txlemetry will comply with HIPAA security standards for electronic PHI. All Privacy and security
                 measures are found at https://posthog.com/docs/privacy
             </p>
             <p>
-                (h) PostHog will make its internal practices, books, and records relating to the use and disclosure of
-                PHI received from, or created or received by PostHog on behalf of, Customer available to the Secretary
+                (h) Txlemetry will make its internal practices, books, and records relating to the use and disclosure of
+                PHI received from, or created or received by Txlemetry on behalf of, Customer available to the Secretary
                 for the purpose of determining Customer's compliance with HIPAA.
             </p>
             <p>
-                (i) To the extent that PostHog carries out Customer's obligations under HIPAA regulations, PostHog will
+                (i) To the extent that Txlemetry carries out Customer's obligations under HIPAA regulations, Txlemetry will
                 comply with the requirements of this Section 3 that apply to Customer in the performance of such
                 obligations.
             </p>
             <p>
-                (j) PostHog will use appropriate safeguards to prevent use or disclosure of the PHI other than as
+                (j) Txlemetry will use appropriate safeguards to prevent use or disclosure of the PHI other than as
                 provided for by this BAA and to comply with the HIPAA Security Rule (Subpart C of 45 CFR Part 164).
             </p>
 
@@ -201,11 +201,11 @@ export function BAAPreview(): JSX.Element {
 
             <h4>6. Termination</h4>
             <p>
-                Customer may terminate this BAA upon written notice if PostHog materially breaches a term of this BAA,
-                and fails to cure the breach within thirty (30) days of receiving written notice of it. PostHog may
+                Customer may terminate this BAA upon written notice if Txlemetry materially breaches a term of this BAA,
+                and fails to cure the breach within thirty (30) days of receiving written notice of it. Txlemetry may
                 terminate this BAA upon written notice if Customer either: (i) agrees to restrictions that impact
-                PostHog's ability to perform its obligations under the Agreement; (ii) agrees to restrictions that
-                increase PostHog's cost of performance under this BAA or the Agreement; or (iii) fails to meet its
+                Txlemetry's ability to perform its obligations under the Agreement; (ii) agrees to restrictions that
+                increase Txlemetry's cost of performance under this BAA or the Agreement; or (iii) fails to meet its
                 obligations under HIPAA. The Parties may also terminate this BAA upon mutual consent.
             </p>
 
@@ -219,17 +219,17 @@ export function BAAPreview(): JSX.Element {
 
             <h4>8. Suspension of Disclosure</h4>
             <p>
-                In the event that Customer reasonably determines that PostHog has breached its obligations under this
+                In the event that Customer reasonably determines that Txlemetry has breached its obligations under this
                 BAA, Customer may, in addition to its other rights set forth in this BAA, immediately stop all further
-                disclosures of PHI to PostHog until the breach has been resolved.
+                disclosures of PHI to Txlemetry until the breach has been resolved.
             </p>
 
             <h4>9. Return or Destruction of PHI upon Termination</h4>
             <p>
-                Upon termination of this BAA, unless otherwise directed by Customer, PostHog will return or destroy all
+                Upon termination of this BAA, unless otherwise directed by Customer, Txlemetry will return or destroy all
                 PHI received from, created by, or received on behalf of, Customer and will not retain copies of any such
-                PHI; provided that in the event PostHog deems return or destruction of such PHI unfeasible, the terms of
-                this BAA will survive termination and, for as long as PostHog retains that PHI, PostHog will use or
+                PHI; provided that in the event Txlemetry deems return or destruction of such PHI unfeasible, the terms of
+                this BAA will survive termination and, for as long as Txlemetry retains that PHI, Txlemetry will use or
                 disclose it solely as permitted by law.
             </p>
 
@@ -243,7 +243,7 @@ export function BAAPreview(): JSX.Element {
                 control. The parties recognize that electronic PHI is a subset of PHI and all references to PHI in this
                 BAA shall include electronic PHI. A reference in this BAA to a section of HIPAA means the section as in
                 effect or as amended, and for which compliance is required. Any ambiguity in this BAA shall be resolved
-                in favor of a meaning that permits PostHog to comply with HIPAA. If any of the regulations promulgated
+                in favor of a meaning that permits Txlemetry to comply with HIPAA. If any of the regulations promulgated
                 under HIPAA are amended or interpreted in a manner that renders this BAA inconsistent therewith, the
                 parties shall cooperate in good faith to amend this BAA to the extent necessary to comply with such
                 amendments or interpretations.

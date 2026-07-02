@@ -582,7 +582,7 @@ export function getComponentTitleTone(tagName: string, category: string | undefi
     if (category === 'Media') {
         return 'media'
     }
-    if (category === 'PostHog') {
+    if (category === 'Txlemetry') {
         return 'posthog'
     }
     return 'default'

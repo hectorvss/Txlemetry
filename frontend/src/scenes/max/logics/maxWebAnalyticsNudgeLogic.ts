@@ -50,7 +50,7 @@ export interface MaxWebAnalyticsNudgeLogicProps {
     isCompleted: boolean
     isSharedThread: boolean
     conversationId: string | null
-    // Domain classified by PostHog AI (from the conversation's first question); authoritative when present.
+    // Domain classified by Txlemetry AI (from the conversation's first question); authoritative when present.
     conversationTopic: ConversationTopic | null
 }
 

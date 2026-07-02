@@ -15,7 +15,7 @@ export const AwsS3SetupModal = (props: AwsS3SetupModalLogicProps): JSX.Element =
         <LemonModal
             isOpen={props.isOpen}
             title="Configure AWS S3 connection"
-            description="Enter your AWS credentials to connect PostHog to your S3 buckets. They are stored encrypted and can be reused across exports."
+            description="Enter your AWS credentials to connect Txlemetry to your S3 buckets. They are stored encrypted and can be reused across exports."
             onClose={props.onComplete}
             footer={
                 <>

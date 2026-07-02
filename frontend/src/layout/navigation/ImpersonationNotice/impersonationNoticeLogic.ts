@@ -133,7 +133,7 @@ export const impersonationNoticeLogic = kea<impersonationNoticeLogicType>([
     listeners(({ actions, values }) => ({
         returnToPostHog: () => {
             // Restore the original staff login (via the loginas logout endpoint) and
-            // land back in the PostHog app rather than the Django admin.
+            // land back in the Txlemetry app rather than the Django admin.
             window.location.href = `/admin/logout/?next=${encodeURIComponent('/')}`
         },
         upgradeImpersonationSuccess: () => {

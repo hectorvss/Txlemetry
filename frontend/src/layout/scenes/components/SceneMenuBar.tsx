@@ -134,7 +134,7 @@ function SceneMenuBarRightLinks(): JSX.Element {
                 variant="outline"
             >
                 <IconSparkles className="text-ai group-hover/button-primitive:animate-hue-rotate" />
-                PostHog AI
+                Txlemetry AI
             </Button>
         </div>
     )
@@ -142,7 +142,7 @@ function SceneMenuBarRightLinks(): JSX.Element {
 
 /**
  * Canonical menu set for SceneMenuBar. Use these labels in this order so the bar feels
- * consistent across PostHog scenes. Render only the menus your scene actually needs.
+ * consistent across Txlemetry scenes. Render only the menus your scene actually needs.
  *
  * Order: File → Edit → View → Metadata → Staff only
  *
@@ -158,7 +158,7 @@ function SceneMenuBarRightLinks(): JSX.Element {
  *   Activity indicator, ExternalReferences.
  * - **Staff only** *(conditional)* — Debug panels, internal toggles.
  *
- * Right cluster is universal: PostHog AI / Docs / Support.
+ * Right cluster is universal: Txlemetry AI / Docs / Support.
  *
  * Full conventions: `.agents/skills/scene-menu-bar/SKILL.md`.
  */
@@ -244,7 +244,7 @@ type SceneMenuBarItemProps = ComponentProps<typeof MenubarItem> & {
 
 /**
  * Pass `variant="destructive"` for any "Delete X" / "Archive X" / "Remove X" action so the
- * visual signal (red text + icon) is consistent across PostHog scenes.
+ * visual signal (red text + icon) is consistent across Txlemetry scenes.
  */
 export function SceneMenuBarItem({
     opensFloatingUi,

@@ -339,7 +339,7 @@ export function SharingModalContent({
                                                             bordered
                                                             label={
                                                                 <div className="flex items-center">
-                                                                    <span>Show PostHog branding</span>
+                                                                    <span>Show Txlemetry branding</span>
                                                                     {!whitelabelAvailable && (
                                                                         <Tooltip title="This is a premium feature, click to learn more.">
                                                                             <IconLock className="ml-1.5 text-secondary text-lg" />
@@ -507,7 +507,7 @@ export function SharingModalContent({
                                 defaultExpanded={false}
                                 templateLink={renderQuerySnippet}
                                 heading="Static iframe embed with pre-computed data"
-                                piiWarning="Add this iframe to any site to embed a static PostHog chart. It will look identical to the chart you see here, but nothing will be editable. If any data is sensitive, consider that before sharing."
+                                piiWarning="Add this iframe to any site to embed a static Txlemetry chart. It will look identical to the chart you see here, but nothing will be editable. If any data is sensitive, consider that before sharing."
                             />
                             {apiQuerySnippet && (
                                 <TemplateLinkSection
@@ -548,7 +548,7 @@ function createRenderQuerySnippet({
     const escapedResults = escapeScriptJson(serializedResults)
     const escapedQuery = escapeScriptJson(serializedQuery)
 
-    return `<iframe id="${iframeId}" title="PostHog embedded query" src="${renderQueryUrl}" style="width: 100%; height: 600px; border: 0;" loading="lazy"></iframe>
+    return `<iframe id="${iframeId}" title="Txlemetry embedded query" src="${renderQueryUrl}" style="width: 100%; height: 600px; border: 0;" loading="lazy"></iframe>
 <script>
   (function () {
     const iframe = document.getElementById('${iframeId}')

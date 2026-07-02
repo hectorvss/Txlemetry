@@ -444,7 +444,7 @@ export function inferOwnerFromSelector(selector: string): string {
     const product = trimmed.startsWith('product:')
         ? trimmed.slice('product:'.length)
         : (trimmed.match(/^products\/([^/]+)\//)?.[1] ?? '').replace(/_/g, '-')
-    return product ? `@PostHog/team-${product}` : ''
+    return product ? `@Txlemetry/team-${product}` : ''
 }
 
 function toRequestBody(input: QuarantineSubmitInput, repo: string | null): QuarantineRequestApi {

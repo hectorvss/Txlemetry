@@ -103,7 +103,7 @@ function QueuedMessageItem({
 
 /**
  * The editable "Up next" buffer rendered above the composer while the agent is busy. Purely presentational
- * (no kea): the consumer owns the queue state and passes `onUpdate` / `onRemove`. Modeled on PostHog AI's
+ * (no kea): the consumer owns the queue state and passes `onUpdate` / `onRemove`. Modeled on Txlemetry AI's
  * `QueuedMessageItem`, minus the conversation/Max coupling.
  */
 export function QueuedMessageList({ messages, onUpdate, onRemove }: QueuedMessageListProps): JSX.Element | null {

@@ -12,7 +12,7 @@ import { FunnelConversionWindowTimeUnit } from '~/types'
  * @deprecated
  * Legacy funnel conversion window filter for ExperimentView.
  * Frozen copy for legacy experiments - do not modify.
- * Forked from https://github.com/PostHog/posthog/blob/master/frontend/src/scenes/insights/views/Funnels/FunnelConversionWindowFilter.tsx
+ * Forked from https://github.com/Txlemetry/posthog/blob/master/frontend/src/scenes/insights/views/Funnels/FunnelConversionWindowFilter.tsx
  */
 export function LegacyFunnelConversionWindowFilter({
     funnelWindowInterval,

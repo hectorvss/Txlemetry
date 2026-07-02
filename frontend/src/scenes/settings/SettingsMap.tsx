@@ -188,7 +188,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'snippet',
                 title: 'SDK setup',
                 description:
-                    'Install PostHog in your app using one of our SDKs. Select your platform to see the setup instructions.',
+                    'Install Txlemetry in your app using one of our SDKs. Select your platform to see the setup instructions.',
                 docsUrl: 'https://posthog.com/docs/getting-started/install',
                 component: <SDKSetupInstructions />,
                 keywords: [
@@ -274,7 +274,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'business-model',
                 title: 'Business model',
                 description:
-                    'Set whether this project serves B2B or B2C customers so PostHog can tailor the experience and recommendations.',
+                    'Set whether this project serves B2B or B2C customers so Txlemetry can tailor the experience and recommendations.',
                 component: <TeamBusinessModel />,
                 keywords: ['b2b', 'b2c', 'saas', 'ecommerce'],
             },
@@ -290,14 +290,14 @@ export const SETTINGS_MAP: SettingSection[] = [
     {
         level: 'environment',
         id: 'environment-max',
-        title: 'PostHog AI',
+        title: 'Txlemetry AI',
         group: 'AI',
         settings: [
             {
                 id: 'core-memory',
                 title: 'Memory',
                 description:
-                    "PostHog AI automatically remembers details about your company and product. This context helps our AI assistant provide relevant answers and suggestions. If there are any details you don't want PostHog AI to remember, you can edit or remove them below.",
+                    "Txlemetry AI automatically remembers details about your company and product. This context helps our AI assistant provide relevant answers and suggestions. If there are any details you don't want Txlemetry AI to remember, you can edit or remove them below.",
                 component: <MaxMemorySettings />,
                 hideOn: [Realm.SelfHostedClickHouse, Realm.SelfHostedPostgres],
             },
@@ -306,7 +306,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'changelog',
                 title: 'Changelog',
                 description:
-                    'See the latest PostHog AI features and control whether the changelog appears in the main UI.',
+                    'See the latest Txlemetry AI features and control whether the changelog appears in the main UI.',
                 component: <MaxChangelogSettings />,
                 hideOn: [Realm.SelfHostedClickHouse, Realm.SelfHostedPostgres],
             },
@@ -315,14 +315,14 @@ export const SETTINGS_MAP: SettingSection[] = [
     {
         level: 'environment',
         id: 'posthog-mcp',
-        title: 'PostHog MCP',
+        title: 'Txlemetry MCP',
         group: 'AI',
         settings: [
             {
                 id: 'posthog-mcp-configure',
                 title: 'Model Context Protocol (MCP) server',
                 description:
-                    'Connect PostHog to AI tools like Claude, Cursor, and Copilot via the MCP protocol for data-driven AI assistance.',
+                    'Connect Txlemetry to AI tools like Claude, Cursor, and Copilot via the MCP protocol for data-driven AI assistance.',
                 docsUrl: 'https://posthog.com/docs/model-context-protocol',
                 component: <MCPServerSettings />,
                 keywords: ['ai', 'llm', 'claude', 'cursor', 'copilot'],
@@ -339,7 +339,7 @@ export const SETTINGS_MAP: SettingSection[] = [
             {
                 id: 'mcp-servers-manage',
                 title: 'MCP servers',
-                description: 'Install and manage MCP servers for your PostHog AI and PostHog Code agents.',
+                description: 'Install and manage MCP servers for your Txlemetry AI and Txlemetry Code agents.',
                 component: <McpStoreSettings />,
                 keywords: ['mcp', 'server', 'install', 'oauth', 'ai', 'agent'],
             },
@@ -745,14 +745,14 @@ export const SETTINGS_MAP: SettingSection[] = [
                 title: 'Link to person',
                 description: (
                     <>
-                        The log attribute PostHog reads to identify which person a log belongs to. Matched against the
+                        The log attribute Txlemetry reads to identify which person a log belongs to. Matched against the
                         person&apos;s distinct IDs to surface logs on their profile. Defaults to{' '}
                         <code>posthogDistinctId</code> — the key the JavaScript and React Native SDKs auto-attach.
                         Override only if your backend pipeline emits the person identifier under a different key.
                     </>
                 ),
                 searchDescription:
-                    "The log attribute PostHog reads to identify which person a log belongs to. Matched against the person's distinct IDs to surface logs on their profile. Defaults to posthogDistinctId — the key the JavaScript and React Native SDKs auto-attach. Override only if your backend pipeline emits the person identifier under a different key.",
+                    "The log attribute Txlemetry reads to identify which person a log belongs to. Matched against the person's distinct IDs to surface logs on their profile. Defaults to posthogDistinctId — the key the JavaScript and React Native SDKs auto-attach. Override only if your backend pipeline emits the person identifier under a different key.",
                 component: <LogsDistinctIdAttributeKey />,
                 flag: 'LOGS_SETTINGS',
                 keywords: ['log', 'person', 'distinct', 'attribute', 'pivot', 'profile', 'link'],
@@ -860,7 +860,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'person-last-seen-at',
                 title: 'Person last seen tracking',
                 description:
-                    'When enabled, PostHog tracks when each person was last active. The value updates hourly and is visible in the People list.',
+                    'When enabled, Txlemetry tracks when each person was last active. The value updates hourly and is visible in the People list.',
                 docsUrl: 'https://posthog.com/docs/data/persons',
                 component: <PersonLastSeenAtEnabled />,
                 keywords: ['person', 'last seen', 'activity', 'tracking'],
@@ -1275,7 +1275,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'workflows-engagement-events',
                 title: 'Engagement events',
                 description:
-                    'When enabled, email engagement activity (sent, delivered, opened, link clicked, bounced, blocked, failed) is captured as standard PostHog events alongside the existing workflow metrics. This lets you build insights, funnels, and dashboards from workflows data. These events count toward your event usage and are billed like any other event.',
+                    'When enabled, email engagement activity (sent, delivered, opened, link clicked, bounced, blocked, failed) is captured as standard Txlemetry events alongside the existing workflow metrics. This lets you build insights, funnels, and dashboards from workflows data. These events count toward your event usage and are billed like any other event.',
                 docsUrl: 'https://posthog.com/docs/workflows/engagement-events',
                 component: <WorkflowsEngagementEventsSettings />,
                 keywords: [
@@ -1450,7 +1450,7 @@ export const SETTINGS_MAP: SettingSection[] = [
             {
                 id: 'integration-github',
                 title: 'GitHub integration',
-                description: 'Connect GitHub to link issues and pull requests with PostHog insights.',
+                description: 'Connect GitHub to link issues and pull requests with Txlemetry insights.',
                 docsUrl: 'https://posthog.com/docs/error-tracking/integrations',
                 component: <GitHub.SettingsSection />,
                 keywords: ['github', 'git', 'repository', 'issue', 'pr'],
@@ -1458,7 +1458,7 @@ export const SETTINGS_MAP: SettingSection[] = [
             {
                 id: 'integration-linear',
                 title: 'Linear integration',
-                description: 'Connect Linear to create and link issues directly from PostHog.',
+                description: 'Connect Linear to create and link issues directly from Txlemetry.',
                 docsUrl: 'https://posthog.com/docs/error-tracking/integrations',
                 component: <Linear.SettingsSection />,
                 keywords: ['linear', 'issue', 'project management', 'task'],
@@ -1474,7 +1474,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'integration-ip-allowlist',
                 title: 'Static IP addresses',
                 description:
-                    'PostHog Cloud uses static IP addresses for outbound traffic. Add these to your firewall allowlist if needed.',
+                    'Txlemetry Cloud uses static IP addresses for outbound traffic. Add these to your firewall allowlist if needed.',
                 component: <IPAllowListInfo />,
                 keywords: ['whitelist', 'firewall', 'allowlist', 'cidr', 'ip'],
             },
@@ -1553,7 +1553,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'organization-display-name',
                 title: 'Name & logo',
                 description:
-                    "Your organization's name and logo are shown across the PostHog interface. Click the avatar to upload a custom logo.",
+                    "Your organization's name and logo are shown across the Txlemetry interface. Click the avatar to upload a custom logo.",
                 component: <OrganizationDisplayName />,
                 keywords: ['name', 'rename', 'label', 'organization', 'logo', 'image', 'brand', 'icon', 'avatar'],
             },
@@ -1562,7 +1562,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 title: 'AI service providers',
                 description: (
                     <>
-                        PostHog AI features, such as the PostHog AI chat, use{' '}
+                        Txlemetry AI features, such as the Txlemetry AI chat, use{' '}
                         <Tooltip title={getExternalAIProvidersTooltipTitle()}>
                             <dfn>external AI services</dfn>
                         </Tooltip>{' '}
@@ -1580,7 +1580,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 component: <OrganizationAI />,
                 keywords: ['llm', 'consent', 'opt-in', 'data sharing'],
                 searchDescription:
-                    'PostHog AI features use external AI services for data analysis. This can involve transfer of identifying user data.',
+                    'Txlemetry AI features use external AI services for data analysis. This can involve transfer of identifying user data.',
             },
             {
                 id: 'organization-ai-training-opt-out',
@@ -1590,7 +1590,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 hideOn: [Realm.SelfHostedClickHouse, Realm.SelfHostedPostgres],
                 keywords: ['ai', 'training', 'opt-out', 'opt-in', 'model', 'max'],
                 searchDescription:
-                    'Control whether PostHog can use your data to train AI models. Turning this off disables AI features for your organization.',
+                    'Control whether Txlemetry can use your data to train AI models. Turning this off disables AI features for your organization.',
             },
             {
                 id: 'organization-ip-anonymization-default',
@@ -1817,7 +1817,7 @@ export const SETTINGS_MAP: SettingSection[] = [
             {
                 id: 'login-sessions',
                 title: 'Web sessions',
-                description: 'Devices and browsers currently signed in to your PostHog account.',
+                description: 'Devices and browsers currently signed in to your Txlemetry account.',
                 component: <LoginSessions />,
                 keywords: ['sessions', 'devices', 'logins', 'sign out', 'log out', 'security', 'revoke'],
             },
@@ -1832,7 +1832,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'connected-apps',
                 title: 'Connected applications',
                 description:
-                    'Applications that have been granted access to your PostHog account via OAuth. You can revoke access at any time.',
+                    'Applications that have been granted access to your Txlemetry account via OAuth. You can revoke access at any time.',
                 component: <ConnectedApps />,
                 keywords: ['oauth', 'app', 'connected', 'authorized', 'revoke', 'access', 'token'],
             },
@@ -1853,7 +1853,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'optout',
                 title: 'Anonymize data collection',
                 description:
-                    'PostHog uses PostHog to capture information about how people use the product. Anonymize your usage data if you prefer not to share it.',
+                    'Txlemetry uses Txlemetry to capture information about how people use the product. Anonymize your usage data if you prefer not to share it.',
                 component: <OptOutCapture />,
                 hideOn: [Realm.Cloud],
                 keywords: ['telemetry', 'opt out', 'privacy', 'tracking'],
@@ -1877,7 +1877,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'mcp-hints',
                 title: 'MCP hints',
                 description:
-                    'After you take an action in PostHog (creating a feature flag, building a dashboard, etc.), show a small hint that the same action can be done from your IDE via the PostHog MCP. Rate-limited to once a week.',
+                    'After you take an action in Txlemetry (creating a feature flag, building a dashboard, etc.), show a small hint that the same action can be done from your IDE via the Txlemetry MCP. Rate-limited to once a week.',
                 component: <MCPHintsSetting />,
                 keywords: ['mcp', 'claude', 'cursor', 'codex', 'ide', 'hints', 'wizard'],
             },
@@ -1893,7 +1893,7 @@ export const SETTINGS_MAP: SettingSection[] = [
             {
                 id: 'hedgehog-mode',
                 title: 'Hedgehog mode',
-                description: 'Enable the PostHog hedgehog companion that follows you around the app.',
+                description: 'Enable the Txlemetry hedgehog companion that follows you around the app.',
                 component: <HedgehogModeSettings />,
                 keywords: ['hedgehog', 'mascot', 'fun', 'companion', 'hog'],
             },
@@ -1904,7 +1904,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                     <div>
                         Grab some{' '}
                         <Link to="https://posthog.com/merch" target="_blank">
-                            PostHog merch
+                            Txlemetry merch
                         </Link>{' '}
                         to customize yourself outside of the app
                     </div>
@@ -1921,7 +1921,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'feature-previews',
                 title: 'Feature previews',
                 description:
-                    'Try out upcoming PostHog features before they are generally available. Toggling a preview enables it for your account only.',
+                    'Try out upcoming Txlemetry features before they are generally available. Toggling a preview enables it for your account only.',
                 component: <FeaturePreviewsSettings />,
                 keywords: ['beta', 'early access', 'preview', 'opt-in'],
             },
@@ -1942,14 +1942,14 @@ export const SETTINGS_MAP: SettingSection[] = [
             {
                 id: 'notifications',
                 title: 'Notifications',
-                description: 'Choose which email notifications you receive from PostHog.',
+                description: 'Choose which email notifications you receive from Txlemetry.',
                 component: <UpdateEmailPreferences />,
                 keywords: ['email', 'notification', 'digest', 'unsubscribe'],
             },
             {
                 id: 'realtime-notifications',
                 title: 'In-app notifications',
-                description: 'Choose which real-time notifications you receive in the PostHog app, per project.',
+                description: 'Choose which real-time notifications you receive in the Txlemetry app, per project.',
                 component: <RealtimeNotificationPreferences />,
                 flag: 'REAL_TIME_NOTIFICATIONS',
                 keywords: ['notification', 'in-app', 'realtime', 'popover', 'mention'],
@@ -1989,7 +1989,7 @@ export const SETTINGS_MAP: SettingSection[] = [
                 id: 'personal-integrations-slack',
                 title: 'Slack',
                 description:
-                    'Bind your Slack identity to this PostHog account so @PostHog mentions route to you even when your Slack email and PostHog email differ.',
+                    'Bind your Slack identity to this Txlemetry account so @Txlemetry mentions route to you even when your Slack email and Txlemetry email differ.',
                 component: <PersonalSlackIntegrations />,
                 keywords: ['slack', 'integration', 'identity', 'link', 'mention', 'personal'],
                 flag: 'SLACK_APP_OAUTH',
@@ -2018,7 +2018,7 @@ export const SETTINGS_MAP: SettingSection[] = [
             {
                 id: 'user-delete',
                 title: 'Delete account',
-                description: 'Permanently delete your PostHog account. This action cannot be undone.',
+                description: 'Permanently delete your Txlemetry account. This action cannot be undone.',
                 component: <UserDangerZone />,
                 keywords: ['delete', 'remove', 'account'],
             },

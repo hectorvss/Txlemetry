@@ -6,7 +6,7 @@ import { runStreamLogic } from '../logics/runStreamLogic'
 import { resolveProductMeta } from '../messages/posthogProducts'
 
 /**
- * Persistent "PostHog resources used" bar for sandbox conversations. Reads the session-cumulative
+ * Persistent "Txlemetry resources used" bar for sandbox conversations. Reads the session-cumulative
  * `resourcesUsed` list (unioned by id across the whole conversation) and renders one chip per
  * product the agent grounded an answer in. Hidden when empty. Each chip is a product icon plus a
  * Sentence-cased label; unknown ids degrade to the wire label and a generic icon.
@@ -20,7 +20,7 @@ export function ResourcesBar(): JSX.Element | null {
 
     return (
         <div className="flex flex-wrap items-center gap-1.5 px-3 py-1.5" data-attr="max-sandbox-resources-bar">
-            <span className="text-xs text-muted mr-0.5">PostHog resources used:</span>
+            <span className="text-xs text-muted mr-0.5">Txlemetry resources used:</span>
             {resourcesUsed.map((product) => {
                 const { label, Icon } = resolveProductMeta(product.id, product.label)
                 return (

@@ -41,7 +41,7 @@ export interface BuildSystemPromptOpts {
     /**
      * MCP refs that failed to open for this session. Rendered as a brief
      * "unavailable capabilities" section so the model can shape its reply
-     * (e.g. "I can't reach PostHog right now — let me try the rest").
+     * (e.g. "I can't reach Txlemetry right now — let me try the rest").
      * Raw transport error strings are intentionally NOT included; they
      * live in `log_entries` for the agent owner.
      */
@@ -120,7 +120,7 @@ export async function buildSystemPrompt(
     if (dead.length > 0) {
         const lines = ['\n\n---\n\n## Disconnected integrations', '']
         lines.push(
-            "These integrations use a shared connection set up by the agent's owner, and that connection is no longer working (the owner needs to reconnect it in PostHog). This will NOT fix itself and the user can't reconnect it themselves — so do not suggest they retry or sign in. If they ask for something one of these powers, tell them the integration is disconnected and that an administrator/the agent owner needs to reconnect it in PostHog, then carry on with the tools you DO have:"
+            "These integrations use a shared connection set up by the agent's owner, and that connection is no longer working (the owner needs to reconnect it in Txlemetry). This will NOT fix itself and the user can't reconnect it themselves — so do not suggest they retry or sign in. If they ask for something one of these powers, tell them the integration is disconnected and that an administrator/the agent owner needs to reconnect it in Txlemetry, then carry on with the tools you DO have:"
         )
         lines.push('')
         for (const u of dead) {

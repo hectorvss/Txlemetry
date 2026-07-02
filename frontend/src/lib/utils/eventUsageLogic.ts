@@ -602,7 +602,7 @@ export const eventUsageLogic = kea<eventUsageLogicType>([
             row: number,
             fullWidth: boolean
         ) => ({ tileType, column, row, fullWidth }),
-        /** Dashboard created via PostHog web app from a template (new dashboard modal / template chooser). */
+        /** Dashboard created via Txlemetry web app from a template (new dashboard modal / template chooser). */
         reportWebDashboardCreatedFromTemplate: (payload: {
             dashboard_id: number
             template_id: string

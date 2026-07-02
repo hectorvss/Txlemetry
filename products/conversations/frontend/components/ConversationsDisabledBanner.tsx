@@ -14,7 +14,7 @@ export function ConversationsDisabledBanner(): JSX.Element {
                 <div className="flex flex-col gap-2 flex-shrink max-w-180">
                     <h2 className="text-lg font-semibold">Welcome to Support</h2>
                     <p className="font-normal">
-                        Support lets you manage customer conversations directly inside PostHog. Enable the conversations
+                        Support lets you manage customer conversations directly inside Txlemetry. Enable the conversations
                         API to get started.
                     </p>
                     <ul className="list-disc list-inside font-normal space-y-2">

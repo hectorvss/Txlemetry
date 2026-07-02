@@ -72,9 +72,9 @@ export const HealthScene = (): JSX.Element => {
                                 icon={<IconSparkles />}
                                 type="secondary"
                                 size="small"
-                                tooltip="Ask PostHog AI about your health issues"
+                                tooltip="Ask Txlemetry AI about your health issues"
                             >
-                                Ask PostHog AI
+                                Ask Txlemetry AI
                             </LemonButton>
                         </LemonMenu>
                     )}

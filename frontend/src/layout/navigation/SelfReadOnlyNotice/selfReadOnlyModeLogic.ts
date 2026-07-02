@@ -118,7 +118,7 @@ export const selfReadOnlyModeLogic = kea<selfReadOnlyModeLogicType>([
     beforeUnmount(() => {
         setReadOnlyGetter(null)
         setReadOnlyNotifier(null)
-        // Releasing ownership of `before_send` — if PostHog adds another filter
+        // Releasing ownership of `before_send` — if Txlemetry adds another filter
         // here in the future, it should compose rather than be clobbered.
         posthog.set_config({ before_send: undefined })
     }),

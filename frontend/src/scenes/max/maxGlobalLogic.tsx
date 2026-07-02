@@ -31,7 +31,7 @@ const AI_LIABILITY_NOTICE_STORAGE_KEY = 'posthog_ai_liability_notice_dismissed'
 const AI_DATA_PROCESSING_DISMISSED_STORAGE_KEY = `posthog_ai_data_processing_dismissed_${dayjs().format('YYYY-MM')}`
 
 // Records, per organization, that this member has already asked an admin to enable
-// PostHog AI — so the request button doesn't invite repeated submissions.
+// Txlemetry AI — so the request button doesn't invite repeated submissions.
 const AI_ACCESS_REQUESTED_STORAGE_KEY = 'posthog_ai_access_requested_by_org'
 
 /** Tools available everywhere. These CAN be shadowed by contextual tools for scene-specific handling (e.g. to intercept insight creation). */

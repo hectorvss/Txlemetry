@@ -1,7 +1,7 @@
 /**
  * Mint a connect / reconnect link for an identity provider on demand. The agent
  * calls this whenever the user wants to authorize (or re-authorize) an account —
- * "connect PostHog", "relink my GitHub", or after a capability reports it needs
+ * "connect Txlemetry", "relink my GitHub", or after a capability reports it needs
  * a connection. Returns a fresh authorize URL for the agent to relay as a
  * markdown link; works whether or not the user is already linked (reconnect
  * refreshes access after a revoked token or a newly-required scope).

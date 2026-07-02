@@ -260,7 +260,7 @@ export const EventDebugMenu = (): JSX.Element => {
 
     const showEventsMenuItems = [
         checkableMenuItem(
-            'PostHog events',
+            'Txlemetry events',
             searchFilteredEventsCount['posthog'],
             <IconLogomark />,
             selectedEventTypes.includes('posthog'),
@@ -283,10 +283,10 @@ export const EventDebugMenu = (): JSX.Element => {
     ]
 
     const hideThingsMenuItems = [
-        checkableMenuItem('Hide PostHog properties', null, null, hidePostHogProperties, () =>
+        checkableMenuItem('Hide Txlemetry properties', null, null, hidePostHogProperties, () =>
             setHidePostHogProperties(!hidePostHogProperties)
         ),
-        checkableMenuItem('Hide PostHog flags', null, null, hidePostHogFlags, () =>
+        checkableMenuItem('Hide Txlemetry flags', null, null, hidePostHogFlags, () =>
             setHidePostHogFlags(!hidePostHogFlags)
         ),
     ]

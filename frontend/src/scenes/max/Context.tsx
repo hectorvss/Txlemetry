@@ -386,7 +386,7 @@ export function ContextDisplay({ size = 'default' }: ContextDisplayProps): JSX.E
             <div className="flex flex-wrap items-start gap-1 w-full">
                 <ModeSelector />
                 <SandboxModeToggle />
-                <Tooltip title={contextDisabledReason ?? 'Add context to help PostHog AI answer your question'}>
+                <Tooltip title={contextDisabledReason ?? 'Add context to help Txlemetry AI answer your question'}>
                     {/* Wrapper span prevents Base UI's Tooltip.Trigger from merging
                         props into TaxonomicPopover. Without it, mergeProps treats
                         onChange as a DOM event handler and wraps it in a single-arg

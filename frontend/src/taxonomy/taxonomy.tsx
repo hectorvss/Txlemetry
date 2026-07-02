@@ -35,7 +35,7 @@ delete CORE_FILTER_DEFINITIONS_BY_GROUP.events['All Events']
 export const PROPERTY_KEYS = Object.keys(CORE_FILTER_DEFINITIONS_BY_GROUP.event_properties)
 
 /**
- * these are properties that PostHog add to events they track for their own purposes
+ * these are properties that Txlemetry add to events they track for their own purposes
  * not part of the general taxonomy
  * but often more numerous than actual properties set on events and useful to hide
  * to make those properties discoverable

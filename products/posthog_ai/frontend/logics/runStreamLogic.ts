@@ -55,12 +55,12 @@ export type RunStatus = 'queued' | 'in_progress' | 'completed' | 'failed' | 'can
 
 export interface RunStreamLogicProps {
     /**
-     * Stable logic key. PostHog AI passes the conversation id; a generic task viewer (no conversation)
+     * Stable logic key. Txlemetry AI passes the conversation id; a generic task viewer (no conversation)
      * passes the task id. The logic operates on `(taskId, runId)` internally, so it never needs the
      * conversation beyond this key and the optional telemetry tag below.
      */
     streamKey: string
-    /** Optional telemetry tag — present for PostHog AI conversations, absent for a generic task viewer. */
+    /** Optional telemetry tag — present for Txlemetry AI conversations, absent for a generic task viewer. */
     conversationId?: string
     /**
      * Read-only/replay mode for a generic run viewer: bootstrap replays the persisted `logs/` snapshot
@@ -1097,7 +1097,7 @@ function rendersThreadItemContent(item: ThreadItem): boolean {
  * log the projection folds, HTTP-status error mapping, and the `bootstrapRun`
  * connect-first/buffer/snapshot/drain helper.
  *
- * Keyed by `streamKey` (the conversation id for PostHog AI, the task id for a generic task viewer)
+ * Keyed by `streamKey` (the conversation id for Txlemetry AI, the task id for a generic task viewer)
  * so concurrent streams keep independent stream state and connections.
  */
 export const runStreamLogic = kea<runStreamLogicType>([
@@ -1176,7 +1176,7 @@ export const runStreamLogic = kea<runStreamLogicType>([
         }),
         /**
          * Entry point for every parsed permission request. Applies the default tool policy
-         * (`toolPolicy`): auto-approve built-in tools + non-destructive PostHog exec, prompt
+         * (`toolPolicy`): auto-approve built-in tools + non-destructive Txlemetry exec, prompt
          * for update/delete exec (and other MCP). Replayed-from-history requests are never
          * auto-approved — they're a read-only restore and the run may already be terminal.
          */
@@ -2280,7 +2280,7 @@ export const runStreamLogic = kea<runStreamLogicType>([
             }
         },
         cancelRun: async ({ run }) => {
-            // Cancel a run through the generic tasks relay — the same command PostHog Code issues. The
+            // Cancel a run through the generic tasks relay — the same command Txlemetry Code issues. The
             // SSE then receives a terminal task_run_state; cancellation telemetry is emitted server-side
             // by the relay. `run` defaults to the streamed run; a warm Run (not streamed) is passed in.
             // Fire-and-forget: a failure leaves the run alive for a retry.
@@ -2506,7 +2506,7 @@ export const runStreamLogic = kea<runStreamLogicType>([
                 }
                 return
             }
-            // The agent reports, per turn, which PostHog products an answer was grounded in.
+            // The agent reports, per turn, which Txlemetry products an answer was grounded in.
             if (isPosthogNotification(notification, '_posthog/resources_used')) {
                 actions.mergeResourcesUsed(notification.params?.products ?? [])
                 return

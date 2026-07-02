@@ -6,7 +6,7 @@
  *
  * This is the SOURCE of truth (long-lived, revocable). At tool-call time the
  * runner resolves the current asker's link from here via `ctx.identity.resolve`
- * (see `createToolIdentity`); a trigger-edge bearer (e.g. PostHog Code passing a
+ * (see `createToolIdentity`); a trigger-edge bearer (e.g. Txlemetry Code passing a
  * posthog token) is the alternative source, held in the per-session
  * `CredentialBroker` and consulted first by the resolver. Tokens never leave
  * the runner process beyond the outbound API call.
@@ -46,7 +46,7 @@ export interface PutLinkedCredentialInput {
     /** Granted scopes; defaults to `credential.scopes ?? []`. */
     scopes?: string[]
     /**
-     * The proven external subject this link established (e.g. the PostHog user
+     * The proven external subject this link established (e.g. the Txlemetry user
      * uuid from /oauth/userinfo). Set only by an identity-establishing provider;
      * capability-only providers leave it undefined. Never nulled on a token
      * refresh (the put on refresh omits it → COALESCE keeps the existing value).
@@ -71,7 +71,7 @@ export interface IdentityCredentialStore {
      * The proven external subject for an agent_user — from whichever active link
      * established identity (the one provider that stamps `subject`). Null when
      * the principal has no identity-establishing link. Used by per-asker auth to
-     * resolve the PostHog identity behind a Slack principal.
+     * resolve the Txlemetry identity behind a Slack principal.
      */
     getEstablishedSubject(agentUserId: string): Promise<string | null>
     /** Mark revoked (row kept for audit). Idempotent. */

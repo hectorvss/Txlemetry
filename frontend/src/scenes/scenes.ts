@@ -69,7 +69,7 @@ export const sceneConfigurations: Record<Scene | string, SceneConfig> = {
     [Scene.WebScripts]: {
         projectBased: true,
         name: 'Web scripts',
-        description: 'Web scripts allow you to add custom tags and functionality to your website using PostHog.',
+        description: 'Web scripts allow you to add custom tags and functionality to your website using Txlemetry.',
         activityScope: ActivityScope.HOG_FUNCTION,
         iconType: 'data_pipeline',
     },
@@ -119,7 +119,7 @@ export const sceneConfigurations: Record<Scene | string, SceneConfig> = {
     [Scene.Comments]: {
         projectBased: true,
         name: 'Comments',
-        description: 'Comments allow you to provide context and discussions on various elements in PostHog.',
+        description: 'Comments allow you to provide context and discussions on various elements in Txlemetry.',
         iconType: 'comment',
     },
     [Scene.CustomerAnalytics]: { projectBased: true, name: 'Customer analytics' },
@@ -306,7 +306,7 @@ export const sceneConfigurations: Record<Scene | string, SceneConfig> = {
         description: 'Create and manage views and materialized views for transforming and organizing your data.',
         iconType: 'sql_editor',
     },
-    [Scene.MoveToPostHogCloud]: { name: 'Move to PostHog Cloud', hideProjectNotice: true },
+    [Scene.MoveToPostHogCloud]: { name: 'Move to Txlemetry Cloud', hideProjectNotice: true },
     [Scene.NewTab]: {
         projectBased: true,
         name: 'Search',
@@ -482,7 +482,7 @@ export const sceneConfigurations: Record<Scene | string, SceneConfig> = {
     [Scene.Health]: {
         projectBased: true,
         name: 'Health',
-        description: 'Monitor the health of your PostHog integrations.',
+        description: 'Monitor the health of your Txlemetry integrations.',
         iconType: 'health',
     },
     [Scene.HealthCategoryDetail]: {
@@ -507,7 +507,7 @@ export const sceneConfigurations: Record<Scene | string, SceneConfig> = {
         name: 'SDK health',
         iconType: 'sdk_health',
         description:
-            'Monitor and maintain your PostHog SDK integrations by automatically detecting version issues, configuration problems, and implementation patterns across your applications.',
+            'Monitor and maintain your Txlemetry SDK integrations by automatically detecting version issues, configuration problems, and implementation patterns across your applications.',
     },
     [Scene.Exports]: {
         projectBased: true,
@@ -533,7 +533,7 @@ export const sceneConfigurations: Record<Scene | string, SceneConfig> = {
     [Scene.Settings]: { projectBased: true, name: 'Settings' },
     [Scene.Signup]: { onlyUnauthenticated: true, layout: 'plain' },
     [Scene.Site]: { projectBased: true, hideProjectNotice: true, layout: 'app-raw' },
-    [Scene.StartupProgram]: { name: 'PostHog for Startups', organizationBased: true, layout: 'app-container' },
+    [Scene.StartupProgram]: { name: 'Txlemetry for Startups', organizationBased: true, layout: 'app-container' },
     [Scene.SurveyWizard]: {
         projectBased: true,
         name: 'Create survey',

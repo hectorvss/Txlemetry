@@ -62,7 +62,7 @@ const EFFORT_CONFIG_ID = 'effort'
  * Queueing is client-side and holds at most a single message: a follow-up typed while the agent is working
  * a turn is staged here (editable, removable), and a second follow-up typed before the turn ends is
  * concatenated onto it rather than fanning out into separate messages. The single staged message is flushed
- * as one `user_message` when the turn completes. This mirrors the PostHog AI sandbox flush path without any
+ * as one `user_message` when the turn completes. This mirrors the Txlemetry AI sandbox flush path without any
  * conversation/Max coupling.
  */
 export const runInteractionLogic = kea<runInteractionLogicType>([

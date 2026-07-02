@@ -165,7 +165,7 @@ export function getMarkdownNotebookDefaultRegistry(): NotebookComponentRegistry 
         makeDefinition({
             tagName: 'FeatureFlag',
             label: 'Feature flag',
-            category: 'PostHog',
+            category: 'Txlemetry',
             icon: <IconFlag />,
             defaultProps: { id: '' },
             ViewComponent: SummaryView,
@@ -173,7 +173,7 @@ export function getMarkdownNotebookDefaultRegistry(): NotebookComponentRegistry 
         makeDefinition({
             tagName: 'Experiment',
             label: 'Experiment',
-            category: 'PostHog',
+            category: 'Txlemetry',
             icon: <IconFlask />,
             defaultProps: { id: '' },
             ViewComponent: SummaryView,
@@ -181,7 +181,7 @@ export function getMarkdownNotebookDefaultRegistry(): NotebookComponentRegistry 
         makeDefinition({
             tagName: 'Survey',
             label: 'Survey',
-            category: 'PostHog',
+            category: 'Txlemetry',
             defaultProps: { id: '' },
             ViewComponent: SummaryView,
         }),
@@ -238,7 +238,7 @@ export function getMarkdownNotebookDefaultRegistry(): NotebookComponentRegistry 
             makeDefinition({
                 tagName,
                 label: splitTagName(tagName),
-                category: 'PostHog',
+                category: 'Txlemetry',
                 defaultProps: { title: splitTagName(tagName) },
                 ViewComponent: SummaryView,
             })

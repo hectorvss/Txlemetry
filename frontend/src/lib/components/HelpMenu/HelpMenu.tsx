@@ -140,7 +140,7 @@ export function HelpMenu({ iconOnly = false }: { iconOnly?: boolean }): JSX.Elem
                                             data-attr="more-menu-ask-ai-button"
                                         >
                                             <IconSparkles className="text-ai" />
-                                            Ask PostHog AI
+                                            Ask Txlemetry AI
                                         </Link>
                                     )}
                                 />
@@ -217,7 +217,7 @@ export function HelpMenu({ iconOnly = false }: { iconOnly?: boolean }): JSX.Elem
                                 />
 
                                 <Label intent="menu" className="px-2 mt-2">
-                                    PostHog
+                                    Txlemetry
                                 </Label>
                                 <Menu.Item
                                     render={(props) => (
@@ -272,7 +272,7 @@ export function HelpMenu({ iconOnly = false }: { iconOnly?: boolean }): JSX.Elem
                                                 data-attr="help-menu-upgrade-to-cloud-button"
                                             >
                                                 <IconConfetti />
-                                                Try PostHog Cloud
+                                                Try Txlemetry Cloud
                                             </Link>
                                         )}
                                     />
@@ -419,7 +419,7 @@ export function HelpMenu({ iconOnly = false }: { iconOnly?: boolean }): JSX.Elem
                                             render={
                                                 <ButtonPrimitive
                                                     menuItem
-                                                    tooltip="This is your dedicated PostHog human. Click to copy their email. They can help you with trying out new products, solving problems, and reducing your spend."
+                                                    tooltip="This is your dedicated Txlemetry human. Click to copy their email. They can help you with trying out new products, solving problems, and reducing your spend."
                                                     tooltipPlacement="right"
                                                     data-attr="help-menu-account-owner-button"
                                                 >

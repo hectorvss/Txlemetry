@@ -61,7 +61,7 @@ export const organizationIntegrationsLogic = kea<organizationIntegrationsLogicTy
             LemonDialog.open({
                 title: `Disconnect ${integration.kind} integration?`,
                 description:
-                    'This will remove the integration from your organization. PostHog resources configured to use this integration will stop working.',
+                    'This will remove the integration from your organization. Txlemetry resources configured to use this integration will stop working.',
                 primaryButton: {
                     children: 'Yes, disconnect',
                     status: 'danger',

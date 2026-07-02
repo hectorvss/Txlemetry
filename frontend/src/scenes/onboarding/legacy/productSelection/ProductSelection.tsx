@@ -40,7 +40,7 @@ function ChoosePathStep(): JSX.Element {
     const headingCopy = getFeatureFlagPayload('onboarding-product-selection-heading') as
         | { heading?: string; subheading?: string }
         | undefined
-    const heading = headingCopy?.heading ?? 'What do you want to do with PostHog?'
+    const heading = headingCopy?.heading ?? 'What do you want to do with Txlemetry?'
     const subheading = headingCopy?.subheading ?? 'Pick a goal to get started with the right products'
 
     return (

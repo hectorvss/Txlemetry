@@ -224,7 +224,7 @@ export const taskTrackerSceneLogic = kea<taskTrackerSceneLogicType>([
                     title: '',
                     description,
                     origin_product: OriginProduct.POSTHOG_AI,
-                    // PostHog AI can run without a repo; null means the task is not scoped to any repository.
+                    // Txlemetry AI can run without a repo; null means the task is not scoped to any repository.
                     repository: repositoryConfig.repository ?? null,
                     github_integration: repositoryConfig.integrationId ?? null,
                 }

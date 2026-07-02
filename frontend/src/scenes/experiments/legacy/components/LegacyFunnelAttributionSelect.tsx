@@ -9,7 +9,7 @@ import { BreakdownAttributionType, StepOrderValue } from '~/types'
  * @deprecated
  * Legacy funnel attribution select for ExperimentView.
  * Frozen copy for legacy experiments - do not modify.
- * Forked from https://github.com/PostHog/posthog/blob/master/frontend/src/scenes/insights/EditorFilters/AttributionFilter.tsx
+ * Forked from https://github.com/Txlemetry/posthog/blob/master/frontend/src/scenes/insights/EditorFilters/AttributionFilter.tsx
  */
 export function LegacyFunnelAttributionSelect({
     value,

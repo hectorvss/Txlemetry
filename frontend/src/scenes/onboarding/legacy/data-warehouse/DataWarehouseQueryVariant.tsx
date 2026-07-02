@@ -278,7 +278,7 @@ function DataWarehouseQueryInner(): JSX.Element {
 
                     {/* Copy */}
                     <div className="space-y-1">
-                        <h2 className="text-xl font-bold">Query your business data alongside PostHog</h2>
+                        <h2 className="text-xl font-bold">Query your business data alongside Txlemetry</h2>
                         <p className="text-sm text-muted">
                             Import from your CRM, payment provider, or database and query it with HogQL — right
                             alongside your product analytics. No ETL needed.

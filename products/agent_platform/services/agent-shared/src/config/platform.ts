@@ -118,7 +118,7 @@ export const PlatformConfigSchema = z.object({
         .url()
         .default('postgres://posthog:posthog@localhost:5432/posthog')
         .describe(
-            'Main PostHog DB — read for cross-product data only (users, teams, org membership). No agent tables.'
+            'Main Txlemetry DB — read for cross-product data only (users, teams, org membership). No agent tables.'
         ),
     agentDbUrl: z
         .string()
@@ -145,20 +145,20 @@ export const PlatformConfigSchema = z.object({
         .string()
         .default(() => (isDev() ? DEV_POSTHOG_API_BASE_URL : ''))
         .describe(
-            'Base URL for the PostHog API the oauth/pat verifiers introspect against. Dev defaults to localhost:8010; prod must set explicitly (e.g. https://app.posthog.com).'
+            'Base URL for the Txlemetry API the oauth/pat verifiers introspect against. Dev defaults to localhost:8010; prod must set explicitly (e.g. https://app.posthog.com).'
         ),
     httpsProxy: z
         .string()
         .url()
         .optional()
         .describe(
-            'Outbound HTTP proxy URL — in prod this points at smokescreen (see charts/shared/agent-platform/common.yaml `httpProxy.enabled`). Every agent service wires this into a shared HttpClient so tool fetches, MCP transport, and external service calls dispatch through one dispatcher. Unset in dev — fetches go direct. Service entrypoints fail closed in prod when this is unset. Cluster-internal calls (ai-gateway, in-cluster PostHog API) construct a `DirectHttpClient` instead — explicit class divide, no shared NO_PROXY env, so an agent author can never bypass smokescreen by guessing an internal hostname.'
+            'Outbound HTTP proxy URL — in prod this points at smokescreen (see charts/shared/agent-platform/common.yaml `httpProxy.enabled`). Every agent service wires this into a shared HttpClient so tool fetches, MCP transport, and external service calls dispatch through one dispatcher. Unset in dev — fetches go direct. Service entrypoints fail closed in prod when this is unset. Cluster-internal calls (ai-gateway, in-cluster Txlemetry API) construct a `DirectHttpClient` instead — explicit class divide, no shared NO_PROXY env, so an agent author can never bypass smokescreen by guessing an internal hostname.'
         ),
     kafkaHosts: z
         .string()
         .default('localhost:9092')
         .describe(
-            'Comma-separated Kafka brokers. The runner ships structured per-turn events into the `log_entries` topic via KafkaLogSink. Default is the standard local PostHog kafka.'
+            'Comma-separated Kafka brokers. The runner ships structured per-turn events into the `log_entries` topic via KafkaLogSink. Default is the standard local Txlemetry kafka.'
         ),
     logLevel: z
         .enum(['debug', 'info', 'warn', 'error', 'fatal'])
@@ -170,7 +170,7 @@ export const PlatformConfigSchema = z.object({
         .positive()
         .default(6738)
         .describe(
-            'Dedicated Prometheus scrape port. Every service binds a tiny metrics-only HTTP server here (GET /metrics + /_metrics) — separate from the request/health port so /metrics is never served on the public ingress listener. 6738 matches the rest of the PostHog Node fleet (nodejs/) and the posthog-app chart default; vmagent discovers it via the pod scrape annotations.'
+            'Dedicated Prometheus scrape port. Every service binds a tiny metrics-only HTTP server here (GET /metrics + /_metrics) — separate from the request/health port so /metrics is never served on the public ingress listener. 6738 matches the rest of the Txlemetry Node fleet (nodejs/) and the posthog-app chart default; vmagent discovers it via the pod scrape annotations.'
         ),
 })
 

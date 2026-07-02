@@ -209,7 +209,7 @@ function PromptExperimentImplementation({
                         <p className="text-secondary text-xs">
                             Each variant carries a <code>{`{prompt_name, prompt_version}`}</code> payload on the feature
                             flag, so the SDK reads the right version via <code>flags.get_flag_payload(...)</code>. The
-                            PostHog AI wrapper auto-emits <code>$ai_generation</code> tagged with{' '}
+                            Txlemetry AI wrapper auto-emits <code>$ai_generation</code> tagged with{' '}
                             <code>$ai_prompt_name</code>, which is how the experiment metric attributes results.
                         </p>
                         <LemonTabs

@@ -22,7 +22,7 @@ import {
     WEB_SEARCH_PROVIDER_NAMES,
 } from '@posthog/agent-shared'
 
-// Dev SeaweedFS defaults — the PostHog dev stack pre-creates the `posthog`
+// Dev SeaweedFS defaults — the Txlemetry dev stack pre-creates the `posthog`
 // bucket on `seaweedfs:8333` (anonymous mode, so access/secret are `any`). Gated by
 // `isDev()` so prod (NODE_ENV=production) must set AGENT_{MEMORY,BUNDLE}_S3_*
 // explicitly; without them the bundle-store fail-fast in index.ts trips.
@@ -53,7 +53,7 @@ export const AgentRunnerConfigSchema = PlatformConfigSchema.extend({
         'Comma-separated UTF-8 Fernet keys (match Django EncryptedTextField). Required in prod; deterministic dev default.'
     ),
     posthogApiBaseUrl: requiredInProd(DEV_POSTHOG_API_BASE_URL, 'POSTHOG_API_BASE_URL', { url: true }).describe(
-        'PostHog API base forwarded onto ToolContext for native tools. Required in prod; dev defaults to localhost:8010.'
+        'Txlemetry API base forwarded onto ToolContext for native tools. Required in prod; dev defaults to localhost:8010.'
     ),
     maxConcurrency: z.coerce.number().int().positive().default(8).describe('In-flight sessions per worker process.'),
     healthPort: z.coerce
@@ -75,7 +75,7 @@ export const AgentRunnerConfigSchema = PlatformConfigSchema.extend({
         .default(() => (isDev() ? '1' : '0'))
         .transform((v) => v === '1' || v === 'true')
         .describe(
-            'When truthy (`1`/`true`), routes every model call through PostHog ai-gateway via posthogAiGatewayModel(). Dev defaults on (the local default is the gateway); prod sets it explicitly in the chart. Spec.model still picks the underlying model id.'
+            'When truthy (`1`/`true`), routes every model call through Txlemetry ai-gateway via posthogAiGatewayModel(). Dev defaults on (the local default is the gateway); prod sets it explicitly in the chart. Spec.model still picks the underlying model id.'
         ),
     aiGatewayUrl: z
         .string()
@@ -99,7 +99,7 @@ export const AgentRunnerConfigSchema = PlatformConfigSchema.extend({
         .optional()
         .transform((v): string | undefined => v ?? (isDev() ? 'phc_localposthogprojecttoken' : undefined))
         .describe(
-            'Fallback PostHog project key for the LLM analytics sink. By default each event routes to the owning team’s OWN project (team_id → phc_); this key only catches events whose team has no api_token. Setting either this or POSTHOG_ANALYTICS_HOST enables the sink; with neither → NoopAnalyticsSink (CI). Dev defaults to the local project token.'
+            'Fallback Txlemetry project key for the LLM analytics sink. By default each event routes to the owning team’s OWN project (team_id → phc_); this key only catches events whose team has no api_token. Setting either this or POSTHOG_ANALYTICS_HOST enables the sink; with neither → NoopAnalyticsSink (CI). Dev defaults to the local project token.'
         ),
     posthogAnalyticsHost: z
         .string()
@@ -107,13 +107,13 @@ export const AgentRunnerConfigSchema = PlatformConfigSchema.extend({
         .optional()
         .transform((v): string | undefined => v ?? (isDev() ? 'http://localhost:8010' : undefined))
         .describe(
-            'PostHog capture host for the analytics sink (the region the runner’s teams live in). Defaults to `https://us.posthog.com` when unset in prod, and to local Django (`http://localhost:8010`) in dev. Setting it enables per-team routing even without a fallback key.'
+            'Txlemetry capture host for the analytics sink (the region the runner’s teams live in). Defaults to `https://us.posthog.com` when unset in prod, and to local Django (`http://localhost:8010`) in dev. Setting it enables per-team routing even without a fallback key.'
         ),
     approvalLinkScheme: z
         .string()
         .default(isDev() ? 'posthog-code-dev' : 'posthog-code')
         .describe(
-            'Custom-protocol scheme that PostHog Code registers for deep links (the agent console now lives in the PostHog Code app). Used to build clickable approval links (`<scheme>://approval/<id>`) surfaced to the model on a gated tool call so non-PostHog-Code clients (Slack, MCP) can open the approval in the desktop app. Dev → `posthog-code-dev`, prod → `posthog-code`.'
+            'Custom-protocol scheme that Txlemetry Code registers for deep links (the agent console now lives in the Txlemetry Code app). Used to build clickable approval links (`<scheme>://approval/<id>`) surfaced to the model on a gated tool call so non-Txlemetry-Code clients (Slack, MCP) can open the approval in the desktop app. Dev → `posthog-code-dev`, prod → `posthog-code`.'
         ),
     memoryS3Endpoint: requiredInProd(DEV_S3_ENDPOINT, 'AGENT_MEMORY_S3_ENDPOINT', { url: true }).describe(
         'S3-compatible endpoint for agent-memory file storage. Required everywhere — runner refuses to start without it (fail closed at config-load in prod). Dev defaults to local SeaweedFS.'

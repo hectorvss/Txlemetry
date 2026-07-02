@@ -77,7 +77,7 @@ function SlackChannelSection(): JSX.Element {
                 <label className="font-medium">Connection</label>
                 <p className="text-xs text-muted-alt">
                     Install the SupportHog bot in your Slack workspace to enable support ticket creation from channels,
-                    mentions, and emoji reactions. This is separate from the main PostHog Slack integration.
+                    mentions, and emoji reactions. This is separate from the main Txlemetry Slack integration.
                 </p>
                 {!slackConnected && (
                     <LemonButton

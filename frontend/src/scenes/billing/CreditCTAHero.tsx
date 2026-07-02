@@ -123,7 +123,7 @@ export const CreditCTAHero = (): JSX.Element | null => {
                                     )}{' '}
                                     over the next year.
                                 </p>
-                                <p className="mt-2 mb-0">Ready to save money on your PostHog usage?</p>
+                                <p className="mt-2 mb-0">Ready to save money on your Txlemetry usage?</p>
                             </>
                         )}
                     </div>

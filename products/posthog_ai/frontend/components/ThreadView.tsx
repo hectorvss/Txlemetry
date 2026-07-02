@@ -39,7 +39,7 @@ interface ThreadViewProps {
 /**
  * Sandbox-runtime thread presenter. Reads `runStreamLogic.values.threadItems` (assistant text,
  * tool-invocation references, run separators, inline errors) from whatever `runStreamLogic`
- * instance is bound above it — a live PostHog AI conversation or a read-only run viewer — and
+ * instance is bound above it — a live Txlemetry AI conversation or a read-only run viewer — and
  * dispatches tool cards through the sandbox tool registry. Conversation-agnostic by design: it knows
  * only the bound stream logic, never langgraph vs sandbox or the conversation.
  *

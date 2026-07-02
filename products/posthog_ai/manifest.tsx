@@ -4,7 +4,7 @@ import { urls } from 'scenes/urls'
 import { ProductManifest } from '../../frontend/src/types'
 
 export const manifest: ProductManifest = {
-    name: 'PostHog AI',
+    name: 'Txlemetry AI',
     scenes: {
         TaskTracker: {
             name: 'Tasks',

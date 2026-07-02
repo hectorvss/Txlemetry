@@ -38,7 +38,7 @@ function IngestionStatusCheck({ className, thing }: { className?: string; thing:
             productName="AI observability"
             thingName={`LLM ${thing}`}
             titleOverride={`No LLM ${thing} events have been detected!`}
-            description="To use AI observability, please instrument your LLM calls with the PostHog SDK."
+            description="To use AI observability, please instrument your LLM calls with the Txlemetry SDK."
             isEmpty={true}
             productKey={ProductKey.AI_OBSERVABILITY}
             className={className}

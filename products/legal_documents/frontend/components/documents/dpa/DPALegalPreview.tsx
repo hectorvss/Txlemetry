@@ -37,12 +37,12 @@ export function DPALegalPreview({ lawyerMode = false }: DPALegalPreviewProps): J
                 lawyerMode ? 'legal-document-preview--lawyer' : ''
             }`}
         >
-            {!lawyerMode && <img src={posthogLogo} alt="PostHog logo" width={157} className="my-6 not-prose" />}
-            <h3>Data Processing Agreement — PostHog Inc.</h3>
+            {!lawyerMode && <img src={posthogLogo} alt="Txlemetry logo" width={157} className="my-6 not-prose" />}
+            <h3>Data Processing Agreement — Txlemetry Inc.</h3>
             <p>
                 This Data Processing Agreement ("<strong>Agreement</strong>") forms part of the Contract for Services ("
                 <strong>Principal Agreement</strong>") between {CompanyPlaceholder} (the "<strong>Company</strong>") and{' '}
-                <strong>PostHog Inc.</strong> (the "<strong>Processor</strong>") (together as the "
+                <strong>Txlemetry Inc.</strong> (the "<strong>Processor</strong>") (together as the "
                 <strong>Parties</strong>").
             </p>
             <p>

@@ -532,7 +532,7 @@ export function InsightValidationError({
                         to="https://posthog.com/docs/user-guides/funnels?utm_medium=in-product&utm_campaign=funnel-exclusion-filter-state"
                         target="_blank"
                     >
-                        Learn more about funnels in PostHog docs
+                        Learn more about funnels in Txlemetry docs
                         <IconOpenInNew style={{ marginLeft: 4, fontSize: '0.85em' }} />
                     </Link>
                 </div>
@@ -671,7 +671,7 @@ export function FunnelSingleStepState({ actionable = true }: FunnelSingleStepSta
                     className="flex items-center justify-center"
                     targetBlankIcon
                 >
-                    Learn more about funnels in PostHog docs
+                    Learn more about funnels in Txlemetry docs
                 </Link>
             </div>
         </div>
@@ -746,7 +746,7 @@ export function FunnelDataWarehouseStepIncompleteState(): JSX.Element {
                     className="flex items-center justify-center"
                     targetBlankIcon
                 >
-                    Learn more about data warehouse funnels in PostHog docs
+                    Learn more about data warehouse funnels in Txlemetry docs
                 </Link>
             </div>
         </div>

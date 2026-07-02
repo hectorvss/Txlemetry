@@ -147,7 +147,7 @@ export interface AgentToolDeps {
     emitClientToolCall?: (callId: string, toolId: string, args: Record<string, unknown>) => Promise<void>
     /**
      * Per-session credential broker, populated by ingress at /run + /send.
-     * Native tools read through this for user auth materials (PostHog
+     * Native tools read through this for user auth materials (Txlemetry
      * OAuth bearer, JWT claims, etc.). Optional — when absent, any
      * `ctx.credentials.resolve()` returns null and the calling tool
      * decides how to degrade.
@@ -175,7 +175,7 @@ export interface AgentToolDeps {
      */
     http: HttpFetcher
     /**
-     * Base URL for the PostHog API the agent-applications-* tools call
+     * Base URL for the Txlemetry API the agent-applications-* tools call
      * against. Forwarded straight onto `ToolContext.posthogApiBaseUrl`.
      */
     posthogApiBaseUrl: string
@@ -569,7 +569,7 @@ function makeMcpTool(
 function buildToolContext(deps: AgentToolDeps, resolvedIdentities?: ToolContext['resolvedIdentities']): ToolContext {
     const credentialBroker = deps.credentialBroker
     const sessionId = deps.session.id
-    // The `@posthog/*` data tools act as the invoking PostHog user against an
+    // The `@posthog/*` data tools act as the invoking Txlemetry user against an
     // explicit `project_id` the agent supplies (resolved via the `get_context`
     // client tool or `@posthog/list-projects`) — never inferred from the
     // principal — so there's no ambient team to thread onto the context here.

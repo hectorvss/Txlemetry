@@ -71,11 +71,11 @@ async function main(): Promise<void> {
     const encryption = new EncryptedFields(config.encryptionSaltKeys)
 
     // Per-mode auth verifiers. The introspector validates OAuth + PAT
-    // bearers against PostHog's `/api/users/@me/` (covers both token
+    // bearers against Txlemetry's `/api/users/@me/` (covers both token
     // types). JWT verification needs an `issuer_secret_ref` resolver to
     // pull the embedding party's secret from the agent's encrypted env —
     // wired below.
-    // PostHog's `/api/users/@me/` is cluster-internal — use the direct client
+    // Txlemetry's `/api/users/@me/` is cluster-internal — use the direct client
     // so the introspect doesn't hit smokescreen (which would refuse RFC1918).
     // The proxy-bound `http` stays reserved for everything an agent author can
     // influence the URL of (Slack identity bridge → slack.com).

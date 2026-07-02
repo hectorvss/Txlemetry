@@ -83,7 +83,7 @@ export function HowToReadTooltip(): JSX.Element {
                             alt="How to read metrics"
                         />
                         <p className="mb-0">
-                            PostHog uses its own statistical methods. Results may differ from other tools.
+                            Txlemetry uses its own statistical methods. Results may differ from other tools.
                         </p>
                     </div>
                 }

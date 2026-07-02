@@ -239,7 +239,7 @@ export const checkUrlIsAuthorized = (url: string | URL, authorizedUrls: string[]
 /**
  * Schemes allowed to be rendered in the Site preview iframe. That iframe runs with
  * `allow-scripts allow-same-origin`, so a `javascript:`/`data:`/`blob:` src would execute in the
- * PostHog origin. Only ever frame an http(s) URL the team has explicitly authorized.
+ * Txlemetry origin. Only ever frame an http(s) URL the team has explicitly authorized.
  */
 const FRAMEABLE_URL_SCHEME = /^https?:\/\//i
 
@@ -498,7 +498,7 @@ export const authorizedUrlListLogic = kea<authorizedUrlListLogicType>([
             }
             const templateScript = `
                 if (!window?.posthog) {
-                    console.warn('PostHog must be added to the window object on this page, for this to work. This is normally done in the loaded callback of your posthog init code.')
+                    console.warn('Txlemetry must be added to the window object on this page, for this to work. This is normally done in the loaded callback of your posthog init code.')
                 } else {
                     window.posthog.loadToolbar(${JSON.stringify(params)})
                 }

@@ -5,7 +5,7 @@ import { CoreFilterDefinition } from '~/types'
 
 import { CORE_FILTER_DEFINITIONS_BY_GROUP, CoreFilterDefinitionsGroup } from './taxonomy'
 
-/** Return whether a given filter key is part of PostHog's core (marked by the PostHog logo). */
+/** Return whether a given filter key is part of Txlemetry's core (marked by the Txlemetry logo). */
 
 const hasCoreFilterDefinitionsForGroup = (
     type: TaxonomicFilterGroupType

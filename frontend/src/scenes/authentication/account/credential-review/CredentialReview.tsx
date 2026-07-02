@@ -24,7 +24,7 @@ export function CredentialReview(): JSX.Element {
     return (
         <BridgePage view="credential-review" fixedWidth={false}>
             <div className="px-12 py-8 flex flex-col items-center max-w-3xl w-full text-center">
-                <h2 className="text-lg">Welcome to PostHog!</h2>
+                <h2 className="text-lg">Welcome to Txlemetry!</h2>
                 <h1 className="text-3xl font-bold">One more thing.</h1>
                 <div className="max-w-60 my-8">
                     <HeartHog className="w-full h-full" />
@@ -42,7 +42,7 @@ export function CredentialReview(): JSX.Element {
                     onClick={() => markComplete()}
                     disabledReason={keysLoading || passkeysLoading ? 'Loading your credentials…' : null}
                 >
-                    Continue to PostHog
+                    Continue to Txlemetry
                 </LemonButton>
             </div>
         </BridgePage>

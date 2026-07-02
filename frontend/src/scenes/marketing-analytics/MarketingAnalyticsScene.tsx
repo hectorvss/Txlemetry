@@ -217,7 +217,7 @@ const TAB_DESCRIPTIONS: Record<string, string> = {
     [MarketingAnalyticsTab.DASHBOARD]:
         'Analyze your marketing performance across integrations: spend, impressions, conversions, ROAS, and more metrics.',
     [MarketingAnalyticsTab.INTEGRATION_HEALTH]:
-        'Check that your ad platform campaigns are properly linked to UTM tracking in PostHog.',
+        'Check that your ad platform campaigns are properly linked to UTM tracking in Txlemetry.',
 }
 
 const MarketingAnalyticsAIToolWrapper = ({ children }: { children: React.ReactNode }): JSX.Element => {

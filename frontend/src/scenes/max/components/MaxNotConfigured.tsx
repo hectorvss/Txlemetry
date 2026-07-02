@@ -5,7 +5,7 @@ import { Logomark } from 'lib/brand/Logomark'
 import { CodeSnippet, Language } from 'lib/components/CodeSnippet'
 
 /**
- * Shown when PostHog AI (Max) is rendered on a self-hosted instance with no LLM provider key
+ * Shown when Txlemetry AI (Max) is rendered on a self-hosted instance with no LLM provider key
  * configured. Max runs on Anthropic, so without ANTHROPIC_API_KEY it would otherwise fail at
  * call time — here we tell the user how to enable it instead.
  */
@@ -18,11 +18,11 @@ export function MaxNotConfigured(): JSX.Element {
             <div>
                 <h2 className="text-xl font-bold mb-2 flex items-center justify-center gap-2">
                     <IconLock />
-                    PostHog AI isn't set up yet
+                    Txlemetry AI isn't set up yet
                 </h2>
                 <p className="text-sm text-tertiary text-pretty mb-0">
-                    PostHog AI runs on your own LLM provider key. Set <code>ANTHROPIC_API_KEY</code> for this instance
-                    and restart PostHog to start chatting.
+                    Txlemetry AI runs on your own LLM provider key. Set <code>ANTHROPIC_API_KEY</code> for this instance
+                    and restart Txlemetry to start chatting.
                 </p>
             </div>
             <CodeSnippet language={Language.Bash} className="w-full text-left">

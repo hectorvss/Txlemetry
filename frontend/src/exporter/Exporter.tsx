@@ -79,13 +79,13 @@ export function Exporter(props: ExportedData): JSX.Element {
     useEffect(() => {
         if (dashboard && (type === ExportType.Scene || type === ExportType.Embed)) {
             const baseTitle = dashboard.name || 'Dashboard'
-            document.title = whitelabel ? baseTitle : `${baseTitle} • PostHog`
+            document.title = whitelabel ? baseTitle : `${baseTitle} • Txlemetry`
         } else if (insight && (type === ExportType.Scene || type === ExportType.Embed)) {
             const baseTitle = insight.name || insight.derived_name || 'Insight'
-            document.title = whitelabel ? baseTitle : `${baseTitle} • PostHog`
+            document.title = whitelabel ? baseTitle : `${baseTitle} • Txlemetry`
         } else if (notebook && (type === ExportType.Scene || type === ExportType.Embed)) {
             const baseTitle = notebook.title || 'Notebook'
-            document.title = whitelabel ? baseTitle : `${baseTitle} • PostHog`
+            document.title = whitelabel ? baseTitle : `${baseTitle} • Txlemetry`
         }
     }, [dashboard, insight, notebook, type, whitelabel])
 
@@ -211,7 +211,7 @@ export function Exporter(props: ExportedData): JSX.Element {
                                 to="https://posthog.com?utm_medium=in-product&utm_campaign=shared-dashboard"
                                 target="_blank"
                             >
-                                PostHog — open-source product analytics
+                                Txlemetry — open-source product analytics
                             </Link>
                         </div>
                     </div>

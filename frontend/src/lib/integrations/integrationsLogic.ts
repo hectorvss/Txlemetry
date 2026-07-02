@@ -234,9 +234,9 @@ export const integrationsLogic = kea<integrationsLogicType>([
                 return
             }
 
-            // Stripe marketplace installs redirect here without a PostHog-minted state, so we
+            // Stripe marketplace installs redirect here without a Txlemetry-minted state, so we
             // can't verify the callback against a CSRF cookie. Without that, an attacker could
-            // capture their own Connect-OAuth callback URL and trick a logged-in PostHog admin
+            // capture their own Connect-OAuth callback URL and trick a logged-in Txlemetry admin
             // into visiting it, silently linking the attacker's Stripe account to the victim's
             // team. Redirect to a confirmation page that shows the user the Stripe account
             // they're about to link, and only POST to /integrations/ on explicit confirm.
@@ -298,7 +298,7 @@ export const integrationsLogic = kea<integrationsLogicType>([
             LemonDialog.open({
                 title: `Do you want to disconnect from this ${integration.kind} integration?`,
                 description:
-                    'This cannot be undone. PostHog resources configured to use this integration will remain but will stop working.',
+                    'This cannot be undone. Txlemetry resources configured to use this integration will remain but will stop working.',
                 primaryButton: {
                     children: 'Yes, disconnect',
                     status: 'danger',

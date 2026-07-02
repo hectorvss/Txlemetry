@@ -56,7 +56,7 @@ export function AgenticAccountMismatch(): JSX.Element {
             <div className="text-center mb-6">
                 <p className="mb-2">
                     You're currently logged in as <strong>{currentEmail}</strong>, but your {partnerName} account is
-                    linked to {expectedEmail ? <strong>{expectedEmail}</strong> : 'a different PostHog account'}.
+                    linked to {expectedEmail ? <strong>{expectedEmail}</strong> : 'a different Txlemetry account'}.
                 </p>
                 <p>To continue, log out and sign in with the correct email.</p>
             </div>

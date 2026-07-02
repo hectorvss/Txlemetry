@@ -91,8 +91,8 @@ export interface WorkerDeps {
     resolveApiKey?: (session: AgentSession) => Promise<string | undefined> | string | undefined
     /**
      * Per-session static HTTP headers stamped on every outbound pi-ai call.
-     * On the ai-gateway path this carries `X-PostHog-Distinct-Id` +
-     * `X-PostHog-Trace-Id` so gateway-emitted `$ai_generation` events
+     * On the ai-gateway path this carries `X-Txlemetry-Distinct-Id` +
+     * `X-Txlemetry-Trace-Id` so gateway-emitted `$ai_generation` events
      * attribute correctly. The driver's `gatewayMetadataStreamFn` wrapper
      * merges these with a per-turn `Idempotency-Key` + `X-Request-Id` of
      * the form `agent:<session>:<turn>` before pi-ai sees them.
@@ -221,7 +221,7 @@ export interface WorkerDeps {
      */
     http: HttpFetcher
     /**
-     * Base URL for the PostHog API the agent-applications-* tools call
+     * Base URL for the Txlemetry API the agent-applications-* tools call
      * against. Forwarded into `ToolContext.posthogApiBaseUrl`.
      */
     posthogApiBaseUrl: string

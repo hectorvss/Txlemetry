@@ -34,7 +34,7 @@ export function GlobalShortcuts(): null {
     const { openSidePanel, closeSidePanel } = useActions(sidePanelStateLogic)
     const { sidePanelOpen } = useValues(sidePanelStateLogic)
 
-    // Open Info tab if scene has panel content, otherwise default to PostHog AI
+    // Open Info tab if scene has panel content, otherwise default to Txlemetry AI
     const defaultTab = scenePanelIsPresent ? SidePanelTab.Info : SidePanelTab.Max
 
     useShortcut({

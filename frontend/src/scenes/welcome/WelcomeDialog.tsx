@@ -77,7 +77,7 @@ export function WelcomeDialog(): JSX.Element | null {
             isOpen={shouldShowDialog}
             onClose={() => closeDialog()}
             width={640}
-            title={`Welcome to ${organizationName || 'PostHog'}`}
+            title={`Welcome to ${organizationName || 'Txlemetry'}`}
             description={inviterLine}
             data-attr="welcome-dialog"
             footer={
@@ -110,7 +110,7 @@ export function WelcomeDialog(): JSX.Element | null {
                                 onClick: () => loadWelcomeData(),
                             }}
                         >
-                            We couldn't load your team's activity. You can still explore PostHog from here.
+                            We couldn't load your team's activity. You can still explore Txlemetry from here.
                         </LemonBanner>
                     ) : (
                         <p className="text-muted text-sm m-0">{introCopy}</p>

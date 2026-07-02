@@ -996,7 +996,7 @@ export interface ToolbarParams {
     dataAttributes?: string[]
     toolbarFlagsKey?: string
     productTourId?: string
-    uiHost?: string /** PostHog app URL, used for OAuth and UI links */
+    uiHost?: string /** Txlemetry app URL, used for OAuth and UI links */
 }
 
 export interface ToolbarProps extends ToolbarParams {
@@ -1614,7 +1614,7 @@ export interface PersonListParams {
     search?: string
     cohort?: number
     distinct_id?: string
-    include_total?: boolean // PostHog 3000-only
+    include_total?: boolean // Txlemetry 3000-only
     limit?: number
 }
 
@@ -1802,7 +1802,7 @@ export interface SavedFunnel extends InsightHistory {
 
 export type BinCountValue = number | typeof BIN_COUNT_AUTO
 
-// https://github.com/PostHog/posthog/blob/master/posthog/constants.py#L106
+// https://github.com/Txlemetry/posthog/blob/master/posthog/constants.py#L106
 export enum StepOrderValue {
     STRICT = 'strict',
     UNORDERED = 'unordered',
@@ -3451,7 +3451,7 @@ export interface FunnelConversionWindow {
     funnelWindowInterval?: number
 }
 
-// https://github.com/PostHog/posthog/blob/master/posthog/models/filters/mixins/funnel.py#L100
+// https://github.com/Txlemetry/posthog/blob/master/posthog/models/filters/mixins/funnel.py#L100
 export enum FunnelConversionWindowTimeUnit {
     Second = 'second',
     Minute = 'minute',
@@ -4494,7 +4494,7 @@ export interface PreflightStatus {
     initiated: boolean
     /** Org creation is allowed on Cloud OR initiated self-hosted organizations with a license and MULTI_ORG_ENABLED. */
     can_create_org: boolean
-    /** Whether this is PostHog Cloud. */
+    /** Whether this is Txlemetry Cloud. */
     cloud: boolean
     /** Whether this is a managed demo environment. */
     demo: boolean
@@ -4517,11 +4517,11 @@ export interface PreflightStatus {
             client_id?: string
         }
     }
-    /** Whether PostHog is running in settings.DEBUG or settings.E2E_TESTING. */
+    /** Whether Txlemetry is running in settings.DEBUG or settings.E2E_TESTING. */
     is_debug?: boolean
     /** Whether one-click dev login is enabled (DEBUG and ALLOW_DEV_LOGIN). */
     allow_dev_login?: boolean
-    /** Whether PostHog is running with settings.TEST. */
+    /** Whether Txlemetry is running with settings.TEST. */
     is_test?: boolean
     licensed_users_available?: number | null
     openai_available?: boolean
@@ -4632,7 +4632,7 @@ export interface EventDefinition {
     default_columns?: string[]
     enforcement_mode?: SchemaEnforcementMode
     media_preview_urls?: string[]
-    /** Name of a single property on this event to display alongside it in PostHog UI surfaces. */
+    /** Name of a single property on this event to display alongside it in Txlemetry UI surfaces. */
     primary_property?: string | null
 }
 
@@ -4934,7 +4934,7 @@ export interface CoreFilterDefinition {
     type?: PropertyType
     /** Virtual properties are not "sent as", because they are calculated from other properties or SQL expressions **/
     virtual?: boolean
-    /** whether this is a property PostHog adds to aid with debugging */
+    /** whether this is a property Txlemetry adds to aid with debugging */
     used_for_debug?: boolean
     /** Name of a single property on events of this name that UIs should display alongside the event. */
     primary_property?: string
@@ -5387,7 +5387,7 @@ export const INTEGRATION_KINDS = [
 
 export type IntegrationKind = (typeof INTEGRATION_KINDS)[number]
 
-// Canonical bot scopes PostHog requests during the Slack OAuth install flow. Single source of
+// Canonical bot scopes Txlemetry requests during the Slack OAuth install flow. Single source of
 // truth for both the frontend (app-manifest snippet + IntegrationView scope-mismatch banner)
 // and the backend (`POSTHOG_SLACK_SCOPE` in posthog/models/integration.py, via posthog/schema.py).
 // Widening this list will surface the "Required scopes are missing" banner for any workspace
@@ -5418,7 +5418,7 @@ export const SLACK_INTEGRATION_SCOPES = Object.values(SlackIntegrationScope)
 
 // Scopes still pending Slack app-directory review. Requested only on the internal DEV instance
 // (settings.CLOUD_DEPLOYMENT == "DEV", surfaced as `preflight.region === Region.DEV`) where the
-// PostHog Slack app manifest already lists them; requesting them anywhere else fails with
+// Txlemetry Slack app manifest already lists them; requesting them anywhere else fails with
 // `invalid_scope`. Move entries into SlackIntegrationScope once Slack approves the public app.
 export enum SlackIntegrationScopeInReview {
     ASSISTANT_WRITE = 'assistant:write',

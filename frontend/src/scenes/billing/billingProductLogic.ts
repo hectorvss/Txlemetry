@@ -37,7 +37,7 @@ type UnsubscribeReason = {
 
 export const UNSUBSCRIBE_REASONS: UnsubscribeReason[] = [
     { reason: 'Too expensive', question: 'What will you be using instead?' },
-    { reason: 'Not getting enough value', question: 'What prevented you from getting more value out of PostHog?' },
+    { reason: 'Not getting enough value', question: 'What prevented you from getting more value out of Txlemetry?' },
     { reason: 'Not using the product', question: 'Why are you not using the product?' },
     { reason: 'Found a better alternative', question: 'What service will you be moving to?' },
     { reason: 'Poor customer support', question: 'Please provide details on your support experience.' },

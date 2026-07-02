@@ -11,7 +11,7 @@ import type { ElementsEventType, WebExperiment } from '~/toolbar/types'
 import type { ActionType, CombinedFeatureFlagAndValueType, EventDefinition, ProductTour, Survey } from '~/types'
 
 /**
- * The single, blessed way to talk to the PostHog API from the toolbar.
+ * The single, blessed way to talk to the Txlemetry API from the toolbar.
  *
  * Every authenticated data request should go through `toolbarApi` — preferably one of its
  * resource namespaces (`toolbarApi.actions.list()`, `toolbarApi.surveys.update(id, …)`), which
@@ -97,7 +97,7 @@ export interface ToolbarApiOptions {
 /** Pull a human-readable message out of a (possibly DRF) error body. */
 export function extractErrorDetail(body: unknown, status: number, fallback: string): string {
     if (status === 401 || status === 403) {
-        return 'Your toolbar session lacks permission. Please re-authenticate the toolbar from PostHog.'
+        return 'Your toolbar session lacks permission. Please re-authenticate the toolbar from Txlemetry.'
     }
     if (body && typeof body === 'object') {
         const obj = body as Record<string, unknown>
@@ -253,7 +253,7 @@ const PROJECT = '/api/projects/@current'
 const ENVIRONMENT = '/api/environments/@current'
 
 /**
- * `toolbarApi` is the single entry point for talking to the PostHog API from the toolbar.
+ * `toolbarApi` is the single entry point for talking to the Txlemetry API from the toolbar.
  *
  * Prefer the resource namespaces (`toolbarApi.actions.list()`, `toolbarApi.surveys.update(id, …)`):
  * they own the route strings so every `/api/projects/@current/…` path lives in exactly one place

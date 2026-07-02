@@ -1008,8 +1008,8 @@ const createSourceFolderNode = (
     }
 
     const sourceFolderId = isSearch
-        ? `search-${sourceType === 'PostHog' ? 'posthog' : sourceType}`
-        : `source-${sourceType === 'PostHog' ? 'posthog' : sourceType}`
+        ? `search-${sourceType === 'Txlemetry' ? 'posthog' : sourceType}`
+        : `source-${sourceType === 'Txlemetry' ? 'posthog' : sourceType}`
 
     // Distinct ExternalDataSources behind this type folder, so it can link each to its edit page.
     // A type can have several sources (e.g. two Postgres connections), distinguished by prefix.
@@ -1838,12 +1838,12 @@ export const queryDatabaseLogic = kea<queryDatabaseLogicType>([
                 const expandedIds: string[] = []
                 const tableNodeOptions = { expandedLazyNodeIds }
 
-                // Add PostHog tables
+                // Add Txlemetry tables
                 if (relevantPosthogTables.length > 0) {
                     expandedIds.push('search-posthog')
                     sourcesChildren.push(
                         createSourceFolderNode(
-                            'PostHog',
+                            'Txlemetry',
                             [],
                             relevantPosthogTables,
                             true,
@@ -2069,10 +2069,10 @@ export const queryDatabaseLogic = kea<queryDatabaseLogicType>([
                         type: 'loading-indicator',
                     })
                 } else {
-                    // Add PostHog tables
+                    // Add Txlemetry tables
                     if (posthogTables.length > 0) {
                         sourcesChildren.push(
-                            createSourceFolderNode('PostHog', posthogTables, [], false, tableLookup, tableNodeOptions)
+                            createSourceFolderNode('Txlemetry', posthogTables, [], false, tableLookup, tableNodeOptions)
                         )
                     }
 

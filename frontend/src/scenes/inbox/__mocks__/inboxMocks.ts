@@ -127,7 +127,7 @@ export const pullRequestReports: SignalReport[] = [
         total_weight: 3.4,
         signal_count: 12,
         source_products: ['error_tracking'],
-        implementation_pr_url: 'https://github.com/PostHog/posthog/pull/12001',
+        implementation_pr_url: 'https://github.com/Txlemetry/posthog/pull/12001',
         is_suggested_reviewer: true,
     }),
     makeReport({
@@ -139,7 +139,7 @@ export const pullRequestReports: SignalReport[] = [
         total_weight: 5.8,
         signal_count: 31,
         source_products: ['error_tracking'],
-        implementation_pr_url: 'https://github.com/PostHog/posthog/pull/12002',
+        implementation_pr_url: 'https://github.com/Txlemetry/posthog/pull/12002',
     }),
     makeReport({
         title: 'perf(dashboards): paginate cohort filter resolution',
@@ -150,7 +150,7 @@ export const pullRequestReports: SignalReport[] = [
         total_weight: 2.0,
         signal_count: 7,
         source_products: ['session_replay'],
-        implementation_pr_url: 'https://github.com/PostHog/posthog/pull/12003',
+        implementation_pr_url: 'https://github.com/Txlemetry/posthog/pull/12003',
         is_suggested_reviewer: true,
     }),
 ]
@@ -217,7 +217,7 @@ const finishedRuns: SignalReport[] = [
         total_weight: 3.4,
         signal_count: 12,
         source_products: ['error_tracking'],
-        implementation_pr_url: 'https://github.com/PostHog/posthog/pull/12001',
+        implementation_pr_url: 'https://github.com/Txlemetry/posthog/pull/12001',
     }),
     makeReport({
         title: 'Investigate webhook delivery failures',
@@ -235,7 +235,7 @@ const finishedRuns: SignalReport[] = [
         total_weight: 2.0,
         signal_count: 7,
         source_products: ['session_replay'],
-        implementation_pr_url: 'https://github.com/PostHog/posthog/pull/12003',
+        implementation_pr_url: 'https://github.com/Txlemetry/posthog/pull/12003',
     }),
 ]
 
@@ -294,7 +294,7 @@ export function mockArtefacts(reportId: string): { results: any[]; count: number
                     relevant_commits: [
                         {
                             sha: 'a1b2c3d4',
-                            url: 'https://github.com/PostHog/posthog/commit/a1b2c3d4',
+                            url: 'https://github.com/Txlemetry/posthog/commit/a1b2c3d4',
                             reason: 'Last touched the invite form',
                         },
                     ],
@@ -347,7 +347,7 @@ export function mockArtefacts(reportId: string): { results: any[]; count: number
             id: `${reportId}-commit`,
             type: 'commit',
             content: {
-                repository: 'PostHog/posthog',
+                repository: 'Txlemetry/posthog',
                 branch: 'inbox/fix-invites',
                 commit_sha: 'a1b2c3d4e5f6a1b2c3d4e5f6',
                 message: 'fix(invites): reject empty recipient rows before submit',
@@ -392,7 +392,7 @@ function makeTaskRun(taskId: string, runId: string, status: string): any {
         environment: 'cloud',
         log_url: null,
         error_message: null,
-        output: taskId.includes('impl') ? { pr_url: 'https://github.com/PostHog/posthog/pull/12001' } : {},
+        output: taskId.includes('impl') ? { pr_url: 'https://github.com/Txlemetry/posthog/pull/12001' } : {},
         state: {},
         artifacts: [],
         created_at: BASE_DATE,
@@ -413,7 +413,7 @@ export function mockTask(taskId: string, runStatus?: string): any {
         title: taskId.includes('impl') ? 'Implement invite validation fix' : 'Research invite failures',
         description: 'Auto-created from an Inbox report.',
         origin_product: 'signal_report',
-        repository: 'PostHog/posthog',
+        repository: 'Txlemetry/posthog',
         github_integration: 1,
         json_schema: null,
         internal: false,

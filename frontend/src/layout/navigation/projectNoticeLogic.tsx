@@ -240,7 +240,7 @@ export const projectNoticeLogic = kea<projectNoticeLogicType>([
                     return 'billing_alert'
                 } else if (currentTeam?.is_demo && !preflight?.demo) {
                     // If the project is a demo one, show a project-level warning
-                    // Don't show this project-level warning in the PostHog demo environemnt though,
+                    // Don't show this project-level warning in the Txlemetry demo environemnt though,
                     // as then Announcement is shown instance-wide
                     return 'demo_project'
                 } else if (!user?.is_email_verified && !user?.has_social_auth && preflight?.email_service_available) {
@@ -407,7 +407,7 @@ export const projectNoticeLogic = kea<projectNoticeLogicType>([
                         }
                     case 'invite_teammates':
                         return {
-                            message: 'Get more out of PostHog by inviting your team for free',
+                            message: 'Get more out of Txlemetry by inviting your team for free',
                             action: {
                                 'data-attr': 'invite-warning-cta',
                                 onClick: () => inviteLogic.actions.showInviteModal(),
@@ -429,7 +429,7 @@ export const projectNoticeLogic = kea<projectNoticeLogicType>([
                     case 'internet_connection_issue':
                         return {
                             message:
-                                'PostHog is having trouble connecting to the server. Please check your connection.',
+                                'Txlemetry is having trouble connecting to the server. Please check your connection.',
                             type: 'warning',
                             action: {
                                 'data-attr': 'reload-page',

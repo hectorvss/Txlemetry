@@ -97,7 +97,7 @@ function ValueDisplay({
     const { describeProperty } = useValues(propertyDefinitionsModel)
 
     const [editing, setEditing] = useState(false)
-    // Can edit if a key and edit callback is set, the property is custom (i.e. not PostHog), and the value is in the root of the object (i.e. no nested objects)
+    // Can edit if a key and edit callback is set, the property is custom (i.e. not Txlemetry), and the value is in the root of the object (i.e. no nested objects)
     const canEdit = rootKey && !PROPERTY_KEYS.includes(rootKey) && (!nestingLevel || nestingLevel <= 1) && onEdit
 
     const textBasedTypes = ['string', 'number', 'bigint'] // Values that are edited with a text box
@@ -214,7 +214,7 @@ export interface PropertiesTableProps extends BasePropertyType {
     embedded?: boolean
     onDelete?: (key: string) => void
     className?: string
-    /* only event types are detected and so describe-able. see https://github.com/PostHog/posthog/issues/9245 */
+    /* only event types are detected and so describe-able. see https://github.com/Txlemetry/posthog/issues/9245 */
     useDetectedPropertyType?: boolean
     tableProps?: Partial<LemonTableProps<Record<string, any>>>
     highlightedKeys?: string[]
@@ -542,7 +542,7 @@ export function PropertiesTable({
                                 <>
                                     <LemonCheckbox
                                         checked={hidePostHogPropertiesInTable}
-                                        label="Hide PostHog properties"
+                                        label="Hide Txlemetry properties"
                                         bordered
                                         onChange={setHidePostHogPropertiesInTable}
                                     />

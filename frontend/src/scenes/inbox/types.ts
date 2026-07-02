@@ -225,7 +225,7 @@ export interface SignalRun {
 
 // ── Scouts (backend SignalScoutConfigViewSet / SignalScoutRunViewSet) ─────────
 
-/** Canonical (PostHog-shipped) vs custom (team-authored) scout, resolved server-side. */
+/** Canonical (Txlemetry-shipped) vs custom (team-authored) scout, resolved server-side. */
 export type ScoutOrigin = 'canonical' | 'custom'
 
 /** Per-(team, skill) scout config. One row per `signals-scout-*` skill. */

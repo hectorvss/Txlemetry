@@ -19,7 +19,7 @@ type SummarizeSessionReplaysButtonProps = {
 
 /**
  * Calls the Max tool to summarize session replays for an experiment.
- * When EXPERIMENT_SESSION_REPLAYS_SKILL flag is enabled, opens PostHog AI with a skill-based prompt.
+ * When EXPERIMENT_SESSION_REPLAYS_SKILL flag is enabled, opens Txlemetry AI with a skill-based prompt.
  * Otherwise, uses the legacy MaxTool approach.
  */
 export const SummarizeSessionReplaysButton = ({
@@ -50,7 +50,7 @@ export const SummarizeSessionReplaysButton = ({
             onClick={() => {
                 reportExperimentSessionReplaySummaryRequested(experiment)
                 if (useSkill) {
-                    // Open PostHog AI in a new tab with skill-based prompt
+                    // Open Txlemetry AI in a new tab with skill-based prompt
                     openPostHogAI(skillPrompt)
                 } else if (openMax) {
                     // Use legacy MaxTool approach

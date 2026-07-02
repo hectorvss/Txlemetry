@@ -456,7 +456,7 @@ async function resolveTarget(
         }
         const parsed = new URL(url)
         // Loopback is a LOCAL-DEV-ONLY affordance (gated by isDev()): in dev the
-        // PostHog MCP runs on a different localhost port than the API the OAuth
+        // Txlemetry MCP runs on a different localhost port than the API the OAuth
         // endpoints (and thus `allowedHosts`) derive from, and http to a dev
         // loopback host isn't an exfiltration target. In prod the gate is off, so
         // a loopback URL falls through to the strict check below (https + the

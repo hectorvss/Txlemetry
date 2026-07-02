@@ -31,11 +31,11 @@ function GitHubInstallationRow({ integration }: { integration: PersonalGitHubInt
             description: (
                 <>
                     <LemonBanner type="warning" className="my-4 text-balance">
-                        Any PostHog Code agent runs <em>currently in progress</em> will be unable to push commits or
+                        Any Txlemetry Code agent runs <em>currently in progress</em> will be unable to push commits or
                         open pull requests on GitHub.
                     </LemonBanner>
                     <p>
-                        PostHog will no longer be able to access repos from this installation or act on your behalf
+                        Txlemetry will no longer be able to access repos from this installation or act on your behalf
                         there.
                     </p>
                 </>
@@ -107,7 +107,7 @@ function SlackLinkRow({ integration }: { integration: PersonalSlackIntegration }
             title: `Unlink ${integration.slack_team_name || 'this Slack workspace'}?`,
             description: (
                 <p>
-                    PostHog will go back to matching you by email. If your Slack email doesn't match any PostHog account
+                    Txlemetry will go back to matching you by email. If your Slack email doesn't match any Txlemetry account
                     in the organization, mentions won't route to you until you link again.
                 </p>
             ),
@@ -178,7 +178,7 @@ export function PersonalGitHubIntegrations(): JSX.Element {
                     <IconGithub className="text-3xl mb-2 opacity-40" />
                     <p className="mb-1">No GitHub installations connected yet</p>
                     <p className="text-xs text-muted text-balance">
-                        Connect to let PostHog access your repos, attribute commits, open pull requests, and assign
+                        Connect to let Txlemetry access your repos, attribute commits, open pull requests, and assign
                         issues as you. You can add multiple installations for different accounts or organizations.
                     </p>
                 </div>
@@ -217,7 +217,7 @@ function openSlackWorkspacePicker(
             <div className="deprecated-space-y-2">
                 <p className="text-sm text-secondary">
                     Your organizations are connected to multiple Slack workspaces. Pick the one you want to bind your
-                    PostHog identity to.
+                    Txlemetry identity to.
                 </p>
                 <div className="divide-y rounded border">
                     {workspaces.map((workspace) => (
@@ -275,8 +275,8 @@ export function PersonalSlackIntegrations(): JSX.Element {
                     <IconSlack className="text-3xl mb-2 opacity-40" />
                     <p className="mb-1">No Slack account linked</p>
                     <p className="text-xs text-muted text-balance">
-                        Link your Slack identity so @PostHog mentions route to you even when your Slack email and
-                        PostHog email don't match.
+                        Link your Slack identity so @Txlemetry mentions route to you even when your Slack email and
+                        Txlemetry email don't match.
                     </p>
                 </div>
             ) : (
@@ -300,8 +300,8 @@ export function PersonalSlackIntegrations(): JSX.Element {
                         {slackIntegrations.length === 0 ? 'Link my Slack account' : 'Link another workspace'}
                     </LemonButton>
                     <span className="text-xs text-secondary text-balance">
-                        You'll be redirected to Slack to authorize this PostHog account. The link binds your Slack user
-                        id to your PostHog account — no Slack token is kept after the redirect.
+                        You'll be redirected to Slack to authorize this Txlemetry account. The link binds your Slack user
+                        id to your Txlemetry account — no Slack token is kept after the redirect.
                     </span>
                 </div>
             )}

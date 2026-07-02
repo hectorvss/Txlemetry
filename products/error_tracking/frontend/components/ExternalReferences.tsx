@@ -147,7 +147,7 @@ function getIssueUrl(): string {
 }
 
 function getIssueMarkdownBody(issue: ErrorTrackingRelationalIssue): string {
-    return `${issue.description ?? ''}${POSTHOG_HTML_LINE_BREAKS}**PostHog issue:** ${getIssueUrl()}`
+    return `${issue.description ?? ''}${POSTHOG_HTML_LINE_BREAKS}**Txlemetry issue:** ${getIssueUrl()}`
 }
 
 function getIssuePlaintextBody(issue: ErrorTrackingRelationalIssue): string {
