@@ -11,14 +11,14 @@
 <link rel="preconnect" href="https://unpkg.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600&display=swap" />
-<link rel="stylesheet" href="/v2/tokens.css?v=txl-20260702-login-redflowers-1" />
-<link rel="stylesheet" href="/v2/styles.css?v=txl-20260702-login-redflowers-1" />
-<link rel="stylesheet" href="/v2/fragile-fixes.css?v=txl-20260702-login-redflowers-1" />
+<link rel="stylesheet" href="/v2/tokens.css?v=txl-20260702-pricing-sync-5" />
+<link rel="stylesheet" href="/v2/styles.css?v=txl-20260702-pricing-sync-5" />
+<link rel="stylesheet" href="/v2/fragile-fixes.css?v=txl-20260702-pricing-sync-5" />
 <!-- Preload critical first-paint scripts so they download in parallel with the parser. -->
 <link rel="preload" as="script" href="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous">
 <link rel="preload" as="script" href="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous">
-<link rel="preload" as="script" href="/v2/shared.js?v=txl-20260702-login-redflowers-1">
-<link rel="preload" as="script" href="/v2/app.js?v=txl-20260702-login-redflowers-1">
+<link rel="preload" as="script" href="/v2/shared.js?v=txl-20260702-pricing-sync-5">
+<link rel="preload" as="script" href="/v2/app.js?v=txl-20260702-pricing-sync-5">
 <!-- Tailwind v4 browser bundle — required for arbitrary value classes from Figma extraction -->
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
 </head>
@@ -28,14 +28,41 @@
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous" defer></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous" defer></script>
 <!-- Supabase client + config: loaded lazily only on auth routes (/signin, /signup, /reset-password, /demo).
-     For 95% of marketing-page traffic, neither the UMD bundle nor the /api/public/config fetch
-     run before first paint. See ClainV2.ensureSupabase() in shared.jsx. -->
+     Config is baked in (anon key is public by design — it ships in every browser
+     request). If the constants are ever emptied, the bootstrap falls back to
+     GET /api/public/config so a backend can supply them instead. -->
 <script>
   (function lazySupabaseBootstrap() {
+    // Txlemetry Supabase project (eu-west-3).
+    var TXL_SUPABASE = {
+      supabaseUrl: 'https://cxtcoqbxswftlmsolwmw.supabase.co',
+      supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4dGNvcWJ4c3dmdGxtc29sd213Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5NjE4OTEsImV4cCI6MjA5ODUzNzg5MX0.j0SH3fGTzfYTfD7zckJQRoyC0IucpvmBm2uD5j_giPg'
+    };
+
     var AUTH_PATHS = ['/signin', '/signup', '/reset-password', '/demo'];
     function shouldEagerLoad() {
       var p = (window.location.pathname || '/').replace(/^\/v2(\/|$)/, '/').replace(/\/+$/, '') || '/';
       return AUTH_PATHS.indexOf(p) !== -1;
+    }
+    function initClient(cfg) {
+      if (!cfg || !cfg.supabaseUrl || !cfg.supabaseAnonKey) {
+        window.__SUPABASE_CONFIG__ = null;
+        window.__supabase = null;
+        return;
+      }
+      window.__SUPABASE_CONFIG__ = cfg;
+      try {
+        window.__supabase = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, {
+          auth: { persistSession: true, autoRefreshToken: true }
+        });
+      } catch (e) {
+        console.error('[Txlemetry] Supabase init failed', e);
+        window.__supabase = null;
+      }
+    }
+    function announceReady() {
+      window.__supabaseReady = true;
+      window.dispatchEvent(new Event('supabase-ready'));
     }
     window.__loadSupabase = function () {
       if (window.__supabaseReady !== undefined) return;       // already started
@@ -44,34 +71,21 @@
       s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
       s.async = true;
       s.onload = function () {
+        if (TXL_SUPABASE.supabaseUrl && TXL_SUPABASE.supabaseAnonKey) {
+          initClient(TXL_SUPABASE);
+          announceReady();
+          return;
+        }
+        // Fallback: a backend (if present) can serve the config instead.
         fetch('/api/public/config', { credentials: 'omit' })
           .then(function (r) { return r.ok ? r.json() : null; })
-          .then(function (cfg) {
-            if (!cfg || !cfg.supabaseUrl || !cfg.supabaseAnonKey) {
-              window.__SUPABASE_CONFIG__ = null;
-              window.__supabase = null;
-            } else {
-              window.__SUPABASE_CONFIG__ = cfg;
-              try {
-                window.__supabase = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, {
-                  auth: { persistSession: true, autoRefreshToken: true }
-                });
-              } catch (e) {
-                console.error('[Clain] Supabase init failed', e);
-                window.__supabase = null;
-              }
-            }
-          })
+          .then(initClient)
           .catch(function () { window.__supabase = null; })
-          .finally(function () {
-            window.__supabaseReady = true;
-            window.dispatchEvent(new Event('supabase-ready'));
-          });
+          .finally(announceReady);
       };
       s.onerror = function () {
         window.__supabase = null;
-        window.__supabaseReady = true;
-        window.dispatchEvent(new Event('supabase-ready'));
+        announceReady();
       };
       document.head.appendChild(s);
     };
@@ -83,7 +97,7 @@
      Run `node scripts/build-landing-jsx.cjs` to regenerate.
      Page-specific bundles (home.js, auth.js, etc.) are lazy-loaded by app.js
      based on the current route — see PAGE_BUNDLES in app.jsx. -->
-<script src="/v2/shared.js?v=txl-20260702-login-redflowers-1" defer></script>
-<script src="/v2/app.js?v=txl-20260702-login-redflowers-1" defer></script>
+<script src="/v2/shared.js?v=txl-20260702-pricing-sync-5" defer></script>
+<script src="/v2/app.js?v=txl-20260702-pricing-sync-5" defer></script>
 </body>
 </html>
