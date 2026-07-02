@@ -98,7 +98,7 @@ export function WidgetSection(): JSX.Element {
                                     <label className="w-40 shrink-0 font-medium">Button color</label>
                                     <LemonColorPicker
                                         colors={[
-                                            '#1d4aff',
+                                            '#005bd3',
                                             '#00aaff',
                                             '#00cc44',
                                             '#ffaa00',
@@ -107,7 +107,7 @@ export function WidgetSection(): JSX.Element {
                                             '#1abc9c',
                                             '#000000',
                                         ]}
-                                        selectedColor={currentTeam?.conversations_settings?.widget_color || '#1d4aff'}
+                                        selectedColor={currentTeam?.conversations_settings?.widget_color || '#005bd3'}
                                         onSelectColor={(color) => {
                                             updateCurrentTeam({
                                                 conversations_settings: {

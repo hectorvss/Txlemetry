@@ -11,7 +11,7 @@ export function ElementHighlight({ rect, isSelected, stepNumber }: ElementHighli
     const padding = 4
     const borderWidth = 2
 
-    const color = isSelected ? '#1d4aff' : '#f97316'
+    const color = isSelected ? '#005bd3' : '#f97316'
     const colorLight = isSelected ? 'rgba(29, 74, 255, 0.1)' : 'rgba(249, 115, 22, 0.1)'
 
     return (
@@ -45,7 +45,7 @@ export function ElementHighlight({ rect, isSelected, stepNumber }: ElementHighli
                         height: 24,
                         fontSize: 12,
                         borderRadius: '50%',
-                        background: '#1d4aff',
+                        background: '#005bd3',
                         boxShadow: '0 1px 4px rgba(0, 0, 0, 0.3), 0 0 0 2px white',
                         zIndex: 2147483016,
                     }}

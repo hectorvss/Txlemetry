@@ -52,7 +52,7 @@ const MARKER_SIZE = 20
 const NODE_SEP = 80
 const RANK_SEP = 160
 
-const BRAND_YELLOW = '#f9bd2b'
+const BRAND_YELLOW = '#ffb800'
 
 function LineageNode({ data, edges, tabId }: LineageNodeProps): JSX.Element {
     const { editView } = useActions(sqlEditorLogic({ tabId }))

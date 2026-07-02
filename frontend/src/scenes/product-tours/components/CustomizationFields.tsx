@@ -8,7 +8,7 @@ import { WEB_SAFE_FONTS } from 'scenes/surveys/constants'
 export const COLOR_PRESETS = [
     '#ffffff',
     '#1d1f27',
-    '#1d4aff',
+    '#005bd3',
     '#f3f4f6',
     '#e5e7eb',
     '#ef4444',
