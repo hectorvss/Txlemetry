@@ -10,7 +10,7 @@
   // ── Routes catalogue ─────────────────────────────────────────────
   const ROUTES = [
     { path: '/',                title: 'Home',           component: 'HomePage' },
-    { path: '/ai-agent',        title: 'AI Agent',       component: 'AiAgentPage' },
+    { path: '/txlemetry-ai',    title: 'Txlemetry AI',   component: 'AiAgentPage' },
     { path: '/ai-agent/slack',  title: 'AI Agent · Slack', component: 'AiAgentSlackPage' },
     { path: '/copilot',         title: 'Copilot',        component: 'CopilotPage' },
     { path: '/agent-customer',  title: 'Customer Agent', component: 'AgentCustomerPage' },
@@ -74,7 +74,7 @@
     '/inbox',
     '/omnichannel',
     '/how-it-works',
-    '/ai-agent',
+    '/txlemetry-ai',
     '/ai-agent/slack',
     '/tickets',
     '/reporting',
@@ -82,7 +82,6 @@
     '/knowledge',
     '/pricing',
     '/all-features',
-    '/copilot',
     '/agent-customer',
     '/agent-trust',
     '/how-agent-works',
@@ -96,7 +95,7 @@
   const PRODUCT_MENU_ALL = {
     about: [
       { slug: '/how-it-works',   icon: '◧', name: 'How Txlemetry works', desc: 'One platform, every product' },
-      { slug: '/ai-agent',       icon: '✦', name: 'Product analytics',   desc: 'Funnels, trends, retention & paths' },
+      { slug: '/txlemetry-ai',   icon: '✦', name: 'Txlemetry AI',   desc: 'Investigate anomalies and get answers in plain English' },
       { slug: '/omnichannel',    icon: '▥', name: 'Data pipelines / CDP', desc: 'Route events to 60+ destinations' },
       { slug: '/technology',     icon: '◇', name: 'Built for your stack', desc: 'SDKs for every language' },
     ],
@@ -105,7 +104,6 @@
       { slug: '/tickets',         name: 'Feature flags' },
       { slug: '/knowledge',       name: 'Data warehouse' },
       { slug: '/reporting',       name: 'Dashboards & insights' },
-      { slug: '/copilot',         name: 'Txlemetry AI' },
       { slug: '/pricing',         name: 'Pricing' },
       { slug: '/ai-agent/slack',  name: 'SDKs & integrations' },
       { slug: '/startups',        name: 'Startups' },
@@ -256,7 +254,7 @@
           <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: 12, justifySelf: 'end', gridColumn: 3 }}>
             <a href="/signin" className="btn btn-secondary hide-mobile">Log in</a>
             <a href="/signup" className="btn btn-primary">Get started — free</a>
-            <a data-spa href="/copilot" className="btn btn-secondary hide-mobile nav-cta-arrow">Txlemetry AI <span aria-hidden="true">→</span></a>
+            <a data-spa href="/txlemetry-ai" className="btn btn-secondary hide-mobile nav-cta-arrow">Txlemetry AI <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </header>

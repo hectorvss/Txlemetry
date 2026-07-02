@@ -385,7 +385,7 @@
                 </div>
                 <div className="col-1 content-stretch flex flex-col items-start justify-self-stretch pb-[3px] pt-[2px] relative row-3 self-start shrink-0" data-node-id="2:33023" data-name="div">
                   <div className="bg-[#111] h-[19px] relative shrink-0 w-[81.33px]" data-node-id="2:33024" data-name="Component 4">
-                    <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[24px] justify-center leading-[0] left-0 not-italic text-[15.1px] text-[color:var(--color\/grey\/7,#111)] top-[9.5px] w-[81.53px]" href="/ai-agent" data-node-id="I2:33024;2:32559" target="_blank">
+                    <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[24px] justify-center leading-[0] left-0 not-italic text-[15.1px] text-[color:var(--color\/grey\/7,#111)] top-[9.5px] w-[81.53px]" href="/txlemetry-ai" data-node-id="I2:33024;2:32559" target="_blank">
                       <p className="cursor-pointer leading-[24px]">Learn more</p>
                     </a>
                   </div>
@@ -1098,7 +1098,7 @@
                   </div>
                   <div className="absolute bottom-[20.01px] content-stretch flex flex-col items-start left-[52px] pb-[1.59px] pt-px" data-node-id="2:33486" data-name="div.text-body">
                     <div className="bg-[rgba(0,0,0,0.7)] h-[17px] relative shrink-0 w-[71.17px]" data-node-id="2:33487" data-name="Component 4">
-                      <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] left-0 not-italic text-[13.3px] text-[color:var(--color\/black\/-70\%,rgba(0,0,0,0.7))] top-[8.5px] w-[71.37px]" href="/ai-agent" data-node-id="I2:33487;2:32565" target="_blank">
+                      <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] left-0 not-italic text-[13.3px] text-[color:var(--color\/black\/-70\%,rgba(0,0,0,0.7))] top-[8.5px] w-[71.37px]" href="/txlemetry-ai" data-node-id="I2:33487;2:32565" target="_blank">
                         <p className="cursor-pointer leading-[19.6px]">Learn more</p>
                       </a>
                     </div>
@@ -1127,7 +1127,7 @@
                   </div>
                   <div className="absolute bottom-[20.01px] content-stretch flex flex-col items-start left-[52px] opacity-[var(--opacity\/60,0.6)] pb-[1.59px] pt-px" data-node-id="2:33498" data-name="div.text-body">
                     <div className="bg-[rgba(0,0,0,0.7)] h-[17px] relative shrink-0 w-[71.17px]" data-node-id="2:33499" data-name="Component 4">
-                      <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] left-0 not-italic text-[13.3px] text-[color:var(--color\/black\/-70\%,rgba(0,0,0,0.7))] top-[8.5px] w-[71.37px]" href="/ai-agent" data-node-id="I2:33499;2:32565" target="_blank">
+                      <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] left-0 not-italic text-[13.3px] text-[color:var(--color\/black\/-70\%,rgba(0,0,0,0.7))] top-[8.5px] w-[71.37px]" href="/txlemetry-ai" data-node-id="I2:33499;2:32565" target="_blank">
                         <p className="cursor-pointer leading-[19.6px]">Learn more</p>
                       </a>
                     </div>
@@ -1801,7 +1801,7 @@
                   </div>
                   <div className="absolute bottom-[20.01px] content-stretch flex flex-col items-start left-[52px] pb-[1.59px] pt-px" data-node-id="2:33486" data-name="div.text-body">
                     <div className="bg-[rgba(0,0,0,0.7)] h-[17px] relative shrink-0 w-[71.17px]" data-node-id="2:33487" data-name="Component 4">
-                      <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] left-0 not-italic text-[13.3px] text-[color:var(--color\/black\/-70\%,rgba(0,0,0,0.7))] top-[8.5px] w-[71.37px]" href="/ai-agent" data-node-id="I2:33487;2:32565" target="_blank">
+                      <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] left-0 not-italic text-[13.3px] text-[color:var(--color\/black\/-70\%,rgba(0,0,0,0.7))] top-[8.5px] w-[71.37px]" href="/txlemetry-ai" data-node-id="I2:33487;2:32565" target="_blank">
                         <p className="cursor-pointer leading-[19.6px]">Learn more</p>
                       </a>
                     </div>
@@ -1830,7 +1830,7 @@
                   </div>
                   <div className="absolute bottom-[20.01px] content-stretch flex flex-col items-start left-[52px] opacity-[var(--opacity\/60,0.6)] pb-[1.59px] pt-px" data-node-id="2:33498" data-name="div.text-body">
                     <div className="bg-[rgba(0,0,0,0.7)] h-[17px] relative shrink-0 w-[71.17px]" data-node-id="2:33499" data-name="Component 4">
-                      <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] left-0 not-italic text-[13.3px] text-[color:var(--color\/black\/-70\%,rgba(0,0,0,0.7))] top-[8.5px] w-[71.37px]" href="/ai-agent" data-node-id="I2:33499;2:32565" target="_blank">
+                      <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[20px] justify-center leading-[0] left-0 not-italic text-[13.3px] text-[color:var(--color\/black\/-70\%,rgba(0,0,0,0.7))] top-[8.5px] w-[71.37px]" href="/txlemetry-ai" data-node-id="I2:33499;2:32565" target="_blank">
                         <p className="cursor-pointer leading-[19.6px]">Learn more</p>
                       </a>
                     </div>
@@ -2020,7 +2020,7 @@
               </div>
               <div className="col-1 content-stretch flex flex-col items-start justify-self-stretch pb-[3px] pt-[2px] relative row-3 self-start shrink-0" data-node-id="2:33582" data-name="div">
                 <div className="bg-[#111] h-[19px] relative shrink-0 w-[81.33px]" data-node-id="2:33583" data-name="Component 4">
-                  <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[24px] justify-center leading-[0] left-0 not-italic text-[15.1px] text-[color:var(--color\/grey\/7,#111)] top-[9.5px] w-[81.53px]" href="/ai-agent" data-node-id="I2:33583;2:32559" target="_blank">
+                  <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[24px] justify-center leading-[0] left-0 not-italic text-[15.1px] text-[color:var(--color\/grey\/7,#111)] top-[9.5px] w-[81.53px]" href="/txlemetry-ai" data-node-id="I2:33583;2:32559" target="_blank">
                     <p className="cursor-pointer leading-[24px]">Learn more</p>
                   </a>
                 </div>
@@ -2058,7 +2058,7 @@
               </div>
               <div className="col-1 content-stretch flex flex-col items-start justify-self-stretch pb-[3px] pt-[2px] relative row-3 self-start shrink-0" data-node-id="2:33599" data-name="div">
                 <div className="bg-[#111] h-[19px] relative shrink-0 w-[81.33px]" data-node-id="2:33600" data-name="Component 4">
-                  <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[24px] justify-center leading-[0] left-0 not-italic text-[15.1px] text-[color:var(--color\/grey\/7,#111)] top-[9.5px] w-[81.53px]" href="/ai-agent" data-node-id="I2:33600;2:32559" target="_blank">
+                  <a className="-translate-y-1/2 absolute flex flex-col font-['Inter:Regular',sans-serif] font-normal h-[24px] justify-center leading-[0] left-0 not-italic text-[15.1px] text-[color:var(--color\/grey\/7,#111)] top-[9.5px] w-[81.53px]" href="/txlemetry-ai" data-node-id="I2:33600;2:32559" target="_blank">
                     <p className="cursor-pointer leading-[24px]">Learn more</p>
                   </a>
                 </div>

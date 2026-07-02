@@ -1489,7 +1489,8 @@ body.has-custom-cursor a { cursor: none; }
 .auth-form-head h1 { font-family: var(--serif); font-size: clamp(29px, 3.7vw, 40px); line-height: 1.02; letter-spacing: -0.025em; font-weight: 400; margin: 0; }
 .auth-form-head p { font-size: 13.5px; color: var(--fg-muted); line-height: 1.42; margin: 0; }
 .auth-product-context {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  display: none !important;
+  grid-template-columns: 1fr 1fr; gap: 10px;
 }
 @media (max-width: 720px) { .auth-product-context { grid-template-columns: 1fr; } }
 .auth-product-context > div {
@@ -1569,18 +1570,21 @@ body.has-custom-cursor a { cursor: none; }
 }
 
 .auth-aside {
-  position: relative; background: #f7f0e4; color: var(--fg);
+  position: relative; background: #000; color: var(--fg);
   border-left: 1px solid rgba(0,0,0,0.12); padding: 0;
   display: block; overflow: hidden;
   height: 100vh;
   box-sizing: border-box;
 }
 @media (max-width: 540px) { .auth-aside { display: none; } }
-.auth-aside-bg {
+.auth-aside-bg,
+.auth-aside-image {
   position: absolute; inset: 0;
-  background-image: url('/assets/txl/login-red-flowers.png');
-  background-size: cover; background-position: center;
-  transform: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 .auth-aside-scrim {
   display: none;
@@ -1595,12 +1599,10 @@ body.has-custom-cursor a { cursor: none; }
 .auth-aside-head,
 .auth-aside-card,
 .auth-aside-stats {
-  background: rgba(255,253,248,0.62);
+  background: rgba(255,253,248,0.72);
   color: var(--fg);
   border: 1px solid rgba(255,255,255,0.55);
   border-radius: 22px;
-  backdrop-filter: blur(22px) saturate(1.35);
-  -webkit-backdrop-filter: blur(22px) saturate(1.35);
   box-shadow:
     0 1px 0 rgba(255,255,255,0.6) inset,
     0 26px 54px -18px rgba(40,26,8,0.32),
@@ -1614,7 +1616,7 @@ body.has-custom-cursor a { cursor: none; }
   border-radius: 28px;
   pointer-events: none;
 }
-.auth-aside > :not(.auth-aside-bg) { position: relative; }
+.auth-aside > :not(.auth-aside-bg):not(.auth-aside-image) { position: relative; }
 .auth-aside-head { display: grid; gap: 10px; max-width: 520px; padding: 20px 22px; }
 .auth-aside-head h2 { font-family: var(--serif); font-size: clamp(23px, 2.6vw, 30px); line-height: 1.06; letter-spacing: -0.03em; font-weight: 400; margin: 0; color: #211404; }
 .auth-aside-head p { font-size: 14px; color: rgba(33,20,4,0.72); line-height: 1.48; margin: 0; }

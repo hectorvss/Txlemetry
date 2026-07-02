@@ -30,6 +30,23 @@
     return msg;
   }
 
+  function getCookie(name) {
+    return document.cookie
+      .split('; ')
+      .find((row) => row.startsWith(name + '='))
+      ?.split('=')
+      .slice(1)
+      .join('=') || '';
+  }
+
+  async function ensurePostHogCsrf() {
+    let token = getCookie('posthog_csrftoken');
+    if (token) return decodeURIComponent(token);
+    await fetch('/login', { credentials: 'include' });
+    token = getCookie('posthog_csrftoken');
+    return token ? decodeURIComponent(token) : '';
+  }
+
   function AuthError({ children }) {
     if (!children) return null;
     return <div className="auth-error">{children}</div>;
@@ -80,7 +97,12 @@
   function AuthAside() {
     return (
       <aside className="auth-aside auth-aside-photo" aria-label="Txlemetry visual">
-        <div className="auth-aside-bg" aria-hidden="true" />
+        <img
+          className="auth-aside-image"
+          src="/assets/txl/login-red-flowers.png"
+          alt=""
+          aria-hidden="true"
+        />
         <div className="auth-aside-content">
           <div className="auth-aside-head">
             <span className="eyebrow">Txlemetry workspace</span>
@@ -155,18 +177,24 @@
 
     const onSubmit = async (e) => {
       e.preventDefault(); setError('');
-      if (!supa) { setError('Auth unavailable. Reload the page.'); return; }
       setLoading(true);
       try {
-        const { data, error: err } = await supa.auth.signInWithPassword({ email, password: pwd });
-        if (err) throw err;
-        if (!data.session) { setError('Confirm your email before signing in.'); return; }
-        const { data: fd } = await supa.auth.mfa.listFactors();
-        const totp = fd?.totp?.find(f => f.status === 'verified');
-        if (!totp) { window.location.href = '/app'; return; }
-        const { data: cd, error: ce } = await supa.auth.mfa.challenge({ factorId: totp.id });
-        if (ce) throw ce;
-        setFactorId(totp.id); setChalId(cd.id); setStage('mfa');
+        const csrf = await ensurePostHogCsrf();
+        const res = await fetch('/api/login/', {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+            ...(csrf ? { 'X-CSRFToken': csrf } : {}),
+          },
+          body: JSON.stringify({ email, password: pwd }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          const detail = data?.detail || data?.non_field_errors?.[0] || data?.email?.[0] || data?.password?.[0] || data?.type;
+          throw new Error(detail || 'Invalid email or password.');
+        }
+        window.location.href = '/app';
       } catch (err) { setError(authErr(err)); }
       finally { setLoading(false); }
     };
@@ -548,27 +576,16 @@
     const onSubmit = async (e) => {
       e.preventDefault(); setError('');
       if (!form.name.trim() || !form.email.trim()) { setError('Name and email are required.'); return; }
+      if (!supa) { setError('Demo requests are temporarily unavailable. Reload and try again.'); return; }
       setLoading(true);
-      const lead = {
-        name: form.name.trim(), email: form.email.trim(),
-        company: form.company.trim(), role: form.role.trim(),
-        volume: VOLUMES[vol] || '', stack: form.stack.trim(), note: form.note.trim(),
-        source: 'landing-v2/demo',
-      };
       try {
-        if (supa) {
-          // Static hosting path: insert straight into Supabase (RLS: insert-only for anon).
-          const { error: err } = await supa.from('leads').insert(lead);
-          if (err) throw new Error("Couldn't submit. Try again.");
-        } else {
-          // Fallback when a backend serves the landing.
-          const res = await fetch('/api/public/leads', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(lead),
-          });
-          if (!res.ok) { const d = await res.json().catch(() => ({})); throw new Error(d?.error?.message || "Couldn't submit. Try again."); }
-        }
+        const { error: err } = await supa.from('leads').insert([{
+          name: form.name.trim(), email: form.email.trim(),
+          company: form.company.trim(), role: form.role.trim(),
+          volume: VOLUMES[vol] || '', stack: form.stack.trim(), note: form.note.trim(),
+          source: 'landing-v2/demo',
+        }]);
+        if (err) throw err;
         setSuccess(true);
       } catch (err) { setError(err.message || "Couldn't submit. Try again."); }
       finally { setLoading(false); }

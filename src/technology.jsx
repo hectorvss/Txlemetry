@@ -134,7 +134,7 @@
               </div>
               <div className="border-[length:var(--stroke-weight\/1,1px)] border-solid border-white content-stretch flex items-center justify-center pb-[13.5px] pt-[12.5px] px-[17px] relative rounded-[6px] self-stretch shrink-0" data-node-id="2:18974" data-name="Component 2">
                 <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[0px] text-[color:var(--color\/white\/solid,white)] text-center tracking-[var(--letter-spacing\/-0_32,-0.32px)] whitespace-nowrap" data-node-id="I2:18974;2:18301">
-                  <a className="block cursor-pointer font-['Inter:Regular',sans-serif] font-normal leading-[16px] text-[14.8px] tracking-[-0.32px]" href="/ai-agent" target="_blank">
+                  <a className="block cursor-pointer font-['Inter:Regular',sans-serif] font-normal leading-[16px] text-[14.8px] tracking-[-0.32px]" href="/txlemetry-ai" target="_blank">
                     View demo
                   </a>
                 </div>
@@ -158,7 +158,7 @@
                 </div>
                 <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="2:19002" data-name="a.a11y-focus:align-flex-start">
                   <div className="bg-white content-stretch flex items-center justify-center opacity-[var(--opacity\/80,0.8)] pb-[4px] relative shrink-0" data-node-id="2:19003" data-name="Component 3">
-                    <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.9px] text-[color:var(--color\/white\/solid,white)] text-center tracking-[var(--letter-spacing\/0_07,0.07px)] whitespace-nowrap" href="/ai-agent" data-node-id="I2:19003;2:18314" target="_blank">
+                    <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.9px] text-[color:var(--color\/white\/solid,white)] text-center tracking-[var(--letter-spacing\/0_07,0.07px)] whitespace-nowrap" href="/txlemetry-ai" data-node-id="I2:19003;2:18314" target="_blank">
                       <p className="cursor-pointer leading-[var(--line-height\/14,14px)]">Learn more</p>
                     </a>
                   </div>
@@ -208,7 +208,7 @@
             <div className="content-stretch flex flex-wrap h-[42px] items-start relative shrink-0 w-full" data-node-id="2:19046" data-name="div.flex">
               <div className="border-[length:var(--stroke-weight\/1,1px)] border-black border-solid content-stretch flex items-center justify-center pb-[13.5px] pt-[12.5px] px-[17px] relative rounded-[6px] self-stretch shrink-0" data-node-id="2:19047" data-name="Component 2">
                 <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[0px] text-[color:var(--color\/black\/solid,black)] text-center tracking-[var(--letter-spacing\/-0_32,-0.32px)] whitespace-nowrap" data-node-id="I2:19047;2:18306">
-                  <a className="block cursor-pointer font-['Inter:Regular',sans-serif] font-normal leading-[16px] text-[14.6px] tracking-[-0.32px]" href="/ai-agent" target="_blank">
+                  <a className="block cursor-pointer font-['Inter:Regular',sans-serif] font-normal leading-[16px] text-[14.6px] tracking-[-0.32px]" href="/txlemetry-ai" target="_blank">
                     Explore all capabilities
                   </a>
                 </div>
@@ -262,7 +262,7 @@
                 </div>
                 <div className="absolute content-stretch flex h-[35px] items-start left-0 pt-[16px] right-0 top-[97.94px]" data-node-id="2:19074" data-name="div.flex">
                   <div className="bg-black content-stretch flex items-center justify-center pb-[5px] relative self-stretch shrink-0" data-node-id="2:19075" data-name="Component 3">
-                    <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.9px] text-[color:var(--color\/black\/solid,black)] text-center tracking-[var(--letter-spacing\/0_07,0.07px)] whitespace-nowrap" href="/ai-agent" data-node-id="I2:19075;2:18318" target="_blank">
+                    <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.9px] text-[color:var(--color\/black\/solid,black)] text-center tracking-[var(--letter-spacing\/0_07,0.07px)] whitespace-nowrap" href="/txlemetry-ai" data-node-id="I2:19075;2:18318" target="_blank">
                       <p className="cursor-pointer leading-[var(--line-height\/14,14px)]">Learn more</p>
                     </a>
                   </div>
@@ -293,7 +293,7 @@
                 </div>
                 <div className="absolute content-stretch flex h-[35px] items-start left-0 pt-[16px] right-0 top-[115.94px]" data-node-id="2:19089" data-name="div.flex">
                   <div className="bg-[#7b7b78] content-stretch flex items-center justify-center pb-[5px] relative self-stretch shrink-0" data-node-id="2:19090" data-name="Component 3">
-                    <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.9px] text-[color:var(--color\/grey\/48,#7b7b78)] text-center tracking-[var(--letter-spacing\/0_07,0.07px)] whitespace-nowrap" href="/ai-agent" data-node-id="I2:19090;2:18324" target="_blank">
+                    <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.9px] text-[color:var(--color\/grey\/48,#7b7b78)] text-center tracking-[var(--letter-spacing\/0_07,0.07px)] whitespace-nowrap" href="/txlemetry-ai" data-node-id="I2:19090;2:18324" target="_blank">
                       <p className="cursor-pointer leading-[var(--line-height\/14,14px)]">Learn more</p>
                     </a>
                   </div>
@@ -324,7 +324,7 @@
                 </div>
                 <div className="absolute content-stretch flex h-[35px] items-start left-0 pt-[16px] right-0 top-[115.94px]" data-node-id="2:19104" data-name="div.flex">
                   <div className="bg-[#7b7b78] content-stretch flex items-center justify-center pb-[5px] relative self-stretch shrink-0" data-node-id="2:19105" data-name="Component 3">
-                    <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[0px] text-[color:var(--color\/grey\/48,#7b7b78)] text-center tracking-[var(--letter-spacing\/0_07,0.07px)] whitespace-nowrap" href="/ai-agent" data-node-id="I2:19105;2:18324" target="_blank">
+                    <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[0px] text-[color:var(--color\/grey\/48,#7b7b78)] text-center tracking-[var(--letter-spacing\/0_07,0.07px)] whitespace-nowrap" href="/txlemetry-ai" data-node-id="I2:19105;2:18324" target="_blank">
                       <p className="cursor-pointer font-['Inter:Regular',sans-serif] font-normal leading-[14px] text-[12.9px] tracking-[0.07px]">Learn more</p>
                     </a>
                   </div>
@@ -354,7 +354,7 @@
                 </div>
                 <div className="absolute content-stretch flex h-[35px] items-start left-0 pt-[16px] right-0 top-[97.94px]" data-node-id="2:19119" data-name="div.flex">
                   <div className="bg-[#7b7b78] content-stretch flex items-center justify-center pb-[5px] relative self-stretch shrink-0" data-node-id="2:19120" data-name="Component 3">
-                    <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[0px] text-[color:var(--color\/grey\/48,#7b7b78)] text-center tracking-[var(--letter-spacing\/0_07,0.07px)] whitespace-nowrap" href="/ai-agent" data-node-id="I2:19120;2:18324" target="_blank">
+                    <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[0px] text-[color:var(--color\/grey\/48,#7b7b78)] text-center tracking-[var(--letter-spacing\/0_07,0.07px)] whitespace-nowrap" href="/txlemetry-ai" data-node-id="I2:19120;2:18324" target="_blank">
                       <p className="cursor-pointer font-['Inter:Regular',sans-serif] font-normal leading-[14px] text-[12.9px] tracking-[0.07px]" role="link" tabIndex="0">
                         Learn more
                       </p>

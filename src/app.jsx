@@ -12,7 +12,7 @@
  */
 (function () {
   const { useState, useEffect } = React;
-  const ASSET_VERSION = 'txl-20260702-login-redflowers-1';
+  const ASSET_VERSION = 'txl-20260702-authbridge-1';
   const versioned = (url) => `${url}?v=${ASSET_VERSION}`;
 
   // Map component name → bundle URL. Multiple components can share a bundle
