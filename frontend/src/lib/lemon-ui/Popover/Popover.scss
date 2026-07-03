@@ -33,8 +33,12 @@
     overflow: visible; // Explicitly `visible`. We can't set `hidden`, because that would hide the popover arrow
     background: var(--color-bg-surface-popover);
     border: 1px solid var(--secondary-3000-button-border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-elevation-3000);
+    // Polaris overlay chrome: 12px radius + Polaris elevation-400 shadow, with fallback to the
+    // previous values so nothing changes if the Polaris token layer isn't loaded. This is the
+    // shared surface behind every dropdown/menu/popover, so it reskins them all at once without
+    // touching the floating-ui portal mechanics that LemonDropdown/LemonMenu rely on.
+    border-radius: var(--p-border-radius-300, var(--radius-lg));
+    box-shadow: var(--p-shadow-400, var(--shadow-elevation-3000));
     opacity: 0;
     transition:
         opacity 50ms ease,
@@ -133,7 +137,7 @@
 
 .Popover__content {
     max-height: 100%;
-    border-radius: calc(var(--radius-lg) - 1px);
+    border-radius: calc(var(--p-border-radius-300, var(--radius-lg)) - 1px);
 }
 
 .Popover--padded .Popover__content > .ScrollableShadows__inner {

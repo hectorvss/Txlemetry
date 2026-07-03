@@ -27,7 +27,24 @@ export interface LemonDropdownProps extends Omit<PopoverProps, 'children' | 'vis
     >
 }
 
-/** A wrapper that provides a dropdown for any element supporting `onClick`. Built on top of Popover. */
+/** A wrapper that provides a dropdown for any element supporting `onClick`. Built on top of Popover.
+ *
+ * POLARIS MIGRATION NOTE — deliberately NOT swapped to `@shopify/polaris` `<Popover>`.
+ * Fiabilidad por encima de pureza: this component's floating behaviour is load-bearing and
+ * tightly coupled to machinery Polaris's `<Popover>` cannot reproduce without regressions:
+ *   - The internal `../Popover` owns `PopoverReferenceContext` / `PopoverOverlayContext`, which
+ *     `LemonButton` reads to render its dropdown chevron + active state and to decide event
+ *     propagation for popovers-inside-popovers (`parentPopoverLevel`). Polaris `<Popover>` exposes
+ *     none of this context, so a swap would silently break nested menus and trigger affordances.
+ *   - Positioning goes through `floating-ui` with a `useFloatingContainer()` portal root
+ *     (`getPopupContainer`-style floating containers, popovers-inside-modals) and a global
+ *     nested-popover level registry for correct outside-click dismissal. Polaris `<Popover>`
+ *     manages its OWN portal/overlay/positioning and `onClose(source)` contract, incompatible with
+ *     the controlled `visible`/`onVisibilityChange` + `closeOnClickInside`/`trigger: 'hover'` API here.
+ *   - The `.Popover` DOM class + transition timing is relied on by tests and consumers.
+ * The visual look is already Polaris-native because the overlay content is built from `LemonButton`
+ * (already migrated to real Polaris `<Button>`). No public API, prop, or observable behaviour changes.
+ */
 export const LemonDropdown = React.forwardRef<HTMLDivElement, LemonDropdownProps>(
     (
         {

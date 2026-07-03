@@ -177,6 +177,23 @@ export type LemonInputSelectProps<T = string> = Pick<
     singleValueAsSnack?: boolean
 }
 
+/**
+ * POLARIS MIGRATION NOTE (inherits via composition — do NOT force Polaris <Autocomplete>/<Combobox>):
+ *
+ * Same decision as LemonSelect: LemonInputSelect does not render raw HTML, it composes primitives that
+ * are ALREADY migrated to real Polaris internals, so it inherits the Polaris look for free:
+ *   - the text field is <LemonInput> (see the <LemonInput> at the bottom of the render),
+ *   - the popover is <LemonDropdown>,
+ *   - option rows and bulk/action buttons are <LemonButton>,
+ *   - checkmarks are <LemonCheckbox>,
+ *   - selected values render as <LemonSnack> chips (via ValueSnacks / DraggableValueSnack).
+ * Polaris <Autocomplete>/<Combobox> own their popover, keyboard nav, filtering and selection state, and
+ * accept only a flat TextField + a fixed option shape. Swapping to them would destroy this component's
+ * rich multi-select: drag-and-drop reordering (dnd-kit), custom/created values (`allowCustomValues`),
+ * inline edit-in-place, comma-splitting, react-window virtualization, ReactNode `labelComponent`s and
+ * per-option tooltips. No simple separable path exists, so we keep the composition and inherit Polaris
+ * through the already-migrated children. Public API unchanged.
+ */
 export function LemonInputSelect<T = string>({
     placeholder,
     title,

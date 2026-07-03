@@ -5,6 +5,20 @@ import { forwardRef } from 'react'
 
 import { compactNumber, humanFriendlyNumber } from 'lib/utils/numbers'
 
+/**
+ * POLARIS MIGRATION NOTE (no change, on purpose — same criterion as LemonSwitch/LemonSkeleton):
+ *
+ * Despite the shared name, LemonBadge is NOT Polaris's <Badge>. LemonBadge is an icon-sized
+ * NOTIFICATION badge: a numeric counter / dot that is absolutely `position`ed (top-left/top-right/…)
+ * over another element, with a `status` color, `size`, `active`/`visible` states, dot mode when there's
+ * no `content`, and a `.Number` variant that formats counts ("9+", compactNumber, etc.).
+ *
+ * Polaris v13 <Badge> (Badge/Badge.d.ts) is a TEXT label chip: `children?: string`, `tone?: Tone`,
+ * `progress?`, `icon?: IconSource`, `size?`. It has no positioning, no dot/counter semantics, and its
+ * children are string-only. It is the equivalent of LemonTag (which is where PolarisBadge is used), not
+ * of this notification badge. There is no Polaris primitive for a positioned notification counter, so
+ * forcing one here would lose position/dot/count behaviour. Left untouched by design.
+ */
 interface LemonBadgePropsBase {
     size?: 'xsmall' | 'small' | 'medium' | 'large'
     position?: 'none' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'

@@ -37,15 +37,10 @@
 }
 
 .LemonCollapsePanel__body {
+    // Height animation is now handled by the wrapping Polaris <Collapsible> (see LemonCollapse.tsx).
+    // We only keep the visual divider between the header and the panel content here.
     box-sizing: content-box;
-    height: 0;
-    overflow: hidden;
     border-top-width: 1px;
-    transition: height 200ms ease;
-
-    .storybook-test-runner & {
-        height: fit-content !important; // Transition disables, but less flakiness
-    }
 }
 
 .LemonCollapsePanel__content {

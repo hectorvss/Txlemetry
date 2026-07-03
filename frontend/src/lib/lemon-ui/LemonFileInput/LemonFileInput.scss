@@ -1,3 +1,6 @@
+// Visual look mirrors Polaris <DropZone> (v13.9.5): a dashed outline with a subtle hover/active
+// surface. Polaris tokens (--p-*) are light-mode only, so each is paired with a real fallback so the
+// component stays correct in dark mode. The drag&drop mechanics live in LemonFileInput.tsx.
 .FileDropTarget {
     position: relative;
 }
@@ -11,6 +14,9 @@
     width: calc(100% + var(--file-drop-target-padding) * 2);
     height: calc(100% + var(--file-drop-target-padding) * 2);
     content: '';
-    border: 3px dashed var(--color-accent);
-    border-radius: var(--radius);
+
+    // DropZone active state: dashed border tinted with the focus/accent border token.
+    border: 3px dashed var(--p-color-border-focus, var(--color-accent));
+    background-color: var(--p-color-bg-surface-hover, transparent);
+    border-radius: var(--p-border-radius-200, var(--radius));
 }

@@ -1,5 +1,18 @@
 import './LemonFileInput.scss'
 
+/*
+ * Polaris migration note (v13.9.5): the mechanics here diverge too far from Polaris <DropZone> to
+ * wrap it while preserving the exact public contract. Verified against DropZone/DropZone.d.ts:
+ * `onDrop(files, acceptedFiles, rejectedFiles)`, `accept`, `allowMultiple`, `disabled`, `type`,
+ * children — DropZone renders and owns its OWN hidden <input>/click target and does NOT accumulate
+ * files across drops. LemonFileInput instead (a) accumulates uploads (`[...files, ...filesArr]`),
+ * (b) can delegate the drop area to an external `alternativeDropTargetRef`, and (c) renders a custom
+ * `callToAction` (a migrated LemonButton). Wrapping DropZone would break `value`/`onChange`, so per
+ * "fiabilidad sobre pureza" we keep the mechanics unchanged and only adopt DropZone's VISUAL look
+ * (dashed outline + hover/active states) via the `.FileDropTarget` styles, using --p-* tokens with
+ * real fallbacks for dark mode. The uploaded-file list and `data-attr` are preserved as-is.
+ */
+
 import clsx from 'clsx'
 import { ChangeEvent, RefObject, createRef, useEffect, useState } from 'react'
 

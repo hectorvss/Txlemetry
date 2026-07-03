@@ -1,3 +1,4 @@
+import { RangeSlider as PolarisRangeSlider } from '@shopify/polaris'
 import clsx from 'clsx'
 import { useRef, useState } from 'react'
 
@@ -117,6 +118,29 @@ export function LemonSlider({
 
     const constrainedValue = Math.max(min, Math.min(value, max))
     const proportion = isNaN(value) ? 0 : Math.round(((constrainedValue - min) / (max - min)) * 100) / 100
+
+    // Delegate the plain single-value slider to a real Polaris <RangeSlider>. Verified against
+    // RangeSlider/types.d.ts (v13.9.5): `value: number | [number, number]` (single number accepted),
+    // `onChange(value, id)`, `min`/`max`/`step`, `disabled`, and a required `label` (hidden via
+    // `labelHidden`). Polaris RangeSlider has no clickable custom tick-marks, so the `ticks` path
+    // keeps the legacy rendering below (fiabilidad sobre pureza). We also keep the legacy path when a
+    // `disabledReason` tooltip must be shown, since Polaris has no equivalent tooltip affordance.
+    if (!ticks && !disabledReason) {
+        return (
+            <div className={clsx('LemonSlider select-none min-w-16', className)}>
+                <PolarisRangeSlider
+                    label="Slider"
+                    labelHidden
+                    value={constrainedValue}
+                    min={min}
+                    max={max}
+                    step={step}
+                    disabled={isDisabled}
+                    onChange={(newValue) => onChange?.(Array.isArray(newValue) ? newValue[0] : newValue)}
+                />
+            </div>
+        )
+    }
 
     return (
         <Tooltip title={disabledReason ?? undefined}>

@@ -6,6 +6,25 @@ import React from 'react'
 import { useSliderPositioning } from '../hooks'
 import { LemonButton, LemonButtonProps } from '../LemonButton'
 
+/**
+ * POLARIS MIGRATION NOTE: this component's segmented visual is already delegated to real Polaris
+ * primitives — each option renders a `<LemonButton>`, which after its own migration renders a real
+ * Polaris `<Button>` (with `type="primary"` on the active option = Polaris `variant="primary"`,
+ * and `type="secondary"` otherwise, i.e. the pressed/unpressed toggle look).
+ *
+ * We intentionally do NOT wrap the option list in Polaris `<ButtonGroup variant="segmented">`
+ * (@shopify/polaris v13.9.5 ButtonGroup.d.ts: `{ gap?, variant?: 'segmented', fullWidth?,
+ * connectedTop?, noWrap?, children? }`). ButtonGroup renders its own intermediate flex `<div>`
+ * that expects direct `<Button>` children and paints the "connected" borders/radii itself. The
+ * segmented look here is already fully built in LemonSegmentedButton.scss around the
+ * `<ul>`/`<li>` structure (unified radius, `-1px` chrome overlap, z-index layering) AND depends on
+ * the animated `LemonSegmentedButton__slider`, which is absolutely positioned relative to the
+ * `.LemonSegmentedButton` container. Inserting ButtonGroup's div between the container and the
+ * `<ul>` would break the slider's positioning and double up the group chrome. Per "reliability
+ * over purity", we keep the proven structure — the underlying buttons are already real Polaris
+ * Buttons, so no visual fidelity is lost by not adding the wrapper.
+ */
+
 // Expects at least one of label or icon to be provided
 export type LemonSegmentedButtonOption<T extends React.Key> = { value: T } & (
     | { label: string | JSX.Element }

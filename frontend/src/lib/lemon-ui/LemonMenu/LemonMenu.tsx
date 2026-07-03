@@ -113,6 +113,23 @@ export interface LemonMenuProps
     focusBasedKeyboardNavigation?: boolean
 }
 
+/**
+ * POLARIS MIGRATION NOTE — deliberately NOT swapped to `@shopify/polaris` `<ActionList>`.
+ * Fiabilidad por encima de pureza. LemonMenu's item model is a strict superset of what
+ * Polaris `<ActionList>` can render, and its overlay is positioned by `LemonDropdown`
+ * (see the migration note there — the internal floating-ui `<Popover>` is intentionally kept).
+ *   - `ActionListItemDescriptor` takes a string-ish `content` + an `IconSource` (SVG *source*
+ *     component, itself deprecated). LemonMenu items routinely carry an arbitrary `JSX.Element`
+ *     label, a `keyboardShortcut` badge, a `<LemonTag>`, `to`/client-side-routing, `disabledReason`
+ *     tooltips, `sideAction`, and `custom` (arbitrary ReactNode) — none of which fit that contract.
+ *   - LemonMenu supports arbitrarily nested sub-menus (`items` → recursive `<LemonMenu>`), which
+ *     `<ActionList>` (flat items + one level of `sections`) cannot express.
+ *   - Focus-based arrow-key navigation wires a per-item ref array (`itemsRef`, see
+ *     `useKeyboardNavigation`) onto each rendered `<LemonButton>`. Handing rendering to
+ *     `<ActionList>` would sever that ref wiring and break keyboard navigation.
+ * The menu already looks Polaris-native: every item renders through `<LemonButton>`, which is
+ * itself a real Polaris `<Button>`. No public API, prop, or observable behaviour changes here.
+ */
 export const LemonMenu = React.forwardRef<HTMLElement, LemonMenuProps>(function LemonMenu(
     {
         items,

@@ -12,6 +12,17 @@ import { uuid } from 'lib/utils/dom'
 
 import { LemonDialogFormPropsType, lemonDialogLogic } from './lemonDialogLogic'
 
+/**
+ * POLARIS MIGRATION NOTE (inherits — visual-only, nothing to do here):
+ *
+ * LemonDialog is a thin imperative wrapper for confirmation/form dialogs. It has no DOM structure or
+ * SCSS of its own: LemonDialogComponent renders <LemonModal {...props}> and its footer is composed of
+ * <LemonButton>s. Both are already migrated — LemonModal carries the Polaris design tokens
+ * (--p-border-radius-300, --p-shadow-600, --p-space-*, see LemonModal.scss) and LemonButton renders a
+ * real Polaris <Button>. So the Polaris look is inherited automatically; there are no tokens to
+ * duplicate here. The portal/react-modal mechanics live entirely in LemonModal and stay untouched.
+ */
+
 // A rejected await-submit keeps the dialog open so the user can retry. Capture only genuinely
 // unexpected failures — not 4xx validation errors the user is expected to cause (e.g. a reserved
 // name), which would otherwise flood the exception tracker on every validation failure.

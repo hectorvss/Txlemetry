@@ -1,12 +1,10 @@
 import './LemonCollapse.scss'
 
+import { Collapsible as PolarisCollapsible } from '@shopify/polaris'
 import clsx from 'clsx'
-import React, { ReactNode, useEffect, useMemo, useState } from 'react'
-import useResizeObserver from 'use-resize-observer'
+import React, { ReactNode, useEffect, useId, useMemo, useState } from 'react'
 
 import { IconCollapse, IconExpand } from '@posthog/icons'
-
-import { useAnimatedPresence } from 'lib/hooks/useAnimatedPresence'
 
 import { LemonButton, LemonButtonProps } from '../LemonButton'
 
@@ -130,8 +128,8 @@ function LemonCollapsePanel({
     onChange,
     onHeaderClick,
 }: LemonCollapsePanelProps): JSX.Element {
-    const { height: contentHeight, ref: contentRef } = useResizeObserver({ box: 'border-box' })
-    const { rendered, shown } = useAnimatedPresence(isExpanded, 200)
+    // Unique id required by Polaris <Collapsible> (used for its aria-controls contract).
+    const collapsibleId = useId()
 
     const { headerChildren, headerProps } = useMemo((): HeaderDefinition => {
         if (header && typeof header === 'object' && 'children' in header) {
@@ -172,18 +170,20 @@ function LemonCollapsePanel({
                 </LemonButton>
             )}
 
-            {rendered && (
-                <div
-                    className="LemonCollapsePanel__body"
-                    // eslint-disable-next-line react/forbid-dom-props
-                    style={{ height: shown ? contentHeight : 0 }}
-                    aria-busy={rendered !== shown}
-                >
-                    <div className={clsx('LemonCollapsePanel__content', className)} ref={contentRef}>
-                        {content}
-                    </div>
+            {/*
+             * The open/close height animation is delegated to a real Polaris <Collapsible>.
+             * Verified against Collapsible/Collapsible.d.ts (v13.9.5): `id: string` (required),
+             * `open: boolean` (required), `transition?: boolean | Transition`, `children`.
+             * It only animates a SINGLE panel — all accordion state (activeKey/activeKeys/multiple/
+             * onChange) stays in LemonCollapse above, and the header (LemonButton) is untouched.
+             * This replaces the previous useAnimatedPresence + useResizeObserver mechanism, which
+             * Collapsible now handles natively (it measures its own content height).
+             */}
+            <PolarisCollapsible open={isExpanded} id={collapsibleId} transition={{ duration: '200ms' }}>
+                <div className="LemonCollapsePanel__body">
+                    <div className={clsx('LemonCollapsePanel__content', className)}>{content}</div>
                 </div>
-            )}
+            </PolarisCollapsible>
         </div>
     )
 }
