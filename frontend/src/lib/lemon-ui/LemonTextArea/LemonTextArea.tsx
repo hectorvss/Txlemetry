@@ -50,6 +50,21 @@ export interface LemonTextAreaWithEnterProps extends LemonTextAreaPropsBase {
 }
 export type LemonTextAreaProps = LemonTextAreaWithEnterProps | LemonTextAreaWithCmdEnterProps
 
+/**
+ * Polaris migration note (option b — visual adoption, not component swap):
+ * Polaris <TextField multiline> cannot express this component's public contract — it doesn't
+ * forward a ref to the native <textarea> (consumers rely on it for cursor/selection control,
+ * e.g. LemonTextAreaMarkdown), exposes no `onKeyDown` native-event prop (needed for the
+ * Enter/Cmd+Enter submission logic), has no `minRows`/`maxRows` auto-grow contract
+ * (react-textarea-autosize stays), doesn't accept arbitrary attributes such as `data-attr`,
+ * and has no equivalent of the `actions`/`rightFooter` footer bar. We therefore keep the
+ * native implementation (zero contract regressions) and adopt Polaris' real
+ * `Polaris-TextField*` class structure for the visual chrome; LemonTextArea.scss contains
+ * deterministic (higher-specificity) reconciliation rules so the result doesn't depend on
+ * CSS import order. Geometry (padding/min-height/auto-grow) intentionally stays Lemon;
+ * colors, border, radius and focus ring are Polaris.
+ */
+
 /** A `textarea` component for multi-line text. */
 export const LemonTextArea = React.forwardRef<HTMLTextAreaElement, LemonTextAreaProps>(function LemonTextArea(
     {
@@ -76,11 +91,26 @@ export const LemonTextArea = React.forwardRef<HTMLTextAreaElement, LemonTextArea
     const textLength = textProps.value?.length ?? 0
 
     return (
-        <div className={cn('flex flex-col rounded', !hideFocus && 'input-like', className)}>
+        <div
+            className={cn(
+                'LemonTextArea__container flex flex-col rounded',
+                // Real Polaris TextField classes (see the Polaris migration note above): they
+                // activate Polaris' stylesheet; LemonTextArea.scss reconciles the conflicts.
+                'Polaris-TextField Polaris-TextField--multiline',
+                textProps.disabled && 'Polaris-TextField--disabled',
+                textProps.value && 'Polaris-TextField--hasValue',
+                !hideFocus && 'input-like',
+                className
+            )}
+        >
             <TextareaAutosize
                 minRows={minRows}
                 ref={textRef}
-                className={cn('LemonTextArea w-full', hasFooter ? 'rounded-t' : 'rounded', className)}
+                className={cn(
+                    'LemonTextArea Polaris-TextField__Input w-full',
+                    hasFooter ? 'rounded-t' : 'rounded',
+                    className
+                )}
                 onKeyDown={(e) => {
                     if (stopPropagation) {
                         e.stopPropagation()

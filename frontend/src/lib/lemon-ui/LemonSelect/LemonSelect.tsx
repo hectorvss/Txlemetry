@@ -105,6 +105,13 @@ export interface LemonSelectPropsNonClearable<T> extends LemonSelectPropsBase<T>
 
 export type LemonSelectProps<T> = LemonSelectPropsClearable<T> | LemonSelectPropsNonClearable<T>
 
+/**
+ * Polaris migration note: LemonSelect is NOT a native `<select>` — it composes `LemonMenu` (floating dropdown
+ * with rich options: icons, sections, sub-menus, ReactNode labels, custom controls) around a `LemonButton`
+ * trigger. Since LemonButton renders a real Polaris `<Button>` internally, LemonSelect inherits the Polaris
+ * look via composition. Polaris `<Select>` (a styled native `<select>` with plain-text options only) is
+ * deliberately NOT used here, as it cannot represent these rich options.
+ */
 export function LemonSelect<T extends string | number | boolean | null>({
     value = null,
     onChange,

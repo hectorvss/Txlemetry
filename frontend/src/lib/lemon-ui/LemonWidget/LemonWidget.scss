@@ -1,7 +1,6 @@
 .LemonWidget {
-    background: var(--color-bg-surface-primary);
-    border: 1px solid var(--color-border-primary);
-    border-radius: var(--radius);
+    // Background, border and rounded corners are provided by the Polaris <Card> rendered
+    // inside this wrapper (see LemonWidget.tsx) — the wrapper only hosts layout classes.
 
     .LemonWidget__header {
         display: flex;

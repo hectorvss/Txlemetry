@@ -5,6 +5,16 @@ import { LemonButtonProps } from 'lib/lemon-ui/LemonButton'
 import { range } from 'lib/utils/arrays'
 import { cn } from 'lib/utils/css-classes'
 
+/**
+ * NOTE ON POLARIS: mapping this to Polaris `<SkeletonBodyText>`/`<SkeletonDisplayText>`/
+ * `<SkeletonThumbnail>` was evaluated and deliberately rejected. Those components accept no
+ * `className`/`style` and come in fixed sizes only, while LemonSkeleton's whole public API is
+ * className-driven sizing/shape (`h-4 w-full`, `rounded-full`, arbitrary dimensions per call
+ * site — including the Row/Circle/Button/Text variants below). They also always animate
+ * (no equivalent of `active={false}`), have no `repeat`/`fade` support, and this component's
+ * animation-leak fix (`useCancelAnimationsOnUnmount`) requires owning the animated element.
+ * Tests also query `.LemonSkeleton` directly (e.g. NotebookNodeGroup.test.tsx).
+ */
 export interface LemonSkeletonProps {
     className?: string
     /** Repeat this component this many of times */

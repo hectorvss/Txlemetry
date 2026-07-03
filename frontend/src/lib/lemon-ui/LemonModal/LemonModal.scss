@@ -43,8 +43,12 @@
     margin: 1rem auto;
     background-color: var(--color-bg-surface-primary);
     border: 1px solid var(--border-bold);
-    border-radius: var(--radius);
-    box-shadow: var(--modal-shadow-elevation);
+
+    // Polaris visual alignment: dialog geometry and elevation come from Polaris design tokens,
+    // with the previous app values as fallbacks (see the migration note in LemonModal.tsx).
+    // Color tokens are intentionally NOT used — Polaris v13 tokens are light-theme-only.
+    border-radius: var(--p-border-radius-300, var(--radius));
+    box-shadow: var(--p-shadow-600, var(--modal-shadow-elevation));
     opacity: 0;
     transition:
         opacity var(--modal-transition-time) ease-out,
@@ -89,7 +93,8 @@
     }
 
     .LemonModal__content {
-        padding: 1rem;
+        // Polaris section spacing (space-400 = 1rem, identical to the previous hardcoded value)
+        padding: var(--p-space-400, 1rem);
         overflow-y: auto;
 
         &.LemonModal__content--embedded {
@@ -105,8 +110,9 @@
 }
 
 .LemonModal__header {
-    padding-bottom: 1rem;
-    margin: 1rem;
+    // Polaris section spacing (space-400 = 1rem, identical to the previous hardcoded values)
+    padding-bottom: var(--p-space-400, 1rem);
+    margin: var(--p-space-400, 1rem);
     margin-bottom: 0;
     border-bottom: 1px solid var(--color-border-primary);
 
@@ -126,11 +132,13 @@
 .LemonModal__footer {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+
+    // Polaris section spacing (space-200/space-400 = 0.5rem/1rem, identical to the previous values)
+    gap: var(--p-space-200, 0.5rem);
     align-items: center;
     justify-content: flex-end;
-    padding-top: 1rem;
-    margin: 1rem;
+    padding-top: var(--p-space-400, 1rem);
+    margin: var(--p-space-400, 1rem);
     margin-top: 0;
     white-space: nowrap;
     border-top: 1px solid var(--color-border-primary);

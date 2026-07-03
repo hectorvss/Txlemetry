@@ -20,6 +20,55 @@
     }
 }
 
+// ---------------------------------------------------------------------------
+// Polaris <TextField multiline> visual parity (option b of the Polaris
+// migration — see the note in LemonTextArea.tsx). The container carries real
+// `Polaris-TextField*` classes, so @shopify/polaris' global stylesheet
+// applies; the rules below reconcile the two systems deterministically
+// (every selector is at least (0,2,0) specific, so the outcome does not
+// depend on CSS import order). Chrome (colors/border/radius/focus ring) is
+// Polaris; geometry (padding/min-height/auto-grow) intentionally stays Lemon.
+// ---------------------------------------------------------------------------
+.LemonTextArea__container.Polaris-TextField {
+    align-items: stretch; // Polaris centers row content — this is a column layout
+    font-size: 0.875rem;
+    color: var(--p-color-text);
+    cursor: text;
+    background-color: var(--p-color-input-bg-surface);
+
+    &.input-like {
+        border: var(--p-border-width-0165) solid var(--p-color-input-border);
+        border-top-color: #898f94; // Polaris inputs draw a slightly darker top edge
+        border-radius: var(--p-border-radius-200);
+    }
+
+    &.Polaris-TextField--disabled {
+        color: var(--p-color-text-disabled);
+        background-color: var(--p-color-bg-surface-disabled);
+        border-color: transparent;
+    }
+
+    > .LemonTextArea.Polaris-TextField__Input {
+        min-height: 2.5rem;
+        padding: 0.5rem; // Lemon geometry: keep the legacy inset
+        font-family: inherit;
+        font-size: inherit;
+        line-height: 1.4;
+        color: inherit;
+        background: none; // the surface color is painted by the container
+        border: none;
+    }
+}
+
+// Replace the legacy `input-like` focus ring with the Polaris outline.
+.LemonTextArea__container.Polaris-TextField.input-like:not([disabled]):focus-within {
+    background-color: var(--p-color-input-bg-surface-active);
+    border-color: var(--p-color-input-border-active);
+    outline: var(--p-border-width-050) solid var(--p-color-border-focus);
+    outline-offset: var(--p-space-025);
+    box-shadow: none;
+}
+
 .LemonTextArea--preview {
     ul {
         list-style-position: inside;

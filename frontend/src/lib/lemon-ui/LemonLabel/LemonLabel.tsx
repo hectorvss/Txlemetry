@@ -11,6 +11,14 @@ import { AvailableFeature } from '~/types'
 import { Link, LinkProps } from '../Link'
 import { Tooltip } from '../Tooltip'
 
+/**
+ * NOTE ON POLARIS: Polaris has no standalone form-label component (its labels are baked into
+ * Labelled form controls), so there is no real Polaris equivalent to delegate to. Wrapping the
+ * label text in Polaris `<Text>` was evaluated and rejected: it would insert an extra element
+ * inside the `<label>` (breaking `.LemonLabel > *`-style selectors and the flex layout defined
+ * in LemonLabel.scss) and impose Polaris font sizing where this component intentionally
+ * inherits the surrounding font size. The native `<label htmlFor>` semantics must stay.
+ */
 export interface LemonLabelProps extends Pick<
     React.LabelHTMLAttributes<HTMLLabelElement>,
     'id' | 'htmlFor' | 'form' | 'children' | 'className' | 'onClick'

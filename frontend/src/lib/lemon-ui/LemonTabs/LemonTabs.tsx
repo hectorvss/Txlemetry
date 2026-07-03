@@ -8,6 +8,25 @@ import { useSliderPositioning } from '../hooks'
 import { Link } from '../Link'
 import { Tooltip } from '../Tooltip'
 
+/**
+ * POLARIS MIGRATION NOTE (kept as-is on purpose — do not "finish" this by swapping in Polaris <Tabs>):
+ *
+ * Polaris v13 <Tabs> was evaluated for this component and rejected, because its contract cannot
+ * express the LemonTabs public API without breaking existing callers:
+ *   - `TabProps.content` is a plain string — LemonTabs labels are `ReactNode` (icons, counters, tags).
+ *   - Selection is by numeric index — LemonTabs is keyed (`activeKey: string | number`).
+ *   - `TabProps.url` renders a plain anchor (no `linkComponent` is configured on <AppProvider>),
+ *     which would replace client-side routing of `tab.link` with full page reloads.
+ *   - No per-tab `tooltip` / `disabledReason` (Lemon renders a Tooltip wrapper per tab).
+ *   - No equivalent of the animated underline slider (`useSliderPositioning`), `rightSlot`,
+ *     `size` variants, or per-tab `data-attr` autocapture attributes.
+ * Styling could also not be safely delegated: the app ships its own dark theme, while Polaris v13
+ * color tokens are light-only, so adopting Polaris tab colors would break dark mode.
+ *
+ * Decision: behaviour and rendering preserved unchanged (reliability over purity). Buttons and other
+ * leaf components inside tab content/`rightSlot` pick up Polaris through their own migrations.
+ */
+
 /** A tab that represents one of the options, but doesn't have any content. Render tab-dependent UI yourself. */
 export interface AbstractLemonTab<T extends string | number> {
     key: T

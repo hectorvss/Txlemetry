@@ -13,6 +13,23 @@ import { KeyboardShortcut } from '~/layout/navigation-3000/components/KeyboardSh
 
 import { Tooltip } from '../Tooltip'
 
+/**
+ * POLARIS MIGRATION NOTE (visual-only, on purpose — do not "finish" this by swapping in Polaris <Modal>):
+ *
+ * Polaris v13 <Modal> manages its own portal/overlay stack and exposes no control over z-index or the
+ * mount container. This component's whole raison d'être is that control:
+ *   - explicit z-index stack (`--z-modal`, `forceAbovePopovers`, the `zIndex` 1161–1169 escape hatches),
+ *   - `useFloatingContainer()` as react-modal's `parentSelector` (so popovers/`getPopupContainer`
+ *     consumers and nested modals keep working inside e.g. the toolbar shadow root),
+ *   - the `hasUnsavedInput` overlay-click interception, `inline` mode, and `contentRef`/`overlayRef`.
+ * Migrating the portal mechanism would break nested modals and popovers-inside-modals, so react-modal
+ * and ALL behaviour here stay untouched.
+ *
+ * What IS migrated (see LemonModal.scss): the dialog's visual geometry/elevation/spacing now consume
+ * Polaris design tokens (`--p-border-radius-300`, `--p-shadow-600`, `--p-space-*`) with the previous
+ * values as fallbacks. Color tokens were deliberately NOT adopted — the app has its own dark theme and
+ * Polaris v13 color tokens are light-only. Footer buttons are LemonButton, i.e. real Polaris <Button>s.
+ */
 interface LemonModalInnerProps {
     children?: React.ReactNode
     className?: string

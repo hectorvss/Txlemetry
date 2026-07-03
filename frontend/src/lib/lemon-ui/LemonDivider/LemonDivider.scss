@@ -4,6 +4,13 @@
     height: 1px;
     background: var(--color-border-primary);
 
+    // Plain horizontal dividers render a real Polaris <Divider> (an <hr>) inside the wrapper,
+    // so the wrapper must not draw the legacy 1px line itself.
+    &--polaris {
+        height: auto;
+        background: none;
+    }
+
     &--dashed {
         background: repeating-linear-gradient(
             to right,

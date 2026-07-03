@@ -89,7 +89,10 @@
     }
 
     &.LemonInput--has-content {
-        > .LemonIcon {
+        // The prefix icon may sit directly in the wrapper (legacy) or inside the
+        // Polaris prefix element (current structure) — cover both.
+        > .LemonIcon,
+        > .Polaris-TextField__Prefix > .LemonIcon {
             color: var(--color-accent);
         }
     }
@@ -119,4 +122,74 @@
         width: 100%;
         max-width: 100%;
     }
+}
+
+// ---------------------------------------------------------------------------
+// Polaris <TextField> visual parity (option b of the Polaris migration — see
+// the note in LemonInput.tsx). The wrapper carries real `Polaris-TextField*`
+// classes, so @shopify/polaris' global stylesheet applies; the rules below
+// reconcile the two systems deterministically (every selector is at least
+// (0,2,0) specific, so the outcome does not depend on CSS import order).
+// Chrome (colors/border/radius/focus ring) is Polaris; geometry (height,
+// padding, gap) intentionally stays Lemon so existing layouts don't shift.
+// ---------------------------------------------------------------------------
+.LemonInput.Polaris-TextField {
+    // NOTE: typography is intentionally NOT pinned here — the base `.LemonInput` rule
+    // and consumer utility classes (e.g. `font-mono`, `text-lg`) must keep winning over
+    // `.Polaris-TextField` (which loses by import order: Polaris CSS is the very first
+    // import of the entry point). The inner input pins `inherit` below, so it follows.
+    color: var(--p-color-text);
+    background-color: var(--p-color-input-bg-surface);
+    border: var(--p-border-width-0165) solid var(--p-color-input-border);
+    border-top-color: #898f94; // Polaris inputs draw a slightly darker top edge
+    border-radius: var(--p-border-radius-200);
+
+    &.LemonInput--focused:not([aria-disabled='true']) {
+        background-color: var(--p-color-input-bg-surface-active);
+        border-color: var(--p-color-input-border-active);
+        outline: var(--p-border-width-050) solid var(--p-color-border-focus);
+        outline-offset: var(--p-space-025);
+        box-shadow: none; // the legacy `input-like` ring is replaced by the Polaris outline
+    }
+
+    &.Polaris-TextField--error {
+        background-color: var(--p-color-bg-surface-critical);
+    }
+
+    &[aria-disabled='true'] {
+        color: var(--p-color-text-disabled);
+        background-color: var(--p-color-bg-surface-disabled);
+        border-color: transparent;
+    }
+
+    &.LemonInput--transparent-background {
+        background-color: inherit;
+    }
+
+    > .Polaris-TextField__Prefix,
+    > .Polaris-TextField__Suffix {
+        display: flex;
+        gap: 0.375rem;
+        align-items: center;
+        margin: 0; // spacing comes from the wrapper's `gap`, not from Polaris' margins
+    }
+
+    .LemonInput__input.Polaris-TextField__Input {
+        min-height: 0;
+        padding: 0; // Lemon geometry: height/padding live on the wrapper
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        color: inherit;
+    }
+}
+
+// When focus is held by a suffix control (clear/password toggle) rather than the
+// input itself, `input-like:focus-within` would flash the legacy ring/colors —
+// keep the Polaris active styling instead. (`.Field--error`/danger border rules
+// use `!important`, so they still win on `border-color`.)
+.LemonInput.input-like.Polaris-TextField:not([aria-disabled='true']):focus-within {
+    background-color: var(--p-color-input-bg-surface-active);
+    border-color: var(--p-color-input-border-active);
+    box-shadow: none;
 }

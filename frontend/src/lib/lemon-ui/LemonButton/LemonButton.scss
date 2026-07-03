@@ -468,3 +468,28 @@
     @include shared-variables;
     @include size-variables;
 }
+
+// Polaris-rendered mode: the real Polaris <Button> paints its own surface, so the
+// legacy painted chrome (::before/::after surface, padding, min-height, press/hover
+// depth transforms) must not render on top of it — otherwise both surfaces nest
+// visibly ("double chrome"). Layout-only properties (flex, gap, icon sizing) are kept
+// so composed icon+content children keep their arrangement inside the Polaris button.
+.LemonButton.LemonButton--polaris {
+    .LemonButton__chrome {
+        min-height: 0;
+        padding: 0;
+        background: none;
+        border: none;
+        transform: none !important;
+
+        &::before,
+        &::after {
+            content: none !important;
+        }
+    }
+
+    &:hover .LemonButton__chrome,
+    &:active .LemonButton__chrome {
+        transform: none !important;
+    }
+}

@@ -7,6 +7,22 @@ import { Spinner } from 'lib/lemon-ui/Spinner'
 import { Tooltip } from 'lib/lemon-ui/Tooltip'
 import { cn } from 'lib/utils/css-classes'
 
+/**
+ * POLARIS MIGRATION NOTE (kept as-is on purpose — do not "finish" this by swapping in a Polaris control):
+ *
+ * @shopify/polaris v13.9.5 ships NO switch/toggle control. The full component list was checked
+ * against the package's own type declarations: the only selection controls are <Checkbox>,
+ * <RadioButton> and <ChoiceList>, and the only "toggle"-named component, <SettingToggle>, is a
+ * deprecated card-with-a-Button composition (its own .d.ts says "will be removed in v12"), not a
+ * switch control. Rendering a Polaris <Checkbox> here was rejected: it would change both the
+ * appearance (checkbox box vs. sliding handle, `sliderColorOverrideChecked/Unchecked`, the
+ * loading Spinner inside the handle) and the semantics (role="switch" — a switch applies its
+ * change immediately, unlike a checkbox in a form).
+ *
+ * Decision: behaviour and rendering preserved unchanged (same criterion as LemonTabs /
+ * LemonSkeleton / LemonLabel). `loading`, `checked`/`onChange`, `disabledReason` tooltip,
+ * `bordered` and the `data-ph-capture-attribute-*` passthrough all stay exactly as they were.
+ */
 export interface LemonSwitchProps {
     className?: string
     onChange?: (newChecked: boolean) => void

@@ -1,5 +1,7 @@
 import './LemonDivider.scss'
 
+import { Divider as PolarisDivider } from '@shopify/polaris'
+
 import { cn } from 'lib/utils/css-classes'
 
 export interface LemonDividerProps {
@@ -27,6 +29,26 @@ export function LemonDivider({
     label,
     className,
 }: LemonDividerProps): JSX.Element {
+    // Polaris <Divider> only draws a plain horizontal rule (configurable border color/width).
+    // It has no vertical, dashed, 3px-thick or labelled mode, so only the plain horizontal
+    // variant is delegated to the real Polaris component. The wrapper keeps the legacy
+    // `LemonDivider` class (plus default margins and `role="separator"`) for back-compat;
+    // the `--polaris` modifier neutralises the legacy line so it isn't drawn twice.
+    if (!vertical && !dashed && !thick && !label) {
+        return (
+            <div
+                className={cn(
+                    'LemonDivider LemonDivider--polaris',
+                    // If no className is provided we set some sensible default margins
+                    !className && 'my-2',
+                    className
+                )}
+                role="separator"
+            >
+                <PolarisDivider borderColor="border" />
+            </div>
+        )
+    }
     return (
         <div
             className={cn(

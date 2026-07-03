@@ -322,7 +322,10 @@ export const LemonButton: React.FunctionComponent<LemonButtonProps & React.RefAt
                 }
                 workingButton = (
                     <span
-                        className={legacyClassName}
+                        // `LemonButton--polaris` neutralizes the legacy painted chrome (::before/::after
+                        // surface + padding) in SCSS, since the real Polaris <Button> paints its own —
+                        // without it both surfaces render nested ("double chrome").
+                        className={clsx(legacyClassName, 'LemonButton--polaris')}
                         data-attr={buttonProps['data-attr']}
                         data-attr-id={buttonProps['data-attr-id'] ?? buttonProps['data-attr']}
                     >

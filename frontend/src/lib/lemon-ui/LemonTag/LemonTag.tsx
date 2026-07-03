@@ -1,5 +1,6 @@
 import './LemonTag.scss'
 
+import { Badge as PolarisBadge } from '@shopify/polaris'
 import clsx from 'clsx'
 import { HTMLProps, forwardRef } from 'react'
 
@@ -20,6 +21,32 @@ export type LemonTagType =
     | 'completion'
     | 'caution'
     | 'none'
+
+/**
+ * Rendering-only mapping from Lemon's public `type` to Polaris <Badge>'s `tone`.
+ * `none` has no dedicated entry: it renders with no badge tone at all (a plain, unstyled tag),
+ * same as today's `LemonTag--none` (background: none, no semantic color).
+ */
+const POLARIS_TONE_BY_LEMON_TYPE: Partial<
+    Record<LemonTagType, 'informational' | 'success' | 'attention' | 'warning' | 'critical' | 'complete'>
+> = {
+    primary: 'informational',
+    option: 'informational',
+    highlight: 'attention',
+    warning: 'warning',
+    danger: 'critical',
+    success: 'success',
+    default: 'informational',
+    muted: 'informational',
+    completion: 'complete',
+    caution: 'warning',
+    // `none` intentionally omitted — see above.
+}
+
+const POLARIS_SIZE_BY_LEMON_SIZE: Record<NonNullable<LemonTagProps['size']>, 'small' | 'medium'> = {
+    small: 'small',
+    medium: 'medium',
+}
 
 export interface LemonTagProps {
     type?: LemonTagType
@@ -66,6 +93,27 @@ export const LemonTag: React.FunctionComponent<
     const isTooltipTrigger = 'data-base-ui-tooltip-trigger' in props
     const isCloseClickable = !!(closeOnClick && icon && onClose)
     const isClickable = (!!onClick && (!isTooltipTrigger || forceClickable)) || isCloseClickable
+
+    // Same composition as icon+label above: Polaris <Badge>'s own `icon` prop expects an SVG
+    // source component, not an already-rendered element, so icon+text are composed together
+    // inside `children` instead (mirroring the approach taken in the LemonButton migration).
+    const badgeContent = (
+        <>
+            {icon && closeOnClick && onClose ? (
+                <span className="LemonTag__icon-container">
+                    <span className="LemonTag__icon LemonTag__icon--default">{icon}</span>
+                    <span className="LemonTag__icon-close LemonTag__icon--hover">
+                        <IconX className="h-3.5 w-3.5" />
+                    </span>
+                </span>
+            ) : (
+                icon && <span className="LemonTag__icon">{icon}</span>
+            )}
+            {children}
+        </>
+    )
+    const polarisTone = POLARIS_TONE_BY_LEMON_TYPE[type]
+
     return (
         <div
             ref={ref}
@@ -91,17 +139,20 @@ export const LemonTag: React.FunctionComponent<
                     : onClick
             }
         >
-            {icon && closeOnClick && onClose ? (
-                <span className="LemonTag__icon-container">
-                    <span className="LemonTag__icon LemonTag__icon--default">{icon}</span>
-                    <span className="LemonTag__icon-close LemonTag__icon--hover">
-                        <IconX className="h-3.5 w-3.5" />
-                    </span>
-                </span>
-            ) : (
-                icon && <span className="LemonTag__icon">{icon}</span>
-            )}
-            {children}
+            {
+                // `none` renders no badge tone at all — a plain, unstyled tag, same as today's
+                // `LemonTag--none` (no background/border color). Every other type delegates its
+                // visual tone/surface to a real Polaris `<Badge>`.
+                polarisTone ? (
+                    <PolarisBadge tone={polarisTone} size={POLARIS_SIZE_BY_LEMON_SIZE[size]}>
+                        {/* Badge's declared children type is `string`, but it doesn't runtime-enforce
+                            it — same cast as the LemonButton migration to pass composed icon+text. */}
+                        {badgeContent as any}
+                    </PolarisBadge>
+                ) : (
+                    badgeContent
+                )
+            }
             {popover?.overlay && (
                 <LemonButtonWithDropdown
                     dropdown={popover}

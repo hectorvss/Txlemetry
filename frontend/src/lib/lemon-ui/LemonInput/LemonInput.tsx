@@ -92,6 +92,22 @@ export type LemonInputProps = LemonInputPropsText | LemonInputPropsNumber
 // interact with it.
 export const INTERACTIVE_CLOSE_DELAY_MS = 750
 
+/**
+ * Polaris migration note (option b — visual adoption, not component swap):
+ * Polaris <TextField> cannot express this component's public contract — it doesn't forward a ref
+ * to the native <input> (`inputRef` is relied on by 20+ consumers for focus/selection control),
+ * exposes no `onKeyDown`/`onKeyUp`/`onKeyPress`/`onPaste`/`onClick` native-event props
+ * (`onPressEnter` alone has 50+ consumers), doesn't accept arbitrary attributes such as
+ * `data-attr` on the input, has no uncontrolled `defaultValue` mode, no `valueAsNumber`-based
+ * number handling, and no equivalent of `autoWidth` (RawInputAutosize) or `badgeText`.
+ * We therefore keep the native implementation (zero contract regressions) and adopt Polaris'
+ * real `Polaris-TextField*` class structure for the visual chrome: the classes below activate
+ * @shopify/polaris' global stylesheet (loaded in Fase 0), and LemonInput.scss contains
+ * deterministic (higher-specificity) reconciliation rules so the result doesn't depend on
+ * CSS import order. Geometry (heights/paddings/gap) intentionally stays Lemon to avoid layout
+ * shifts across the ~500 usages; colors, border, radius and focus ring are Polaris.
+ */
+
 export const LemonInput = React.forwardRef<HTMLDivElement, LemonInputProps>(function LemonInput(
     {
         className,
@@ -211,12 +227,20 @@ export const LemonInput = React.forwardRef<HTMLDivElement, LemonInputProps>(func
                 className={clsx(
                     'LemonInput',
                     'input-like',
+                    // Real Polaris TextField classes (see the Polaris migration note above): they
+                    // activate Polaris' stylesheet; LemonInput.scss reconciles the conflicts.
+                    'Polaris-TextField',
                     status !== 'default' && `LemonInput--status-${status}`,
+                    status === 'danger' && 'Polaris-TextField--error',
                     type && `LemonInput--type-${type}`,
                     size && `LemonInput--${size}`,
+                    (size === 'xsmall' || size === 'small') && 'Polaris-TextField--slim',
                     fullWidth && 'LemonInput--full-width',
                     value && 'LemonInput--has-content',
+                    value && 'Polaris-TextField--hasValue',
                     !disabled && !disabledReason && focused && 'LemonInput--focused',
+                    !disabled && !disabledReason && focused && 'Polaris-TextField--focus',
+                    (disabled || !!disabledReason) && 'Polaris-TextField--disabled',
                     transparentBackground && 'LemonInput--transparent-background',
                     badgeText && 'relative',
                     className
@@ -225,9 +249,9 @@ export const LemonInput = React.forwardRef<HTMLDivElement, LemonInputProps>(func
                 onClick={() => focus()}
                 ref={ref}
             >
-                {prefix}
+                {prefix ? <span className="Polaris-TextField__Prefix">{prefix}</span> : null}
                 <InputComponent
-                    className="LemonInput__input"
+                    className="LemonInput__input Polaris-TextField__Input"
                     ref={mergedInputRef}
                     type={(type === 'password' && passwordVisible ? 'text' : type) || 'text'}
                     value={value}
@@ -271,7 +295,7 @@ export const LemonInput = React.forwardRef<HTMLDivElement, LemonInputProps>(func
                     }}
                     {...props}
                 />
-                {suffix}
+                {suffix ? <span className="Polaris-TextField__Suffix">{suffix}</span> : null}
                 {badgeText && (
                     <LemonTag className="absolute -top-3 -right-2 pointer-events-none" size="small" type="muted">
                         {badgeText}
