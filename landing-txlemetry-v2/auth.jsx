@@ -540,7 +540,6 @@
 
   // ── /demo ─────────────────────────────────────────────────────────
   function DemoPage() {
-    const supa = useSupabase();
     const [vol,     setVol]     = useState(1);
     const [form,    setForm]    = useState({ name:'', email:'', company:'', role:'', stack:'', note:'' });
     const [loading, setLoading] = useState(false);
@@ -554,26 +553,18 @@
       e.preventDefault(); setError('');
       if (!form.name.trim() || !form.email.trim()) { setError('Name and email are required.'); return; }
       setLoading(true);
-      const lead = {
-        name: form.name.trim(), email: form.email.trim(),
-        company: form.company.trim(), role: form.role.trim(),
-        volume: VOLUMES[vol] || '', stack: form.stack.trim(), note: form.note.trim(),
-        source: 'landing-v2/demo',
-      };
       try {
-        if (supa) {
-          // Static hosting path: insert straight into Supabase (RLS: insert-only for anon).
-          const { error: err } = await supa.from('leads').insert(lead);
-          if (err) throw new Error("Couldn't submit. Try again.");
-        } else {
-          // Fallback when a backend serves the landing.
-          const res = await fetch('/api/public/leads', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(lead),
-          });
-          if (!res.ok) { const d = await res.json().catch(() => ({})); throw new Error(d?.error?.message || "Couldn't submit. Try again."); }
-        }
+        const res = await fetch('/api/public/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.name.trim(), email: form.email.trim(),
+            company: form.company.trim(), role: form.role.trim(),
+            volume: VOLUMES[vol] || '', stack: form.stack.trim(), note: form.note.trim(),
+            source: 'landing-v2/demo',
+          }),
+        });
+        if (!res.ok) { const d = await res.json().catch(() => ({})); throw new Error(d?.error?.message || "Couldn't submit. Try again."); }
         setSuccess(true);
       } catch (err) { setError(err.message || "Couldn't submit. Try again."); }
       finally { setLoading(false); }

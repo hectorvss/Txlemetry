@@ -266,7 +266,7 @@
     const cols = [
       {
         title: 'Products',
-        links: ['Product analytics', 'Session replay', 'Feature flags', 'Experiments', 'Data warehouse', 'LLM analytics'],
+        links: ['Product analytics', 'Web analytics', 'Session replay', 'Feature flags', 'Experiments', 'Txlemetry AI', 'Data warehouse', 'Data pipelines / CDP', 'AI Observability'],
       },
       {
         title: 'Pricing',

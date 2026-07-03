@@ -219,7 +219,7 @@
       bestFor: 'Product, growth and data teams working together.',
       support: 'Priority support',
       limits: ['12 projects', '7 year retention', 'SSO included'],
-      modules: ['Analytics', 'Replay', 'Flags', 'Experiments', 'Warehouse', 'AI', 'Surveys'],
+      modules: ['Analytics', 'Web analytics', 'Replay', 'Flags', 'Experiments', 'Warehouse', 'Txlemetry AI', 'Surveys'],
       features: ['Warehouse sync and SQL-ready exports', 'AI insight summaries and anomaly prompts baked in', 'Experiments with real feature impact, not just A/B stats', 'SSO, priority support and an onboarding review', 'The volume where subscribing beats metering by far'],
       cta: 'Choose Growth',
     },
@@ -237,41 +237,36 @@
       bestFor: 'Multi-product companies with governance needs.',
       support: 'Dedicated onboarding',
       limits: ['Unlimited projects', '7 year retention', 'Audit log'],
-      modules: ['All Growth modules', 'Pipelines', 'Error tracking', 'LLM analytics', 'Advanced permissions'],
+      modules: ['All Growth modules', 'Data pipelines / CDP', 'Error tracking', 'AI Observability', 'Advanced permissions'],
       features: ['Data pipelines and event destinations included', 'Error tracking connected to session replay', 'Advanced permissions, SSO and audit log', 'Quarterly product analytics review with our team', 'The best unit economics Txlemetry offers, by far'],
       cta: 'Choose Scale',
     },
   ];
 
-  // Charm pricing: snap a derived price to the nearest 9-ending number
-  // (...99, 149, 199...) so the list reads like a price, not a calculator output.
-  function prettyPrice(x) {
-    if (x <= 0) return 0;
-    if (x < 100) return Math.max(9, Math.round(x / 10) * 10 - 1);
-    return Math.round(x / 50) * 50 - 1;
-  }
-
-  // Subscription pricing promise: each paid plan costs its bundled capacity's
-  // real pay-as-you-go price minus the plan's discount (Launch -25%,
-  // Growth -35%, Scale -50%), charm-rounded. Annual billing takes a further
-  // 20% off the monthly price.
+  // Subscription pricing promise: each paid plan costs exactly its bundled
+  // capacity's real pay-as-you-go price minus the plan's discount
+  // (Launch −25%, Growth −35%, Scale −50%). Annual billing takes a further
+  // 20% off the derived monthly price.
   plans.forEach((plan) => {
     if (!plan.subscriptionDiscount) return; // Free stays at 0
     const payg = subscriptionPaygReference(plan);
-    plan.monthly = prettyPrice(payg * (1 - plan.subscriptionDiscount / 100));
-    plan.annual = prettyPrice(plan.monthly * 0.8);
+    plan.monthly = Math.round(payg * (1 - plan.subscriptionDiscount / 100));
+    plan.annual = Math.round(plan.monthly * 0.8);
   });
 
   // Feature cards — each links through to the full /all-features page.
   const featureCatalog = [
     ['Product analytics', 'Funnels, trends, retention, paths and cohorts.', 'All plans'],
+    ['Web analytics', 'Traffic, conversion and content performance.', 'All plans'],
     ['Session replay', 'Recordings, rage clicks and session context.', 'All plans'],
     ['Feature flags', 'Targeted rollouts, remote config and kill switches.', 'All plans'],
     ['Experiments', 'A/B tests and feature impact on real product data.', 'Growth+'],
     ['Surveys', 'In-product feedback and response analytics.', 'Launch+'],
+    ['Txlemetry AI', 'Ask questions, get anomaly summaries and next steps.', 'Growth+'],
     ['Data warehouse', 'Sync clean product data into your warehouse.', 'Growth+'],
+    ['Data pipelines / CDP', 'Route events to 60+ destinations, real time or batch.', 'Scale+'],
+    ['AI Observability', 'Track prompts, model cost, latency and quality.', 'Scale+'],
     ['Error tracking', 'Exceptions and product impact linked to replay.', 'Scale+'],
-    ['LLM analytics', 'Track prompts, model cost, latency and quality.', 'Growth+'],
   ];
 
   const comparisonGroups = [
@@ -290,13 +285,15 @@
       title: 'Product modules',
       rows: [
         ['Product analytics', 'Core', 'Full', 'Full', 'Full'],
+        ['Web analytics', 'Included', 'Included', 'Included', 'Included'],
         ['Session replay', 'Sampled', 'Full', 'Full', 'Full'],
         ['Feature flags', 'Basic', 'Full', 'Full', 'Full'],
         ['Experiments', '-', '-', 'Included', 'Included'],
+        ['Txlemetry AI', '-', '-', 'Included', 'Included'],
         ['Data warehouse', '-', '-', 'Included', 'Included'],
-        ['Data pipelines', '-', '-', '-', 'Included'],
+        ['Data pipelines / CDP', '-', '-', '-', 'Included'],
+        ['AI Observability', '-', '-', '-', 'Included'],
         ['Error tracking', '-', '-', '-', 'Included'],
-        ['LLM analytics', '-', '-', 'Included', 'Included'],
       ],
     },
     {
@@ -318,7 +315,7 @@
     { key: 'flags', label: 'Feature flag requests', free: 1_000_000, max: 80_000_000, tiers: FLAG_TIERS, start: 170, color: '#5877b8' },
     { key: 'surveys', label: 'Survey responses', free: 1_500, max: 250_000, tiers: SURVEY_TIERS, start: 95, color: '#b98a4a' },
     { key: 'errors', label: 'Exceptions tracked', free: 100_000, max: 25_000_000, tiers: ERROR_TIERS, start: 125, color: '#be5672' },
-    { key: 'ai', label: 'LLM analytics events', free: 100_000, max: 25_000_000, tiers: AI_TIERS, start: 145, color: '#765bc9' },
+    { key: 'ai', label: 'AI Observability events', free: 100_000, max: 25_000_000, tiers: AI_TIERS, start: 145, color: '#765bc9' },
   ];
 
   function sliderVolume(row, raw) {
@@ -729,6 +726,14 @@
                 <Button onClick={() => TxlemetryV2.navigate('/all-features')}>See all features →</Button>
               </div>
               <FeatureCards />
+            </div>
+          </section>
+
+          {/* Full plan-by-plan comparison table */}
+          <section className="relative py-[40px]">
+            <div className="max-w-[1240px] mx-auto px-[18px]">
+              <SectionTitle eyebrow="Compare plans" title="Every limit, side by side." text="No hidden gates. This is the complete list of what changes as you move up a tier." />
+              <FeatureComparison />
             </div>
           </section>
 
