@@ -28,7 +28,7 @@
     return (
       <div className="grid grid-cols-2 gap-[56px] grid-rows-[668px] px-[24px] relative w-full" data-node-id="2:6663">
         {/* Left column — content */}
-        <div className="grid gap-[32px] grid-cols-1 grid-rows-[303.39px_14px_152.38px] h-[533.77px] justify-self-stretch relative row-1 shrink-0">
+        <div className="grid gap-[32px] grid-cols-1 justify-self-stretch relative row-1 self-start shrink-0" style={{ gridTemplateRows: 'auto auto auto', height: 'auto' }}>
           {/* Heading + badge */}
           <div className="content-stretch flex flex-col gap-[30.795px] items-start justify-self-stretch relative row-1 self-start shrink-0">
             {/* Badge "Early Stage Program" */}
@@ -38,9 +38,9 @@
             {/* H1 — 3 lines */}
             <div className="content-stretch flex flex-col items-start max-w-[952.15px] pb-[0.595px] relative shrink-0 w-full">
               <p className="m-0 text-[79.9px] text-black tracking-[-4.09px] w-full" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, lineHeight: '81.8px' }}>
-                <span style={{ display: 'block' }}>Startups get 90%</span>
-                <span style={{ display: 'block' }}>off Txlemetry + 1</span>
-                <span style={{ display: 'block' }}>year of Txlemetry free</span>
+                <span style={{ display: 'block' }}>Startups get 93%</span>
+                <span style={{ display: 'block' }}>off + 1 year of</span>
+                <span style={{ display: 'block' }}>Txlemetry AI free</span>
               </p>
             </div>
           </div>
@@ -54,8 +54,8 @@
           <div className="content-stretch flex flex-col gap-[32px] items-start justify-self-stretch relative row-3 self-start shrink-0">
             <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
               <p className="m-0 text-[16.5px] text-black w-full" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: '21.6px' }}>
-                <span style={{ display: 'block' }}>Startups get 93% off the only complete, AI-native product analytics platform&mdash;Txlemetry</span>
-                <span style={{ display: 'block' }}>{`gives you a generous free tier on every product, plus deep startup discounts on`}</span>
+                <span style={{ display: 'block' }}>Startups get 93% off Txlemetry, the AI-native product analytics platform.</span>
+                <span style={{ display: 'block' }}>{`Every product includes a generous free tier, plus deep startup discounts on`}</span>
                 <span style={{ display: 'block' }}>usage as you grow, so you can understand your users from</span>
                 <span style={{ display: 'block' }}>day one at a fraction of the cost.</span>
               </p>
@@ -236,9 +236,9 @@
           <div className="content-stretch flex flex-col items-center justify-center justify-self-stretch relative row-1 self-start shrink-0">
             <div className="content-stretch flex flex-col items-center max-w-[698.64px] px-[81.33px] relative shrink-0">
               <p className="m-0 text-[46px] text-black text-center tracking-[-2.309px] whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, lineHeight: '46.17px' }}>
-                <span style={{ display: 'block' }}>The highest-performing AI</span>
-                <span style={{ display: 'block' }}>Agent natively integrated</span>
-                <span style={{ display: 'block' }}>with the Txlemetry Helpdesk</span>
+                <span style={{ display: 'block' }}>Txlemetry AI, natively</span>
+                <span style={{ display: 'block' }}>integrated with the rest</span>
+                <span style={{ display: 'block' }}>of the platform</span>
               </p>
             </div>
           </div>
@@ -255,14 +255,14 @@
                   <div className="absolute bg-[rgba(23,16,14,0.2)] h-[2px] left-0 right-0 top-0" />
                   <div className="absolute bg-[#17100e] h-[2px] left-0 right-0 top-0" />
                   <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
-                    <p className="m-0 text-[15.1px] text-[#17100e] tracking-[-0.16px] w-full leading-[19.2px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>Txlemetry AI Agent</p>
+                    <p className="m-0 text-[15.1px] text-[#17100e] tracking-[-0.16px] w-full leading-[19.2px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>Txlemetry AI</p>
                   </div>
                   <div className="h-[85.06px] relative shrink-0 w-full">
                     <div className="-translate-y-1/2 absolute flex flex-col h-[86px] justify-center left-0 text-[14.6px] text-[#17100e] top-[42.4px] w-[453.32px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>
-                      <p className="leading-[21.28px] mb-0">Txlemetry resolves everything from simple queries to complex, across all</p>
-                      <p className="leading-[21.28px] mb-0">{`your channels. You're in complete control: see exactly what's`}</p>
-                      <p className="leading-[21.28px] mb-0">working, make improvements yourself in minutes, and watch</p>
-                      <p className="leading-[21.28px]">performance continuously improve.</p>
+                      <p className="leading-[21.28px] mb-0">Ask questions in plain English and get answers grounded in your</p>
+                      <p className="leading-[21.28px] mb-0">{`own product data. Txlemetry AI investigates anomalies, summarizes`}</p>
+                      <p className="leading-[21.28px] mb-0">trends and drafts the follow-up queries, so you go from question</p>
+                      <p className="leading-[21.28px]">to decision in minutes.</p>
                     </div>
                   </div>
                 </div>
@@ -271,15 +271,15 @@
                 <div className="content-stretch flex flex-col gap-[3.99px] items-start justify-self-stretch pt-[20px] relative row-2 self-start shrink-0">
                   <div className="absolute bg-[rgba(23,16,14,0.2)] h-[2px] left-0 right-0 top-0" />
                   <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
-                    <p className="m-0 text-[14.8px] tracking-[-0.16px] w-full leading-[19.2px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, color: 'rgba(23,16,14,0.6)' }}>Helpdesk</p>
+                    <p className="m-0 text-[14.8px] tracking-[-0.16px] w-full leading-[19.2px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700, color: 'rgba(23,16,14,0.6)' }}>One data layer</p>
                   </div>
                   <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
                     <p className="m-0 text-[14.6px] w-full leading-[21.28px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, color: 'rgba(23,16,14,0.6)' }}>
-                      <span style={{ display: 'block' }}>Txlemetry seamlessly hands off to your team with full context—no</span>
-                      <span style={{ display: 'block' }}>switching tools, no lost information. Get a powerful analytics platform</span>
-                      <span style={{ display: 'block' }}>designed to work as one with Txlemetry, with complete visibility across</span>
-                      <span style={{ display: 'block' }}>all AI and human conversations to optimize your customer</span>
-                      <span style={{ display: 'block' }}>experience.</span>
+                      <span style={{ display: 'block' }}>Every AI answer links back to the same events, funnels and</span>
+                      <span style={{ display: 'block' }}>recordings your team already uses—no switching tools, no lost</span>
+                      <span style={{ display: 'block' }}>context. Analytics, replay, flags and experiments share one</span>
+                      <span style={{ display: 'block' }}>schema, so insights stay consistent whether AI or a person</span>
+                      <span style={{ display: 'block' }}>did the digging.</span>
                     </p>
                   </div>
                 </div>
@@ -400,11 +400,11 @@
 
   function FeaturesG2ChartSection() {
     const bars = [
-      { name: ['Txlemetry by', 'Txlemetry'], value: '89',  img: featG2ImgFin,     active: true  },
-      { name: ['Zendesk AI', 'Agent'], value: '59', img: featG2ImgZendesk, active: false },
-      { name: ['Decagon'], value: '54', img: featG2ImgZendesk, active: false },
-      { name: ['Forethought'], value: '40', img: featG2ImgZendesk, active: false },
-      { name: ['Ada'], value: '33', img: featG2ImgAda, active: false },
+      { name: ['Ease of', 'setup'], value: '89',  img: featG2ImgFin,     active: true  },
+      { name: ['Quality of', 'support'], value: '87', img: featG2ImgZendesk, active: false },
+      { name: ['Ease of use'], value: '85', img: featG2ImgZendesk, active: false },
+      { name: ['Meets', 'requirements'], value: '84', img: featG2ImgZendesk, active: false },
+      { name: ['Product', 'direction'], value: '82', img: featG2ImgAda, active: false },
     ];
     return (
       <div className="bg-[#f4f3ec] content-stretch flex items-center justify-center px-[40px] relative w-full" data-node-id="2:7111">
@@ -415,26 +415,26 @@
             <div className="content-stretch flex flex-col gap-[24px] items-start relative size-full">
               <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
                 <p className="m-0 text-[48px] text-black tracking-[-2.4px] w-full" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, lineHeight: '48px' }}>
-                  <span style={{ display: 'block' }}>It&rsquo;s official: Txlemetry is the best</span>
-                  <span style={{ display: 'block' }}>AI agent on the market</span>
+                  <span style={{ display: 'block' }}>Rated highly on the</span>
+                  <span style={{ display: 'block' }}>things that matter</span>
                 </p>
               </div>
               <div className="content-stretch flex flex-col items-start max-w-[505.44px] relative shrink-0 w-[505.44px]">
                 <p className="m-0 text-[18.1px] text-black tracking-[-1px] whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: '24px' }}>
-                  <span style={{ display: 'block' }}>In G2&rsquo;s most recent User Satisfaction Ratings for Customer</span>
-                  <span style={{ display: 'block' }}>Service, Txlemetry rates highest across the board. Based on over</span>
-                  <span style={{ display: 'block' }}>19,000 reviews from real customers.</span>
+                  <span style={{ display: 'block' }}>In user satisfaction reviews, Txlemetry scores consistently</span>
+                  <span style={{ display: 'block' }}>high for ease of setup, support quality and ease of use&mdash;</span>
+                  <span style={{ display: 'block' }}>based on feedback from real customers.</span>
                 </p>
               </div>
               <div className="content-stretch flex gap-[12px] items-start relative shrink-0 w-full">
                 <a onClick={() => TxlemetryV2.navigate('#')} className="content-stretch cursor-pointer flex flex-col items-start relative self-stretch shrink-0">
                   <div className="bg-[#17100e] content-stretch flex flex-col items-center px-[17px] py-[10px] relative rounded-[6px] shrink-0 w-full" style={{ border: '1px solid rgba(0,0,0,0)' }}>
-                    <p className="m-0 text-[12.9px] text-white text-center tracking-[-0.35px] whitespace-nowrap leading-[14px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>Read the G2 Report</p>
+                    <p className="m-0 text-[12.9px] text-white text-center tracking-[-0.35px] whitespace-nowrap leading-[14px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>Read customer stories</p>
                   </div>
                 </a>
                 <a onClick={() => TxlemetryV2.navigate('#')} className="content-stretch cursor-pointer flex flex-col items-start relative self-stretch shrink-0">
                   <div className="content-stretch flex flex-col items-center px-[17px] py-[10px] relative rounded-[6px] shrink-0 w-full" style={{ border: '1px solid #17100e' }}>
-                    <p className="m-0 text-[13.3px] text-[#17100e] text-center tracking-[-0.35px] whitespace-nowrap leading-[14px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>Read G2 Txlemetry Reviews</p>
+                    <p className="m-0 text-[13.3px] text-[#17100e] text-center tracking-[-0.35px] whitespace-nowrap leading-[14px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>See all reviews</p>
                   </div>
                 </a>
               </div>
@@ -445,7 +445,7 @@
           <div className="flex-1 min-w-px relative self-stretch">
             <div className="content-stretch flex flex-col gap-[24px] items-start relative size-full">
               <div className="border-[#17100e] border-b-[2px] border-solid content-stretch flex flex-col items-start pb-[10px] relative shrink-0 w-full">
-                <p className="m-0 text-[15px] text-black tracking-[-0.4px] whitespace-nowrap leading-[19.2px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>{`G2's AI Agent score`}</p>
+                <p className="m-0 text-[15px] text-black tracking-[-0.4px] whitespace-nowrap leading-[19.2px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>{`User satisfaction by category`}</p>
               </div>
               <div className="grid grid-cols-1 grid-rows-[56px_56px_56px_56px_56px] h-[280px] relative shrink-0 w-full">
                 {bars.map((bar, i) => (
@@ -465,7 +465,7 @@
                           <div className="absolute content-stretch flex flex-col inset-0 items-start justify-center overflow-clip">
                             <div className="flex-1 min-h-[56px] relative w-full">
                               <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                                <img loading="lazy" decoding="async" alt="" className="absolute h-[122.42%] left-0 max-w-none top-[-11.21%] w-full" src={bar.img} />
+                                <img loading="lazy" decoding="async" alt="" className="absolute inset-0 w-full h-full" style={{ objectFit: 'cover', objectPosition: 'center' }} src={bar.img} />
                               </div>
                             </div>
                           </div>
@@ -477,7 +477,7 @@
                         <div className="content-stretch flex flex-1 h-[56px] items-start justify-between min-w-px relative">
                           <div className="flex-1 h-full min-w-px relative">
                             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                              <img loading="lazy" decoding="async" alt="" className="absolute left-0 max-w-none size-full top-0" src={bar.img} />
+                              <img loading="lazy" decoding="async" alt="" className="absolute inset-0 w-full h-full" style={{ objectFit: 'cover', objectPosition: 'center' }} src={bar.img} />
                             </div>
                           </div>
                           <div className="content-stretch flex h-full items-center pr-[24px] relative shrink-0">
@@ -504,7 +504,7 @@
 
   const FEATURES_FAQS = [
     { q: 'What does the Txlemetry Early Stage Program cover?', active: true },
-    { q: 'How much does Txlemetry AI Agent cost?', active: false },
+    { q: 'How much does Txlemetry AI cost?', active: false },
     { q: 'What happens after the first year?', active: false },
     { q: `What if we're larger than 15 employees?`, active: false },
     { q: 'How can I become a partner and offer this discount to my portfolio companies?', active: false },
@@ -549,7 +549,7 @@
                 {/* Intro paragraph */}
                 <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
                   <p className="m-0 text-[14.6px] text-[#17100e] w-full" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: '21.6px' }}>
-                    <span style={{ display: 'block' }}>Get access to the best AI-first analytics platform from just $65/month, with 93% off in your first year,</span>
+                    <span style={{ display: 'block' }}>Get access to the AI-native product analytics platform with 93% off usage-based costs in your first year,</span>
                     <span style={{ display: 'block' }}>50% off in your second year, and 25% off in your third year.</span>
                   </p>
                 </div>
@@ -563,12 +563,9 @@
                 <div className="content-stretch flex flex-col items-start pt-[0.71px] relative shrink-0 w-full">
                   <div className="content-stretch flex items-center pl-[15px] relative shrink-0 w-full">
                     <span className="-translate-y-1/2 absolute h-[19px] left-0 top-[11px] w-[7.33px] text-[16px] text-[#17100e]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: '21.6px' }}>-</span>
-                    <p className="m-0 text-[15.1px] text-[#17100e] whitespace-nowrap leading-[21.6px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>{`6 Advanced Seats `}</p>
-                    <a onClick={() => TxlemetryV2.navigate('#')} className="content-stretch cursor-pointer flex items-start relative shrink-0">
-                      <p className="m-0 text-[14.3px] text-[#17100e] text-left w-[112.97px] leading-[21.6px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, borderBottom: '1px solid #17100e' }}>(see all features)</p>
-                    </a>
+                    <p className="m-0 text-[15.1px] text-[#17100e] whitespace-nowrap leading-[21.6px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>{`1M analytics events per month free`}</p>
                   </div>
-                  {['6 Copilot Seats', '20 Lite Seats', 'Proactive Support Plus (500 messages sent per month)'].map((item, i) => (
+                  {['5k session recordings per month free', '1M feature flag requests per month free', '1.5k survey responses per month free'].map((item, i) => (
                     <div key={i} className="content-stretch flex items-center pl-[15px] relative shrink-0 w-full">
                       <span className="-translate-y-1/2 absolute h-[19px] left-0 top-[11px] w-[7.33px] text-[16px] text-[#17100e]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: '21.6px' }}>-</span>
                       <p className="m-0 text-[15px] text-[#17100e] whitespace-nowrap leading-[21.6px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>{item}</p>
@@ -578,12 +575,12 @@
 
                 {/* "Plus a free year of Txlemetry AI Agent:" */}
                 <div className="content-stretch flex flex-col items-start pt-[0.69px] relative shrink-0 w-full">
-                  <p className="m-0 text-[14.6px] text-[#17100e] w-full leading-[21.6px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>Plus a free year of Txlemetry AI Agent, including:</p>
+                  <p className="m-0 text-[14.6px] text-[#17100e] w-full leading-[21.6px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>Plus a free year of Txlemetry AI, including:</p>
                 </div>
 
                 {/* List 2 */}
                 <div className="content-stretch flex flex-col items-start pt-[0.71px] relative shrink-0 w-full">
-                  {['300 Txlemetry outcomes per month', '15 Txlemetry qualifications per month', 'Pro (unlimited conversations analyzed per month)'].map((item, i) => (
+                  {['Natural-language product questions', 'AI insight summaries and anomaly prompts', 'Session replay summaries linked to every answer'].map((item, i) => (
                     <div key={i} className="content-stretch flex items-center pl-[15px] relative shrink-0 w-full">
                       <span className="-translate-y-1/2 absolute h-[19px] left-0 top-[11px] w-[7.33px] text-[16px] text-[#17100e]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: '21.6px' }}>-</span>
                       <p className="m-0 text-[14.7px] text-[#17100e] whitespace-nowrap leading-[21.6px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>{item}</p>
@@ -594,16 +591,16 @@
                 {/* Footer paragraph */}
                 <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
                   <p className="m-0 text-[14.6px] text-[#17100e] w-full" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, lineHeight: '21.6px' }}>
-                    <span style={{ display: 'block' }}>Your 93% discount applies to usage based costs for email, messages sent (over 500 per</span>
-                    <span style={{ display: 'block' }}>month) and additional seats (over 6).</span>
+                    <span style={{ display: 'block' }}>Your 93% discount applies to usage-based costs for events, recordings, flag requests</span>
+                    <span style={{ display: 'block' }}>and survey responses beyond the free tiers.</span>
                   </p>
                 </div>
 
                 {/* Final note + link */}
                 <div className="relative shrink-0 w-full">
                   <p className="m-0 text-[14.8px] text-[#17100e]" style={{ fontFamily: "'Inter', sans-serif", lineHeight: '21.6px' }}>
-                    <span style={{ fontWeight: 600 }}>The discount does not apply to additional outcomes or qualifications,</span>
-                    <span style={{ fontWeight: 400 }}>{` phone, SMS & WhatsApp, which are charged at list price. `}</span>
+                    <span style={{ fontWeight: 600 }}>The discount does not apply to enterprise add-ons,</span>
+                    <span style={{ fontWeight: 400 }}>{` such as dedicated regions or custom data contracts, which are charged at list price. `}</span>
                     <a onClick={() => TxlemetryV2.navigate('#')} className="cursor-pointer" style={{ borderBottom: '1px solid #17100e', color: '#17100e' }}>See usage based costs</a>
                     <span style={{ fontWeight: 400 }}>.</span>
                   </p>
@@ -637,7 +634,7 @@
 
   const FEATURES_RESOURCE_CARDS = [
     { num: '01', title: 'Exclusive deals on startup tools', body: ['Program members get credits and discounts', 'worth $100K on Stripe, Notion and more.'] },
-    { num: '02', title: 'Early Stage Academy',              body: ['Deep-dive courses from Txlemetry experts on', 'topics like support, engagement, and sales.'] },
+    { num: '02', title: 'Early Stage Academy',              body: ['Deep-dive courses from Txlemetry experts on', 'topics like activation, retention and growth.'] },
     { num: '03', title: 'Inside the Txlemetry Blog',            body: ['Our blog and podcast give you in-depth', 'interviews, best practices, insights and more.'] },
     { num: '04', title: 'Txlemetry Community',                  body: ['Join our community forum to ask questions or', 'connect with Txlemetry customers and', 'partners.'] },
   ];

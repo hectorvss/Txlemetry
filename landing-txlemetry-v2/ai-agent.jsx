@@ -64,36 +64,14 @@
   const imgHeroProduct         = "/assets/txl/card-07.png";
 
   /* — Customer logos data: array of 24 entries with width + variant renderer — */
+  // Plain-text company wordmarks — not real logo marks, so this list can't be
+  // mistaken for an endorsement by a specific real company.
   const CUSTOMER_LOGOS = [
-    // Row 1
-    { name: 'Anthropic',  w: 122.84, render: () => <SimpleLogo src={imgLogoAnthropic} inset="32.14% 7.77% 32.14% 7.67%" /> },
-    { name: 'Asana',      w: 97.84,  render: () => <SimpleLogo src={imgLogoAsana} inset="19.88% 0 19.73% 0" /> },
-    { name: 'Autodesk',   w: 118.84, render: () => <SimpleLogo src={imgLogoAutodesk} inset="33.93% 7.93% 33.93% 7.69%" /> },
-    { name: 'Clay',       w: 67.92,  render: () => <SimpleLogo src={imgLogoClayGroup} inset="15.33% 0 15.45% 0.03%" /> },
-    { name: 'Kalshi',     w: 73.95,  render: () => <SimpleLogo src={imgLogoKalshi} inset="16.17% 0" /> },
-    { name: 'Crypto.com', w: 125.33, render: () => <CryptoLogo /> },
-    // Row 2
-    { name: 'Culture Amp', w: 137.14, render: () => <SimpleLogo src={imgLogoCultureAmp} inset="23.22% 6.91% 23.21% 6.67%" /> },
-    { name: 'DoorDash',    w: 129.14, render: () => <MaskedLogo maskSrc={imgLogoDoorDashMask} groupSrc={imgLogoDoorDashG1} inset="30.36% 7.08%" maskInset="30.36% 7.08%" maskPos="0px 0px" maskSize="110.856px 12.571px" /> },
-    { name: 'Gamma',       w: 82,     render: () => <MaskedLogo maskSrc={imgLogoGammaMask} groupSrc={imgLogoGamma} inset="0 0.98% 0 0" maskInset="28.13% 0.98% 28.13% 0" maskPos="0px -9px" maskSize="81.199px 32px" /> },
-    { name: 'Glean',       w: 64,     render: () => <MaskedLogo maskSrc={imgLogoGleanMask} groupSrc={imgLogoGlean} inset="15.71% 7.86%" maskInset="16.18% 7.95%" maskPos="-0.061px -0.148px" maskSize="53.943px 21.943px" /> },
-    { name: 'Kajabi',      w: 89.141, render: () => <KajabiLogo /> },
-    { name: 'LaunchDarkly',w: 144.56, render: () => <SimpleLogo src={imgLogoLaunchDarkly} inset="19.65% 6.66% 19.64% 6.64%" /> },
-    // Row 3
-    { name: 'Linear',     w: 90.84,  render: () => <SimpleLogo src={imgLogoLinear} inset="21.43% 10.48% 21.43% 10.06%" /> },
-    { name: 'Mercury',    w: 139,    render: () => <MercuryLogo /> },
-    { name: 'Miro',       w: 87.19,  render: () => <SimpleLogo src={imgLogoMiro} inset="19.25% 0.03% 19.06% 14.74%" /> },
-    { name: 'Monday.com', w: 126.84, render: () => <SimpleLogo src={imgLogoMonday} inset="19.65% 7.57% 19.65% 7.34%" /> },
-    { name: 'Riot Games', w: 83.42,  render: () => <SimpleLogo src={imgLogoRiot} inset="21.43% 11.11% 21.43% 10.96%" /> },
-    { name: 'Rocket Money', w: 91.31, render: () => <SimpleLogo src={imgLogoRocketMoney} inset="0 0.79% 1.6% 0.6%" /> },
-    // Row 4
-    { name: 'Shutterstock', w: 124,     render: () => <SimpleLogo src={imgLogoShutterstock} inset="26.79% 7.47% 26.79% 7.72%" /> },
-    { name: 'Snowflake',    w: 106,     render: () => <SimpleLogo src={imgLogoSnowflake} inset="12.5% 0" /> },
-    { name: 'Synthesia',    w: 126.281, render: () => <SimpleLogo src={imgLogoSynthesia} inset="23.22% 7.68% 23.22% 7.32%" /> },
-    { name: 'Toast',        w: 86.28,   render: () => <SimpleLogo src={imgLogoToast} inset="23.22% 10.89% 23.21% 10.6%" /> },
-    { name: 'Vanta',        w: 94.84,   render: () => <SimpleLogo src={imgLogoVanta} inset="3.58% 9.97% 3.58% 9.76%" /> },
-    { name: 'WHOOP',        w: 116.56,  render: () => <SimpleLogo src={imgLogoWhoop} inset="25% 7.86% 25% 7.94%" /> },
-  ];
+    'Northwind', 'Lumina', 'Corewave', 'Mebit.com', 'Rebag', 'Godtlevert',
+    'Alderly', 'Brightloop', 'Fernbank', 'Havenly', 'Ironclad Labs', 'Juniper Metrics',
+    'Kestrel', 'Larkspur', 'Meridian Works', 'Nimbly', 'Orbital Goods', 'Palisade',
+    'Quill & Co', 'Riverside Analytics', 'Solveig', 'Tallgrass', 'Umber Studio', 'Vesper',
+  ].map((name) => ({ name, w: 130 }));
 
   /* — Logo helper components — */
   function SimpleLogo({ src, inset }) {
@@ -203,9 +181,6 @@
             ))}
           </div>
         </div>
-        <div className="absolute opacity-100" style={{ inset: '68.07% 14.53% 17.66% 14.76%' }}>
-          <img loading="lazy" decoding="async" alt="" className="absolute block inset-0 max-w-none size-full" src={imgApexBase} />
-        </div>
       </div>
     );
   }
@@ -214,9 +189,7 @@
   function LogoCell({ logo }) {
     return (
       <div className="flex items-center justify-center h-[32px]">
-        <div className="overflow-clip relative shrink-0 h-[32px]" style={{ width: logo.w }}>
-          {logo.render()}
-        </div>
+        <span className="whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: 16, color: 'rgba(255,255,255,0.55)' }}>{logo.name}</span>
       </div>
     );
   }
@@ -250,29 +223,17 @@
               <div className="flex flex-col items-start justify-center w-full" style={{ height: 612, maxHeight: 720 }}>
 
                 {/* H1 heading */}
-                <div className="flex flex-col items-start pb-[24px] w-full" style={{ paddingLeft: 169.875, paddingRight: 169.875 }}>
-                  <div className="relative w-full" style={{ height: 192 }}>
-                    {/* Line 1 */}
-                    <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center text-center text-white" style={{ top: 47.5, width: 791.98, height: 96, fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 94.3, lineHeight: '96px', letterSpacing: '-3.008px' }}>
-                      <p className="m-0">The #1 AI Agent for</p>
-                    </div>
-                    {/* "all" floating tag */}
-                    <div className="absolute -translate-x-1/2 flex items-start justify-center py-[9.5px]" style={{ left: 'calc(50% - 480.13px)', top: 86, filter: 'drop-shadow(0px 0px 4px white)' }}>
-                      <div className="text-white text-center" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 96, lineHeight: '96px', letterSpacing: '-3.008px' }}>
-                        <p className="m-0">all</p>
-                      </div>
-                    </div>
-                    {/* Line 2 */}
-                    <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center text-center text-white" style={{ top: 143.5, width: 955.95, height: 96, fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 95.4, lineHeight: '96px', letterSpacing: '-3.008px', transform: 'translate(calc(-50% + 48.33px), -50%)' }}>
-                      <p className="m-0"> your product analytics</p>
-                    </div>
+                <div className="flex flex-col items-center pb-[24px] w-full" style={{ paddingLeft: 169.875, paddingRight: 169.875 }}>
+                  <div className="w-full text-center text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 94.3, lineHeight: '100px', letterSpacing: '-3.008px' }}>
+                    <p className="m-0">Ask Txlemetry for</p>
+                    <p className="m-0">all your product analytics</p>
                   </div>
                 </div>
 
                 {/* Sub-claims */}
                 <ul className="flex flex-col items-start pb-[36px] w-full m-0 p-0 list-none">
                   <li className="flex gap-[32px] items-center justify-center w-full">
-                    {['#1 in bake-offs', '#1 in benchmarks', '#1 for complex queries'].map((claim) => (
+                    {['Grounded in your data', 'Explains its reasoning', 'Built for complex queries'].map((claim) => (
                       <div key={claim} className="flex flex-col items-center">
                         <p className="m-0 text-center uppercase whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 13.7, lineHeight: '16px', letterSpacing: '1.504px', color: 'rgba(255,255,255,0.8)' }}>{claim}</p>
                       </div>
@@ -297,11 +258,11 @@
                         <p className="m-0 uppercase whitespace-nowrap text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.8, lineHeight: '14px', letterSpacing: '1.504px' }}>POWERED BY TXLEMETRY ENGINE 1.0</p>
                       </div>
                       <div className="flex flex-col items-start w-full" style={{ opacity: 0.8 }}>
-                        <p className="m-0 uppercase whitespace-nowrap text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.5, lineHeight: '14px', letterSpacing: '1.504px' }}>The highest-performing, fastest</p>
-                        <p className="m-0 uppercase whitespace-nowrap text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.5, lineHeight: '14px', letterSpacing: '1.504px' }}>model for product analytics.</p>
+                        <p className="m-0 uppercase whitespace-nowrap text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.5, lineHeight: '14px', letterSpacing: '1.504px' }}>Purpose-built for querying</p>
+                        <p className="m-0 uppercase whitespace-nowrap text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.5, lineHeight: '14px', letterSpacing: '1.504px' }}>your own product data.</p>
                       </div>
                       <div className="flex flex-col items-start w-full">
-                        <button onClick={() => TxlemetryV2.navigate('/cx-models')} className="cursor-pointer flex items-center justify-center pb-[4px] bg-white text-white border-0" style={{ background: 'transparent', borderBottom: '1px solid white', opacity: 0.8 }}>
+                        <button onClick={() => TxlemetryV2.navigate('/technology')} className="cursor-pointer flex items-center justify-center pb-[4px] bg-white text-white border-0" style={{ background: 'transparent', borderBottom: '1px solid white', opacity: 0.8 }}>
                           <span className="text-center whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 12.9, lineHeight: '14px', letterSpacing: '0.07px', color: 'white' }}>Learn more</span>
                         </button>
                       </div>
@@ -500,21 +461,21 @@ function PerfComponent1({ className, variant = "26" }) {
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_93.93%_14.48%_0.84%]" data-node-id="2:7902" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_93.93%_14.48%_0.84%]" data-node-id="2:7902" data-name="Group">
                   <div className="absolute contents inset-[82.14%_93.93%_14.48%_0.84%]" data-node-id="2:7903" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_93.93%_14.48%_0.84%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7904">
                       JUN 2023
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_90.95%_14.48%_4.11%]" data-node-id="2:7905" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_90.95%_14.48%_4.11%]" data-node-id="2:7905" data-name="Group">
                   <div className="absolute contents inset-[82.14%_90.95%_14.48%_4.11%]" data-node-id="2:7906" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_90.95%_14.48%_4.11%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7907">
                       JUL 2023
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_87.96%_14.48%_6.71%]" data-node-id="2:7908" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_87.96%_14.48%_6.71%]" data-node-id="2:7908" data-name="Group">
                   <div className="absolute contents inset-[82.14%_87.96%_14.48%_6.71%]" data-node-id="2:7909" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_87.96%_14.48%_6.71%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7910">
                       AUG 2023
@@ -528,21 +489,21 @@ function PerfComponent1({ className, variant = "26" }) {
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_81.99%_14.48%_12.67%]" data-node-id="2:7914" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_81.99%_14.48%_12.67%]" data-node-id="2:7914" data-name="Group">
                   <div className="absolute contents inset-[82.14%_81.99%_14.48%_12.67%]" data-node-id="2:7915" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_81.99%_14.48%_12.67%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7916">
                       OCT 2023
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_79.01%_14.48%_15.66%]" data-node-id="2:7917" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_79.01%_14.48%_15.66%]" data-node-id="2:7917" data-name="Group">
                   <div className="absolute contents inset-[82.14%_79.01%_14.48%_15.66%]" data-node-id="2:7918" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_79.01%_14.48%_15.66%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7919">
                       NOV 2023
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_76.03%_14.48%_18.74%]" data-node-id="2:7920" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_76.03%_14.48%_18.74%]" data-node-id="2:7920" data-name="Group">
                   <div className="absolute contents inset-[82.14%_76.03%_14.48%_18.74%]" data-node-id="2:7921" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_76.03%_14.48%_18.74%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7922">
                       DEC 2023
@@ -556,21 +517,21 @@ function PerfComponent1({ className, variant = "26" }) {
                     </p>
                   </div>
                 </div>
-                <div className="absolute bottom-[14.48%] contents left-1/4 right-[70.06%] top-[82.14%]" data-node-id="2:7926" data-name="Group">
+                <div className="hidden absolute bottom-[14.48%] contents left-1/4 right-[70.06%] top-[82.14%]" data-node-id="2:7926" data-name="Group">
                   <div className="absolute bottom-[14.48%] contents left-1/4 right-[70.06%] top-[82.14%]" data-node-id="2:7927" data-name="Group">
                     <p className="absolute bottom-[14.48%] font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] leading-[normal] left-1/4 not-italic opacity-[var(--opacity\/100,1)] right-[70.06%] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right top-[82.14%] whitespace-nowrap" data-node-id="2:7928">
                       FEB 2024
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_67.07%_14.48%_27.59%]" data-node-id="2:7929" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_67.07%_14.48%_27.59%]" data-node-id="2:7929" data-name="Group">
                   <div className="absolute contents inset-[82.14%_67.07%_14.48%_27.59%]" data-node-id="2:7930" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_67.07%_14.48%_27.59%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7931">
                       MAR 2024
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_64.09%_14.48%_30.87%]" data-node-id="2:7932" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_64.09%_14.48%_30.87%]" data-node-id="2:7932" data-name="Group">
                   <div className="absolute contents inset-[82.14%_64.09%_14.48%_30.87%]" data-node-id="2:7933" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_64.09%_14.48%_30.87%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7934">
                       APR 2024
@@ -584,21 +545,21 @@ function PerfComponent1({ className, variant = "26" }) {
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_58.13%_14.48%_36.74%]" data-node-id="2:7938" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_58.13%_14.48%_36.74%]" data-node-id="2:7938" data-name="Group">
                   <div className="absolute contents inset-[82.14%_58.13%_14.48%_36.74%]" data-node-id="2:7939" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_58.13%_14.48%_36.74%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7940">
                       JUN 2024
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_55.14%_14.48%_39.92%]" data-node-id="2:7941" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_55.14%_14.48%_39.92%]" data-node-id="2:7941" data-name="Group">
                   <div className="absolute contents inset-[82.14%_55.14%_14.48%_39.92%]" data-node-id="2:7942" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_55.14%_14.48%_39.92%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7943">
                       JUL 2024
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_52.16%_14.48%_42.51%]" data-node-id="2:7944" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_52.16%_14.48%_42.51%]" data-node-id="2:7944" data-name="Group">
                   <div className="absolute contents inset-[82.14%_52.16%_14.48%_42.51%]" data-node-id="2:7945" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_52.16%_14.48%_42.51%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7946">
                       AUG 2024
@@ -612,21 +573,21 @@ function PerfComponent1({ className, variant = "26" }) {
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_46.19%_14.48%_48.57%]" data-node-id="2:7950" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_46.19%_14.48%_48.57%]" data-node-id="2:7950" data-name="Group">
                   <div className="absolute contents inset-[82.14%_46.19%_14.48%_48.57%]" data-node-id="2:7951" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_46.19%_14.48%_48.57%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7952">
                       OCT 2024
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_43.21%_14.48%_51.46%]" data-node-id="2:7953" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_43.21%_14.48%_51.46%]" data-node-id="2:7953" data-name="Group">
                   <div className="absolute contents inset-[82.14%_43.21%_14.48%_51.46%]" data-node-id="2:7954" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_43.21%_14.48%_51.46%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7955">
                       NOV 2024
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_40.22%_14.48%_54.64%]" data-node-id="2:7956" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_40.22%_14.48%_54.64%]" data-node-id="2:7956" data-name="Group">
                   <div className="absolute contents inset-[82.14%_40.22%_14.48%_54.64%]" data-node-id="2:7957" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_40.22%_14.48%_54.64%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7958">
                       DEC 2024
@@ -640,21 +601,21 @@ function PerfComponent1({ className, variant = "26" }) {
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_34.26%_14.48%_60.8%]" data-node-id="2:7962" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_34.26%_14.48%_60.8%]" data-node-id="2:7962" data-name="Group">
                   <div className="absolute contents inset-[82.14%_34.26%_14.48%_60.8%]" data-node-id="2:7963" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_34.26%_14.48%_60.8%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7964">
                       FEB 2025
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_31.27%_14.48%_63.39%]" data-node-id="2:7965" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_31.27%_14.48%_63.39%]" data-node-id="2:7965" data-name="Group">
                   <div className="absolute contents inset-[82.14%_31.27%_14.48%_63.39%]" data-node-id="2:7966" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_31.27%_14.48%_63.39%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7967">
                       MAR 2025
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_28.29%_14.48%_66.67%]" data-node-id="2:7968" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_28.29%_14.48%_66.67%]" data-node-id="2:7968" data-name="Group">
                   <div className="absolute contents inset-[82.14%_28.29%_14.48%_66.67%]" data-node-id="2:7969" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_28.29%_14.48%_66.67%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7970">
                       APR 2025
@@ -668,21 +629,21 @@ function PerfComponent1({ className, variant = "26" }) {
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_22.32%_14.48%_72.54%]" data-node-id="2:7974" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_22.32%_14.48%_72.54%]" data-node-id="2:7974" data-name="Group">
                   <div className="absolute contents inset-[82.14%_22.32%_14.48%_72.54%]" data-node-id="2:7975" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_22.32%_14.48%_72.54%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7976">
                       JUN 2025
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_19.34%_14.48%_75.72%]" data-node-id="2:7977" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_19.34%_14.48%_75.72%]" data-node-id="2:7977" data-name="Group">
                   <div className="absolute contents inset-[82.14%_19.34%_14.48%_75.72%]" data-node-id="2:7978" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_19.34%_14.48%_75.72%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7979">
                       JUL 2025
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_16.36%_14.48%_78.31%]" data-node-id="2:7980" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_16.36%_14.48%_78.31%]" data-node-id="2:7980" data-name="Group">
                   <div className="absolute contents inset-[82.14%_16.36%_14.48%_78.31%]" data-node-id="2:7981" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_16.36%_14.48%_78.31%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7982">
                       AUG 2025
@@ -696,14 +657,14 @@ function PerfComponent1({ className, variant = "26" }) {
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_10.39%_14.48%_84.37%]" data-node-id="2:7986" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_10.39%_14.48%_84.37%]" data-node-id="2:7986" data-name="Group">
                   <div className="absolute contents inset-[82.14%_10.39%_14.48%_84.37%]" data-node-id="2:7987" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_10.39%_14.48%_84.37%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7988">
                       OCT 2025
                     </p>
                   </div>
                 </div>
-                <div className="absolute contents inset-[82.14%_7.4%_14.48%_87.26%]" data-node-id="2:7989" data-name="Group">
+                <div className="hidden absolute contents inset-[82.14%_7.4%_14.48%_87.26%]" data-node-id="2:7989" data-name="Group">
                   <div className="absolute contents inset-[82.14%_7.4%_14.48%_87.26%]" data-node-id="2:7990" data-name="Group">
                     <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[82.14%_7.4%_14.48%_87.26%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_86,10.86px)] text-right whitespace-nowrap" data-node-id="2:7991">
                       NOV 2025
@@ -730,21 +691,21 @@ function PerfComponent1({ className, variant = "26" }) {
                   <div className="absolute contents inset-[86.62%_72.46%_9.55%_16.83%]" data-node-id="2:8131" data-name="Group">
                     <div className="absolute contents inset-[86.62%_72.46%_9.55%_16.83%]" data-node-id="2:8132" data-name="Group">
                       <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[86.62%_72.46%_9.55%_16.83%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_87,10.871px)] text-center whitespace-nowrap" data-node-id="2:8133">
-                        DECAGON
+                        SPARSE
                       </p>
                     </div>
                   </div>
                   <div className="absolute contents inset-[86.62%_38.83%_9.55%_44.71%]" data-node-id="2:8134" data-name="Group">
                     <div className="absolute contents inset-[86.62%_38.83%_9.55%_44.71%]" data-node-id="2:8135" data-name="Group">
                       <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[86.62%_38.83%_9.55%_44.71%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/-60\%,rgba(0,0,0,0.6))] text-[length:var(--font-size\/10_87,10.871px)] text-center whitespace-nowrap" data-node-id="2:8136">
-                        FORETHOUGHT
+                        MODERATE
                       </p>
                     </div>
                   </div>
                   <div className="absolute contents inset-[86.62%_14.73%_9.55%_81.7%]" data-node-id="2:8137" data-name="Group">
                     <div className="absolute contents inset-[86.62%_14.73%_9.55%_81.7%]" data-node-id="2:8138" data-name="Group">
                       <p className="absolute font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] inset-[86.62%_14.73%_9.55%_81.7%] leading-[normal] not-italic opacity-[var(--opacity\/100,1)] text-[color:var(--color\/black\/solid,black)] text-[length:var(--font-size\/10_87,10.871px)] text-center whitespace-nowrap" data-node-id="2:8139">
-                        FIN
+                        ALL
                       </p>
                     </div>
                   </div>
@@ -887,7 +848,7 @@ function PerfComponent1({ className, variant = "26" }) {
           </div>
         </div>
       )}
-      {is30 && (
+      {false && is30 && (
         <div className="absolute contents inset-0" data-node-id="2:8211" data-name="Clip path group">
           <div className="absolute contents inset-0" data-node-id="2:8203" data-name="Group">
             <div className="absolute contents inset-0" data-node-id="2:8208" data-name="Mask group">
@@ -944,20 +905,20 @@ function PerfSection() {
       <div className="border-[var(--color\/grey\/76,#c5c5c1)] border-b-[length:var(--stroke-weight\/1,1px)] border-solid content-stretch flex gap-[var(--line-height\/16,16px)] items-center pb-[13px] pt-[8px] relative shrink-0 w-full" data-node-id="2:19123" data-name="span.font-mono">
         <div className="bg-[var(--color\/orange\/50,#ff5600)] relative shrink-0 size-[6px]" data-node-id="2:19124" data-name="::before" />
         <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[10.5px] text-[color:var(--color\/black\/solid,black)] tracking-[var(--letter-spacing\/1_5,1.504px)] uppercase whitespace-nowrap" data-node-id="2:19125">
-          <p className="leading-[var(--line-height\/14,14px)]">Unrivaled Performance</p>
+          <p className="leading-[var(--line-height\/14,14px)]">How it works</p>
         </div>
       </div>
       <div className="content-stretch flex flex-col gap-[var(--item-spacing\/64,64px)] items-start relative shrink-0 w-full" data-node-id="2:19126" data-name="div">
         <div className="content-stretch flex gap-[var(--item-spacing\/168_98,0px)] items-end justify-between pr-[0.01px] relative shrink-0 w-full" data-node-id="2:19127" data-name="h3.text-current">
           <div className="content-stretch flex flex-col items-start max-w-[544.7520141601562px] pr-[10.1px] relative shrink-0" data-node-id="2:19129" data-name="span.block">
             <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Light',sans-serif)] font-[var(--font-weight\/300,300)] justify-center leading-[0] not-italic relative shrink-0 text-[71.4px] text-[color:var(--color\/black\/solid,black)] tracking-[var(--letter-spacing\/-3_01,-3.008px)] whitespace-nowrap" data-node-id="2:19131">
-              <p className="leading-[var(--line-height\/72,72px)] mb-0">Txlemetry outperforms</p>
-              <p className="leading-[var(--line-height\/72,72px)]">every competitor.</p>
+              <p className="leading-[var(--line-height\/72,72px)] mb-0">Grounded in your</p>
+              <p className="leading-[var(--line-height\/72,72px)]">own event data.</p>
             </div>
           </div>
           <div className="content-stretch flex flex-col items-start relative shrink-0" data-node-id="2:19133" data-name="span.block">
             <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Light',sans-serif)] font-[var(--font-weight\/300,300)] justify-center leading-[0] not-italic relative shrink-0 text-[color:var(--color\/black\/solid,black)] text-[length:var(--line-height\/72,72px)] tracking-[var(--letter-spacing\/-3_01,-3.008px)] whitespace-nowrap" data-node-id="2:19134">
-              <p className="leading-[var(--line-height\/72,72px)]">Every time.</p>
+              <p className="leading-[var(--line-height\/72,72px)]">No guessing.</p>
             </div>
           </div>
         </div>
@@ -973,7 +934,7 @@ function PerfSection() {
                   </div>
                   <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative self-stretch" data-node-id="2:19143" data-name="span.flex-1">
                     <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[10.7px] text-[color:var(--color\/black\/solid,black)] tracking-[var(--letter-spacing\/1_5,1.504px)] uppercase w-full" data-node-id="2:19144">
-                      <p className="leading-[var(--line-height\/14,14px)]">Txlemetry’s average resolution rate increases 1% every month</p>
+                      <p className="leading-[var(--line-height\/14,14px)]">Illustrative — how a question moves through Txlemetry AI</p>
                     </div>
                   </div>
                 </div>
@@ -1026,7 +987,7 @@ function PerfSection() {
                   </div>
                   <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative self-stretch" data-node-id="2:19379" data-name="span.flex-1">
                     <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[10.7px] text-[color:var(--color\/black\/solid,black)] tracking-[var(--letter-spacing\/1_5,1.504px)] uppercase w-full" data-node-id="2:19380">
-                      <p className="leading-[var(--line-height\/14,14px)]">Txlemetry wins every head-to-head test ON RESOLUTION RATE</p>
+                      <p className="leading-[var(--line-height\/14,14px)]">Illustrative — how answer confidence scales with context</p>
                     </div>
                   </div>
                 </div>
@@ -1073,10 +1034,10 @@ function PerfSection() {
                       <div className="content-stretch flex flex-col items-start pb-[268px] relative shrink-0" data-node-id="2:19463" data-name="div.col-span-10">
                         <div className="content-stretch flex flex-col items-start pr-[16px] relative shrink-0 w-full" data-node-id="2:19464" data-name="p.font-sans">
                           <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.9px] text-[color:var(--color\/grey\/38,#626260)] tracking-[var(--stroke-weight\/0_5,0.499px)] whitespace-nowrap" data-node-id="2:19465">
-                            <p className="leading-[var(--font-size\/18,18px)] mb-0">Resolution rate based</p>
-                            <p className="leading-[var(--font-size\/18,18px)] mb-0">on independent</p>
-                            <p className="leading-[var(--font-size\/18,18px)] mb-0">testing conducted by</p>
-                            <p className="leading-[var(--font-size\/18,18px)]">Txlemetry customers.</p>
+                            <p className="leading-[var(--font-size\/18,18px)] mb-0">Conceptual diagram,</p>
+                            <p className="leading-[var(--font-size\/18,18px)] mb-0">not a benchmark</p>
+                            <p className="leading-[var(--font-size\/18,18px)] mb-0">or a specific</p>
+                            <p className="leading-[var(--font-size\/18,18px)]">customer's result.</p>
                           </div>
                         </div>
                       </div>
@@ -1095,7 +1056,7 @@ function PerfSection() {
                   </div>
                   <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative self-stretch" data-node-id="2:19473" data-name="span.flex-1">
                     <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[10.3px] text-[color:var(--color\/black\/solid,black)] tracking-[var(--letter-spacing\/1_5,1.504px)] uppercase w-full" data-node-id="2:19474">
-                      <p className="leading-[var(--line-height\/14,14px)]">Fintech Customer</p>
+                      <p className="leading-[var(--line-height\/14,14px)]">Customer story</p>
                     </div>
                   </div>
                 </div>
@@ -1104,7 +1065,7 @@ function PerfSection() {
                 <div className="h-[101px] relative shrink-0 w-[85px] z-[7]" data-node-id="2:19476" data-name="div.mb-4:margin">
                   <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pb-[16px] relative size-full">
                     <div className="content-stretch flex items-start justify-center overflow-clip relative shrink-0" data-node-id="2:19477" data-name="div.overflow-hidden">
-                      <div className="max-w-[85px] relative shrink-0 size-[85px]" data-node-id="2:19478" data-name="A headshot of Angelo Livanos, Senior Director at Lightspeed">
+                      <div className="max-w-[85px] relative shrink-0 size-[85px]" data-node-id="2:19478" data-name="A headshot of Angelo Livanos, Head of Product at Northwind">
                         <div className="absolute inset-0 overflow-hidden pointer-events-none">
                           <img loading="lazy" decoding="async" alt="" className="absolute left-0 max-w-none size-full top-0" src={PerfImgAHeadshotOfAngeloLivanosSeniorDirectorAtLightspeed} />
                         </div>
@@ -1168,16 +1129,16 @@ function PerfSection() {
                   <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col gap-[var(--item-spacing\/20_01,20.01px)] items-start relative size-full">
                     <div className="h-[223.34px] relative shrink-0 w-full" data-node-id="2:19499" data-name="p.text-current">
                       <div className="-translate-y-1/2 absolute flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Light',sans-serif)] font-[var(--font-weight\/300,300)] h-[128px] justify-center leading-[0] left-0 not-italic text-[21.9px] text-[color:var(--color\/black\/solid,black)] top-[63.36px] w-[252.06px]" data-node-id="2:19500">
-                        <p className="leading-[var(--line-height\/31_92,31.92px)] mb-0">“Txlemetry is in a completely</p>
-                        <p className="leading-[var(--line-height\/31_92,31.92px)] mb-0">different league. It’s now</p>
-                        <p className="leading-[var(--line-height\/31_92,31.92px)] mb-0">involved in 99% of</p>
-                        <p className="leading-[var(--line-height\/31_92,31.92px)]">conversations and</p>
+                        <p className="leading-[var(--line-height\/31_92,31.92px)] mb-0">“We used to wait on a</p>
+                        <p className="leading-[var(--line-height\/31_92,31.92px)] mb-0">data analyst for every</p>
+                        <p className="leading-[var(--line-height\/31_92,31.92px)] mb-0">question. Now Txlemetry</p>
+                        <p className="leading-[var(--line-height\/31_92,31.92px)]">AI</p>
                       </div>
                       <div className="absolute bg-[var(--color\/orange\/50,#ff5600)] h-[92.81px] left-0 top-[128.63px] w-[285.38px]" data-node-id="2:19503" data-name="span.bg-orange">
                         <div className="-translate-y-1/2 absolute flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Light',sans-serif)] font-[var(--font-weight\/300,300)] h-[96px] justify-center leading-[0] left-0 not-italic text-[22.3px] text-[color:var(--color\/black\/solid,black)] top-[46.4px] w-[285.58px]" data-node-id="2:19504">
-                          <p className="leading-[var(--line-height\/31_92,31.92px)] mb-0">successfully resolves up to</p>
-                          <p className="leading-[var(--line-height\/31_92,31.92px)] mb-0">65% end-to-end—even the</p>
-                          <p className="leading-[var(--line-height\/31_92,31.92px)]">more complex ones.</p>
+                          <p className="leading-[var(--line-height\/31_92,31.92px)] mb-0">answers most of them</p>
+                          <p className="leading-[var(--line-height\/31_92,31.92px)] mb-0">directly, and the team</p>
+                          <p className="leading-[var(--line-height\/31_92,31.92px)]">still owns the follow-up.</p>
                         </div>
                       </div>
                       <div className="-translate-y-1/2 absolute flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Light',sans-serif)] font-[var(--font-weight\/300,300)] h-[32px] justify-center leading-[0] left-[205.14px] not-italic text-[color:var(--color\/black\/solid,black)] text-[length:var(--line-height\/24,24px)] top-[206.94px] w-[8.47px]" data-node-id="2:19506">
@@ -1186,8 +1147,8 @@ function PerfSection() {
                     </div>
                     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="2:19508" data-name="p.font-sans">
                       <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[13px] text-[color:var(--color\/grey\/38,#626260)] tracking-[var(--stroke-weight\/0_5,0.499px)] w-full" data-node-id="2:19509">
-                        <p className="leading-[var(--font-size\/18,18px)] mb-0">Angelo Livanos, Vice President of Global</p>
-                        <p className="leading-[var(--font-size\/18,18px)]">Support at Lightspeed</p>
+                        <p className="leading-[var(--font-size\/18,18px)] mb-0">Angelo Livanos, Head of</p>
+                        <p className="leading-[var(--font-size\/18,18px)]">Product, Northwind</p>
                       </div>
                     </div>
                   </div>
@@ -1226,15 +1187,15 @@ function PerfSection() {
                         <div className="absolute content-stretch flex flex-col gap-[var(--item-spacing\/-1,0px)] items-start justify-between left-0 pb-[33px] pt-[32px] px-[32px] top-0 w-[1058.66px]" data-node-id="2:19530" data-name="div.absolute">
                           <div className="content-stretch flex flex-col items-start mb-[-1px] pb-[16px] relative shrink-0 w-full" data-node-id="2:19532" data-name="div.mb-2:margin">
                             <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="2:19533" data-name="div.mb-2">
-                              <PerfComponent1 className="h-[20px] overflow-clip relative shrink-0 w-[178.33px]" variant="30" />
+                              <div className="h-[20px] overflow-clip relative shrink-0 flex items-center" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600, fontSize: 16, letterSpacing: '-0.3px', color: 'white' }}>Northwind</div>
                             </div>
                           </div>
                           <div className="content-stretch flex flex-col items-start mb-[-1px] pr-[44.77px] relative shrink-0" data-node-id="2:19544" data-name="p.text-current">
                             <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Light',sans-serif)] font-[var(--font-weight\/300,300)] justify-center leading-[0] not-italic relative shrink-0 text-[29.1px] text-[color:var(--color\/white\/solid,white)] tracking-[var(--letter-spacing\/-0_4,-0.4px)] whitespace-nowrap" data-node-id="2:19545">
-                              <p className="leading-[var(--line-height\/35,35px)] mb-0">“If you’re debating whether to build</p>
-                              <p className="leading-[var(--line-height\/35,35px)] mb-0">your own AI solution or buy one, my</p>
-                              <p className="leading-[var(--line-height\/35,35px)] mb-0">advice would be to buy – and</p>
-                              <p className="leading-[var(--line-height\/35,35px)]">specifically, buy Txlemetry.”</p>
+                              <p className="leading-[var(--line-height\/35,35px)] mb-0">“Building our own natural-language</p>
+                              <p className="leading-[var(--line-height\/35,35px)] mb-0">layer over the warehouse would have</p>
+                              <p className="leading-[var(--line-height\/35,35px)] mb-0">taken us a year. Txlemetry AI gave us</p>
+                              <p className="leading-[var(--line-height\/35,35px)]">the same thing on day one.”</p>
                             </div>
                           </div>
                         </div>
@@ -1275,7 +1236,7 @@ function PerfSection() {
                   <div className="bg-[var(--color\/azure\/13,#161e2e)] h-[80.25px] relative rounded-[4px] shrink-0 w-[107px]" data-node-id="2:19580" data-name="div.relative">
                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[inherit] size-full">
                       <div className="content-stretch flex flex-[1_0_0] flex-col h-full items-start min-w-px overflow-clip relative" data-node-id="2:19583" data-name="div.overflow-hidden">
-                        <div className="flex-[1_0_0] min-h-px relative w-[107px]" data-node-id="2:19584" data-name="Build vs. buy: Why Anthropic chose Txlemetry">
+                        <div className="flex-[1_0_0] min-h-px relative w-[107px]" data-node-id="2:19584" data-name="Build vs. buy: Why Northwind chose Txlemetry AI">
                           <div className="absolute inset-0 overflow-hidden pointer-events-none">
                             <img loading="lazy" decoding="async" alt="" className="absolute h-full left-[-4.69%] max-w-none top-0 w-[109.37%]" src={PerfImgVideoThumbnail} />
                           </div>
@@ -1293,7 +1254,7 @@ function PerfSection() {
                       <div className="col-1 h-[47.88px] overflow-clip relative row-2 shrink-0 w-[203.88px]" data-node-id="2:19589" data-name="span.font-sans">
                         <div className="-translate-y-1/2 absolute flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] h-[48px] justify-center leading-[0] left-0 not-italic text-[16.7px] text-[color:var(--color\/black\/solid,black)] top-[22.97px] w-[157.53px]" data-node-id="2:19590">
                           <p className="leading-[var(--line-height\/23_94,23.94px)] mb-0">Build vs. buy: Why</p>
-                          <p className="leading-[var(--line-height\/23_94,23.94px)]">Anthropic chose Txlemetry</p>
+                          <p className="leading-[var(--line-height\/23_94,23.94px)]">Northwind chose it</p>
                         </div>
                       </div>
                     </div>
@@ -1308,7 +1269,7 @@ function PerfSection() {
                   <div className="bg-[var(--color\/azure\/13,#161e2e)] h-[80.25px] relative rounded-[4px] shrink-0 w-[107px]" data-node-id="2:19596" data-name="div.relative">
                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[inherit] size-full">
                       <div className="content-stretch flex flex-[1_0_0] flex-col h-full items-start min-w-px overflow-clip relative" data-node-id="2:19597" data-name="div.overflow-hidden">
-                        <div className="flex-[1_0_0] min-h-px relative w-[107px]" data-node-id="2:19598" data-name="AI at enterprise scale: Why Lightspeed chose Txlemetry">
+                        <div className="flex-[1_0_0] min-h-px relative w-[107px]" data-node-id="2:19598" data-name="AI at enterprise scale: Why Corewave chose Txlemetry AI">
                           <div className="absolute inset-0 overflow-hidden pointer-events-none">
                             <img loading="lazy" decoding="async" alt="" className="absolute h-full left-[-4.7%] max-w-none top-0 w-[109.4%]" src={PerfImgAiAtEnterpriseScaleWhyLightspeedChoseFin} />
                           </div>
@@ -1326,7 +1287,7 @@ function PerfSection() {
                       <div className="col-1 h-[47.88px] overflow-clip relative row-2 shrink-0 w-[203.89px]" data-node-id="2:19603" data-name="span.font-sans">
                         <div className="-translate-y-1/2 absolute flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] h-[48px] justify-center leading-[0] left-0 not-italic text-[16.9px] text-[color:var(--color\/black\/solid,black)] top-[22.97px] w-[182.75px]" data-node-id="2:19604">
                           <p className="leading-[var(--line-height\/23_94,23.94px)] mb-0">AI at enterprise scale:</p>
-                          <p className="leading-[var(--line-height\/23_94,23.94px)]">Why Lightspeed chose</p>
+                          <p className="leading-[var(--line-height\/23_94,23.94px)]">Why Corewave chose it</p>
                         </div>
                       </div>
                     </div>
@@ -1341,7 +1302,7 @@ function PerfSection() {
                   <div className="bg-[var(--color\/azure\/13,#161e2e)] h-[80.25px] relative rounded-[4px] shrink-0 w-[107px]" data-node-id="2:19610" data-name="div.relative">
                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center justify-center overflow-clip relative rounded-[inherit] size-full">
                       <div className="content-stretch flex flex-[1_0_0] flex-col h-full items-start min-w-px overflow-clip relative" data-node-id="2:19611" data-name="div.overflow-hidden">
-                        <div className="flex-[1_0_0] min-h-px relative w-[107px]" data-node-id="2:19612" data-name="How Rocket Money operationalized AI">
+                        <div className="flex-[1_0_0] min-h-px relative w-[107px]" data-node-id="2:19612" data-name="How Lumina operationalized Txlemetry AI">
                           <div className="absolute inset-0 overflow-hidden pointer-events-none">
                             <img loading="lazy" decoding="async" alt="" className="absolute h-full left-[-4.7%] max-w-none top-0 w-[109.4%]" src={PerfImgHowRocketMoneyOperationalizedAi} />
                           </div>
@@ -1358,8 +1319,8 @@ function PerfSection() {
                       </div>
                       <div className="col-1 h-[47.88px] overflow-clip relative row-2 shrink-0 w-[203.89px]" data-node-id="2:19616" data-name="span.font-sans">
                         <div className="-translate-y-1/2 absolute flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] h-[48px] justify-center leading-[0] left-0 not-italic text-[17px] text-[color:var(--color\/black\/solid,black)] top-[22.97px] w-[156.34px]" data-node-id="2:19617">
-                          <p className="leading-[var(--line-height\/23_94,23.94px)] mb-0">How Rocket Money</p>
-                          <p className="leading-[var(--line-height\/23_94,23.94px)]">operationalized AI</p>
+                          <p className="leading-[var(--line-height\/23_94,23.94px)] mb-0">How Lumina</p>
+                          <p className="leading-[var(--line-height\/23_94,23.94px)]">operationalized it</p>
                         </div>
                       </div>
                     </div>
@@ -1417,13 +1378,14 @@ function PerfSection() {
   const IntegImgVector30 = "/v2/assets/8ead377c-3c6f-4d74-af11-938dae107d58.svg";
   const IntegImgVector31 = "/v2/assets/4713dbbe-6273-4e21-904b-fb4ff9a66cc9.svg";
   const IntegImgDivRelative = "/v2/assets/65a821d2-8bc1-401c-9267-368a9daa2cfa.svg";
-  const IntegImgVector32 = "/v2/assets/4ca20428-13bd-4f57-935d-cd25c7596bf5.svg";
-  const IntegImgVector33 = "/v2/assets/8c9773c7-6ae0-4873-a811-2986b0543d23.svg";
-  const IntegImgVector34 = "/v2/assets/e8921259-df17-41fb-a21d-d94e5961b6b2.svg";
-  const IntegImgVector35 = "/v2/assets/68823fd6-5578-4654-a8ce-0c227745607e.svg";
-  const IntegImgVector36 = "/v2/assets/49e3e830-28b8-4a31-b9ee-db5cbd78f6c3.svg";
-  const IntegImgVector37 = "/v2/assets/5e7f270d-3ac2-4b6d-8813-4ae5d828c3e4.svg";
-  const IntegImgVector38 = "/v2/assets/3638558a-cbbf-425b-b8d6-beb04a056894.svg";
+  const TRANSPARENT_PIXEL = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7";
+  const IntegImgVector32 = TRANSPARENT_PIXEL;
+  const IntegImgVector33 = TRANSPARENT_PIXEL;
+  const IntegImgVector34 = TRANSPARENT_PIXEL;
+  const IntegImgVector35 = TRANSPARENT_PIXEL;
+  const IntegImgVector36 = TRANSPARENT_PIXEL;
+  const IntegImgVector37 = TRANSPARENT_PIXEL;
+  const IntegImgVector38 = TRANSPARENT_PIXEL;
 
 
 
@@ -1511,7 +1473,7 @@ function IntegComponent1({ className, variant = "35" }) {
           {["35", "36", "37", "38", "69"].includes(variant) && <img loading="lazy" decoding="async" alt="" className="absolute block inset-0 max-w-none size-full" src={is69 ? IntegImgVector11 : IntegImgVector} />}
         </div>
       )}
-      {["53", "57", "61", "81", "85", "93", "97", "101"].includes(variant) && (
+      {false && ["53", "57", "61", "81", "85", "93", "97", "101"].includes(variant) && (
         <div className={`absolute contents ${is101 ? "inset-[1.31%_1.02%_3.24%_1.02%]" : is97 ? "inset-[2.07%_0.34%_1.99%_0.18%]" : is93 ? "inset-[2.82%_0.86%_2.72%_0.32%]" : is85 ? "inset-[2.37%_0.18%_2.23%_1.03%]" : is81 ? "inset-[0.35%_0.31%_0.21%_0.84%]" : is61 ? "inset-[1.44%_0.04%_3.56%_0.04%]" : is57 ? "inset-[4.35%_0.68%_4.2%_0.17%]" : "inset-[1.79%_0.06%_1.71%_1.16%]"}`} id={is101 ? "node-2_8492" : is97 ? "node-2_8473" : is93 ? "node-2_8455" : is85 ? "node-2_8425" : is81 ? "node-2_8407" : is61 ? "node-2_8331" : is57 ? "node-2_8310" : "node-2_8292"} data-name="Clip path group">
           <div className={`absolute contents ${is101 ? "inset-[13.79%_1.78%_12.78%_1.82%]" : is97 ? "inset-[10.56%_0.15%_6.86%_0]" : is93 ? "inset-[2.81%_0.86%_5.59%_0.32%]" : is85 ? "inset-[1.4%_3.98%_2.39%_1.03%]" : is81 ? "inset-[0.36%_0.76%_2.48%_0.85%]" : is61 ? "inset-[2.88%_0.04%_4.68%_0.04%]" : is57 ? "inset-[4.35%_0.68%_4.2%_0.17%]" : "inset-[2.8%_1.46%_2.68%_3.15%]"}`} id={is101 ? "node-2_8486" : is97 ? "node-2_8468" : is93 ? "node-2_8450" : is85 ? "node-2_8420" : is81 ? "node-2_8403" : is61 ? "node-2_8323" : is57 ? "node-2_8306" : "node-2_8288"} data-name="Group">
             {["53", "57", "81", "85", "93", "97", "101"].includes(variant) && (
@@ -1541,7 +1503,7 @@ function IntegComponent1({ className, variant = "35" }) {
           </div>
         </div>
       )}
-      {is73 && (
+      {false && is73 && (
         <>
           <div className="absolute contents inset-[1.17%_0.98%_1.12%_0.08%]" data-node-id="2:8374" data-name="Mask group">
             <div className="absolute contents inset-[1.2%_1.04%_0.82%_-0.03%]" data-node-id="2:8370" data-name="Group">
@@ -1558,7 +1520,7 @@ function IntegComponent1({ className, variant = "35" }) {
           </div>
         </>
       )}
-      {is107 && (
+      {false && is107 && (
         <div className="absolute contents inset-[0.3%_0.16%_0.3%_0.05%]" data-node-id="2:8511" data-name="fin-text_svg__Layer_1">
           <div className="absolute inset-[0.3%_0.16%_0.3%_0.05%] opacity-[var(--opacity\/100,1)]" data-node-id="2:8512" data-name="Vector">
             <img loading="lazy" decoding="async" alt="" className="absolute block inset-0 max-w-none size-full" src={IntegImgVector31} />
@@ -1575,15 +1537,15 @@ function IntegSection() {
       <div className="border-[var(--color\/azure\/26,#393f4b)] border-b-[length:var(--stroke-weight\/1,1px)] border-solid content-stretch flex gap-[var(--line-height\/16,16px)] items-center pb-[13px] pt-[8px] relative shrink-0 w-full" data-node-id="2:19626" data-name="span.font-mono">
         <div className="bg-[var(--color\/orange\/50,#ff5600)] relative shrink-0 size-[6px]" data-node-id="2:19629" data-name="::before" />
         <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[10.8px] text-[color:var(--color\/white\/solid,white)] tracking-[var(--letter-spacing\/1_5,1.504px)] uppercase whitespace-nowrap" data-node-id="2:19630">
-          <p className="leading-[var(--line-height\/14,14px)]">Seamless integration</p>
+          <p className="leading-[var(--line-height\/14,14px)]">Built into the platform</p>
         </div>
       </div>
       <div className="h-[599.09px] relative shrink-0 w-full" data-node-id="2:19631" data-name="div.justify-items-center">
         <div className="absolute content-stretch flex flex-col gap-[var(--line-height\/24,24px)] items-start left-0 top-0" data-node-id="2:19632" data-name="hgroup.col-span-10">
           <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-node-id="2:19633" data-name="h3.text-current">
             <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Light',sans-serif)] font-[var(--font-weight\/300,300)] justify-center leading-[0] not-italic relative shrink-0 text-[color:var(--color\/white\/solid,white)] text-[length:var(--font-size\/54,54px)] tracking-[var(--letter-spacing\/-3_01,-3.008px)] whitespace-nowrap" data-node-id="2:19634">
-              <p className="leading-[var(--font-size\/54,54px)] mb-0">Txlemetry works with any</p>
-              <p className="leading-[var(--font-size\/54,54px)]">analytics platform</p>
+              <p className="leading-[var(--font-size\/54,54px)] mb-0">Txlemetry AI works across</p>
+              <p className="leading-[var(--font-size\/54,54px)]">your whole workspace</p>
             </div>
           </div>
           <div className="font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] h-[71.81px] leading-[0] not-italic relative shrink-0 w-full" data-node-id="2:19637" data-name="p.font-sans">
@@ -1591,11 +1553,11 @@ function IntegSection() {
               <p className="leading-[var(--line-height\/14,14px)]">03</p>
             </div>
             <div className="-translate-y-1/2 absolute flex flex-col h-[24px] justify-center left-[52.86px] text-[16.3px] text-[color:var(--color\/white\/solid,white)] top-[11px] w-[337.14px]" data-node-id="2:19641">
-              <p className="leading-[var(--line-height\/23_94,23.94px)]">Set up Txlemetry with your existing analytics platform or as</p>
+              <p className="leading-[var(--line-height\/23_94,23.94px)]">Txlemetry AI reads the same events and</p>
             </div>
             <div className="-translate-y-1/2 absolute flex flex-col h-[48px] justify-center left-0 text-[16.3px] text-[color:var(--color\/white\/solid,white)] top-[46.91px] w-[418.89px]" data-node-id="2:19643">
-              <p className="leading-[var(--line-height\/23_94,23.94px)] mb-0">part of the Txlemetry Customer Service Suite—with</p>
-              <p className="leading-[var(--line-height\/23_94,23.94px)]">support for additional platforms and custom channels.</p>
+              <p className="leading-[var(--line-height\/23_94,23.94px)] mb-0">dashboards you already have — no separate</p>
+              <p className="leading-[var(--line-height\/23_94,23.94px)]">data model to maintain and no migration required.</p>
             </div>
           </div>
         </div>
@@ -1614,7 +1576,7 @@ function IntegSection() {
                   </div>
                   <div className="content-stretch flex flex-col items-start relative shrink-0" data-node-id="2:19653" data-name="span.font-sans">
                     <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.9px] text-[color:var(--color\/grey\/82,#cecfd2)] tracking-[var(--stroke-weight\/0_5,0.499px)] whitespace-nowrap" data-node-id="2:19654">
-                      <p className="leading-[var(--font-size\/18,18px)]">Set up in under an hour.</p>
+                      <p className="leading-[var(--font-size\/18,18px)]">No separate onboarding project.</p>
                     </div>
                   </div>
                 </div>
@@ -1628,8 +1590,8 @@ function IntegSection() {
                   </div>
                   <div className="content-stretch flex flex-col items-start pr-[3.33px] relative shrink-0" data-node-id="2:19660" data-name="span.font-sans">
                     <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.7px] text-[color:var(--color\/grey\/82,#cecfd2)] tracking-[var(--stroke-weight\/0_5,0.499px)] whitespace-nowrap" data-node-id="2:19661">
-                      <p className="leading-[var(--font-size\/18,18px)] mb-0">Integrates into your current support channels—tickets, email,</p>
-                      <p className="leading-[var(--font-size\/18,18px)]">live chat, and more.</p>
+                      <p className="leading-[var(--font-size\/18,18px)] mb-0">Reads events, properties and cohorts already flowing</p>
+                      <p className="leading-[var(--font-size\/18,18px)]">through your product—no new tracking plan.</p>
                     </div>
                   </div>
                 </div>
@@ -1643,8 +1605,8 @@ function IntegSection() {
                   </div>
                   <div className="content-stretch flex flex-col items-start pr-[29px] relative shrink-0" data-node-id="2:19667" data-name="span.font-sans">
                     <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.7px] text-[color:var(--color\/grey\/82,#cecfd2)] tracking-[var(--stroke-weight\/0_5,0.499px)] whitespace-nowrap" data-node-id="2:19668">
-                      <p className="leading-[var(--font-size\/18,18px)] mb-0">Follows your existing assignment rules, automations, and</p>
-                      <p className="leading-[var(--font-size\/18,18px)]">reporting.</p>
+                      <p className="leading-[var(--font-size\/18,18px)] mb-0">Surfaces results inside your existing dashboards,</p>
+                      <p className="leading-[var(--font-size\/18,18px)]">reports and Slack alerts.</p>
                     </div>
                   </div>
                 </div>
@@ -1656,7 +1618,7 @@ function IntegSection() {
               </div>
               <div className="content-stretch flex flex-col items-start relative shrink-0" data-node-id="2:19673" data-name="span.font-sans">
                 <div className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[12.7px] text-[color:var(--color\/grey\/82,#cecfd2)] tracking-[var(--stroke-weight\/0_5,0.499px)] whitespace-nowrap" data-node-id="2:19674">
-                  <p className="leading-[var(--font-size\/18,18px)]">Escalates to agents in your preferred inbox.</p>
+                  <p className="leading-[var(--font-size\/18,18px)]">Hands off structured summaries, not just raw data.</p>
                 </div>
               </div>
             </div>
@@ -2306,10 +2268,10 @@ function IntegSection() {
             </div>
           </div>
         </div>
-        <div className="absolute content-stretch flex flex-wrap gap-[var(--line-height\/16,0px_16px)] h-[20px] items-start left-0 right-[44%] top-[509.81px]" data-node-id="2:20025" data-name="div.hidden">
+        <div className="hidden absolute content-stretch flex flex-wrap gap-[var(--line-height\/16,0px_16px)] h-[20px] items-start left-0 right-[44%] top-[509.81px]" data-node-id="2:20025" data-name="div.hidden">
           <div className="bg-white content-stretch flex flex-col h-full items-start pb-[4px] relative shrink-0" data-node-id="2:20026" data-name="Component 8">
             <a className="flex flex-col font-[family-name:var(--font-family\/font-1,'Inter:Regular',sans-serif)] font-[var(--font-weight\/400,400)] justify-center leading-[0] not-italic relative shrink-0 text-[14.9px] text-[color:var(--color\/white\/solid,white)] whitespace-nowrap" onClick={() => TxlemetryV2.navigate('/demo')}>
-              <p className="cursor-pointer leading-[var(--line-height\/16,16px)]">Txlemetry Suite</p>
+              <p className="cursor-pointer leading-[var(--line-height\/16,16px)]">Txlemetry AI</p>
             </a>
           </div>
           <div className="bg-white content-stretch flex flex-col h-full items-start pb-[4px] relative shrink-0" data-node-id="2:20028" data-name="Component 8">
@@ -2340,14 +2302,14 @@ const techEngineSchematic = "/assets/txl/card-10.png";
 
 const ENGINE_STEPS = [
   { num: '4.a.1', title: 'Refine the query',         desc: 'In order to optimize the accuracy of an answer that an LLM generates, the inputs the LLM receives must be refined for comprehension.', side: 'left'  },
-  { num: '4.a.2', title: 'Retrieve relevant content', desc: 'The retrieval process, powered by our proprietary clain-cx-retrieval model, searches across all knowledge sources and selects the most relevant information for accurate answers.', side: 'right' },
-  { num: '4.a.3', title: 'Rerank for precision',     desc: 'The reranking process, powered by our proprietary clain-cx-reranker model, scores retrieved content for relevance and accuracy, then selects the optimal pieces for the LLM to use.', side: 'left'  },
-  { num: '4.a.4', title: 'Generate a response',      desc: 'Txlemetry Apex 1.0 is the generative core of Txlemetry. It takes the most relevant content retrieved and ranked by the Txlemetry model suite, applies your configured policies, and produces a direct answer or decides the question needs a human.', side: 'right', highlight: true },
+  { num: '4.a.2', title: 'Retrieve relevant content', desc: 'The retrieval step searches across your events, dashboards and warehouse tables and selects the data most relevant to the question.', side: 'right' },
+  { num: '4.a.3', title: 'Rerank for precision',     desc: 'The reranking step scores retrieved data for relevance and recency, then selects the pieces most useful for a direct answer.', side: 'left'  },
+  { num: '4.a.4', title: 'Generate a response',      desc: 'Txlemetry Apex 1.0 is the generative core of Txlemetry AI. It takes the data retrieved and ranked in the steps above, applies your workspace permissions, and produces a direct answer or flags that it needs a human to double-check.', side: 'right', highlight: true },
   { num: '4.a.5', title: 'Validate accuracy',         desc: 'In the final step, the Txlemetry AI Engine™ checks whether the LLM output meets response accuracy and safety standards.', side: 'left'  },
   { num: '4.a.6', title: 'Engine optimization',       desc: 'To calibrate performance, the Txlemetry AI Engine™ uses integrated tools that optimize answer generation, efficiency, precision, and coverage.', side: 'right' },
 ];
 
-const CERTIFICATIONS = ['ISO 27001', 'ISO 27018', 'ISO 27701', 'GDPR Compliant', 'CCPA Compliant'];
+const CERTIFICATIONS = ['Encryption at rest', 'Regional data hosting', 'Audit logs', 'Role-based access', 'Data deletion tools'];
 
 function TechnologySection() {
   return (
@@ -2362,7 +2324,7 @@ function TechnologySection() {
         {/* Superior Technology label */}
         <div className="flex gap-[16px] items-center pt-[8px] pb-[13px]" style={{ borderBottom: '1px solid #393f4b' }}>
           <div className="size-[6px] rounded-full" style={{ background: '#ff5600' }} />
-          <p className="m-0 uppercase whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 11, lineHeight: '14px', letterSpacing: '1.504px', color: 'white' }}>Superior Technology</p>
+          <p className="m-0 uppercase whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 11, lineHeight: '14px', letterSpacing: '1.504px', color: 'white' }}>How it's built</p>
         </div>
 
         {/* Heading + description */}
@@ -2374,7 +2336,7 @@ function TechnologySection() {
           <div className="flex flex-col gap-[24px]">
             <div className="flex items-baseline gap-[40px]">
               <span style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>04</span>
-              <p className="m-0 max-w-[420px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 16, lineHeight: '23.94px', color: 'rgba(255,255,255,0.8)' }}>The Txlemetry AI Engine&trade; is a patented AI architecture specifically engineered for complex product analytics queries. Every layer is optimized for accuracy, speed, and reliability&mdash;so Txlemetry can resolve more conversations, more effectively than competing AI Agents.</p>
+              <p className="m-0 max-w-[420px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 16, lineHeight: '23.94px', color: 'rgba(255,255,255,0.8)' }}>The Txlemetry AI Engine&trade; is our internal architecture for turning a plain-English question into an answer grounded in your own events, dashboards and warehouse tables. Every layer is built specifically for product analytics workloads, not repurposed from a general-purpose chatbot.</p>
             </div>
             <button onClick={() => TxlemetryV2.navigate('/signup')} className="cursor-pointer self-start rounded-[6px] border-0 bg-white text-black px-[16px] py-[12px]" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14.4, lineHeight: '16px' }}>Start free trial</button>
           </div>
@@ -2420,7 +2382,7 @@ function TechnologySection() {
 
         {/* Trust certifications marquee */}
         <div className="mt-[80px]">
-          <p className="m-0 text-center" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>Trusted and fully certified</p>
+          <p className="m-0 text-center" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>Built with security in mind</p>
           <div className="mt-[24px] flex items-center justify-center gap-[40px] flex-wrap">
             {CERTIFICATIONS.map((c) => (
               <div key={c} className="size-[50px] rounded-full flex items-center justify-center text-center" style={{ border: '1px solid rgba(255,255,255,0.2)' }}>
@@ -2453,16 +2415,16 @@ const teamImgRatiZvirawa     = "/assets/txl/card-20.png";
 const teamImgGroupBg         = "/v2/assets/1ddbb51d-bcb4-4db4-87de-456bd5344c41.svg";
 
 const TEAM_MEMBERS = [
-  { name: 'Pratik Bothra',   role: ['Principal Machine', 'Learning Engineer'],   img: teamImgPratikBothra,   row: 0, col: 0 },
-  { name: 'Rob Clancy',      role: ['Principal Machine', 'Learning Engineer'],   img: teamImgRobClancy,      row: 0, col: 1 },
-  { name: 'Mario Kostelac',  role: ['Principal Machine', 'Learning Engineer'],   img: teamImgMarioKostelac,  row: 0, col: 2 },
-  { name: 'Molly Mahar',     role: ['Principal AI Designer'],                    img: teamImgMollyMahar,     row: 0, col: 3 },
-  { name: 'Brian McDonnell', role: ['Director, Engineering'],                    img: teamImgBrianMcDonnell, row: 0, col: 4 },
-  { name: 'Fedor Parfenov',  role: ['Staff Machine', 'Learning Scientist'],      img: teamImgFedorParfenov,  row: 1, col: 0 },
-  { name: 'Fergal Reid',     role: ['Chief AI Officer'],                          img: teamImgFergalReid,     row: 1, col: 1 },
-  { name: 'Pedro Tabacof',   role: ['Principal Machine', 'Learning Scientist'],  img: teamImgPedroTabacof,   row: 1, col: 2 },
-  { name: 'Alexey Tarasov',  role: ['Senior Manager, ML', 'Engineering'],        img: teamImgAlexeyTarasov,  row: 1, col: 3 },
-  { name: 'Rati Zvirawa',    role: ['Director, Product', 'Management'],          img: teamImgRatiZvirawa,    row: 1, col: 4 },
+  { name: 'Priya Deshmukh',  role: ['Principal Machine', 'Learning Engineer'],   img: teamImgPratikBothra,   row: 0, col: 0 },
+  { name: 'Owen Bellamy',    role: ['Principal Machine', 'Learning Engineer'],   img: teamImgRobClancy,      row: 0, col: 1 },
+  { name: 'Marta Kowalska',  role: ['Principal Machine', 'Learning Engineer'],   img: teamImgMarioKostelac,  row: 0, col: 2 },
+  { name: 'Nadia Farouk',    role: ['Principal AI Designer'],                    img: teamImgMollyMahar,     row: 0, col: 3 },
+  { name: 'Theo Vance',      role: ['Director, Engineering'],                    img: teamImgBrianMcDonnell, row: 0, col: 4 },
+  { name: 'Felix Adeyemi',   role: ['Staff Machine', 'Learning Scientist'],      img: teamImgFedorParfenov,  row: 1, col: 0 },
+  { name: 'Sana Yamamoto',   role: ['Head of AI'],                               img: teamImgFergalReid,     row: 1, col: 1 },
+  { name: 'Diego Alcántara', role: ['Principal Machine', 'Learning Scientist'],  img: teamImgPedroTabacof,   row: 1, col: 2 },
+  { name: 'Ines Solberg',    role: ['Senior Manager, ML', 'Engineering'],        img: teamImgAlexeyTarasov,  row: 1, col: 3 },
+  { name: 'Callum Reyes',    role: ['Director, Product', 'Management'],          img: teamImgRatiZvirawa,    row: 1, col: 4 },
 ];
 
 function AiTeamSection() {
@@ -2490,10 +2452,10 @@ function AiTeamSection() {
             </h3>
             <div className="max-w-[485px] w-[423.45px] relative" style={{ height: 143.63 }}>
               <p className="absolute m-0 uppercase" style={{ left: 0, top: 0, fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 11, lineHeight: '11px', letterSpacing: '0.5517px', color: 'rgba(255,255,255,0.8)' }}>05</p>
-              <p className="absolute m-0" style={{ left: 50.7, top: 0, width: 316.26, fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 16.6, lineHeight: '23.94px', color: 'rgba(255,255,255,0.8)' }}>The AI Group, an expert team of over 40</p>
+              <p className="absolute m-0" style={{ left: 50.7, top: 0, width: 316.26, fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 16.6, lineHeight: '23.94px', color: 'rgba(255,255,255,0.8)' }}>The AI Group is a dedicated team of</p>
               <div className="absolute" style={{ left: 0, top: 47.84, width: 416.61 }}>
-                <p className="m-0" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 16.3, lineHeight: '23.94px', color: 'rgba(255,255,255,0.8)' }}>machine learning scientists, engineers and designers,</p>
-                <p className="m-0" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 16.3, lineHeight: '23.94px', color: 'rgba(255,255,255,0.8)' }}>continuously optimize Txlemetry&rsquo;s performance through</p>
+                <p className="m-0" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 16.3, lineHeight: '23.94px', color: 'rgba(255,255,255,0.8)' }}>machine learning scientists, engineers and designers</p>
+                <p className="m-0" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 16.3, lineHeight: '23.94px', color: 'rgba(255,255,255,0.8)' }}>who continuously improve Txlemetry AI through</p>
                 <p className="m-0" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 16.3, lineHeight: '23.94px', color: 'rgba(255,255,255,0.8)' }}>cutting-edge research, experimentation, and</p>
                 <p className="m-0" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 16.3, lineHeight: '23.94px', color: 'rgba(255,255,255,0.8)' }}>innovation&mdash;and publish their insights in the <a onClick={() => TxlemetryV2.navigate('#')} style={{ color: 'rgba(255,255,255,0.8)', cursor: 'pointer', textDecoration: 'underline' }}>AI research blog</a>.</p>
               </div>
@@ -2561,12 +2523,12 @@ function PricingSection() {
         {/* Heading + Txlemetry Million Dollar Guarantee */}
         <div className="flex flex-col gap-[32px] pb-[48px]">
           <h2 className="m-0 text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 71, lineHeight: '72px', letterSpacing: '-3.6px' }}>
-            <span style={{ display: 'block' }}>Get the #1 AI Agent for</span>
-            <span style={{ display: 'block' }}>all your product analytics</span>
+            <span style={{ display: 'block' }}>Txlemetry AI, priced like</span>
+            <span style={{ display: 'block' }}>the rest of the platform</span>
           </h2>
           <div className="flex items-center pl-[16px] gap-[10px]">
             <svg width="12" height="11" viewBox="0 0 12 11" fill="none"><path d="M2 5.5L5 8.5L10 2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            <p className="m-0 uppercase whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 13.7, lineHeight: '14px', letterSpacing: '1.4px', color: 'white' }}>TXLEMETRY UPTIME GUARANTEE</p>
+            <p className="m-0 uppercase whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 13.7, lineHeight: '14px', letterSpacing: '1.4px', color: 'white' }}>TRANSPARENT USAGE-BASED PRICING</p>
             <div className="flex items-center justify-center size-[16px]" style={{ border: '1px solid #9c9fa5' }}>
               <svg width="5" height="9" viewBox="0 0 5 9" fill="none"><path d="M2.5 2v5" stroke="#9c9fa5" strokeWidth="1"/><circle cx="2.5" cy="0.8" r="0.5" fill="#9c9fa5"/></svg>
             </div>
@@ -2575,82 +2537,80 @@ function PricingSection() {
 
         {/* Two-card grid */}
         <div className="grid grid-cols-2 gap-[16px] pb-[40px]" style={{ minHeight: 478.41 }}>
-          {/* LEFT: Txlemetry with your current analytics platform */}
+          {/* LEFT: Txlemetry AI on pay-as-you-go */}
           <div className="relative px-[33px] pt-[40px] pb-[41px] flex flex-col" style={{ background: 'linear-gradient(to bottom, #020917 0%, rgba(2,9,23,0.01) 100%)', border: '1px solid rgba(255,255,255,0.4)', backdropFilter: 'blur(4px)' }}>
             <div className="flex flex-col items-start pb-[16px]">
               <p className="m-0 text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 29.1, lineHeight: '35.2px', letterSpacing: '-0.64px' }}>
-                <span style={{ display: 'block' }}>Txlemetry with your</span>
-                <span style={{ display: 'block' }}>current analytics platform</span>
+                <span style={{ display: 'block' }}>Txlemetry AI,</span>
+                <span style={{ display: 'block' }}>pay as you go</span>
               </p>
             </div>
             <div className="pb-[36px] w-[350px]">
-              <p className="m-0 whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 12.8, lineHeight: '18px', letterSpacing: '0.496px', color: '#9c9fa5' }}>Txlemetry AI Agent works seamlessly with any analytics platform,</p>
-              <p className="m-0 whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 12.8, lineHeight: '18px', letterSpacing: '0.496px', color: '#9c9fa5' }}>including Salesforce, HubSpot, and more.</p>
+              <p className="m-0 whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 12.8, lineHeight: '18px', letterSpacing: '0.496px', color: '#9c9fa5' }}>Txlemetry AI reads the same event data already in</p>
+              <p className="m-0 whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 12.8, lineHeight: '18px', letterSpacing: '0.496px', color: '#9c9fa5' }}>your workspace — nothing extra to connect.</p>
             </div>
             <div className="relative" style={{ height: 128 }}>
-              <p className="absolute m-0 text-white whitespace-nowrap" style={{ left: 0, bottom: 68, fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 60, lineHeight: '60px' }}>$0.99</p>
+              <p className="absolute m-0 text-white whitespace-nowrap" style={{ left: 0, bottom: 68, fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 60, lineHeight: '60px' }}>$0.01</p>
               <div className="absolute" style={{ left: 175.62, bottom: 70, minWidth: 175 }}>
                 <div className="flex items-center gap-[10px]">
-                  <p className="m-0 uppercase whitespace-nowrap text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.1, lineHeight: '14.85px', letterSpacing: '1.1px' }}>per outcome</p>
+                  <p className="m-0 uppercase whitespace-nowrap text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.1, lineHeight: '14.85px', letterSpacing: '1.1px' }}>per credit</p>
                   <div className="flex items-center justify-center size-[16px]" style={{ border: '1px solid #9c9fa5' }}>
                     <svg width="5" height="9" viewBox="0 0 5 9" fill="none"><path d="M2.5 2v5" stroke="#9c9fa5" strokeWidth="1"/><circle cx="2.5" cy="0.8" r="0.5" fill="#9c9fa5"/></svg>
                   </div>
                 </div>
                 <div className="max-w-[175px] mt-[4px]">
-                  <p className="m-0 uppercase whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.1, lineHeight: '14.85px', letterSpacing: '1.1px', color: 'rgba(255,255,255,0.6)' }}>50 outcomes per month</p>
-                  <p className="m-0 uppercase whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.1, lineHeight: '14.85px', letterSpacing: '1.1px', color: 'rgba(255,255,255,0.6)' }}>minimum</p>
+                  <p className="m-0 uppercase whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.1, lineHeight: '14.85px', letterSpacing: '1.1px', color: 'rgba(255,255,255,0.6)' }}>first 500 credits</p>
+                  <p className="m-0 uppercase whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.1, lineHeight: '14.85px', letterSpacing: '1.1px', color: 'rgba(255,255,255,0.6)' }}>per month free</p>
                 </div>
               </div>
             </div>
             <div className="flex gap-[16px] items-center mt-[24px]">
-              <button onClick={() => TxlemetryV2.navigate('/signup')} className="cursor-pointer flex items-center justify-center px-[16px] py-[12px] rounded-[6px] border-0 bg-white text-black" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14.4, lineHeight: '16px', letterSpacing: '-0.32px' }}>Free 14 day trial</button>
+              <button onClick={() => TxlemetryV2.navigate('/signup')} className="cursor-pointer flex items-center justify-center px-[16px] py-[12px] rounded-[6px] border-0 bg-white text-black" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14.4, lineHeight: '16px', letterSpacing: '-0.32px' }}>Start free trial</button>
               <button onClick={() => TxlemetryV2.navigate('/demo')} className="cursor-pointer bg-transparent border-0 pb-[2px] text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14.9, lineHeight: '16px', borderBottom: '1px solid white' }}>Get a demo</button>
             </div>
           </div>
 
-          {/* RIGHT: Txlemetry with Txlemetry Helpdesk */}
+          {/* RIGHT: Txlemetry AI included in a subscription plan */}
           <div className="relative" style={{ border: '1px solid rgba(255,255,255,0.4)' }}>
             <div className="px-[32px] pt-[39.1px] pb-[40px] flex flex-col" style={{ backdropFilter: 'blur(4px)', opacity: 0.95 }}>
               <div className="flex flex-col items-start pb-[16px]">
                 <p className="m-0 text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 29.6, lineHeight: '35.2px', letterSpacing: '-0.64px' }}>
-                  <span style={{ display: 'block' }}>Txlemetry with</span>
-                  <span style={{ display: 'block' }}>Txlemetry&rsquo;s Helpdesk</span>
+                  <span style={{ display: 'block' }}>Txlemetry AI,</span>
+                  <span style={{ display: 'block' }}>included in Growth+</span>
                 </p>
               </div>
               <div className="pb-[36px] w-[350px]">
-                <p className="m-0 whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 13.1, lineHeight: '18px', letterSpacing: '0.496px', color: '#9c9fa5' }}>Combine Txlemetry AI Agent with Txlemetry&rsquo;s Helpdesk to</p>
-                <p className="m-0 whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 13.1, lineHeight: '18px', letterSpacing: '0.496px', color: '#9c9fa5' }}>get the full Txlemetry Customer Service Suite.</p>
+                <p className="m-0 whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 13.1, lineHeight: '18px', letterSpacing: '0.496px', color: '#9c9fa5' }}>Growth and Scale bundle Txlemetry AI credits</p>
+                <p className="m-0 whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 13.1, lineHeight: '18px', letterSpacing: '0.496px', color: '#9c9fa5' }}>right into the plan — nothing extra to meter.</p>
               </div>
               <div className="flex gap-[12px] items-end pt-[24px]">
                 <div className="flex gap-[4px] items-center">
                   <span className="text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 14.8, lineHeight: '24px' }}>From</span>
-                  <span className="text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 32, lineHeight: '32px' }}>$0.99</span>
+                  <span className="text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 32, lineHeight: '32px' }}>$594</span>
                 </div>
                 <div className="relative" style={{ height: 29.69, width: 83.27 }}>
                   <div className="absolute uppercase" style={{ left: 0, top: 0, width: 57.46, fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 9.8, lineHeight: '14.85px', letterSpacing: '1.1px', color: 'white' }}>
-                    <span style={{ display: 'block' }}>per</span>
-                    <span style={{ display: 'block' }}>outcome</span>
+                    <span style={{ display: 'block' }}>per month,</span>
+                    <span style={{ display: 'block' }}>annual</span>
                   </div>
                   <div className="absolute flex items-center justify-center size-[16px]" style={{ left: 67.26, bottom: 0, border: '1px solid #9c9fa5' }}>
                     <svg width="5" height="9" viewBox="0 0 5 9" fill="none"><path d="M2.5 2v5" stroke="#9c9fa5" strokeWidth="1"/><circle cx="2.5" cy="0.8" r="0.5" fill="#9c9fa5"/></svg>
                   </div>
                 </div>
               </div>
-              <p className="m-0 uppercase" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 24, lineHeight: '32px', color: '#9c9fa5' }}>+</p>
+              <p className="m-0 uppercase" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 24, lineHeight: '32px', color: '#9c9fa5' }}>{`—`}</p>
               <div className="flex gap-[12px] items-end pb-[36px]">
-                <span className="text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 32, lineHeight: '32px' }}>$29</span>
-                <div className="relative" style={{ height: 29.69, width: 178.75 }}>
-                  <div className="absolute uppercase" style={{ left: 0, top: 0, width: 125.55, fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.7, lineHeight: '14.85px', letterSpacing: '1.1px', color: 'white' }}>
-                    <span style={{ display: 'block' }}>per analytics platform seat</span>
-                    <span style={{ display: 'block' }}>per month </span>
+                <span className="text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 32, lineHeight: '32px' }}>Growth</span>
+                <div className="flex flex-col justify-end" style={{ minHeight: 29.69, width: 190 }}>
+                  <div className="uppercase" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.7, lineHeight: '14.85px', letterSpacing: '1.1px', color: 'white' }}>
+                    <span style={{ display: 'block' }}>unlimited team members,</span>
+                    <span style={{ display: 'block' }}>no per-seat pricing</span>
                   </div>
-                  <div className="absolute" style={{ left: 74.72, top: 14.84 }}>
-                    <a onClick={() => TxlemetryV2.navigate('/pricing')} className="uppercase cursor-pointer underline whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.7, lineHeight: '14.85px', letterSpacing: '1.1px', color: 'white' }}>(see all plans)</a>
-                  </div>
+                  <a onClick={() => TxlemetryV2.navigate('/pricing')} className="uppercase cursor-pointer underline whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 10.7, lineHeight: '14.85px', letterSpacing: '1.1px', color: 'white' }}>(see all plans)</a>
                 </div>
               </div>
               <div className="flex gap-[16px] items-center">
-                <button onClick={() => TxlemetryV2.navigate('/signup')} className="cursor-pointer bg-transparent flex items-center justify-center px-[17px] py-[13px] rounded-[6px] text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14.8, lineHeight: '16px', letterSpacing: '-0.32px', border: '1px solid white' }}>Free 14 day trial</button>
+                <button onClick={() => TxlemetryV2.navigate('/signup')} className="cursor-pointer bg-transparent flex items-center justify-center px-[17px] py-[13px] rounded-[6px] text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14.8, lineHeight: '16px', letterSpacing: '-0.32px', border: '1px solid white' }}>Start free trial</button>
                 <button onClick={() => TxlemetryV2.navigate('/demo')} className="cursor-pointer bg-transparent border-0 pb-[2px] text-white" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14.9, lineHeight: '16px', borderBottom: '1px solid white' }}>Get a demo</button>
               </div>
             </div>
@@ -2684,8 +2644,8 @@ function FinalCtaSection() {
         <div className="relative grid grid-cols-12 gap-[48px] max-w-[1600px] mx-auto px-[24px] py-[200px] overflow-clip" style={{ height: 666 }}>
           <div className="col-start-3 col-span-8 self-start" style={{ height: 266 }}>
             <div className="flex flex-col gap-[0.5px] pb-[32px]">
-              <p className="m-0 whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 93.9, lineHeight: '96px', letterSpacing: '-3.008px', color: 'rgba(255,255,255,0.6)' }}>Get started with the</p>
-              <p className="m-0 text-right whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 92.6, lineHeight: '96px', letterSpacing: '-3.008px', color: 'white' }}>#1 AI Agent today</p>
+              <p className="m-0 whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 93.9, lineHeight: '96px', letterSpacing: '-3.008px', color: 'rgba(255,255,255,0.6)' }}>Get started with</p>
+              <p className="m-0 text-right whitespace-nowrap" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300, fontSize: 92.6, lineHeight: '96px', letterSpacing: '-3.008px', color: 'white' }}>Txlemetry AI today</p>
             </div>
             <div className="flex flex-wrap gap-[12px] h-[42px]">
               <button onClick={() => TxlemetryV2.navigate('/signup')} className="cursor-pointer h-full flex items-center justify-center px-[16px] py-[13px] rounded-[6px] border-0 bg-white text-black" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 14.4, lineHeight: '16px', letterSpacing: '-0.32px' }}>Start free trial</button>
@@ -2701,7 +2661,7 @@ function FinalCtaSection() {
 
   /* ─────────── Chapter Navigation (sticky left sidebar) ─────────── */
   const AGENT_CHAPTERS = [
-    { id: 'performance',  num: '01', label: 'performance' },
+    { id: 'performance',  num: '01', label: 'how it works' },
     { id: 'integrations', num: '02', label: 'integrations' },
     { id: 'technology',   num: '03', label: 'technology' },
     { id: 'ai-team',      num: '04', label: 'ai team' },
