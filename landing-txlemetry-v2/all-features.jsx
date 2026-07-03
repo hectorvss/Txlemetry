@@ -17,16 +17,16 @@
 
   const PLANS = [
     { key: 'free', name: 'Free', annual: 'EUR0', monthly: 'EUR0', note: 'Permanent free tier' },
-    { key: 'launch', name: 'Launch', annual: 'EUR59', monthly: 'EUR79', note: 'Starter subscription' },
-    { key: 'growth', name: 'Growth', annual: 'EUR279', monthly: 'EUR349', note: 'Most popular' },
-    { key: 'scale', name: 'Scale', annual: 'EUR749', monthly: 'EUR899', note: 'Power and governance' },
+    { key: 'launch', name: 'Launch', annual: 'EUR81', monthly: 'EUR101', note: 'Starter subscription' },
+    { key: 'growth', name: 'Growth', annual: 'EUR594', monthly: 'EUR743', note: 'Most popular' },
+    { key: 'scale', name: 'Scale', annual: 'EUR1,645', monthly: 'EUR2,056', note: 'Power and governance' },
   ];
 
   const FEATURE_GROUPS = [
     {
       title: 'Plan, usage and billing',
       rows: [
-        ['Monthly price', 'EUR0', 'EUR59 annual / EUR79 monthly', 'EUR279 annual / EUR349 monthly', 'EUR749 annual / EUR899 monthly'],
+        ['Monthly price', 'EUR0', 'EUR81 annual / EUR101 monthly', 'EUR594 annual / EUR743 monthly', 'EUR1,645 annual / EUR2,056 monthly'],
         ['Ideal customer', 'Founders, prototypes and internal tools', 'Small SaaS teams with one product motion', 'Product, growth and data teams working together', 'Multi-product companies with governance needs'],
         ['Analytics events / month', '1M', '3M', '25M', '120M'],
         ['Session recordings / month', '5k sampled', '15k full replay', '140k full replay', '650k full replay'],
@@ -35,7 +35,7 @@
         ['Projects', '1', '3', '12', 'Unlimited'],
         ['Data retention', '1 year', '3 years', '7 years', '7 years'],
         ['Unlimited team members', 'Included', 'Included', 'Included', 'Included'],
-        ['Overage economics', 'Standard pay-as-you-go', '10% lower overages', '35% lower overages', '50% lower overages'],
+        ['Overage economics', 'Standard pay-as-you-go', '25% lower overages', '35% lower overages', '50% lower overages'],
         ['Billing limits and alerts', 'Basic', 'Included', 'Advanced', 'Advanced'],
       ],
     },
@@ -48,6 +48,7 @@
         ['Retention analysis', 'Core retention', 'Full retention', 'Full retention with cohort overlays', 'Full retention with advanced exports'],
         ['Paths and user journeys', 'Basic paths', 'Full paths', 'Full paths with cohort comparison', 'Full paths with multi-project analysis'],
         ['Cohorts and audiences', 'Basic cohorts', 'Saved cohorts', 'Advanced cohorts', 'Advanced cohorts with permissions'],
+        ['Web analytics', 'Included', 'Included', 'Included', 'Included'],
         ['Revenue analytics', '-', 'Included', 'Included', 'Included'],
         ['Group analytics', '-', 'Basic account/workspace groups', 'Advanced group analytics', 'Advanced group analytics at scale'],
         ['Custom formulas and derived metrics', '-', 'Included', 'Included', 'Included'],
@@ -98,10 +99,10 @@
         ['Anomaly prompts', '-', 'Basic', 'Included', 'Included'],
         ['Data warehouse sync', '-', '-', 'Included', 'Included'],
         ['SQL-ready exports', '-', '-', 'Included', 'Included'],
-        ['Data pipelines', '-', '-', '-', 'Included'],
-        ['Event destinations', '-', '-', '-', 'Included'],
-        ['LLM analytics', '-', '-', 'Included', 'Included'],
-        ['Prompt, model, latency and cost tracking', '-', '-', 'Included', 'Included'],
+        ['Data pipelines / CDP', '-', '-', '-', 'Included'],
+        ['Event destinations (60+)', '-', '-', '-', 'Included'],
+        ['AI Observability', '-', '-', '-', 'Included'],
+        ['Prompt, model, latency and cost tracking', '-', '-', '-', 'Included'],
         ['Custom data contracts', '-', '-', '-', 'Available'],
       ],
     },
@@ -126,7 +127,7 @@
     ['Feature flag requests', '1M free', 'EUR0.0001 each', 'Flag evaluations, remote config checks and rollout requests.'],
     ['Survey responses', '1.5k free', 'EUR0.10 each', 'Completed survey responses connected to users, accounts and behavior.'],
     ['Exceptions tracked', '100k free', 'EUR0.00037 each', 'Errors and release-health events linked to product impact.'],
-    ['LLM analytics events', '100k free', 'EUR0.00006 each', 'Prompt, cost, model, latency and quality tracking for AI-native products.'],
+    ['AI Observability events', '100k free', 'EUR0.00006 each', 'Prompt, cost, model, latency and quality tracking for AI-native products.'],
   ];
 
   const FAQS = [
