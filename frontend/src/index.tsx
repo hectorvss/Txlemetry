@@ -1,8 +1,11 @@
 import '~/styles'
 
+import '@shopify/polaris/build/esm/styles.css'
 import './buffer-polyfill'
 
 import { Tooltip as BaseTooltip } from '@base-ui/react/tooltip'
+import { AppProvider as PolarisAppProvider } from '@shopify/polaris'
+import polarisEnTranslations from '@shopify/polaris/locales/en.json'
 import { polyfillCountryFlagEmojis } from 'country-flag-emoji-polyfill'
 import { getContext } from 'kea'
 import posthog from 'posthog-js'
@@ -61,11 +64,13 @@ function renderApp(): void {
     if (root) {
         createRoot(root).render(
             <ErrorBoundary>
-                <PostHogProvider client={posthog}>
-                    <BaseTooltip.Provider delay={500} closeDelay={0} timeout={400}>
-                        <App />
-                    </BaseTooltip.Provider>
-                </PostHogProvider>
+                <PolarisAppProvider i18n={polarisEnTranslations}>
+                    <PostHogProvider client={posthog}>
+                        <BaseTooltip.Provider delay={500} closeDelay={0} timeout={400}>
+                            <App />
+                        </BaseTooltip.Provider>
+                    </PostHogProvider>
+                </PolarisAppProvider>
             </ErrorBoundary>
         )
     } else {

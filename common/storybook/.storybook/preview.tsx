@@ -1,5 +1,7 @@
 import '~/styles'
 
+import '@shopify/polaris/build/esm/styles.css'
+
 import { Controls, Description, Primary, Stories, Subtitle, Title } from '@storybook/addon-docs/blocks'
 import type { Meta, Parameters, Preview } from '@storybook/react'
 
@@ -15,6 +17,7 @@ import { withFeatureFlags } from './decorators/withFeatureFlags'
 import { withKea } from './decorators/withKea'
 import { withMockDate } from './decorators/withMockDate'
 import { withPageUrl } from './decorators/withPageUrl'
+import { withPolaris } from './decorators/withPolaris'
 import { withTheme } from './decorators/withTheme'
 
 const setupMsw = (): void => {
@@ -85,6 +88,8 @@ export const parameters: Parameters = {
 
 // Setup storybook global decorators. See https://storybook.js.org/docs/react/writing-stories/decorators#global-decorators
 export const decorators: Meta['decorators'] = [
+    // Provide the Polaris AppProvider context Lemon UI components need internally.
+    withPolaris,
     // Make sure the msw service worker is started, and reset the handlers to defaults.
     withKea,
     // Allow us to time travel to ensure our stories don't change over time.

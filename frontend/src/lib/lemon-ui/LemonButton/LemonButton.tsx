@@ -1,5 +1,6 @@
 import './LemonButton.scss'
 
+import { Button as PolarisButton } from '@shopify/polaris'
 import clsx from 'clsx'
 import React, { useContext } from 'react'
 
@@ -11,6 +12,20 @@ import { Link } from '../Link'
 import { PopoverOverlayContext, PopoverReferenceContext } from '../Popover'
 import { Spinner } from '../Spinner/Spinner'
 import { Tooltip, TooltipProps } from '../Tooltip'
+
+/**
+ * Rendering-only mapping from Lemon's public button props to Polaris <Button>'s.
+ * Kept isolated from the surrounding composition logic (tooltip/dropdown/side-action/
+ * Link-routing) so that behaviour above this line is untouched — only the visual
+ * "chrome" for plain (non-link) buttons is delegated to a real Polaris component.
+ */
+const POLARIS_SIZE_BY_LEMON_SIZE: Record<NonNullable<LemonButtonProps['size']>, 'micro' | 'slim' | 'medium' | 'large'> = {
+    xxsmall: 'micro',
+    xsmall: 'micro',
+    small: 'slim',
+    medium: 'medium',
+    large: 'large',
+}
 
 export type LemonButtonDropdown = Omit<LemonDropdownProps, 'children'>
 
@@ -204,7 +219,12 @@ export const LemonButton: React.FunctionComponent<LemonButtonProps & React.RefAt
                 }
             }
             if (loading) {
-                icon = <Spinner textColored />
+                // When rendering through Polaris (plain buttons, no `to`), Polaris's own
+                // `loading` prop draws its native spinner — don't also force our own icon-spinner
+                // in that case, to avoid stacking two spinners. Link-rendered buttons still need it.
+                if (to) {
+                    icon = <Spinner textColored />
+                }
                 disabled = true // Cannot interact with a loading button
             }
             if (within3000PageHeader && parentPopoverLevel === -1) {
@@ -228,64 +248,103 @@ export const LemonButton: React.FunctionComponent<LemonButtonProps & React.RefAt
                 tooltipContent = tooltip
             }
 
-            const ButtonComponent = to ? Link : 'button'
-            const linkDependentProps = to
-                ? {
-                      disableClientSideRouting,
-                      target: targetBlank ? '_blank' : undefined,
-                      to: !disabled ? to : undefined,
-                  }
-                : { type: htmlType }
-
-            if (ButtonComponent === 'button' && !buttonProps['aria-label'] && typeof tooltip === 'string') {
-                buttonProps['aria-label'] = tooltip
-            }
-
-            let workingButton: JSX.Element = (
-                <ButtonComponent
-                    ref={ref as any}
-                    className={clsx(
-                        `LemonButton LemonButton--${type} LemonButton--status-${status}`,
-                        loading && `LemonButton--loading`,
-                        noPadding && `LemonButton--no-padding`,
-                        size && `LemonButton--${size}`,
-                        active && 'LemonButton--active',
-                        fullWidth && 'LemonButton--full-width',
-                        center && 'LemonButton--centered',
-                        !children && 'LemonButton--no-content',
-                        !!icon && `LemonButton--has-icon`,
-                        !!sideIcon && `LemonButton--has-side-icon`,
-                        truncate && 'LemonButton--truncate',
-                        className
-                    )}
-                    onClick={(event) => {
-                        if (stopPropagation) {
-                            event.stopPropagation()
-                        }
-                        if (disabled) {
-                            event.preventDefault()
-                            return
-                        }
-                        onClick?.(event)
-                    }}
-                    // We are using the ARIA disabled instead of native HTML because of this:
-                    // https://css-tricks.com/making-disabled-buttons-more-inclusive/
-                    aria-disabled={!!disabled}
-                    {...linkDependentProps}
-                    {...buttonProps}
-                    data-attr-id={buttonProps['data-attr-id'] ?? buttonProps['data-attr']}
-                >
-                    <span className="LemonButton__chrome">
-                        {icon ? <span className="LemonButton__icon">{icon}</span> : null}
-                        {children ? <span className="LemonButton__content">{children}</span> : null}
-                        {sideIcon ? (
-                            <span className="LemonButton__icon">{sideIcon}</span>
-                        ) : targetBlank && !hideExternalLinkIcon && !icon ? (
-                            <IconExternal />
-                        ) : null}
-                    </span>
-                </ButtonComponent>
+            const legacyClassName = clsx(
+                `LemonButton LemonButton--${type} LemonButton--status-${status}`,
+                loading && `LemonButton--loading`,
+                noPadding && `LemonButton--no-padding`,
+                size && `LemonButton--${size}`,
+                active && 'LemonButton--active',
+                fullWidth && 'LemonButton--full-width',
+                center && 'LemonButton--centered',
+                !children && 'LemonButton--no-content',
+                !!icon && `LemonButton--has-icon`,
+                !!sideIcon && `LemonButton--has-side-icon`,
+                truncate && 'LemonButton--truncate',
+                className
             )
+            const onClickHandler = (event: React.MouseEvent<HTMLElement>): void => {
+                if (stopPropagation) {
+                    event.stopPropagation()
+                }
+                if (disabled) {
+                    event.preventDefault()
+                    return
+                }
+                // Polaris <Button> only has a boolean `submit` prop, no native `type="reset"`.
+                // Replicate the native reset behaviour explicitly so `htmlType="reset"` keeps working.
+                if (htmlType === 'reset') {
+                    ;(event.currentTarget as HTMLElement).closest('form')?.reset()
+                }
+                onClick?.(event as any)
+            }
+            const chromeContent = (
+                <span className="LemonButton__chrome">
+                    {icon ? <span className="LemonButton__icon">{icon}</span> : null}
+                    {children ? <span className="LemonButton__content">{children}</span> : null}
+                    {sideIcon ? (
+                        <span className="LemonButton__icon">{sideIcon}</span>
+                    ) : targetBlank && !hideExternalLinkIcon && !icon ? (
+                        <IconExternal />
+                    ) : null}
+                </span>
+            )
+
+            let workingButton: JSX.Element
+            if (to) {
+                // Link-rendered buttons (navigation) keep their existing behaviour untouched —
+                // client-side routing, notebook drag source, docs-panel handling, project-id
+                // rewriting, etc. all live in `Link`/`ButtonPrimitives`, a separate system from
+                // this component's own Polaris migration.
+                if (!buttonProps['aria-label'] && typeof tooltip === 'string') {
+                    buttonProps['aria-label'] = tooltip
+                }
+                workingButton = (
+                    <Link
+                        ref={ref as any}
+                        className={legacyClassName}
+                        onClick={onClickHandler}
+                        aria-disabled={!!disabled}
+                        disableClientSideRouting={disableClientSideRouting}
+                        target={targetBlank ? '_blank' : undefined}
+                        to={!disabled ? to : undefined}
+                        {...buttonProps}
+                        data-attr-id={buttonProps['data-attr-id'] ?? buttonProps['data-attr']}
+                    >
+                        {chromeContent}
+                    </Link>
+                )
+            } else {
+                // Plain action buttons: the real Polaris <Button> renders the visual chrome.
+                // `legacyClassName` is kept on the wrapper for CSS/test back-compat (data-attr
+                // discoverability, any external selector still targeting `.LemonButton--*`).
+                if (!buttonProps['aria-label'] && typeof tooltip === 'string') {
+                    buttonProps['aria-label'] = tooltip
+                }
+                workingButton = (
+                    <span
+                        className={legacyClassName}
+                        data-attr={buttonProps['data-attr']}
+                        data-attr-id={buttonProps['data-attr-id'] ?? buttonProps['data-attr']}
+                    >
+                        <PolarisButton
+                            ref={ref as any}
+                            id={buttonProps.id}
+                            variant={type}
+                            tone={status === 'danger' ? 'critical' : undefined}
+                            size={POLARIS_SIZE_BY_LEMON_SIZE[size ?? 'medium']}
+                            fullWidth={fullWidth}
+                            pressed={active}
+                            disabled={!!disabled}
+                            loading={!!loading}
+                            submit={htmlType === 'submit'}
+                            accessibilityLabel={buttonProps['aria-label']}
+                            onClick={onClickHandler as any}
+                        >
+                            {chromeContent as any}
+                        </PolarisButton>
+                    </span>
+                )
+            }
 
             if (buttonWrapper) {
                 workingButton = buttonWrapper(workingButton)
