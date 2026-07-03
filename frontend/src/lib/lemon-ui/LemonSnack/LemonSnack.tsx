@@ -58,7 +58,21 @@ export const LemonSnack: React.FunctionComponent<LemonSnackProps & React.RefAttr
                     className={twMerge('LemonSnack inline-flex max-w-full overflow-hidden', className)}
                     title={title ?? (typeof children === 'string' ? children : undefined)}
                 >
-                    <PolarisTag onRemove={onClose ? () => onClose({} as React.MouseEvent) : undefined}>
+                    <PolarisTag
+                        onRemove={
+                            onClose
+                                ? () =>
+                                      // Polaris's onRemove passes no event, but the original onClose
+                                      // signature is a MouseEventHandler and some callers call
+                                      // e.stopPropagation(). Pass a minimal event-shaped stub with
+                                      // no-op propagation methods so those callers never throw.
+                                      onClose({
+                                          stopPropagation: () => {},
+                                          preventDefault: () => {},
+                                      } as unknown as React.MouseEvent)
+                                : undefined
+                        }
+                    >
                         {/* Tag's children is ReactNode in v13 (Tag/Tag.d.ts), so no string cast needed. */}
                         {children}
                     </PolarisTag>

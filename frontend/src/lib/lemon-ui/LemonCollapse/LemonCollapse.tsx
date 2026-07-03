@@ -131,6 +131,18 @@ function LemonCollapsePanel({
     // Unique id required by Polaris <Collapsible> (used for its aria-controls contract).
     const collapsibleId = useId()
 
+    // Robustness: Polaris <Collapsible> keeps its children mounted permanently, whereas the
+    // original mechanism only mounted content while expanded. To avoid mounting the content of
+    // panels that are collapsed-by-default before the user ever opens them (which could fire
+    // premature data fetches / effects), we lazily mount on first expand and keep it alive after
+    // (keep-alive), so the Polaris open/close animation still works but nothing mounts unseen.
+    const [hasBeenExpanded, setHasBeenExpanded] = useState(isExpanded)
+    useEffect(() => {
+        if (isExpanded && !hasBeenExpanded) {
+            setHasBeenExpanded(true)
+        }
+    }, [isExpanded, hasBeenExpanded])
+
     const { headerChildren, headerProps } = useMemo((): HeaderDefinition => {
         if (header && typeof header === 'object' && 'children' in header) {
             const { children, ...rest } = header as LemonButtonProps
@@ -181,7 +193,9 @@ function LemonCollapsePanel({
              */}
             <PolarisCollapsible open={isExpanded} id={collapsibleId} transition={{ duration: '200ms' }}>
                 <div className="LemonCollapsePanel__body">
-                    <div className={clsx('LemonCollapsePanel__content', className)}>{content}</div>
+                    <div className={clsx('LemonCollapsePanel__content', className)}>
+                        {hasBeenExpanded ? content : null}
+                    </div>
                 </div>
             </PolarisCollapsible>
         </div>
