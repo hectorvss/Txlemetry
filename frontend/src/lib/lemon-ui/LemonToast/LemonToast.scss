@@ -1,0 +1,34 @@
+// Polaris visual alignment for LemonToast.
+//
+// The react-toastify mechanics (portal, timing, container) are NOT touched — this file only
+// refines the visual look of the toast surface to match Polaris Toast, layering Polaris design
+// tokens over the values already defined in base.scss (kept as fallbacks). The internal action /
+// close buttons are already LemonButton (Polaris), so they are not restyled here.
+//
+// Specificity note: base.scss already styles `.Toastify__toast` at (0,1,0). We repeat the class
+// (`.Toastify__toast.Toastify__toast` -> (0,2,0)) so these Polaris refinements win regardless of
+// stylesheet import order, without needing `!important`.
+//
+// Dark mode: Polaris v13 `--p-*` tokens are light-theme-only, so every declaration keeps an
+// always-present fallback (the current app value). We deliberately do NOT force Polaris' fully
+// inverted dark toast surface — the existing success/warning/error icon colors and the progress
+// bar are tuned for the app's light surface, and flipping the background would regress them. We
+// adopt Polaris geometry (radius/shadow) and typography, which is safe in both themes.
+//
+// Tokens used (values from Polaris styles.css):
+//   --p-border-radius-300    = 0.75rem   (Toast corner radius); fallback --radius = 0.5rem
+//   --p-shadow-400           = 0 0.5rem 1rem -0.25rem rgba(26,26,26,0.22) (raised overlay shadow)
+//   --p-space-300            = 0.75rem   (toast padding — identical to current 0.75rem)
+//   --p-font-size-325        = 0.8125rem (body text; fallback keeps current 0.875rem)
+//   --p-font-line-height-500 = 1.25rem   (body line height — identical to current)
+
+.Toastify__toast.Toastify__toast {
+    padding: var(--p-space-300, 0.75rem);
+    border-radius: var(--p-border-radius-300, var(--radius));
+    box-shadow: var(--p-shadow-400, var(--shadow-elevation-3000));
+}
+
+.Toastify__toast-body.Toastify__toast-body {
+    font-size: var(--p-font-size-325, 0.875rem);
+    line-height: var(--p-font-line-height-500, 1.25rem);
+}

@@ -1,3 +1,8 @@
+// Polaris decision: no change. LemonActionableTooltip renders its content inside <Popover>
+// (LemonActionableTooltip.tsx), which is already Polaris-migrated — surface, border, radius and
+// shadow come from that shared overlay chrome (--p-* tokens in Popover.scss). This file only lays
+// out the tooltip's inner content (header/body/footer/nav spacing), which has no Polaris surface to
+// tokenize. Left unchanged to avoid double-styling the popover chrome.
 .LemonActionableTooltip {
     max-width: var(--in-app-prompts-width);
     padding: 0.5rem;

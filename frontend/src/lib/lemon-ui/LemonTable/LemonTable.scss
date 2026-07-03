@@ -10,17 +10,23 @@
 
 .LemonTable {
     --row-base-height: auto;
-    --row-horizontal-padding: 0.5rem;
+
+    // Polaris cell horizontal padding (--p-space-200 == 0.5rem, identical to the current value);
+    // falls back to the exact 0.5rem so layout is byte-for-byte identical without tokens.
+    --row-horizontal-padding: var(--p-space-200, 0.5rem);
     --lemon-table-background-color: var(--color-bg-surface-primary);
 
     position: relative;
     flex: 1;
     width: 100%;
     overflow: hidden;
-    font-size: 13px;
+    // Polaris IndexTable uses --p-font-size-325 (0.8125rem == 13px); falls back to current 13px.
+    font-size: var(--p-font-size-325, 13px);
     background: var(--lemon-table-background-color) !important;
     border: 1px solid var(--color-border-primary);
-    border-radius: var(--radius);
+    // Polaris surface radius (--p-border-radius-300 == 0.75rem); falls back to current --radius so
+    // dark mode / missing-token cases keep the exact previous corner.
+    border-radius: var(--p-border-radius-300, var(--radius));
 
     .WebAnalyticsDashboard &,
     .Insight &,
@@ -101,8 +107,9 @@
 
     .PaginationControl {
         height: var(--row-base-height);
-        padding: 0.5rem;
-        border-top: 1px solid var(--color-border-primary);
+        padding: var(--p-space-200, 0.5rem);
+        // Polaris divider tone with exact current fallback (dark mode / no-token safe).
+        border-top: 1px solid var(--p-color-border-secondary, var(--color-border-primary));
     }
 
     a.Link {
@@ -121,10 +128,15 @@
 
     > thead {
         position: relative;
-        font-size: 0.75rem;
+        // Polaris header font size (--p-font-size-275 == 0.6875rem is smaller; keep current 0.75rem as
+        // fallback and only shift if the token defines the same/near size). Using --p-font-size-300 which
+        // equals the current 0.75rem exactly, so no visual change when tokens are present.
+        font-size: var(--p-font-size-300, 0.75rem);
         text-transform: uppercase;
         letter-spacing: 0.03125rem;
-        background: var(--lemon-table-background-color);
+        // Polaris IndexTable header uses the secondary surface tone; falls back to the exact current
+        // header background so dark mode and token-less renders are unchanged.
+        background: var(--p-color-bg-surface-secondary, var(--lemon-table-background-color));
 
         > tr.LemonTable__loader-row > th.LemonTable__loader-host {
             position: relative;
@@ -138,14 +150,18 @@
 
         > tr {
             > th {
-                padding-top: 0.5rem;
-                padding-bottom: 0.5rem;
-                font-weight: 700;
+                // Polaris cell padding tokens: --p-space-200 == 0.5rem (== current); falls back to 0.5rem.
+                padding-top: var(--p-space-200, 0.5rem);
+                padding-bottom: var(--p-space-200, 0.5rem);
+                // Polaris header weight token (--p-font-weight-semibold == 650); falls back to current 700.
+                font-weight: var(--p-font-weight-semibold, 700);
                 text-align: left;
 
                 // box shadow as a border supports sticky headers
-                // Also it needs to be on the th - any higher and safari will not render the shadow
-                box-shadow: inset 0 -1px var(--color-border-primary);
+                // Also it needs to be on the th - any higher and safari will not render the shadow.
+                // Polaris divider tone (--p-color-border-secondary) with the exact current border color
+                // as fallback for dark mode / missing-token cases.
+                box-shadow: inset 0 -1px var(--p-color-border-secondary, var(--color-border-primary));
 
                 .LemonButton {
                     margin: -0.5rem 0;
@@ -161,7 +177,17 @@
     > tbody {
         > tr {
             &:not(:first-child) {
-                border-top: 1px solid var(--color-border-primary);
+                // Polaris IndexTable row divider tone; falls back to the exact current border color so
+                // nothing changes in dark mode or when the token is unavailable.
+                border-top: 1px solid var(--p-color-border-secondary, var(--color-border-primary));
+            }
+
+            // Polaris IndexTable applies a subtle surface-hover on data rows. Scoped to non-expansion
+            // rows only, and the fallback is `transparent`, so with tokens absent (e.g. dark mode) the
+            // row keeps its current no-hover appearance. Sticky/pinned cells paint their own background
+            // (--lemon-table-background-color) above this, matching existing behaviour.
+            &:not(.LemonTable__expansion):not(.LemonTable__row--status-highlighted):hover {
+                background: var(--p-color-bg-surface-hover, transparent);
             }
 
             &.LemonTable__expansion {
@@ -328,7 +354,8 @@
 
 .LemonTable__footer {
     cursor: default;
-    border-top: 1px solid var(--color-border-primary);
+    // Polaris divider tone with exact current fallback (dark mode / no-token safe).
+    border-top: 1px solid var(--p-color-border-secondary, var(--color-border-primary));
 }
 
 // NOTE: this is outside of the storybook check for 3000 selective styling

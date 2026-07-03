@@ -1,8 +1,11 @@
 .LemonRichContentEditor {
     .RichContentEditor {
+        // Polaris visual alignment: the editor field keeps its input fill (Polaris has no direct
+        // input-fill equivalent) but adopts the Polaris 200 radius token, with the current radius
+        // as fallback. Content/behavior unchanged.
         background-color: var(--color-bg-fill-input);
-        border-top-left-radius: var(--radius);
-        border-top-right-radius: var(--radius);
+        border-top-left-radius: var(--p-border-radius-200, var(--radius));
+        border-top-right-radius: var(--p-border-radius-200, var(--radius));
 
         & > div[contenteditable] {
             outline: none;

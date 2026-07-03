@@ -1,3 +1,5 @@
+import './LemonToast.scss'
+
 import posthog from 'posthog-js'
 import { toast, type ToastOptions } from 'react-toastify'
 

@@ -40,9 +40,15 @@
     width: 40rem;
     height: 100vh;
     height: 100dvh;
-    background-color: var(--color-bg-surface-primary);
-    border-left: 1px solid var(--border-bold);
-    box-shadow: var(--modal-shadow-elevation);
+
+    // Polaris visual alignment: the sliding panel adopts Polaris surface + border + elevation
+    // tokens with the previous app values as fallbacks. Polaris v13 has no Drawer, so this mirrors
+    // the Modal/Popover overlay chrome (elevation via --p-shadow-600). Polaris color tokens are
+    // light-theme-only, so each keeps its current value as a fallback. Overlay/open mechanics
+    // (ReactModal transitions, translateX) are untouched.
+    background-color: var(--p-color-bg-surface, var(--color-bg-surface-primary));
+    border-left: 1px solid var(--p-color-border, var(--border-bold));
+    box-shadow: var(--p-shadow-600, var(--modal-shadow-elevation));
     opacity: 0;
     transition:
         opacity var(--modal-transition-time) ease-out,
@@ -101,7 +107,9 @@
     padding-bottom: 1rem;
     margin: 1rem;
     margin-bottom: 0;
-    border-bottom: 1px solid var(--color-border-primary);
+
+    // Polaris divider color with fallback to the current app border.
+    border-bottom: 1px solid var(--p-color-border, var(--color-border-primary));
 
     h3 {
         margin-right: 2.5rem;
@@ -126,7 +134,7 @@
     margin: 1rem;
     margin-top: 0;
     white-space: nowrap;
-    border-top: 1px solid var(--color-border-primary);
+    border-top: 1px solid var(--p-color-border, var(--color-border-primary));
 }
 
 .LemonDrawer__header + .LemonDrawer__footer {

@@ -1,3 +1,8 @@
+// Polaris decision: no change. Polaris v13 has no circular-progress component. The SVG strokes are
+// painted with stroke="currentColor" (LemonProgressCircle.tsx), so the ring intentionally inherits
+// the surrounding text color — this lets callers place it inside buttons/badges and match context.
+// Hardcoding a Polaris accent (light-theme-only) would break that inheritance and change behavior,
+// so the stroke color is left as-is. This file only holds positioning/transition, nothing to tokenize.
 .LemonProgressCircle {
     position: relative;
     display: inline-block;

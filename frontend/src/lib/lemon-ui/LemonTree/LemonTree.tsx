@@ -44,6 +44,18 @@ import {
     TreeNodeDroppable,
 } from './LemonTreeUtils'
 
+// Polaris migration decision: no change.
+// Polaris v13 has no Tree component, so there is no direct equivalent to reskin against.
+// LemonTree has no .scss of its own — all visuals (row hover, selected/active state, indentation,
+// the folder connector line) are Tailwind utility classes such as `bg-fill-button-tertiary-hover`,
+// `bg-fill-button-tertiary-active`, `text-secondary` and `border-primary`. Those map to shared
+// theme tokens defined in the global Tailwind config, which lives OUTSIDE this component folder.
+// Applying `var(--p-*, fallback)` here would require either editing those shared theme files
+// (out of scope: nothing outside the component may change) or introducing a new .scss + import,
+// restructuring how the component is styled. Per "reliability over purity", the item hover/selected
+// surface is left to its existing tokens rather than forcing an unsafe mapping. The rows are also
+// rendered via already-shared ButtonPrimitive/DropdownMenu primitives, which are the correct place
+// for any future Polaris hover/selected surface work. Expansion/navigation/drag logic untouched.
 export type LemonTreeDragEndEvent = DragEndEvent & { position: TreeDropPosition }
 
 export type LemonTreeSelectMode = 'default' | 'multi' | 'folder-only' | 'all'

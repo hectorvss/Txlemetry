@@ -1,10 +1,17 @@
+// POLARIS MIGRATION NOTE (visual-only): the button itself is already a Polaris LemonButton; this file
+// only tweaks the internal chrome spacing so the color swatch sits nicely. The spacing now consumes
+// Polaris space tokens with the previous pixel values as fallbacks (dark-mode safe — space tokens are
+// geometric, not color):
+//   --p-space-100 = 0.25rem  = 4px   (gap)
+//   --p-space-150 = 0.375rem = 6px   (default horizontal padding)
+//   --p-space-200 = 0.5rem   = 8px   (small-variant horizontal padding)
 .LemonColorButton .LemonButton__chrome {
-    gap: 4px;
-    padding-right: 6px !important;
-    padding-left: 6px !important;
+    gap: var(--p-space-100, 4px);
+    padding-right: var(--p-space-150, 6px) !important;
+    padding-left: var(--p-space-150, 6px) !important;
 }
 
 .LemonColorButton.LemonButton--small .LemonButton__chrome {
-    padding-right: 8px !important;
-    padding-left: 8px !important;
+    padding-right: var(--p-space-200, 8px) !important;
+    padding-left: var(--p-space-200, 8px) !important;
 }

@@ -12,6 +12,20 @@ import { LemonButton, LemonButtonProps } from 'lib/lemon-ui/LemonButton'
 import { range } from 'lib/utils/arrays'
 import { teamLogic } from 'scenes/teamLogic'
 
+/**
+ * POLARIS MIGRATION NOTE (visual-only — do NOT "finish" this by swapping in Polaris <DatePicker>):
+ *
+ * Polaris <DatePicker> has its own data model and rendering. Swapping it in would break this
+ * calendar's range selection, presets, time-granularity columns (hour/minute), and the
+ * LemonButton-based day/nav cells. So the structure, data flow, and API stay exactly as-is.
+ *
+ * What IS migrated (see LemonCalendar.scss): the DatePicker *look* — day-cell size, inter-cell
+ * spacing and the "today" dot radius now consume Polaris geometric tokens (--p-space-1000,
+ * --p-space-050, --p-border-radius-050) with the previous pixel values as fallbacks. The selected-
+ * day accent, hover and day text come from LemonButton (type="primary"/active), which is already a
+ * real Polaris <Button> — so no color tokens are duplicated here. Polaris v13 color tokens are
+ * light-only, so nothing that would break the app's dark theme was touched.
+ */
 export interface LemonCalendarProps {
     /** Fired if a calendar cell is clicked */
     onDateClick?: (date: dayjs.Dayjs) => void

@@ -10,6 +10,15 @@ import { formatDate, formatDateRange } from 'lib/utils/datetime'
 
 import { LemonCalendarRangeInline } from './LemonCalendarRangeInline'
 
+/**
+ * POLARIS MIGRATION NOTE (visual-only — do NOT swap in Polaris <DatePicker allowRange>):
+ *
+ * LemonCalendarRange has no stylesheet of its own: it is pure layout (Tailwind utilities) wrapping
+ * LemonCalendarRangeInline (which uses LemonCalendar) plus LemonButton and LemonSwitch — all already
+ * Polaris-migrated. The DatePicker range *look* (selected day, range track, boundary rounding) is
+ * therefore owned entirely by LemonCalendar.scss and LemonButton; see the note in LemonCalendar.tsx.
+ * The range-selection mechanics (start/end sanitising, Apply/Cancel, time toggle) are unchanged.
+ */
 export interface LemonCalendarRangeProps {
     value?: [dayjs.Dayjs, dayjs.Dayjs] | null
     onChange: (range: [dayjs.Dayjs, dayjs.Dayjs]) => void

@@ -1,9 +1,21 @@
 .LemonCard {
     transition: 200ms ease;
 
+    // Polaris visual alignment: give the resting card the characteristic Polaris Card
+    // elevation and rounding via Polaris design tokens, with the previous app values as
+    // fallbacks. We deliberately style ONLY box-shadow and border-radius here — padding,
+    // background and borders stay controlled by the consumer's `className` (see the
+    // migration note in LemonCard.tsx: call sites pass p-0/p-4/p-6/border-dashed/etc.).
+    // Polaris v13 `--p-*` tokens are light-theme-only, hence the always-present fallbacks.
+    //   --p-shadow-100      = 0 0.0625rem 0 0 rgba(26,26,26,0.07) (subtle Card resting shadow)
+    //   --p-border-radius-300 = 0.75rem (Polaris Card radius); fallback --radius = 0.5rem
+    border-radius: var(--p-border-radius-300, var(--radius));
+    box-shadow: var(--p-shadow-100, none);
+
     &.LemonCard--hoverEffect {
         &:hover {
-            box-shadow: var(--shadow-elevation-3000);
+            // --p-shadow-200 = 0 0.1875rem 0.0625rem -0.0625rem rgba(26,26,26,0.07) (raised)
+            box-shadow: var(--p-shadow-200, var(--shadow-elevation-3000));
             transform: scale(1.01);
         }
     }

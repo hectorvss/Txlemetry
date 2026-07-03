@@ -1,3 +1,9 @@
+// POLARIS MIGRATION NOTE (visual-only): LemonColor is a palette of predefined *swatches* — the color
+// itself IS the content — not Polaris's HSB <ColorPicker>. So there is deliberately almost nothing to
+// tokenize: the swatch stays a circle (border-radius: 50%, matching Polaris's circular color swatches).
+// The one geometric token that maps cleanly is the ring width: --p-border-width-050 = 0.125rem = 2px,
+// exactly the previous value, kept as fallback. The ring COLOR stays on --text-3000 (theme-aware /
+// dark-mode safe) rather than a light-only Polaris color token.
 .LemonColorGlyph {
     position: relative;
     display: flex;
@@ -6,7 +12,7 @@
     justify-content: center;
     width: 22px;
     height: 22px;
-    border: 2px solid var(--text-3000);
+    border: var(--p-border-width-050, 2px) solid var(--text-3000);
     border-radius: 50%;
 }
 

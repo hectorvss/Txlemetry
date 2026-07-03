@@ -1,3 +1,5 @@
+import './LemonField.scss'
+
 import clsx from 'clsx'
 import { Field as KeaField, FieldProps as KeaFieldProps } from 'kea-forms/lib/components'
 import { cloneElement, isValidElement, useId } from 'react'

@@ -1,8 +1,20 @@
 .LemonCalendar {
+    // Polaris DatePicker look: cell/row geometry sourced from Polaris design tokens with the
+    // previous app pixel values as fallbacks. Only geometric tokens are used here — Polaris v13
+    // color tokens are light-theme-only, so the selected-day accent / day text keep coming from
+    // LemonButton (type="primary"/active), which is already Polaris-migrated. See migration note
+    // in LemonCalendar.tsx. Fallbacks equal the pre-migration values so dark mode is unaffected.
     --lemon-calendar-month-height: 305px;
-    --lemon-calendar-row-gap: 2px;
-    --lemon-calendar-day-width: 40px;
-    --lemon-calendar-today-radius: 2px;
+
+    // --p-space-050 = 0.125rem = 2px (matches Polaris DatePicker inter-cell spacing)
+    --lemon-calendar-row-gap: var(--p-space-050, 2px);
+
+    // --p-space-1000 = 2.5rem = 40px (Polaris DatePicker day-cell size)
+    --lemon-calendar-day-width: var(--p-space-1000, 40px);
+
+    // --p-border-radius-050 = 0.125rem = 2px (Polaris smallest radius — the "today" dot)
+    --lemon-calendar-today-radius: var(--p-border-radius-050, 2px);
+
     --lemon-calendar-time-column-width: 50px;
 
     // Tricky: needs to match the equivalent height button from LemonButton.scss
@@ -64,6 +76,11 @@
     }
 
     .LemonCalendar__range--boundary {
+        // Range fill track behind the boundary buttons. Intentionally left on the theme-aware
+        // --color-border-primary (dark-mode safe) — a light-only Polaris color token would break
+        // dark mode. No border-radius here: the boundary button already clips its inner edge with
+        // rounded-l/r-none, so rounding the track would introduce a seam. Rounding of the range
+        // ends is owned by the LemonButton corners (already Polaris). Documented, left intact.
         background-color: var(--color-border-primary);
     }
 

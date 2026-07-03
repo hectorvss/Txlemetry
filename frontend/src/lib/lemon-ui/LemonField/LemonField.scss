@@ -1,0 +1,29 @@
+// Polaris visual alignment for the field wrapper (LemonPureField).
+//
+// Structure and API are unchanged: this file only layers Polaris typography/spacing tokens
+// onto the help text and error message that LemonField renders, using the current Tailwind
+// values as fallbacks so nothing shifts if a token is missing. Polaris v13 `--p-*` tokens are
+// light-theme-only, so every value keeps an always-present fallback (color tokens intentionally
+// avoided — `text-secondary`/`text-danger` already carry the app's dark-mode-aware colors).
+//
+// Tokens used (values from Polaris styles.css):
+//   --p-space-200            = 0.5rem  (gap between control and its help/error text)
+//   --p-space-100            = 0.25rem (tight inline gap in the error row)
+//   --p-font-size-300        = 0.75rem  (help text — matches Tailwind text-xs)
+//   --p-font-size-325        = 0.8125rem (error text — Polaris caption; fallback keeps text-sm 0.875rem)
+//   --p-font-line-height-500 = 1.25rem  (help/error line height)
+
+.Field {
+    // Help text shown directly beneath the input (`.text-secondary.text-xs`)
+    > .text-secondary.text-xs {
+        font-size: var(--p-font-size-300, 0.75rem);
+        line-height: var(--p-font-line-height-500, 1rem);
+    }
+
+    // Inline error row rendered by LemonField.Error (`.text-danger ... .text-sm`)
+    > .text-danger {
+        gap: var(--p-space-100, 0.25rem);
+        font-size: var(--p-font-size-325, 0.875rem);
+        line-height: var(--p-font-line-height-500, 1.25rem);
+    }
+}

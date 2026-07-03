@@ -1,3 +1,7 @@
+// Polaris decision: no change. This is a behavioral overlay that dims its children via
+// opacity (--opacity-disabled) and blocks pointer events — it paints no surface, border or fill.
+// Polaris models disabled state as a fill color (--p-color-bg-fill-disabled), which is not an
+// opacity and would alter the look/behavior here. No safe token mapping, so left unchanged.
 .LemonDisabledArea {
     &.LemonDisabledArea--disabled {
         cursor: not-allowed;
