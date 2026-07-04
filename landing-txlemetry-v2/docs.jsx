@@ -61,25 +61,61 @@
           S('The building blocks', { list: ['Events — actions users take.', 'Properties — attributes on events and persons.', 'Insights — saved queries (trends, funnels, retention, paths).', 'Dashboards — collections of insights.'] }),
         ]),
         'capture-events': p('Send events with autocapture, custom events or the API.', [
-          S('Autocapture', { p: ['Once the snippet is installed, autocapture records front-end interactions — pageviews, clicks, form submits — with no extra code, so you can analyze behavior retroactively.'] }),
-          S('Custom events', { p: ['Send events that matter to your product with the SDK, e.g. capture("subscription_started", { plan: "pro" }). Custom events work anywhere insights are built.'] }),
+          S('Autocapture', { p: ['Once the snippet is installed, autocapture records front-end interactions with no extra code — so you can answer questions about behavior retroactively, even for interactions you never thought to instrument.'], list: ['Pageviews and pageleaves.', 'Clicks on buttons and links.', 'Form submissions and input changes (values are not captured by default).', 'Rage clicks — repeated frustrated clicking on the same element.'], note: 'Autocapture can be scoped: use an allowlist/denylist of CSS selectors to control which elements produce events, and disable it entirely if you prefer explicit instrumentation only.' }),
+          S('Custom events', { p: ['Custom events describe what matters in your product — a subscription started, a report exported, a limit hit. Send them with one call and attach properties for later filtering and breakdowns.'], code: [
+            { lang: 'JavaScript', code: `// Simple event\ntxlemetry.capture('report_exported')\n\n// With properties for filtering & breakdowns\ntxlemetry.capture('subscription_started', {\n  plan: 'pro',\n  seats: 5,\n  source: 'pricing_page',\n})` },
+            { lang: 'Node.js', code: `client.capture({\n  distinctId: user.id,\n  event: 'subscription_started',\n  properties: { plan: 'pro', seats: 5 },\n})` },
+          ] }),
+          S('Naming conventions', { p: ['A consistent scheme keeps the event list navigable as it grows. A common pattern is object_action in snake_case.'], table: { head: ['Good', 'Avoid', 'Why'], rows: [
+            ['subscription_started', 'Subscribed!', 'Predictable, sortable, greppable'],
+            ['report_exported', 'export', 'Says what happened to what'],
+            ['invite_sent', 'user clicked invite button then it sent', 'Short and stable across UI changes'],
+          ] } }),
         ]),
         'identify-users': p('Tie events to a known user with identify.', [
-          S('Overview', { p: ['Call identify(distinctId, properties) once you know who a user is (after login/signup). Txlemetry stitches their anonymous and identified activity into one person.'] }),
+          S('How identification works', { p: ['Before login, a visitor gets an anonymous distinct ID. When you call identify with your own user ID (after signup or login), Txlemetry links the anonymous history to the identified person — so the journey from first visit to conversion is one continuous story.'], code: [
+            { lang: 'JavaScript', code: `// After successful login/signup\ntxlemetry.identify(user.id, {\n  email: user.email,\n  name: user.name,\n  plan: user.plan,\n})\n\n// On logout — reset so the next visitor\n// doesn't inherit this identity\ntxlemetry.reset()` },
+          ] }),
+          S('Person properties', { p: ['Properties passed to identify are stored on the person and become usable in every filter, breakdown and cohort. Use $set-style updates to keep them current (e.g. when the plan changes).'] }),
+          S('Rules of thumb', { list: ['Use a stable internal user ID — never an email that can change.', 'Call identify as early as you know who the user is, on every platform.', 'Call reset on logout on shared devices.', 'Keep person properties small and meaningful: plan, role, signup date.'] }),
         ]),
         trends: p('Count and aggregate events over time with breakdowns.', [
-          S('Overview', { p: ['Trends count events, unique users, or aggregate a property over time. Add breakdowns to split a series by any property, and multiple series to compare events side by side.'] }),
-          S('Build a trend', { steps: ['Choose the event to measure.', 'Pick the aggregation (count, unique users, property sum/avg).', 'Add a breakdown to split the series.', 'Set the date range and interval, then save.'] }),
+          S('What trends answer', { p: ['Trends are the workhorse insight: how often does something happen, and is it going up or down? A trend plots one or more event series over time, at the interval you choose (hour, day, week, month), over any date range.'] }),
+          S('Aggregations', { table: { head: ['Aggregation', 'What it measures', 'Example'], rows: [
+            ['Total count', 'Every occurrence of the event', 'Pageviews per day'],
+            ['Unique users', 'Distinct persons doing it', 'Daily active users'],
+            ['Weekly/monthly active', 'Rolling distinct users', 'WAU / MAU'],
+            ['Property sum / avg / p90', 'Numeric property math', 'Average order value'],
+            ['Per-user average', 'Events divided by users', 'Reports created per user'],
+          ] } }),
+          S('Build a trend', { steps: ['Choose the event to measure (or an action combining several).', 'Pick the aggregation from the table above.', 'Add a breakdown (e.g. by plan, browser, country) to split the series.', 'Add more series to compare events on the same chart.', 'Set the date range and interval, then save to a dashboard.'] }),
+          S('Working with the chart', { list: ['Click a point to see the users behind it — and jump to their sessions.', 'Use formulas (A/B) to chart ratios like conversion or events-per-user.', 'Compare against the previous period to spot regressions at a glance.', 'Switch the display: line, bar, table, number or world map.'] }),
         ]),
         funnels: p('Measure conversion and drop-off across ordered steps.', [
-          S('Overview', { p: ['Funnels measure how many users complete an ordered sequence of steps and where they drop off. Use them to find leaks in signup, activation or checkout.'] }),
-          S('Build a funnel', { steps: ['Add the ordered steps (each is an event).', 'Choose the conversion window.', 'Break down by a property to compare segments.', 'Click a step to see who dropped off.'] }),
+          S('What funnels answer', { p: ['A funnel measures how many users complete an ordered sequence of steps — and where the rest fall out. It is the tool for questions like "what fraction of signups reach their first insight?" and "which step of checkout loses the most users?".'] }),
+          S('Build a funnel', { steps: ['Add the ordered steps; each step is an event or action.', 'Choose the conversion window — how long a user has to finish (e.g. 14 days).', 'Optionally break down by a property to compare segments side by side.', 'Save it, and click any step to inspect the users who dropped off there.'] }),
+          S('Step ordering', { table: { head: ['Mode', 'Meaning', 'Use when'], rows: [
+            ['Sequential', 'Steps in order, other events may happen between', 'Most product funnels'],
+            ['Strict order', 'Steps must be consecutive, nothing in between', 'Tight UI flows'],
+            ['Any order', 'All steps completed, any sequence', 'Checklist-style activation'],
+          ] } }),
+          S('Analyzing drop-off', { p: ['Each step shows its conversion from the previous one and the median time between steps. The biggest cliff is your highest-leverage fix: open the users who dropped there, watch their session replays, and look for the friction — an error, a confusing form, a missing affordance.'], note: 'From any funnel step you can jump straight to the session recordings of users who dropped off — the fastest path from "where" to "why".' }),
         ]),
         retention: p('See how many users return over time after a first action.', [
-          S('Overview', { p: ['Retention shows how many users come back on subsequent days or weeks after a starting action, so you can measure whether the product creates lasting habits.'] }),
+          S('What retention answers', { p: ['Retention measures whether your product creates a habit: of the users who did something in a given period, how many came back and did it again later? It is the metric that separates growth that sticks from growth that leaks.'] }),
+          S('Reading the grid', { p: ['Each row is a cohort of users who started in the same period (e.g. the week of March 3). Each column shows what share of them returned 1, 2, 3… periods later. Color intensity mirrors the percentage, so a healthy product shows a "floor" — the curve flattens instead of decaying to zero.'] }),
+          S('Configuration', { table: { head: ['Setting', 'Options', 'Effect'], rows: [
+            ['Start event', 'Any event or action', 'Who enters each cohort'],
+            ['Return event', 'Same or different event', 'What counts as "came back"'],
+            ['Retention type', 'First-time vs recurring', 'Only brand-new users, or anyone active'],
+            ['Period', 'Day / week / month', 'Granularity of the grid'],
+          ] } }),
+          S('Tips', { list: ['Use first-time retention to judge onboarding quality.', 'Pick a return event that reflects real value, not just opening the app.', 'Break down by acquisition source to compare cohort quality.', 'Click any cell to see exactly which users it contains.'] }),
         ]),
         paths: p('Visualize the routes users take through your product.', [
-          S('Overview', { p: ['Paths visualize the sequences of events users perform, so you can discover common journeys and unexpected detours.'] }),
+          S('What paths answer', { p: ['Paths reconstruct the actual sequences of pages and events users perform, laid out as a flow diagram. They surface the journeys you didn’t design: the detours before conversion, the loops that signal confusion, the unexpected entry points.'] }),
+          S('Configuration', { list: ['Start point — see everything that follows a page or event.', 'End point — see every route that leads to a destination (e.g. purchase).', 'Event types — pageviews, screen views, custom events or autocaptured clicks.', 'Number of paths per step — widen or simplify the diagram.', 'Exclusions — hide noisy events that clutter the picture.'] }),
+          S('Reading the diagram', { p: ['Edge thickness is volume: thick lines are common routes, thin ones are edge cases. Look for loops (users bouncing between two screens), dead ends before your goal, and popular routes you never optimized because you didn’t know they existed.'], note: 'Set the funnel’s biggest drop-off step as a path start point to see where those users actually went instead.' }),
         ]),
         stickiness: p('How repeatedly users engage over a period.', [ S('Overview', { p: ['Stickiness measures how many days (or intervals) users perform an action within a period — a proxy for habit strength.'] }) ]),
         lifecycle: p('New, returning, resurrecting and dormant users.', [ S('Overview', { p: ['Lifecycle breaks your active users into new, returning, resurrecting and dormant each period, so you can see growth quality at a glance.'] }) ]),
@@ -88,12 +124,43 @@
           S('Overview', { p: ['Dashboards bring related insights together. Add a dashboard-level date range or filter and every tile updates at once.'] }),
           S('Create a dashboard', { steps: ['Create a dashboard or start from a template.', 'Add tiles by pinning insights.', 'Apply a dashboard filter or date override.', 'Share with your team or a public link.'] }),
         ]),
-        cohorts: p('Group users by behavior or properties.', [ S('Overview', { p: ['Cohorts are reusable groups of users defined by properties or behavior (e.g. "did X in the last 7 days"). Use them to filter any insight.'] }) ]),
-        actions: p('Name and reuse combinations of events.', [ S('Overview', { p: ['Actions let you name a combination of events and element selectors so you can reuse a meaningful concept (e.g. "Signed up") across insights.'] }) ]),
-        annotations: p('Mark releases and events on your charts.', [ S('Overview', { p: ['Annotations add context to your charts — a release, a campaign, an incident — so a spike or dip is explainable later.'] }) ]),
-        properties: p('Event and person properties.', [ S('Overview', { p: ['Properties are the attributes on events and persons. Use them for filters, breakdowns and cohort definitions.'] }) ]),
-        sampling: p('Trade precision for speed on large datasets.', [ S('Overview', { p: ['Sampling computes an insight on a representative subset of events for faster results on very large datasets.'] }) ]),
-        faq: p('Common questions about product analytics.', [ S('FAQ', { qa: [['Does autocapture need code?', 'No — the snippet captures interactions automatically.'], ['Can I combine events and warehouse data?', 'Yes — join them in SQL insights.']] }) ]),
+        cohorts: p('Group users by behavior or properties.', [
+          S('What are cohorts', { p: ['A cohort is a reusable, named group of users. Define it once — "trial users in Spain", "did an export in the last 7 days" — and use it everywhere: as a filter on any insight, a breakdown, a survey audience or a feature-flag target.'] }),
+          S('Types', { table: { head: ['Type', 'Definition', 'Updates'], rows: [
+            ['Dynamic', 'A set of property/behavior criteria', 'Continuously, as users match or stop matching'],
+            ['Static', 'A fixed list (uploaded or snapshotted)', 'Never — frozen at creation'],
+          ] } }),
+          S('Building criteria', { list: ['Person properties: plan = pro, country = ES.', 'Behavior: performed an event N times in a window, or stopped performing it.', 'First-time behavior: did something for the first time recently.', 'Combine criteria with AND / OR, and nest groups for precision.'], note: 'Feature flags can only target property-based cohorts — behavioral criteria (events performed) are not evaluable at flag time.' }),
+        ]),
+        actions: p('Name and reuse combinations of events.', [
+          S('What are actions', { p: ['An action gives a durable name to something users do, defined from one or more events or autocaptured elements. Insights built on the action keep working when the underlying UI changes — you update the action’s definition once, not thirty insights.'] }),
+          S('Ways to define one', { list: ['From a custom event name.', 'From autocapture: pick the element by selector, text or href — or point and click with the toolbar.', 'From a pageview URL (exact, contains, or regex).', 'Combine several definitions with OR into one action.'] }),
+        ]),
+        annotations: p('Mark releases and events on your charts.', [
+          S('Overview', { p: ['Annotations pin context to dates on every chart: a release, a campaign launch, an outage. Three months later, the spike explains itself instead of demanding an investigation.'] }),
+          S('Scopes', { list: ['Insight — visible only on one chart.', 'Project — visible on every chart in the project.', 'Organization — visible across projects.'] }),
+        ]),
+        properties: p('Event, person, group and session properties.', [
+          S('Property types', { table: { head: ['Type', 'Attached to', 'Examples'], rows: [
+            ['Event properties', 'A single event', 'button name, current URL, value'],
+            ['Person properties', 'The user', 'plan, email, signup date'],
+            ['Group properties', 'An account/organization', 'company size, ARR tier'],
+            ['Session properties', 'One session', 'entry URL, initial referrer, duration'],
+          ] } }),
+          S('Where they work', { p: ['Every property is available in filters, breakdowns, cohort criteria, funnel exclusions and SQL. Default properties (device, browser, geo-IP, UTM) are captured automatically; your custom ones ride along on capture and identify calls.'] }),
+        ]),
+        sampling: p('Trade precision for speed on large datasets.', [
+          S('Overview', { p: ['With sampling on, an insight computes over a representative fraction of events and extrapolates. Queries return much faster on very large datasets, at the cost of small statistical noise.'], note: 'Sampled results are estimates — turn sampling off for financial reporting or anything where the exact count matters.' }),
+        ]),
+        faq: p('Common questions about product analytics.', [
+          S('FAQ', { qa: [
+            ['Does autocapture need code?', 'No — the snippet records pageviews and interactions automatically; custom events are one capture call when you want richer semantics.'],
+            ['Can I combine events and warehouse data?', 'Yes — link a source in Data warehouse and join it with events in SQL insights.'],
+            ['Why do unique-user counts differ between insights?', 'Check the date ranges, filters and whether sampling is enabled; also confirm identify is called consistently so users aren’t split into several persons.'],
+            ['Can I rename or fix an event after the fact?', 'Historical events are immutable, but actions let you re-map names, and transformations can normalize future events at ingestion.'],
+            ['How fresh are results?', 'Events are queryable seconds after capture; dashboard tiles cache and refresh periodically.'],
+          ] }),
+        ]),
       },
     },
   };
@@ -575,10 +642,14 @@
       <div className="mt-4 rounded-[10px] overflow-hidden border border-[#3a322e]">
         <div className="flex items-center justify-between px-3 py-1.5" style={{ background: '#241e1b' }}>
           <span className="text-[11px] font-semibold uppercase tracking-[1px]" style={{ color: '#a89d96' }}>{block.lang || 'Code'}</span>
-          <button type="button"
+          <button type="button" title={copied ? 'Copied!' : 'Copy to clipboard'}
             onClick={() => { try { navigator.clipboard.writeText(block.code); setCopied(true); setTimeout(() => setCopied(false), 1500); } catch (e) { /* clipboard unavailable */ } }}
-            className="text-[11px] font-semibold" style={{ color: copied ? '#8fd39a' : '#d8cfc7' }}>
-            {copied ? 'Copied!' : 'Copy'}
+            className="flex items-center justify-center w-6 h-6 rounded hover:bg-white/10 transition-colors">
+            {copied ? (
+              <svg viewBox="0 0 16 16" className="w-[14px] h-[14px]" fill="none" stroke="#8fd39a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"/></svg>
+            ) : (
+              <svg viewBox="0 0 16 16" className="w-[14px] h-[14px]" fill="none" stroke="#d8cfc7" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5v-2A1.5 1.5 0 009 2H4a1.5 1.5 0 00-1.5 1.5v5A1.5 1.5 0 004 10h2"/></svg>
+            )}
           </button>
         </div>
         <pre className="px-4 py-3 overflow-x-auto m-0 text-[12.5px] leading-[1.65]" style={{ background: '#1c1715', color: '#f0e9e2' }}><code>{block.code}</code></pre>
