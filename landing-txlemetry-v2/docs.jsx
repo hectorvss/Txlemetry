@@ -371,6 +371,43 @@
     },
   };
 
+  DOCS['data-pipelines'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview']] },
+      { label: 'Pipelines', items: [['sources', 'Sources'], ['transformations', 'Transformations'], ['destinations', 'Destinations'], ['batch-exports', 'Batch exports']] },
+      { label: 'Reference', items: [['use-cases', 'Use cases'], ['monitoring', 'Monitoring & retries'], ['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Route product signals in and out of your stack without losing context.', [
+        S('What are data pipelines', { p: ['Data pipelines connect Txlemetry to the rest of your tools in both directions: sources bring external data in, transformations reshape events in flight, and destinations deliver events out — in real time or in scheduled batches. Delivery, retries and monitoring are handled for you.'] }),
+        S('The three pieces', { list: ['Sources — ingest data from databases and SaaS tools.', 'Transformations — filter, reshape or enrich events before they are stored or forwarded.', 'Destinations — send events to warehouses, queues, webhooks and SaaS tools.'] }),
+      ]),
+      sources: p('Bring external data in.', [
+        S('Overview', { p: ['Connect a database (e.g. Postgres, MySQL) or a SaaS tool (e.g. billing, CRM, support) as a source and its tables sync on a schedule into the data warehouse, where they can be joined with your events using SQL.'] }),
+        S('Steps', { steps: ['Open Data pipelines and add a source.', 'Authorize the connection and pick the tables to sync.', 'Choose the sync frequency.', 'Query the synced tables alongside events in the SQL editor.'] }),
+      ]),
+      transformations: p('Shape events before they land.', [
+        S('Overview', { p: ['Transformations run on events as they are ingested: drop noisy events, strip or hash sensitive properties, normalize values, or add computed fields. They apply before storage, so downstream insights and destinations all see the cleaned data.'] }),
+      ]),
+      destinations: p('Send events anywhere, as they happen.', [
+        S('Overview', { p: ['Realtime destinations forward matching events to other systems within seconds — webhooks, queues, marketing tools, CRMs, Slack and more. Each destination has its own filter, so you send only what the target needs.'] }),
+        S('Steps', { steps: ['Add a destination and pick the service (or a generic webhook).', 'Filter which events and properties are forwarded.', 'Map fields to the destination’s format.', 'Enable it and watch deliveries in the monitoring tab.'] }),
+      ]),
+      'batch-exports': p('Bulk delivery on a schedule.', [
+        S('Overview', { p: ['Batch exports deliver your events to a warehouse or object storage (e.g. BigQuery, Snowflake, S3, Postgres) on an hourly or daily schedule, with backfills for historical data. Use them when completeness matters more than latency.'] }),
+      ]),
+      'use-cases': p('What teams build with pipelines.', [
+        S('Examples', { list: ['Keep the data warehouse in sync with product events for BI.', 'Send qualified-signup events to the CRM in real time.', 'Strip PII from events before storage with a transformation.', 'Alert a Slack channel when a high-value action happens.'] }),
+      ]),
+      monitoring: p('Trust the pipe.', [
+        S('Overview', { p: ['Every source, transformation and destination reports runs, failures and retry state. Failed deliveries retry automatically with backoff; persistent failures surface in the UI so nothing disappears silently.'] }),
+      ]),
+      faq: p('Common questions about data pipelines.', [
+        S('FAQ', { qa: [['Do destinations slow ingestion?', 'No — delivery is asynchronous and does not block event capture.'], ['Can I replay missed data?', 'Batch exports support backfills over a date range.'], ['Are transformations reversible?', 'No — they apply at ingestion. Keep a raw copy via a destination if you need the original.']] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
