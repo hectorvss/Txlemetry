@@ -912,6 +912,159 @@
     },
   };
 
+  DOCS['txlemetry-ai'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['first-question', 'Ask your first question']] },
+      { label: 'Features', items: [['capabilities', 'What it can do'], ['to-insight', 'From answer to insight'], ['good-prompts', 'Asking good questions']] },
+      { label: 'Reference', items: [['privacy', 'Data & privacy'], ['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Ask questions about your product data in natural language.', [
+        S('What is Txlemetry AI', { p: ['Txlemetry AI is an AI workspace over your product data. Ask a question in plain language — "which features do power users adopt first?" — and it builds the query, runs it, explains the answer, and helps you turn it into an insight, a dashboard tile or a next step. It works with the same events, persons and definitions as the rest of the platform, so its answers match what the UI would show.'] }),
+        S('Where it lives', { list: ['The command bar on Home ("What can I help you with?").', 'The dedicated AI workspace in the sidebar.', 'Inline helpers across the product (e.g. SQL assistance, regex help).'] }),
+      ]),
+      'first-question': p('From question to answer in one minute.', [
+        S('Steps', { steps: ['Open Txlemetry AI from the sidebar (or press the Home command bar).', 'Ask something concrete: "weekly signups for the last 8 weeks, split by plan".', 'Review the answer — the chart, the query it built, and its explanation.', 'Refine in the same thread: "now only for users from Spain".'] }),
+        S('Examples that work well', { list: ['"What are my top 10 events this month?"', '"Conversion from pricing page to signup, last 30 days"', '"Which cohort retains better: organic vs paid signups?"', '"Show sessions where checkout_failed happened yesterday"'] }),
+      ]),
+      capabilities: p('More than a chart generator.', [
+        S('Capabilities', { table: { head: ['Capability', 'Example'], rows: [
+          ['Build insights', 'Trends, funnels, retention from a sentence'],
+          ['Write SQL', 'Generates and explains editor-ready queries'],
+          ['Investigate changes', '"Why did signups drop on Tuesday?" — checks segments and sources'],
+          ['Summarize sessions', 'Digest of what happened in a set of replays'],
+          ['Navigate & act', 'Create dashboards, find settings, jump to features'],
+        ] } }),
+      ]),
+      'to-insight': p('Answers you can keep.', [
+        S('Overview', { p: ['Every answer can be saved: pin the chart to a dashboard, save the generated SQL as an insight, or continue in the visual editor with the query pre-filled. The AI is a faster way into the same primitives — nothing it produces is a dead end.'] }),
+      ]),
+      'good-prompts': p('Getting reliable answers.', [
+        S('Tips', { list: ['Name real events and properties when you know them ("signup_completed by plan").', 'Give a time window — "last 30 days" beats "recently".', 'Ask one question per message; chain refinements in the thread.', 'If a term is ambiguous ("active"), define it: "active = did any event".'], note: 'Verify surprising answers by opening the underlying query — the AI shows its work precisely so you can check it.' }),
+      ]),
+      privacy: p('What the AI sees and stores.', [
+        S('Overview', { p: ['Txlemetry AI queries your project data with your permissions — it cannot see other projects or act beyond your role. Conversations are stored with your project so threads can be resumed, and admins control whether AI features are enabled for the organization.'] }),
+      ]),
+      faq: p('Common questions about Txlemetry AI.', [
+        S('FAQ', { qa: [
+          ['Can it modify my data?', 'It creates insights and dashboards when you ask, but ingestion data is never modified — queries are read-only.'],
+          ['What if it gets something wrong?', 'Open the generated query to inspect the logic; refine the question or correct it in the editor.'],
+          ['Does it work with warehouse tables?', 'Yes — synced tables are part of the schema it can query.'],
+        ] }),
+      ]),
+    },
+  };
+
+  DOCS['ai-observability'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['setup', 'Instrument your LLM calls']] },
+      { label: 'Features', items: [['metrics', 'Cost, latency & tokens'], ['traces', 'Generations & traces'], ['quality', 'Evaluating quality']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Monitor LLM usage, cost and quality in your own product.', [
+        S('What is AI observability', { p: ['If your product calls LLMs, AI observability captures each generation — model, prompt, completion, tokens, latency, cost — and joins it with the rest of your product data. You debug AI features with the same tooling you use for everything else, and you can tie AI cost to the users and features generating it.'] }),
+        S('Why join it with product data', { list: ['Cost per user, per team, per feature — not just a total bill.', 'Latency percentiles where users actually feel them.', 'Jump from a bad generation to the session where it happened.', 'A/B test prompts and models with regular experiments.'] }),
+      ]),
+      setup: p('Capture generations from your backend.', [
+        S('Instrument a call', { code: [
+          { lang: 'Python', code: `# Wrap your LLM call and capture the generation\nresult = llm.generate(prompt)\n\ntxlemetry.capture(\n    distinct_id=user.id,\n    event="$ai_generation",\n    properties={\n        "$ai_model": "gpt-4o",\n        "$ai_input_tokens": result.usage.input,\n        "$ai_output_tokens": result.usage.output,\n        "$ai_latency": result.latency_ms,\n        "feature": "report_summary",\n    },\n)` },
+        ], note: 'SDK integrations for common LLM clients can capture these automatically — wrap the client once and every call is recorded.' }),
+      ]),
+      metrics: p('The numbers that keep AI features shippable.', [
+        S('Out of the box', { table: { head: ['Metric', 'Question it answers'], rows: [
+          ['Cost per day / feature / user', 'Where is the spend going?'],
+          ['Latency p50/p95', 'Is the feature fast enough to feel good?'],
+          ['Token usage', 'Are prompts bloating over time?'],
+          ['Error & retry rate', 'How often do calls fail?'],
+        ] } }),
+      ]),
+      traces: p('See the whole chain of a generation.', [
+        S('Overview', { p: ['Multi-step AI features (retrieval, tool calls, chained prompts) are captured as traces: each step with its inputs, outputs and timing. When an answer is wrong or slow, you see exactly which step caused it.'] }),
+      ]),
+      quality: p('Measure output quality, not just throughput.', [
+        S('Approaches', { list: ['User feedback events (thumbs up/down) joined to the generation.', 'Automated evals scored as properties on the generation event.', 'Experiments comparing prompts or models on real outcomes.'] }),
+      ]),
+      faq: p('Common AI observability questions.', [
+        S('FAQ', { qa: [
+          ['Are prompts stored?', 'You choose — capture full text for debugging, or redact and keep only metadata.'],
+          ['Which providers work?', 'Any — the capture format is provider-agnostic; integrations exist for the common clients.'],
+          ['Does this replace my APM?', 'No; it complements it with AI-specific semantics (tokens, cost, prompt versions) tied to users.'],
+        ] }),
+      ]),
+    },
+  };
+
+  DOCS['revenue-analytics'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['connect', 'Connect revenue data']] },
+      { label: 'Features', items: [['metrics', 'MRR, churn & LTV'], ['joins', 'Revenue meets behavior']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Tie product usage to revenue, MRR and churn.', [
+        S('What is revenue analytics', { p: ['Revenue analytics connects billing data to product behavior, so revenue stops being a lagging number in another tool and becomes something you can segment by what users actually do: which behaviors precede expansion, what usage patterns predict churn, which features your best-paying customers rely on.'] }),
+      ]),
+      connect: p('Two ways to get revenue in.', [
+        S('Options', { table: { head: ['Method', 'How', 'Best for'], rows: [
+          ['Billing source', 'Sync your payments provider via the data warehouse', 'Complete MRR/subscription picture'],
+          ['Revenue events', 'Capture purchases as events with amounts', 'Transactional products, quick start'],
+        ] } }),
+        S('Revenue events', { code: [
+          { lang: 'JavaScript', code: `txlemetry.capture('purchase_completed', {\n  amount: 49.0,\n  currency: 'EUR',\n  product: 'pro_monthly',\n})` },
+        ] }),
+      ]),
+      metrics: p('The subscription vocabulary.', [
+        S('Metrics', { table: { head: ['Metric', 'Meaning'], rows: [
+          ['MRR', 'Monthly recurring revenue, with new/expansion/contraction/churn components'],
+          ['Churn rate', 'Share of revenue or customers lost per period'],
+          ['ARPU', 'Average revenue per user/account'],
+          ['LTV', 'Expected lifetime value given retention and ARPU'],
+        ] } }),
+      ]),
+      joins: p('Where it gets powerful.', [
+        S('Examples', { list: ['Break any product metric down by plan or MRR band.', 'Cohort churned accounts and study their last 30 days of usage.', 'Alert when a high-MRR account’s usage drops week over week.', 'Target expansion campaigns at accounts hitting plan limits.'] }),
+      ]),
+      faq: p('Common revenue analytics questions.', [
+        S('FAQ', { qa: [
+          ['Do I need the warehouse?', 'For synced billing data, yes; revenue events alone work without it.'],
+          ['Multi-currency?', 'Capture the currency per event and normalize in analysis.'],
+        ] }),
+      ]),
+    },
+  };
+
+  DOCS['customer-analytics'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['groups', 'Set up groups']] },
+      { label: 'Features', items: [['account-view', 'Account-level analytics'], ['b2b-patterns', 'B2B patterns']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Understand accounts and groups, not just individual users.', [
+        S('What is customer analytics', { p: ['B2B products live and die by accounts, not individuals. Customer analytics rolls user behavior up to the organization level — via groups — so adoption, retention and conversion can be answered per company: "how many accounts activated this month?", not just "how many users?".'] }),
+      ]),
+      groups: p('Teach Txlemetry about your accounts.', [
+        S('How groups work', { p: ['A group is an entity (company, team, workspace) that events belong to. Associate each event with the user’s group and set properties on the group itself.'], code: [
+          { lang: 'JavaScript', code: `// Associate this user's events with their company\ntxlemetry.group('company', 'acme-inc', {\n  name: 'Acme Inc',\n  plan: 'enterprise',\n  seats: 120,\n})` },
+        ] }),
+        S('Group properties', { list: ['Set plan, size, industry, ARR band as group properties.', 'They become usable in filters, breakdowns and flags — target a rollout at whole companies.'] }),
+      ]),
+      'account-view': p('Analytics with the account as the unit.', [
+        S('What changes', { list: ['Trends can count unique groups instead of unique users.', 'Funnels can require steps completed by anyone in the account.', 'Retention can measure whether companies (not people) come back.', 'Each group has a profile: members, events, properties, history.'] }),
+      ]),
+      'b2b-patterns': p('Questions B2B teams answer with groups.', [
+        S('Examples', { list: ['Activation: % of new accounts reaching value in 14 days.', 'Expansion signal: accounts adding members week over week.', 'Health: accounts whose weekly active members dropped >50%.', 'Sales handoff: flag accounts crossing usage thresholds.'] }),
+      ]),
+      faq: p('Common customer analytics questions.', [
+        S('FAQ', { qa: [
+          ['Can a user belong to several groups?', 'Yes — a user can act inside different groups; each event carries the group it happened in.'],
+          ['Do groups work with flags and experiments?', 'Yes — rollouts and experiments can key on the group, so whole accounts share one experience.'],
+        ] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
