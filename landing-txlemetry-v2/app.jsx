@@ -30,6 +30,7 @@
     KnowledgePage:      versioned('/v2/knowledge.js'),
     PricingPage:        versioned('/v2/pricing.js'),
     AllFeaturesPage:    versioned('/v2/all-features.js'),
+    DocsPage:           versioned('/v2/docs.js'),
     CopilotPage:        versioned('/v2/copilot.js'),
     AgentCustomerPage:  versioned('/v2/agent-customer.js'),
     AgentTrustPage:     versioned('/v2/agent-trust.js'),

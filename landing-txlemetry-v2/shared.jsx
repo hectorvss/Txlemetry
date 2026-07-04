@@ -26,6 +26,7 @@
     { path: '/pricing',         title: 'Pricing',        component: 'PricingPage' },
     { path: '/all-features',    title: 'All features',   component: 'AllFeaturesPage' },
     { path: '/technology',      title: 'Technology',     component: 'TechnologyPage' },
+    { path: '/docs',            title: 'Docs',           component: 'DocsPage' },
     { path: '/signin',          title: 'Log in',         component: 'SigninPage' },
     { path: '/signup',          title: 'Start free trial', component: 'SignupPage' },
     { path: '/reset-password',  title: 'Reset password', component: 'ResetPasswordPage' },
