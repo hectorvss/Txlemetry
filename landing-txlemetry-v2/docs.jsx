@@ -485,25 +485,45 @@
         S('Steps', { steps: ['Open Surveys and create a new survey (blank or from a template).', 'Write the questions and choose their types.', 'Define who sees it and where (URL, properties, cohort or flag).', 'Preview it, then launch. Responses stream into the results view.'] }),
       ]),
       'question-types': p('Pick the right format for the question.', [
-        S('Available types', { list: ['Rating (1–5, 1–10 or emoji) — for scores like NPS/CSAT.', 'Single choice — pick one option.', 'Multiple choice — pick several.', 'Open text — free-form feedback.', 'Link — drive users to an external page (e.g. book an interview).'] }),
-        S('Multi-step surveys', { p: ['Chain several questions with optional branching, so a low rating can be followed by "what went wrong?" while a high one asks for a review.'] }),
+        S('Available types', { table: { head: ['Type', 'Answer format', 'Best for'], rows: [
+          ['Rating', '1–5, 1–10 or emoji scale', 'NPS, CSAT, effort scores'],
+          ['Single choice', 'Pick one option', 'Categorical questions (reason for visit)'],
+          ['Multiple choice', 'Pick several', '"Which features do you use?"'],
+          ['Open text', 'Free-form', 'The "why" behind any score'],
+          ['Link', 'A button to an external page', 'Booking interviews, sharing a doc'],
+        ] } }),
+        S('Multi-step surveys', { p: ['Chain several questions with optional branching, so a low rating can be followed by "what went wrong?" while a high one asks for a review. Keep it short — completion drops sharply after two or three questions.'] }),
       ]),
       targeting: p('Who sees the survey, where and when.', [
-        S('Conditions', { list: ['URL contains/matches — show only on certain pages.', 'Person properties and cohorts — segment precisely.', 'Feature flag — tie display to a rollout.', 'Wait period and response limits — avoid over-surveying the same person.'] }),
-        S('Scheduling', { p: ['Control when a survey starts and stops, and cap total responses so analysis stays manageable.'] }),
+        S('Display conditions', { table: { head: ['Condition', 'Example'], rows: [
+          ['URL contains / matches', 'Only on /dashboard pages'],
+          ['Person properties & cohorts', 'plan = pro, or the "power users" cohort'],
+          ['Feature flag', 'Only users inside the new-checkout rollout'],
+          ['Device type', 'Desktop only'],
+          ['Event trigger', 'Right after report_exported happens'],
+        ] } }),
+        S('Frequency controls', { list: ['Wait period — don’t re-ask the same person for N days.', 'Response limit — stop at a total number of responses.', 'Schedule — start and stop dates for the whole survey.'], note: 'Over-surveying trains users to dismiss everything. One well-targeted question beats five generic ones.' }),
       ]),
       customization: p('Make it look like your product.', [
-        S('Overview', { p: ['Adjust colors, position, border radius and button text from the survey editor — no code. The widget inherits your font by default so it blends into the page.'] }),
+        S('No-code styling', { list: ['Colors — background, border, button and text colors.', 'Position — corner or center, per survey.', 'Border radius and shadow to match your UI.', 'Button and placeholder texts, thank-you message.'] }),
+        S('Branding', { p: ['The widget inherits your page font by default so it blends in. For pixel-perfect control, switch to a custom implementation (next page) and keep only the targeting/analysis machinery.'] }),
       ]),
       'custom-ui': p('Render surveys with your own components.', [
-        S('Overview', { p: ['If the built-in widget doesn’t fit, fetch active surveys from the SDK and render them with your own UI, then send responses back with a capture call. You keep full visual control while targeting and analysis stay in Txlemetry.'] }),
+        S('How it works', { p: ['Fetch the surveys active for the current user, render them with your own components, and send responses back as events. You keep full visual control; targeting, scheduling and analysis stay in Txlemetry.'], code: [
+          { lang: 'JavaScript', code: `// 1. Get surveys matching this user & page\ntxlemetry.getActiveMatchingSurveys((surveys) => {\n  const survey = surveys[0]\n  if (!survey) return\n\n  // 2. Render it with your own UI…\n  showMySurveyUI(survey)\n})\n\n// 3. Send the response back\ntxlemetry.capture('survey sent', {\n  $survey_id: survey.id,\n  $survey_response: answer,\n})` },
+        ] }),
+        S('Also capture', { list: ['survey shown — when your UI displays it (powers display stats).', 'survey dismissed — when the user closes without answering.'] }),
       ]),
       results: p('From responses to decisions.', [
         S('Overview', { p: ['Each survey has a results view: response counts, score distributions, and every open-text answer. Because responses are events, you can also slice them in product analytics — e.g. NPS by plan, or churn reasons by cohort.'] }),
       ]),
       nps: p('Measure loyalty with Net Promoter Score.', [
-        S('Overview', { p: ['The NPS template asks "how likely are you to recommend us?" on a 0–10 scale. Detractors (0–6), passives (7–8) and promoters (9–10) are classified automatically, and the score trend is tracked over time.'] }),
-        S('Tips', { list: ['Survey a rolling sample, not everyone at once.', 'Follow the score with an open "why?" question.', 'Compare NPS across plans or cohorts to find friction.'] }),
+        S('Overview', { p: ['The NPS template asks "how likely are you to recommend us?" on a 0–10 scale, classifies answers automatically, and tracks the score trend over time.'], table: { head: ['Score', 'Class', 'Meaning'], rows: [
+          ['9–10', 'Promoter', 'Loyal, will recommend'],
+          ['7–8', 'Passive', 'Satisfied but vulnerable'],
+          ['0–6', 'Detractor', 'At risk, may discourage others'],
+        ] }, note: 'NPS = % promoters − % detractors, so the score ranges from −100 to +100. Trend and segment it rather than obsessing over the absolute number.' }),
+        S('Tips', { list: ['Survey a rolling sample, not everyone at once — you get a continuous signal instead of quarterly spikes.', 'Follow the score with an open "why?" question; the verbatims are the value.', 'Compare NPS across plans or cohorts to locate friction.', 'Close the loop: route detractor responses to support via a pipeline destination.'] }),
       ]),
       csat: p('Measure satisfaction after key moments.', [
         S('Overview', { p: ['CSAT asks "how satisfied are you?" right after an experience — onboarding, support, a purchase. Trigger it on the event that ends the experience so feedback is fresh.'] }),
