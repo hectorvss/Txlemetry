@@ -143,6 +143,45 @@
     },
   };
 
+  DOCS['session-replay'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['enable', 'Enable recordings']] },
+      { label: 'Features', items: [['watching', 'Watching replays'], ['filtering', 'Filtering & search'], ['console-network', 'Console & network'], ['privacy', 'Privacy & masking'], ['volume', 'Sampling & volume']] },
+      { label: 'Reference', items: [['troubleshooting', 'Troubleshooting'], ['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Watch real sessions to see the behavior behind a metric.', [
+        S('What is session replay', { p: ['Session replay records real user sessions — DOM changes, clicks, scrolls, inputs — so you can watch exactly what a user experienced. Because replays share the same data model as analytics, you can jump from a funnel drop-off or an error straight into the sessions where it happened.'] }),
+        S('What it is for', { list: ['Debugging: see the exact steps that led to a bug or a rage click.', 'UX research: watch how real users navigate a flow.', 'Support: reproduce what a specific user reported.', 'Metric forensics: go from "conversion dropped" to "here is why".'] }),
+      ]),
+      enable: p('Turn on recording and choose what gets captured.', [
+        S('Steps', { steps: ['Install the snippet or JavaScript SDK.', 'Enable session recording in Project settings.', 'Optionally enable console log and network capture for richer debugging.', 'Open Session replay — recordings appear as users browse.'] }),
+        S('Mobile', { p: ['Mobile session replay is available in the iOS, Android, React Native and Flutter SDKs, with the same privacy controls as the web.'] }),
+      ]),
+      watching: p('The replay player and its tools.', [
+        S('The player', { list: ['Timeline with activity markers (clicks, navigations, errors).', 'Playback speed control and inactivity skipping.', 'The event stream synced to the recording — click an event to jump to that moment.', 'Notes and timestamped sharing links for teammates.'] }),
+      ]),
+      filtering: p('Find the sessions that matter.', [
+        S('Overview', { p: ['Filter recordings by user, page, duration, country, device, or by events performed during the session — e.g. "sessions where checkout_failed happened". Saved filters become playlists your team can watch.'] }),
+      ]),
+      'console-network': p('Debug with console logs and network activity.', [
+        S('Overview', { p: ['With console and network capture enabled, each replay includes the browser console output and the network requests made during the session — status codes, timings and sizes — so you can debug a failure without asking the user for a HAR file.'] }),
+      ]),
+      privacy: p('Keep sensitive data out of recordings.', [
+        S('Controls', { list: ['Password fields are masked by default and never captured.', 'Mask any input or element with a CSS class or config.', 'Block recording entirely on specific pages or for specific users.', 'IPs and geolocation follow your project privacy settings.'] }),
+      ]),
+      volume: p('Control how much gets recorded.', [
+        S('Overview', { p: ['Use sampling to record a percentage of sessions, set a minimum duration to skip trivial visits, or start recording only when a feature flag matches — useful to focus volume on the flows you are actively studying.'] }),
+      ]),
+      troubleshooting: p('Recordings not appearing?', [
+        S('Checklist', { steps: ['Confirm recording is enabled in Project settings.', 'Check that the snippet/SDK version supports replay.', 'Ad blockers can prevent capture on some visitors — compare against server-side pageview counts.', 'Verify your domain is in the authorized URLs if you restricted capture.'] }),
+      ]),
+      faq: p('Common questions about session replay.', [
+        S('FAQ', { qa: [['Does replay slow my site down?', 'Capture is asynchronous and batched; the overhead is designed to be negligible for real users.'], ['How long are recordings kept?', 'Recordings follow your plan’s retention window; you can also save specific ones to keep them longer.'], ['Can I record only some users?', 'Yes — sample by percentage, gate by feature flag, or start recording programmatically.']] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
