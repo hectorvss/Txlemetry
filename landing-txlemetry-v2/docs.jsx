@@ -185,7 +185,8 @@
   DOCS['feature-flags'] = {
     toc: [
       { label: 'Get started', items: [['overview', 'Overview'], ['create', 'Create a flag'], ['use-in-code', 'Use flags in code']] },
-      { label: 'Features', items: [['targeting', 'Release conditions'], ['multivariate', 'Multivariate flags'], ['payloads', 'Payloads & remote config'], ['bootstrapping', 'Bootstrapping & local eval'], ['scheduling', 'Scheduling & rollbacks']] },
+      { label: 'Features', items: [['targeting', 'Release conditions'], ['multivariate', 'Multivariate flags'], ['payloads', 'Payloads & remote config'], ['bootstrapping', 'Bootstrapping & local eval'], ['scheduling', 'Scheduling & rollbacks'], ['dependencies', 'Flag dependencies']] },
+      { label: 'Guides', items: [['phased-rollout', 'Do a phased rollout']] },
       { label: 'Reference', items: [['best-practices', 'Best practices'], ['troubleshooting', 'Troubleshooting'], ['faq', 'FAQ']] },
     ],
     pages: {
@@ -198,11 +199,28 @@
         S('Flag states', { list: ['Enabled/disabled — the master switch.', 'Rollout % — what share of matching users get the flag.', 'Conditions — who is eligible at all.'] }),
       ]),
       'use-in-code': p('Read flags from your application.', [
-        S('Client-side', { p: ['In the browser or mobile app, check a flag with the SDK’s isFeatureEnabled / getFeatureFlag call and branch your UI on the result. Flags are fetched for the current user and cached.'] }),
-        S('Server-side', { p: ['Backend SDKs evaluate flags per distinct ID. With local evaluation enabled, flag definitions are cached in your server and evaluated in-process for minimal latency.'] }),
+        S('Client-side (web)', { p: ['In the browser, check a flag with isFeatureEnabled and branch your UI on the result. Flags are fetched once for the current user and cached; for decisions that affect first paint, combine this with bootstrapping to avoid a flash of the wrong variant.'], code: [
+          { lang: 'JavaScript', code: `// Boolean flag\nif (txlemetry.isFeatureEnabled('new-checkout')) {\n  renderNewCheckout()\n}\n\n// Multivariate: which variant did this user get?\nconst variant = txlemetry.getFeatureFlag('pricing-test')\nif (variant === 'annual-first') {\n  showAnnualFirstPricing()\n}` },
+          { lang: 'React', code: `import { useFeatureFlagEnabled } from '@txlemetry/react'\n\nfunction Nav() {\n  const showNewNav = useFeatureFlagEnabled('new-nav')\n  return showNewNav ? <NewNav /> : <ClassicNav />\n}` },
+        ] }),
+        S('Server-side', { p: ['Backend SDKs evaluate flags per distinct ID. With local evaluation enabled, flag definitions are cached in your process and each check runs in-memory — no network call per request.'], code: [
+          { lang: 'Node.js', code: `const enabled = await client.isFeatureEnabled(\n  'new-checkout',\n  distinctId\n)\nif (enabled) {\n  // new code path\n}` },
+          { lang: 'Python', code: `if txlemetry.feature_enabled('new-checkout', distinct_id):\n    render_new_checkout()` },
+        ] }),
+        S('Reacting to flag changes', { p: ['On the web you can subscribe to flag updates, so the UI can react if a rollout changes mid-session.'], code: [
+          { lang: 'JavaScript', code: `txlemetry.onFeatureFlags(() => {\n  // flags loaded or refreshed\n  updateUI()\n})` },
+        ] }),
+        S('Good to know', { note: 'Identify users before evaluating flags. Anonymous and identified users have different distinct IDs, and consistent bucketing depends on evaluating against the same ID everywhere.' }),
       ]),
       targeting: p('Who gets the feature.', [
-        S('Release conditions', { list: ['Percentage rollout — a stable hash of the user ID decides, so the same user always gets the same result.', 'Person properties — e.g. plan = enterprise, country = ES.', 'Cohorts — reuse behavioral groups defined in analytics.', 'Groups — roll out per organization/account instead of per user.'] }),
+        S('Condition types', { table: { head: ['Condition', 'Example', 'Best for'], rows: [
+          ['Percentage rollout', '25% of all users', 'Gradual releases with instant rollback'],
+          ['Person property', 'plan = enterprise', 'Plan- or attribute-based gating'],
+          ['Cohort', 'Beta testers', 'Reusable, centrally-managed groups'],
+          ['Group', 'organization = Acme', 'B2B: whole accounts at once'],
+        ] } }),
+        S('How percentage bucketing works', { p: ['The rollout percentage is decided by a stable hash of the user’s distinct ID and the flag key. The same user always lands in the same bucket for a given flag — across sessions and devices — and raising the percentage only adds users; nobody who had the feature loses it.'] }),
+        S('Combining conditions', { p: ['Conditions inside one set are ANDed together (plan = pro AND country = ES); multiple sets are ORed. The first matching set decides the result, and each set can carry its own rollout percentage.'] }),
       ]),
       multivariate: p('More than on/off.', [
         S('Overview', { p: ['Multivariate flags return one of several string variants (e.g. control / red / blue) with weights you define — the building block for experiments with multiple treatments.'] }),
@@ -216,6 +234,53 @@
       ]),
       scheduling: p('Automate flag changes over time.', [
         S('Overview', { p: ['Schedule a flag to change at a future time — enable a launch at 9:00, or ramp a rollout automatically. Every change is recorded in the flag’s history so rollbacks are one click.'] }),
+      ]),
+      dependencies: p('Make one flag depend on another.', [
+        S('What are flag dependencies', { p: ['A dependent flag only activates when another flag — its base — evaluates to a given value. This unlocks layered rollout strategies: a feature that must not appear until its foundation is live, an experiment restricted to users already inside another rollout, or a safety interlock between risky changes.'] }),
+        S('When to use them', { list: [
+          'Layered rollouts — enable a complex feature only after its foundational pieces are active.',
+          'Conditional experiments — test only within users who already have another feature.',
+          'Safety interlocks — critical base flags must be on before dependents can activate.',
+          'Segmentation — target users by their participation in other rollouts.',
+        ] }),
+        S('Set up a dependency', { steps: [
+          'Create the base flag with its own release conditions, and save it.',
+          'Create (or edit) the dependent flag and, in its release conditions, add a condition on the base flag’s value.',
+          'Choose the required value — true, false, or a specific variant — and add any extra conditions or rollout percentage.',
+          'Save. Evaluating the dependent flag now resolves its whole chain automatically: the base is checked first, then the dependent’s own conditions.',
+        ] }),
+        S('Supported dependency conditions', { table: { head: ['Base flag type', 'Conditions you can set'], rows: [
+          ['Boolean flag', 'equals true · equals false'],
+          ['Multivariate flag', 'equals a specific variant'],
+          ['Multivariate flag', 'equals true (any variant) · equals false (no variant)'],
+        ] } }),
+        S('Example: beta program', { p: ['A common pattern: a beta-program base flag rolled out to 10% of users, and a new-dashboard dependent flag conditioned on beta-program = true with 100% rollout. Users see the new dashboard only if they are inside the beta.'], code: [
+          { lang: 'JavaScript', code: `// The dependent flag is evaluated like any other —\n// its dependency chain resolves automatically\nif (txlemetry.isFeatureEnabled('new-dashboard')) {\n  showNewDashboard()\n}` },
+        ] }),
+        S('Troubleshooting', { steps: [
+          'Check the base flag is active and returning the expected value for that user.',
+          'Verify the dependency condition matches what the base actually returns (variant vs boolean).',
+          'Remember the rollout percentage still applies after conditions match.',
+          'Confirm the user meets all the other conditions, not just the dependency.',
+        ] }),
+      ]),
+      'phased-rollout': p('Release to progressively larger groups, safely.', [
+        S('What is a phased rollout', { p: ['A phased rollout ships a feature to a small group first, then to progressively larger — and more important — groups as confidence grows. Feature flags and cohorts provide the mechanics: the flag gates the code path; the phases decide who is inside it.'] }),
+        S('Prerequisites', { p: ['Accurate targeting needs user identification: flags key off the distinct ID, so call identify when users log in. Any person properties or cohorts you plan to phase with must exist before the rollout starts.'], note: 'If your users are anonymous, percentage rollouts still work (they bucket by the anonymous ID), but property- and cohort-based phases won’t match anyone.' }),
+        S('Phase with the flag', { steps: [
+          'Create a flag with a key like phased-rollout, describing the phases and their dates in the description.',
+          'Set the release condition to phase 1 — e.g. your internal team (by email domain) or 5% of users.',
+          'Ship the gated code path reading the flag.',
+          'At each phase, edit the flag’s release condition to the next group and save — no deploy needed.',
+        ], code: [
+          { lang: 'React', code: `// app/page.js\nimport { useEffect, useState } from 'react'\nimport { useTxlemetry } from '@txlemetry/react'\n\nexport default function Home() {\n  const [flag, setFlag] = useState(false)\n  const txl = useTxlemetry()\n\n  useEffect(() => {\n    setFlag(txl.isFeatureEnabled('phased-rollout') === true)\n  }, [])\n\n  return flag ? <NewExperience /> : <CurrentExperience />\n}` },
+        ] }),
+        S('Phase with cohorts', { p: ['Cohorts make phases reusable: define one cohort per phase (with the properties that describe the group), then swap the cohort in the flag’s release condition as the rollout progresses. If you repeat phase rollouts often, the same cohorts serve every launch.'], note: 'Dynamic behavioral cohorts (based on events performed) can’t be used in flags — build phase cohorts from person properties.' }),
+        S('Watch the impact', { list: [
+          'Pair the rollout with a dashboard of guardrail metrics (errors, conversion, latency).',
+          'Create an experiment on the flag if you want statistical confidence per phase.',
+          'Roll back instantly by lowering the percentage or disabling the flag.',
+        ] }),
       ]),
       'best-practices': p('Naming, cleanup and safety.', [
         S('Recommendations', { list: ['Use descriptive kebab-case keys and a naming convention per team.', 'Default to safe behavior when a flag can’t be evaluated.', 'Remove flags once fully rolled out — stale flags are tech debt.', 'Pair risky rollouts with a dashboard of guardrail metrics.'] }),
@@ -503,9 +568,44 @@
     return docKey('product-analytics', 'overview');
   }
 
-  function DocSection({ s }) {
+  /* Code block with language label + copy button (PostHog-docs style). */
+  function CodeBlock({ block }) {
+    const [copied, setCopied] = useState(false);
     return (
-      <section className="py-6 border-t border-[#f0ebe6] first:border-t-0">
+      <div className="mt-4 rounded-[10px] overflow-hidden border border-[#3a322e]">
+        <div className="flex items-center justify-between px-3 py-1.5" style={{ background: '#241e1b' }}>
+          <span className="text-[11px] font-semibold uppercase tracking-[1px]" style={{ color: '#a89d96' }}>{block.lang || 'Code'}</span>
+          <button type="button"
+            onClick={() => { try { navigator.clipboard.writeText(block.code); setCopied(true); setTimeout(() => setCopied(false), 1500); } catch (e) { /* clipboard unavailable */ } }}
+            className="text-[11px] font-semibold" style={{ color: copied ? '#8fd39a' : '#d8cfc7' }}>
+            {copied ? 'Copied!' : 'Copy'}
+          </button>
+        </div>
+        <pre className="px-4 py-3 overflow-x-auto m-0 text-[12.5px] leading-[1.65]" style={{ background: '#1c1715', color: '#f0e9e2' }}><code>{block.code}</code></pre>
+      </div>
+    );
+  }
+
+  function DocTable({ table }) {
+    return (
+      <div className="mt-4 overflow-x-auto rounded-[10px] border border-[#ece7e2]">
+        <table className="w-full border-collapse text-[13.5px]">
+          <thead>
+            <tr>{table.head.map((h, i) => <th key={i} className="text-left px-3 py-2 bg-[#f6f1ec] text-[#17100e] font-semibold border-b border-[#ece7e2]">{h}</th>)}</tr>
+          </thead>
+          <tbody>
+            {table.rows.map((row, i) => (
+              <tr key={i}>{row.map((c, j) => <td key={j} className="px-3 py-2 text-[#4a423e] border-b border-[#f0ebe6] align-top">{c}</td>)}</tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
+  function DocSection({ s, id }) {
+    return (
+      <section id={id} className="py-6 border-t border-[#f0ebe6] first:border-t-0" style={{ scrollMarginTop: '110px' }}>
         <h2 className="text-[#17100e] text-[22px] font-semibold tracking-[-0.5px]">{s.h}</h2>
         {s.p && s.p.map((para, i) => <p key={i} className="mt-3 text-[#4a423e] text-[15.5px] leading-[1.6]">{para}</p>)}
         {s.list && (
@@ -517,6 +617,13 @@
           <ol className="mt-4 space-y-2.5">
             {s.steps.map((st, i) => <li key={i} className="flex gap-3 text-[#3a332f] text-[15px] leading-[1.5]"><span className="shrink-0 w-6 h-6 rounded-full bg-[#f4ede7] text-[#b8552e] text-[13px] font-semibold flex items-center justify-center">{i + 1}</span><span>{st}</span></li>)}
           </ol>
+        )}
+        {s.table && <DocTable table={s.table} />}
+        {s.code && s.code.map((block, i) => <CodeBlock key={i} block={block} />)}
+        {s.note && (
+          <div className="mt-4 rounded-[10px] bg-[#f6f1ec] border-l-[3px] border-[#b8552e] px-4 py-3">
+            <p className="text-[#3a332f] text-[14px] leading-[1.55]"><span className="font-semibold">Note: </span>{s.note}</p>
+          </div>
         )}
         {s.qa && (
           <div className="mt-4 space-y-4">
@@ -623,7 +730,7 @@
       <PageShell>
         {/* pt clears the floating header pill so content never sits under it */}
         <div style={{ fontFamily: "'Inter', sans-serif" }} className="pt-[132px]">
-          <div className="max-w-[1220px] mx-auto px-6 pb-20 flex gap-10">
+          <div className="max-w-[1400px] mx-auto px-6 pb-20 flex gap-10">
             {/* Sidebar: category dropdown + this category's grouped TOC */}
             <aside className="hidden lg:block w-[270px] shrink-0">
               {/* Dropdown lives OUTSIDE the scroll area so its panel is never clipped;
@@ -672,7 +779,7 @@
                   <img loading="lazy" decoding="async" alt="" src={category.image} className="w-full block" />
                 </div>
               )}
-              <div className="mt-4">{page.sections.map((s, i) => <DocSection key={i} s={s} />)}</div>
+              <div className="mt-4">{page.sections.map((s, i) => <DocSection key={i} s={s} id={'sec-' + i} />)}</div>
 
               <div className="mt-10 rounded-[14px] border border-[#ece7e2] bg-[#faf7f3] p-6 flex items-center justify-between gap-4 flex-wrap">
                 <div>
@@ -684,6 +791,26 @@
                   style={{ color: '#ffffff' }}>Contact support</a>
               </div>
             </main>
+
+            {/* Right "Jump to" panel: per-document section index with smooth scroll.
+                Uses scrollIntoView (not location.hash) so it never fights the
+                #category/doc routing hash. */}
+            <aside className="hidden xl:block w-[200px] shrink-0">
+              <div className="sticky top-[124px]">
+                <p className="text-[#9a908a] text-[11px] font-semibold uppercase tracking-[1px] mb-2">Jump to</p>
+                <ul className="space-y-0.5 border-l border-[#ece7e2]">
+                  {page.sections.map((s, i) => (
+                    <li key={i}>
+                      <button type="button"
+                        onClick={() => { const el = document.getElementById('sec-' + i); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }}
+                        className="block w-full text-left pl-3 py-1 text-[12.5px] leading-[1.35] text-[#5b514d] hover:text-[#17100e] transition-colors">
+                        {s.h}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
           </div>
         </div>
       </PageShell>
