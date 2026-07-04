@@ -222,23 +222,56 @@
         S('What it is for', { list: ['Debugging: see the exact steps that led to a bug or a rage click.', 'UX research: watch how real users navigate a flow.', 'Support: reproduce what a specific user reported.', 'Metric forensics: go from "conversion dropped" to "here is why".'] }),
       ]),
       enable: p('Turn on recording and choose what gets captured.', [
-        S('Steps', { steps: ['Install the snippet or JavaScript SDK.', 'Enable session recording in Project settings.', 'Optionally enable console log and network capture for richer debugging.', 'Open Session replay — recordings appear as users browse.'] }),
-        S('Mobile', { p: ['Mobile session replay is available in the iOS, Android, React Native and Flutter SDKs, with the same privacy controls as the web.'] }),
+        S('Enable on the web', { steps: ['Install the snippet or JavaScript SDK (see SDKs & install).', 'Enable session recording in Project settings — recording starts for new sessions immediately.', 'Optionally enable console log and network capture for richer debugging.', 'Open Session replay — recordings appear as users browse.'], code: [
+          { lang: 'JavaScript', code: `txlemetry.init('<project-api-key>', {\n  api_host: 'https://txlemetry.com',\n  // Optional: fine-tune what replay captures\n  session_recording: {\n    maskAllInputs: true,        // mask every input value\n    recordCrossOriginIframes: false,\n  },\n})` },
+        ] }),
+        S('Start and stop programmatically', { p: ['Recording can also be controlled from code — useful to record only after consent, or only inside a flow you are studying.'], code: [
+          { lang: 'JavaScript', code: `// After the user accepts your privacy prompt\ntxlemetry.startSessionRecording()\n\n// Stop when leaving the sensitive area\ntxlemetry.stopSessionRecording()` },
+        ] }),
+        S('Mobile', { p: ['Mobile session replay is available in the iOS, Android, React Native and Flutter SDKs, with the same privacy controls as the web. Enable it in the SDK’s configuration when initializing.'] }),
       ]),
       watching: p('The replay player and its tools.', [
-        S('The player', { list: ['Timeline with activity markers (clicks, navigations, errors).', 'Playback speed control and inactivity skipping.', 'The event stream synced to the recording — click an event to jump to that moment.', 'Notes and timestamped sharing links for teammates.'] }),
+        S('The player', { list: ['Timeline with activity markers — clicks, navigations, errors and rage clicks stand out.', 'Playback speed control (up to 4×) and automatic inactivity skipping.', 'The event stream synced to the video — click any event to jump to that exact moment.', 'Console and network panels alongside the playback when capture is enabled.', 'Notes and timestamped sharing links for teammates.'] }),
+        S('Suggested workflow', { steps: ['Arrive from an insight, error or user profile so the list is already scoped.', 'Skim at 2× with inactivity skipping — most sessions resolve in a minute.', 'When something odd happens, open the event stream and console at that timestamp.', 'Drop a note at the moment and share the link in the issue or PR.'] }),
       ]),
       filtering: p('Find the sessions that matter.', [
-        S('Overview', { p: ['Filter recordings by user, page, duration, country, device, or by events performed during the session — e.g. "sessions where checkout_failed happened". Saved filters become playlists your team can watch.'] }),
+        S('Available filters', { table: { head: ['Filter', 'Example'], rows: [
+          ['Person / user', 'Sessions of a specific customer from a support ticket'],
+          ['Events performed', 'Sessions where checkout_failed happened'],
+          ['Page visited', 'Sessions touching /onboarding'],
+          ['Duration', 'Longer than 5 minutes'],
+          ['Device / browser / country', 'Mobile Safari sessions from Spain'],
+          ['Console errors', 'Sessions with at least one JS error'],
+        ] } }),
+        S('Playlists', { p: ['Saved filters become playlists — living collections your team can watch through, like "checkout failures this week" or "first sessions of enterprise trials". New matching recordings join automatically.'] }),
       ]),
       'console-network': p('Debug with console logs and network activity.', [
-        S('Overview', { p: ['With console and network capture enabled, each replay includes the browser console output and the network requests made during the session — status codes, timings and sizes — so you can debug a failure without asking the user for a HAR file.'] }),
+        S('What gets captured', { p: ['With console and network capture enabled, each replay carries the browser console output (logs, warnings, errors) and the network requests made during the session — method, status code, timing and size — synchronized with the video. You debug a production failure without asking the user for a HAR file or a screenshot of DevTools.'] }),
+        S('Typical debugging flow', { steps: ['Open the replay at the moment of the problem (an error marker on the timeline usually points at it).', 'Check the console panel for the exception or warning at that timestamp.', 'Check the network panel: did a request fail, return a 4xx/5xx, or take seconds?', 'Cross-reference with the event stream to see what the user did right before.'] }),
+        S('Privacy', { note: 'Network capture records metadata (URL, status, timing) — request/response bodies are not recorded. Console capture can be disabled independently if your logs may contain sensitive values.' }),
       ]),
       privacy: p('Keep sensitive data out of recordings.', [
-        S('Controls', { list: ['Password fields are masked by default and never captured.', 'Mask any input or element with a CSS class or config.', 'Block recording entirely on specific pages or for specific users.', 'IPs and geolocation follow your project privacy settings.'] }),
+        S('Defaults', { p: ['Password fields are masked always and unconditionally. Beyond that, you choose the level: mask every input, mask specific elements, or block recording on entire pages.'] }),
+        S('Masking controls', { table: { head: ['Control', 'How', 'Effect'], rows: [
+          ['Mask all inputs', 'maskAllInputs: true (default)', 'Every typed value becomes ***'],
+          ['Mask specific inputs', 'CSS selector config', 'Only matched fields masked'],
+          ['Mask any element', 'Add class txl-mask', 'Element rendered as a placeholder box'],
+          ['Block recording', 'Add class txl-no-capture / page rules', 'Nothing recorded for that element/page'],
+        ] } }),
+        S('Configuration example', { code: [
+          { lang: 'JavaScript', code: `txlemetry.init('<project-api-key>', {\n  session_recording: {\n    maskAllInputs: true,\n    maskInputOptions: { email: true },\n    maskTextSelector: '.sensitive, [data-private]',\n  },\n})` },
+        ] }),
+        S('Good to know', { note: 'Masking happens in the browser, before anything leaves the page — masked content never reaches the server.' }),
       ]),
       volume: p('Control how much gets recorded.', [
-        S('Overview', { p: ['Use sampling to record a percentage of sessions, set a minimum duration to skip trivial visits, or start recording only when a feature flag matches — useful to focus volume on the flows you are actively studying.'] }),
+        S('Why control volume', { p: ['Recording every session of a high-traffic product is rarely necessary. Volume controls let you keep the recordings that answer questions while keeping costs predictable.'] }),
+        S('Available controls', { table: { head: ['Control', 'Example', 'Best for'], rows: [
+          ['Sampling', 'Record 20% of sessions', 'High-traffic products'],
+          ['Minimum duration', 'Skip sessions under 5s', 'Filtering bounces'],
+          ['Feature flag gate', 'Record only when flag matches', 'Studying one rollout or cohort'],
+          ['Programmatic start/stop', 'startSessionRecording()', 'Consent flows, specific funnels'],
+        ] } }),
+        S('Combining controls', { p: ['Controls compose: e.g. sample 50% of sessions, but only for users inside the new-checkout flag, and skip anything under 10 seconds. Start broad while you calibrate, then narrow.'] }),
       ]),
       troubleshooting: p('Recordings not appearing?', [
         S('Checklist', { steps: ['Confirm recording is enabled in Project settings.', 'Check that the snippet/SDK version supports replay.', 'Ad blockers can prevent capture on some visitors — compare against server-side pageview counts.', 'Verify your domain is in the authorized URLs if you restricted capture.'] }),
