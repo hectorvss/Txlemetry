@@ -557,19 +557,31 @@
         S('Backend & mobile', { p: ['Server SDKs (Node, Python, Ruby, Go, PHP, .NET, Rust, Elixir…) and mobile SDKs (iOS, Android, React Native, Flutter) each expose a capture-exception call plus automatic hooks for their framework — pick your platform in SDKs & install.'] }),
       ]),
       capture: p('Automatic and manual exception capture.', [
-        S('Automatic', { p: ['Unhandled exceptions, unhandled promise rejections and framework-level errors are captured with no code changes once enabled.'] }),
-        S('Manual', { p: ['Capture handled errors with the SDK’s captureException call, attaching extra properties (context, tags) that later help filtering and grouping.'] }),
+        S('Automatic', { p: ['Unhandled exceptions, unhandled promise rejections and framework-level errors are captured with no code changes once enabled — including the person, session and URL where they happened.'] }),
+        S('Manual', { p: ['Capture handled errors explicitly when you recover from them but still want visibility, attaching context that later helps filtering and grouping.'], code: [
+          { lang: 'JavaScript', code: `try {\n  await syncWorkspace()\n} catch (err) {\n  txlemetry.captureException(err, {\n    module: 'sync',\n    workspace_id: workspace.id,\n  })\n  showRetryBanner()\n}` },
+          { lang: 'Python', code: `try:\n    sync_workspace()\nexcept Exception as e:\n    txlemetry.capture_exception(e, properties={\n        "module": "sync",\n    })\n    raise` },
+        ] }),
+        S('What rides along', { list: ['The person and session (so you can jump to the replay).', 'URL, release and environment.', 'Any custom properties you attach at capture time.'] }),
       ]),
       'stack-traces': p('Readable traces in production.', [
-        S('Source maps', { p: ['Upload source maps at build time so minified production traces resolve to your original files, lines and function names. The CLI integrates into CI so maps ship with every release.'] }),
-        S('Code context', { p: ['Traces show the surrounding source lines for each frame, and optionally the values of local variables at the moment of the crash, so many issues are diagnosable without reproducing.'] }),
+        S('Source maps', { p: ['Upload source maps at build time so minified production traces resolve to your original files, lines and function names. The CLI slots into CI so maps ship with every release automatically.'], code: [
+          { lang: 'Shell', code: `# In your CI, after the production build\ntxlemetry-cli sourcemap upload \\\n  --directory ./dist \\\n  --release $GIT_SHA` },
+        ], note: 'Source maps are used server-side to symbolicate traces — they are not exposed publicly by uploading them here.' }),
+        S('Code context', { p: ['Traces show the surrounding source lines for each frame, and optionally the values of local variables at the moment of the crash — many issues become diagnosable without reproducing anything.'] }),
       ]),
       grouping: p('From thousands of events to a handful of issues.', [
         S('Overview', { p: ['Identical exceptions are grouped into a single issue by fingerprint — type, message and trace shape. Each issue tracks first seen, last seen, frequency and affected users.'] }),
         S('Custom grouping', { p: ['When the default fingerprint is too coarse or too fine, set a custom grouping key on capture to control exactly how events cluster.'] }),
       ]),
       management: p('Triage and own what breaks.', [
-        S('Workflow', { list: ['States: active, resolved, suppressed — resolve when fixed; a regression reopens it.', 'Assign issues to teammates or teams.', 'Filter by frequency, recency, release or affected users to prioritize.', 'Link issues to your tracker (Linear, GitHub, GitLab).'] }),
+        S('Issue states', { table: { head: ['State', 'Meaning', 'Transitions'], rows: [
+          ['Active', 'Happening and unowned or being worked', 'New issues start here'],
+          ['Resolved', 'Believed fixed', 'Reopens automatically on regression'],
+          ['Suppressed', 'Known noise, hidden from triage', 'Manual only'],
+        ] } }),
+        S('Triage workflow', { steps: ['Sort by frequency or affected users to find what matters.', 'Assign the issue to a teammate or team.', 'Link it to your tracker (Linear, GitHub, GitLab) for the fix.', 'Resolve on ship — if it regresses in a later release, it reopens and alerts.'] }),
+        S('Prioritizing', { note: 'Frequency alone misleads: a once-a-day crash in checkout outranks a thousand harmless console errors. Sort by affected users on revenue-critical paths first.' }),
       ]),
       alerts: p('Know when something new breaks.', [
         S('Overview', { p: ['Set alerts for new issues, regressions or frequency spikes and deliver them to email or Slack, so the team learns about a breakage from a notification — not from a customer.'] }),
