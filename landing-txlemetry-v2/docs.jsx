@@ -739,6 +739,179 @@
     },
   };
 
+  DOCS['getting-started'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['install', 'Install the snippet'], ['concepts', 'Core concepts']] },
+      { label: 'Next steps', items: [['first-insight', 'Your first insight'], ['team', 'Invite your team']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Create a project, install Txlemetry and capture your first events in minutes.', [
+        S('What is Txlemetry', { p: ['Txlemetry is a single platform for product analytics, session replay, feature flags, experiments, surveys and AI-native workflows. Everything runs on the same event data model, so an insight, a replay and a rollout all describe the same users — no gluing tools together, no reconciling numbers between vendors.'] }),
+        S('The 10-minute path', { steps: ['Create a project in your workspace and copy the project API key.', 'Add the snippet (next page) — events start flowing immediately.', 'Open Activity and watch your first events arrive.', 'Build a trend from a pageview, save it to a dashboard, and you have your first living metric.'] }),
+      ]),
+      install: p('One tag, everything on.', [
+        S('The snippet', { p: ['Paste the snippet from Project settings into your site’s <head>. It loads asynchronously (it won’t block rendering) and starts capturing pageviews and autocaptured interactions at once.'], code: [
+          { lang: 'HTML', code: `<script>\n  // Snippet from Project settings → paste before </head>\n  txlemetry.init('<your-project-api-key>', {\n    api_host: 'https://txlemetry.com',\n  })\n</script>` },
+        ] }),
+        S('Verify it works', { steps: ['Reload your site.', 'Open Activity in Txlemetry — pageview events should appear within seconds.', 'If nothing arrives, check the browser console for blocked requests (ad blockers) and confirm the API key.'] }),
+        S('Beyond the snippet', { note: 'Single-page apps, backends and mobile apps use the SDKs — see SDKs & install. All of them send to the same project.' }),
+      ]),
+      concepts: p('The four ideas everything is built on.', [
+        S('The data model', { table: { head: ['Concept', 'What it is', 'Example'], rows: [
+          ['Event', 'An action a user took', 'pageview, signup_completed'],
+          ['Property', 'An attribute on an event or person', 'plan = pro, browser = Chrome'],
+          ['Person', 'The identified user behind events', 'user_842 (with email, name…)'],
+          ['Insight', 'A saved query over events', 'Weekly signups trend'],
+        ] } }),
+        S('How they connect', { p: ['Events carry properties; identify ties events to persons; insights query all of it; dashboards collect insights. Every other feature — replays, flags, experiments — hangs off the same spine, which is why you can jump from any number to the sessions and users behind it.'] }),
+      ]),
+      'first-insight': p('From raw events to a metric your team watches.', [
+        S('Build it', { steps: ['Open Product analytics → New insight → Trend.', 'Pick the pageview event (or your first custom event).', 'Break down by browser or country to see the shape of your traffic.', 'Save to a new dashboard called "Getting started".'] }),
+        S('Then go deeper', { list: ['Add a funnel from landing → signup to see conversion.', 'Enable session recording and watch a real visit.', 'Send a custom event from your code and chart it.'] }),
+      ]),
+      team: p('Analytics is a team sport.', [
+        S('Invite people', { steps: ['Open Settings → Members and send invites by email.', 'Pick a role — admin or member — per person.', 'Share your first dashboard so everyone sees the same numbers.'] }),
+        S('Projects & organizations', { p: ['An organization holds your team and billing; projects hold data. Use separate projects for separate products or environments (production vs staging), so test data never pollutes real metrics.'] }),
+      ]),
+      faq: p('Common getting-started questions.', [
+        S('FAQ', { qa: [
+          ['Do I need a developer to start?', 'Only for pasting the snippet. Everything after that — insights, dashboards, replays — is point and click.'],
+          ['Will the snippet slow my site?', 'It loads asynchronously and is designed to have negligible impact.'],
+          ['Can I import historical data?', 'Yes — batch import via the API, or connect sources through the data warehouse.'],
+          ['Staging and production together?', 'Use two projects; each has its own API key and clean data.'],
+        ] }),
+      ]),
+    },
+  };
+
+  DOCS['sdks'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['web', 'Web (JavaScript)']] },
+      { label: 'Platforms', items: [['react', 'React & Next.js'], ['server', 'Server: Node & Python'], ['mobile', 'Mobile']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Install Txlemetry on any platform.', [
+        S('Coverage', { table: { head: ['Layer', 'SDKs'], rows: [
+          ['Web', 'JavaScript snippet & SDK'],
+          ['Frameworks', 'React, Next.js, Vue, Nuxt, Svelte, Angular'],
+          ['Servers', 'Node, Python, Ruby, Go, PHP, .NET, Rust, Elixir'],
+          ['Mobile', 'iOS, Android, React Native, Flutter'],
+        ] } }),
+        S('One project, many sources', { p: ['Every SDK sends to the same project. Identify users with the same distinct ID everywhere and their web, backend and mobile activity stitches into one person.'] }),
+      ]),
+      web: p('The JavaScript SDK in two minutes.', [
+        S('Install', { code: [
+          { lang: 'Shell', code: `npm install txlemetry-js` },
+          { lang: 'JavaScript', code: `import txlemetry from 'txlemetry-js'\n\ntxlemetry.init('<your-project-api-key>', {\n  api_host: 'https://txlemetry.com',\n})` },
+        ] }),
+        S('Everyday calls', { code: [
+          { lang: 'JavaScript', code: `// Capture a custom event\ntxlemetry.capture('report_exported', { format: 'csv' })\n\n// Identify after login\ntxlemetry.identify(user.id, { email: user.email })\n\n// Check a feature flag\nif (txlemetry.isFeatureEnabled('new-nav')) { /* … */ }\n\n// Reset on logout\ntxlemetry.reset()` },
+        ] }),
+      ]),
+      react: p('Hooks and a provider for React apps.', [
+        S('Setup', { code: [
+          { lang: 'React', code: `import { TxlemetryProvider } from '@txlemetry/react'\n\nroot.render(\n  <TxlemetryProvider apiKey="<key>" options={{ api_host: 'https://txlemetry.com' }}>\n    <App />\n  </TxlemetryProvider>\n)` },
+        ] }),
+        S('Hooks', { code: [
+          { lang: 'React', code: `import {\n  useTxlemetry,\n  useFeatureFlagEnabled,\n} from '@txlemetry/react'\n\nfunction Export() {\n  const txl = useTxlemetry()\n  const newFlow = useFeatureFlagEnabled('new-export')\n  return (\n    <button onClick={() => txl.capture('report_exported')}>\n      {newFlow ? 'Export v2' : 'Export'}\n    </button>\n  )\n}` },
+        ], note: 'For Next.js, initialize in a client component and capture pageviews on route changes with the router events.' }),
+      ]),
+      server: p('Capture and flags from your backend.', [
+        S('Node', { code: [
+          { lang: 'Node.js', code: `import { Txlemetry } from 'txlemetry-node'\n\nconst client = new Txlemetry('<key>', {\n  host: 'https://txlemetry.com',\n})\n\nclient.capture({\n  distinctId: user.id,\n  event: 'invoice_paid',\n  properties: { amount: 4900 },\n})\n\nawait client.shutdown() // flush on exit` },
+        ] }),
+        S('Python', { code: [
+          { lang: 'Python', code: `import txlemetry\n\ntxlemetry.api_key = "<key>"\ntxlemetry.host = "https://txlemetry.com"\n\ntxlemetry.capture(\n    distinct_id=user.id,\n    event="invoice_paid",\n    properties={"amount": 4900},\n)` },
+        ], note: 'Server events are batched and flushed asynchronously — call the shutdown/flush method before your process exits so nothing is lost.' }),
+      ]),
+      mobile: p('iOS, Android, React Native and Flutter.', [
+        S('Overview', { p: ['Mobile SDKs capture screen views automatically, support identify/capture/flags like the web, and offer mobile session replay with the same privacy controls. Events are queued offline and sent when connectivity returns.'] }),
+        S('Pattern', { list: ['Initialize in your app entry point with the project key.', 'Identify on login; reset on logout.', 'Capture the handful of business events that matter.', 'Gate features with flags — same flags as web and server.'] }),
+      ]),
+      faq: p('Common SDK questions.', [
+        S('FAQ', { qa: [
+          ['Do SDKs work offline?', 'Mobile SDKs queue events offline; web queues in-memory across brief disconnects.'],
+          ['What about ad blockers?', 'Some block analytics requests; a reverse proxy through your own domain mitigates it.'],
+          ['Can I use several SDKs at once?', 'Yes — web + server + mobile into one project is the normal setup.'],
+        ] }),
+      ]),
+    },
+  };
+
+  DOCS['sql'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['writing', 'Writing queries']] },
+      { label: 'Features', items: [['visualize', 'Visualizing results'], ['reuse', 'Saving & reuse']] },
+      { label: 'Reference', items: [['tips', 'Patterns & tips'], ['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Query everything with SQL when you need full control.', [
+        S('What it is', { p: ['The SQL editor gives you direct query access to events, persons and every warehouse table, in one schema. When a question outgrows the visual builder — multi-step logic, custom math, joins across sources — you drop into SQL without leaving the platform, and the result becomes a normal insight.'] }),
+        S('What you can query', { list: ['events — every captured event with its properties.', 'persons — identified users and their properties.', 'sessions — session-level rollups.', 'Any table synced through the data warehouse.'] }),
+      ]),
+      writing: p('The editor and the event schema.', [
+        S('Basics', { code: [
+          { lang: 'SQL', code: `-- Top events of the last 7 days\nSELECT event, count() AS total\nFROM events\nWHERE timestamp > now() - INTERVAL 7 DAY\nGROUP BY event\nORDER BY total DESC\nLIMIT 20` },
+        ] }),
+        S('Accessing properties', { p: ['Event and person properties are addressable directly in queries — filter and group by them like columns.'], code: [
+          { lang: 'SQL', code: `-- Signups by plan property\nSELECT properties.plan AS plan, count() AS signups\nFROM events\nWHERE event = 'signup_completed'\nGROUP BY plan` },
+        ] }),
+        S('Editor comforts', { list: ['Schema tree with tables and columns.', 'Autocomplete for tables, columns and functions.', 'Query history to recover previous work.'] }),
+      ]),
+      visualize: p('From result set to chart.', [
+        S('Overview', { p: ['A query result can be displayed as a table, line, bar or number — pick the visualization and it behaves like any insight: save it, pin it to a dashboard, subscribe to it.'] }),
+      ]),
+      reuse: p('Views, variables and saved queries.', [
+        S('Reuse mechanisms', { list: ['Saved queries — name a query and re-run it anytime.', 'Views — a saved query that acts as a table for other queries.', 'Variables — parameterize a query (e.g. {country}) so one saved query serves many questions.'] }),
+      ]),
+      tips: p('Patterns that keep queries fast and correct.', [
+        S('Tips', { list: ['Always constrain timestamp — unbounded scans are slow on big datasets.', 'Use LIMIT while iterating.', 'Prefer count(DISTINCT person_id) for user counts (events overcount).', 'Move shared logic into a view instead of copy-pasting subqueries.'] }),
+      ]),
+      faq: p('Common SQL questions.', [
+        S('FAQ', { qa: [
+          ['Which SQL dialect is this?', 'Standard SQL with analytics-friendly extensions and direct property access.'],
+          ['Can SQL modify data?', 'No — the editor is read-only; ingestion is the only write path.'],
+          ['Can I chart a SQL result on a dashboard?', 'Yes — save the query as an insight and pin it like any other.'],
+        ] }),
+      ]),
+    },
+  };
+
+  DOCS['endpoints'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['create', 'Create an endpoint']] },
+      { label: 'Features', items: [['call', 'Call it from your app'], ['caching', 'Caching & freshness']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Expose saved queries as fast, cached API endpoints.', [
+        S('What are endpoints', { p: ['An endpoint turns a saved query into a stable HTTP API. Your own product can then show live usage numbers — "your team ran 214 queries this week" — without you building and operating an analytics backend: the query, caching and auth live here.'] }),
+        S('Typical uses', { list: ['In-product usage dashboards for your customers.', 'Internal tools that need a metric without a DB connection.', 'Status pages and reporting jobs.'] }),
+      ]),
+      create: p('From query to URL.', [
+        S('Steps', { steps: ['Write and test the query in the SQL editor (parameterize with variables if needed).', 'Save it as an endpoint and give it a name.', 'Create an API key scoped to endpoints.', 'Call the endpoint URL with the key — the JSON result comes back.'] }),
+      ]),
+      call: p('Consume it like any REST API.', [
+        S('Example', { code: [
+          { lang: 'Shell', code: `curl -s "https://txlemetry.com/api/endpoints/weekly-usage" \\\n  -H "Authorization: Bearer $TXL_API_KEY" \\\n  -d '{"variables": {"team_id": "842"}}'` },
+          { lang: 'JavaScript', code: `const res = await fetch(\n  'https://txlemetry.com/api/endpoints/weekly-usage',\n  {\n    method: 'POST',\n    headers: { Authorization: \`Bearer \${key}\` },\n    body: JSON.stringify({ variables: { team_id: '842' } }),\n  }\n)\nconst { results } = await res.json()` },
+        ], note: 'Scope endpoint keys narrowly and keep them server-side — never ship an API key in client code.' }),
+      ]),
+      caching: p('Fast by default, fresh when it matters.', [
+        S('How caching works', { p: ['Results are cached and served instantly; the query re-computes on the refresh interval you set. Tight intervals give fresher numbers at more compute; loose intervals are cheaper. Pick per endpoint based on how live the number must feel.'] }),
+      ]),
+      faq: p('Common endpoint questions.', [
+        S('FAQ', { qa: [
+          ['Are endpoints public?', 'No — every call needs an API key; treat endpoints like any authenticated API.'],
+          ['Can parameters change the query?', 'Yes — declared variables are the only injectable parts, keeping the query itself fixed and safe.'],
+          ['What if the underlying query changes?', 'Update the saved query; the endpoint URL stays stable for consumers.'],
+        ] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
