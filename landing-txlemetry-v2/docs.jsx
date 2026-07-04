@@ -444,6 +444,44 @@
     },
   };
 
+  DOCS['dashboards'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['create', 'Create a dashboard']] },
+      { label: 'Features', items: [['tiles', 'Tiles & layout'], ['filters', 'Dashboard filters'], ['sharing', 'Sharing & embedding'], ['subscriptions', 'Subscriptions & alerts'], ['templates', 'Templates']] },
+      { label: 'Reference', items: [['best-practices', 'Best practices'], ['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Collect the insights that matter into shareable, filterable boards.', [
+        S('What are dashboards', { p: ['A dashboard is a curated set of insights a team watches together — the activation funnel, this week’s retention, error rate by release. Every tile is a live insight: change the dashboard’s date range or filters and all tiles update at once, always describing the same slice of data.'] }),
+        S('Typical dashboards', { list: ['Company KPIs for leadership.', 'A launch dashboard combining adoption, errors and replays.', 'A team board tracking one product area in depth.'] }),
+      ]),
+      create: p('From empty board to team habit.', [
+        S('Steps', { steps: ['Open Dashboards and create one (blank or from a template).', 'Add tiles: pin existing insights, or create new ones inline.', 'Arrange and resize tiles by dragging.', 'Set a default date range so the board opens with the right window.'] }),
+      ]),
+      tiles: p('What lives on a board.', [
+        S('Tile types', { list: ['Insights — trends, funnels, retention, paths, SQL results.', 'Text tiles — headings and notes to give the board narrative.', 'Each tile links back to its insight for deeper exploration.'] }),
+      ]),
+      filters: p('One filter, every tile.', [
+        S('Overview', { p: ['Dashboard-level filters and date overrides apply to every tile simultaneously — e.g. filter the whole board to one country or one plan. Underlying insights are not modified; the override lives on the dashboard.'] }),
+      ]),
+      sharing: p('Get the numbers in front of people.', [
+        S('Options', { list: ['Share with teammates via a direct link.', 'Public sharing generates a read-only link for people without an account.', 'Embed a dashboard in another tool with the embed link.', 'Access controls restrict who can edit vs view.'] }),
+      ]),
+      subscriptions: p('The board comes to you.', [
+        S('Overview', { p: ['Subscribe a person or channel to a dashboard and a snapshot arrives on schedule (e.g. Monday 9:00 to Slack or email). Alerts on individual insights notify when a metric crosses a threshold, turning dashboards from something you check into something that warns you.'] }),
+      ]),
+      templates: p('Start from a proven layout.', [
+        S('Overview', { p: ['Templates pre-populate a dashboard for common needs — web analytics overview, growth metrics, feature launch — which you then adapt. Faster than a blank page, and a good way to learn insight patterns.'] }),
+      ]),
+      'best-practices': p('Dashboards people actually use.', [
+        S('Recommendations', { list: ['One question per dashboard; split boards that try to answer everything.', 'Put the single most important number top-left.', 'Use text tiles to explain what "good" looks like.', 'Review and prune quarterly — dead tiles erode trust.'] }),
+      ]),
+      faq: p('Common questions about dashboards.', [
+        S('FAQ', { qa: [['Do dashboards auto-refresh?', 'Tiles cache results and refresh periodically; you can force refresh any time.'], ['Can a tile use a different date range?', 'Yes — tiles can pin their own range, exempt from the dashboard override.'], ['Is there a limit of tiles?', 'Practically no, but past ~20 tiles consider splitting the board.']] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
