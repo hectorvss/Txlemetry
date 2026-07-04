@@ -1,0 +1,12 @@
+/**
+ * Txlemetry sidebar restyle (scoped strictly under .txl-sidebar so nothing else is affected):
+ * make every text label in the sidebar bold. Icon color is intentionally NOT forced here — the
+ * product icons (Dashboards, Product analytics, ...) are brand-coloured on purpose, so we only
+ * darken the monochrome nav icons in NavLink.tsx, not the coloured tree icons.
+ */
+.txl-sidebar {
+    :is(a, button) span,
+    [role='treeitem'] span {
+        font-weight: 600;
+    }
+}

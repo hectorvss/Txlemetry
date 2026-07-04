@@ -448,6 +448,11 @@
     /* Second most prominent surface (Toolbars) */
     --color-bg-surface-tertiary: var(--color-posthog-3000-150);
 
+    /* Txlemetry sidebar/background: off-white ("blanco roto"), whiter than the cream
+       main content card (--color-bg-primary) so the main card keeps standing out.
+       Theme-aware: dark mode keeps the original dark sidebar surface below. */
+    --txl-sidebar-surface: hsl(75deg 14% 98%);
+
     /* Most prominent surface (Cards, tables, etc.) */
     --color-bg-surface-tooltip: var(--color-neutral-cool-850);
     --color-bg-surface-tooltip-inverse: var(--color-neutral-cool-250);
@@ -962,6 +967,9 @@
     --color-bg-surface-primary: var(--color-neutral-cool-850);
     --color-bg-surface-secondary: var(--color-neutral-cool-900);
     --color-bg-surface-tertiary: var(--color-neutral-cool-950);
+
+    /* Dark mode keeps the original dark sidebar surface (no off-white). */
+    --txl-sidebar-surface: var(--color-neutral-cool-950);
     --color-bg-surface-tooltip: var(--color-neutral-100);
     --color-bg-surface-tooltip-inverse: var(--color-neutral-950);
     --color-bg-surface-popover: var(--color-neutral-cool-850);

@@ -33,7 +33,11 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    background: var(--color-bg-primary);
+
+    // Outer app-shell background = off-white ("blanco roto"), matching the sidebar. The main
+    // content card (#main-content) paints its own cream background via --scene-layout-background,
+    // so it keeps standing out against this. Theme-aware token → dark mode unchanged.
+    background: var(--txl-sidebar-surface);
 
     .storybook-test-runner & {
         height: auto;

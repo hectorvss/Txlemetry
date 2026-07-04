@@ -1,3 +1,5 @@
+import './Nav.scss'
+
 import { Tabs } from '@base-ui/react/tabs'
 import { cva } from 'cva'
 import { useActions, useMountedLogic, useValues } from 'kea'
@@ -41,7 +43,7 @@ import { NavTabBrowse } from './tabs/NavTabBrowse'
 const NavTabChat = lazy(() => import('./tabs/NavTabChat').then((m) => ({ default: m.NavTabChat })))
 
 const navBarStyles = cva({
-    base: 'flex flex-col max-h-screen min-h-screen bg-surface-tertiary z-[var(--z-layout-navbar)] relative border-r lg:border-r-transparent',
+    base: 'txl-sidebar flex flex-col max-h-screen min-h-screen bg-[var(--txl-sidebar-surface)] z-[var(--z-layout-navbar)] relative border-r lg:border-r-transparent',
     variants: {
         isLayoutNavCollapsed: {
             true: 'w-[var(--project-navbar-width-collapsed)]',
@@ -66,7 +68,7 @@ export function SectionTrigger({
     return (
         <Collapsible.Trigger
             className={cn(
-                'flex items-center py-1 cursor-pointer group pl-2 sticky top-0 bg-surface-tertiary z-4 -mx-1 px-2 w-[calc(100%+(var(--spacing)*2))] -outline-offset-2',
+                'flex items-center py-1 cursor-pointer group pl-2 sticky top-0 bg-[var(--txl-sidebar-surface)] z-4 -mx-1 px-2 w-[calc(100%+(var(--spacing)*2))] -outline-offset-2',
                 isCollapsed && 'mx-0 w-full px-px'
             )}
         >

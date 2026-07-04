@@ -65,8 +65,9 @@ export function NavLink({
             >
                 <span
                     className={cn(
-                        'relative size-4 text-secondary group-hover:text-primary opacity-50 group-hover:opacity-100 transition-all duration-50',
-                        isActive && 'text-primary opacity-100'
+                        // Txlemetry sidebar: icons black (text-primary, theme-aware) at full opacity
+                        // and a heavier stroke so they read bolder than the original 50%-opacity grey.
+                        'relative size-4 text-primary opacity-100 transition-all duration-50 [&_svg]:stroke-[2.25]'
                     )}
                 >
                     {icon}
@@ -74,8 +75,8 @@ export function NavLink({
                 {!isCollapsed && (
                     <span
                         className={cn(
-                            'flex-1 truncate text-left text-secondary group-hover:text-primary',
-                            isActive && 'text-primary'
+                            // Txlemetry sidebar: labels bold + primary (black in light, theme-aware).
+                            'flex-1 truncate text-left text-primary font-semibold'
                         )}
                     >
                         {label}
