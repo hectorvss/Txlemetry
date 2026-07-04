@@ -144,7 +144,7 @@ export function AddSourceStep({ onContinue, hasSources }: AddSourceStepProps): J
                 {/* Footer */}
                 <div className="flex items-center justify-between pt-3 border-t border-primary">
                     <Link
-                        to="https://posthog.com/docs/web-analytics/marketing-analytics"
+                        to="https://txlemetry.com/docs#web-analytics"
                         target="_blank"
                         className="text-xs"
                     >

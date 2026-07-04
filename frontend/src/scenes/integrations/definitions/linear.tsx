@@ -16,7 +16,7 @@ export const Linear = defineIntegration(
             'Link existing Linear issues to Txlemetry',
             'Keep engineering work connected to product signals',
         ],
-        docsUrl: 'https://posthog.com/docs/error-tracking/integrations',
+        docsUrl: 'https://txlemetry.com/docs#error-tracking',
     },
     LinearIntegration
 )

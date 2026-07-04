@@ -523,11 +523,11 @@ const UnusableEventsWarning = (props: { unusableEventsInFilter: string[] }): JSX
             <p>
                 Events have to have a <PropertyKeyInfo value="$session_id" /> to be used to filter recordings. This is
                 added automatically by{' '}
-                <Link to="https://posthog.com/docs/libraries/js" target="_blank">
+                <Link to="https://txlemetry.com/docs#sdks" target="_blank">
                     the Web SDK
                 </Link>
                 ,{' '}
-                <Link to="https://posthog.com/docs/libraries" target="_blank">
+                <Link to="https://txlemetry.com/docs#sdks" target="_blank">
                     and the Mobile SDKs (Android, iOS, React Native and Flutter)
                 </Link>
             </p>

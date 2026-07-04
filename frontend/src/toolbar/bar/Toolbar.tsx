@@ -63,7 +63,7 @@ import { WebVitalsToolbarMenu } from '~/toolbar/web-vitals/WebVitalsToolbarMenu'
 
 import { ToolbarButton } from './ToolbarButton'
 
-const HELP_URL = 'https://posthog.com/docs/toolbar?utm_medium=in-product&utm_campaign=toolbar-help-button'
+const HELP_URL = 'https://txlemetry.com/docs#getting-started'
 
 function EnabledStatusItem({ label, value }: { label: string; value: boolean }): JSX.Element {
     return (

@@ -221,7 +221,7 @@ export function LegacyDataCollection(): JSX.Element {
                     <div className="deprecated-space-x-1 text-sm flex">
                         <span>Minimum detectable effect</span>
                         <Tooltip
-                            docLink="https://posthog.com/docs/experiments/sample-size-running-time#minimum-detectable-effect-mde"
+                            docLink="https://txlemetry.com/docs#experiments"
                             title={
                                 <div className="deprecated-space-y-2">
                                     <div>

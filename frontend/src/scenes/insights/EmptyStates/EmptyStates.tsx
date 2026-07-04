@@ -529,7 +529,7 @@ export function InsightValidationError({
                 <div className="mt-4">
                     <Link
                         data-attr="insight-funnels-emptystate-help"
-                        to="https://posthog.com/docs/user-guides/funnels?utm_medium=in-product&utm_campaign=funnel-exclusion-filter-state"
+                        to="https://txlemetry.com/docs"
                         target="_blank"
                     >
                         Learn more about funnels in Txlemetry docs
@@ -666,7 +666,7 @@ export function FunnelSingleStepState({ actionable = true }: FunnelSingleStepSta
             <div className="mt-3">
                 <Link
                     data-attr="funnels-single-step-help"
-                    to="https://posthog.com/docs/user-guides/funnels?utm_medium=in-product&utm_campaign=funnel-empty-state"
+                    to="https://txlemetry.com/docs"
                     target="_blank"
                     className="flex items-center justify-center"
                     targetBlankIcon
@@ -741,7 +741,7 @@ export function FunnelDataWarehouseStepIncompleteState(): JSX.Element {
             <div className="mt-3">
                 <Link
                     data-attr="funnels-incomplete-warehouse-step-help"
-                    to="https://posthog.com/docs/data-warehouse/insights#funnel-insights"
+                    to="https://txlemetry.com/docs#data-warehouse"
                     target="_blank"
                     className="flex items-center justify-center"
                     targetBlankIcon

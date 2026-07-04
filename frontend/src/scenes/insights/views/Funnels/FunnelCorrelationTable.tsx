@@ -287,7 +287,7 @@ export function FunnelCorrelationTable(): JSX.Element | null {
                                         <p className="m-auto">
                                             Highlight events which are likely to have affected the conversion rate
                                             within the funnel.{' '}
-                                            <Link to="https://posthog.com/docs/product-analytics/correlation">
+                                            <Link to="https://txlemetry.com/docs#product-analytics">
                                                 Learn more about correlation analysis.
                                             </Link>
                                         </p>

@@ -175,7 +175,7 @@ export function FeatureFlagEvaluationContexts({
                     Evaluation contexts
                     {(context === 'form' || isEditingContexts) && (
                         <Tooltip
-                            docLink="https://posthog.com/docs/feature-flags/evaluation-contexts"
+                            docLink="https://txlemetry.com/docs#feature-flags"
                             title="Control where this flag evaluates by matching SDK-declared contexts."
                         >
                             <IconInfo className="text-xl text-secondary shrink-0" />

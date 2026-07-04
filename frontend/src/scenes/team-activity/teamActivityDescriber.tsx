@@ -596,7 +596,7 @@ const TEAM_PROPERTIES_MAPPING: Record<keyof TeamType, (change: ActivityChange) =
                 <>
                     {change.after ? 'enabled' : 'disabled'}{' '}
                     <Link
-                        to="https://posthog.com/docs/feature-flags/creating-feature-flags#persisting-feature-flags-across-authentication-steps"
+                        to="https://txlemetry.com/docs#feature-flags"
                         target="_blank"
                     >
                         flag persistence

@@ -29,7 +29,7 @@ function IOSSetupSnippet(props: iOSSetupProps): JSX.Element {
 
     const configOptions = [
         props.includeReplay &&
-            `// check https://posthog.com/docs/session-replay/installation?tab=iOS
+            `// check https://txlemetry.com/docs#session-replay
         // for more config and to learn about how we capture sessions on mobile
         // and what to expect
         config.sessionReplay = true

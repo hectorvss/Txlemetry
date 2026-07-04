@@ -72,14 +72,14 @@ export function PreflightCheck(): JSX.Element {
                 <p className="text-center mt-4 mb-0">
                     Need help? Take a look at our{' '}
                     <Link
-                        to="https://posthog.com/docs/self-host/deploy/troubleshooting"
+                        to="https://txlemetry.com/docs#getting-started"
                         target="_blank"
                         targetBlankIcon={false}
                     >
                         documentation
                     </Link>{' '}
                     or{' '}
-                    <Link to="https://posthog.com/support" target="_blank" targetBlankIcon={false}>
+                    <Link to="https://txlemetry.com" target="_blank" targetBlankIcon={false}>
                         visit community support
                     </Link>
                     .
@@ -130,11 +130,11 @@ export function PreflightCheck(): JSX.Element {
                             <p className="Preflight__header--secondary-text">
                                 Validation happens immediately. You can rerun validation checks by clicking “validate
                                 requirements”. If you get stuck, try our{' '}
-                                <Link to="https://posthog.com/docs/self-host/deploy/troubleshooting" target="_blank">
+                                <Link to="https://txlemetry.com/docs#getting-started" target="_blank">
                                     troubleshooting guide
                                 </Link>{' '}
                                 or our{' '}
-                                <Link to="https://posthog.com/docs/runbook" target="_blank">
+                                <Link to="https://txlemetry.com/docs" target="_blank">
                                     self-host runbook
                                 </Link>
                                 .

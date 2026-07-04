@@ -24,7 +24,7 @@ export function CIMDVerificationTokens(): JSX.Element {
                 Verified partners get a higher default rate limit for account provisioning and a clear identity trail.
                 See the{' '}
                 <Link
-                    to="https://posthog.com/docs/integrate/provisioning#host-a-cimd-metadata-document"
+                    to="https://txlemetry.com/docs#sdks"
                     target="_blank"
                 >
                     docs

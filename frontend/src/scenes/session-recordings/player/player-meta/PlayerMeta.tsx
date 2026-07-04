@@ -113,7 +113,7 @@ export function PlayerMeta(): JSX.Element {
                 <div className="flex justify-between items-center m-2">
                     {!whitelabel ? (
                         <Tooltip title="Powered by Txlemetry" placement="right">
-                            <Link to="https://posthog.com" className="flex items-center" target="blank">
+                            <Link to="https://txlemetry.com" className="flex items-center" target="blank">
                                 <Logo />
                             </Link>
                         </Tooltip>

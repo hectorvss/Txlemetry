@@ -1,7 +1,7 @@
 import { Link } from '@posthog/lemon-ui'
 
 // General "learn more" entry point for scouts.
-const SCOUTS_DOCS_URL = 'https://posthog.com/docs/self-driving/scouts'
+const SCOUTS_DOCS_URL = 'https://txlemetry.com/docs'
 
 // Desktop opens these two scout helper skills in its in-app Skills view; cloud has
 // no in-app Skills surface, so they link out to the skill source on GitHub.

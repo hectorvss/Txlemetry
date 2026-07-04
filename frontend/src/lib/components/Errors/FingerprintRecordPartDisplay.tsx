@@ -21,7 +21,7 @@ export function FingerprintRecordPartDisplay({
         <Tooltip
             title={renderPartTooltip(part)}
             placement="right"
-            docLink="https://posthog.com/docs/error-tracking/fingerprints"
+            docLink="https://txlemetry.com/docs#error-tracking"
         >
             <span ref={iconRef} className="inline-flex items-center">
                 <IconFingerprint className={className} color={isHovering ? 'red' : 'gray'} fontSize="17px" />

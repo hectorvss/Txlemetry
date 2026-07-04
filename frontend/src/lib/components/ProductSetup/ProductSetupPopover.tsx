@@ -537,7 +537,7 @@ function PopoverFooter({ isDismissed, onMinimize, onRestore, selectedProduct }: 
                 </LemonButton>
             )}
             <Link
-                to={`https://posthog.com/docs/${selectedProduct.replace(/_/g, '-')}`}
+                to={`https://txlemetry.com/docs${selectedProduct.replace(/_/g, '-')}`}
                 target="_blank"
                 className="text-xs text-muted hover:text-primary"
             >

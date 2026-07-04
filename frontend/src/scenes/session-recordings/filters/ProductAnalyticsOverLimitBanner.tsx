@@ -29,7 +29,7 @@ export function ProductAnalyticsOverLimitBanner(): JSX.Element | null {
                 Session recordings are filtered using your events. While you're over the Product analytics limit, new
                 events aren't processed — so recent recordings may not show up when you filter.{' '}
                 <Link
-                    to="https://posthog.com/docs/session-replay/troubleshooting#unable-to-filter-by-user-or-page-properties"
+                    to="https://txlemetry.com/docs#session-replay"
                     target="_blank"
                 >
                     Learn more

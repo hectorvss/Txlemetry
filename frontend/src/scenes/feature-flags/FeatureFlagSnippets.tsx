@@ -532,7 +532,7 @@ result.payload?.let { payload ->
 }`}
                 </CodeSnippet>
                 <div className="mt-2">
-                    <Link to="https://posthog.com/tutorials/android-remote-config" target="_blank">
+                    <Link to="https://txlemetry.com/docs" target="_blank">
                         View complete Android remote config tutorial
                     </Link>
                 </div>
@@ -583,7 +583,7 @@ if (result.payload != null) {
 }`}
                 </CodeSnippet>
                 <div className="mt-2">
-                    <Link to="https://posthog.com/tutorials/flutter-remote-config" target="_blank">
+                    <Link to="https://txlemetry.com/docs" target="_blank">
                         View complete Flutter remote config tutorial
                     </Link>
                 </div>
@@ -635,7 +635,7 @@ if let payload = result.payload {
 }`}
                 </CodeSnippet>
                 <div className="mt-2">
-                    <Link to="https://posthog.com/tutorials/ios-remote-config" target="_blank">
+                    <Link to="https://txlemetry.com/docs" target="_blank">
                         View complete iOS remote config tutorial
                     </Link>
                 </div>
@@ -692,7 +692,7 @@ const MyComponent = () => {
 }`}
                 </CodeSnippet>
                 <div className="mt-2">
-                    <Link to="https://posthog.com/tutorials/react-native-remote-config" target="_blank">
+                    <Link to="https://txlemetry.com/docs" target="_blank">
                         View complete React Native remote config tutorial
                     </Link>
                 </div>
@@ -820,7 +820,7 @@ export function JSSnippet({
 
     const propertyOverrideSnippet = `// Your flag depends on properties that are not instantly available. If you want
 // to make them available without waiting for server delays, send these properties for flag evaluation, like so:
-// Make sure to call this before evaluating flags. More info: https://posthog.com/docs/libraries/js/usage#overriding-server-properties 
+// Make sure to call this before evaluating flags. More info: https://txlemetry.com/docs#sdks 
 posthog.${
         groupType
             ? `setGroupPropertiesForFlags({ '${groupType.group_type}': {'${propertyName}': 'value'}})`

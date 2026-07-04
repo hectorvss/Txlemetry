@@ -240,7 +240,7 @@ export const recordingDisabledReason = (
         return (
             <>
                 No session ID associated with this event.{' '}
-                <Link to="https://posthog.com/docs/data/sessions#automatically-sending-session-ids">Learn how</Link> to
+                <Link to="https://txlemetry.com/docs#data-warehouse">Learn how</Link> to
                 set it on all events.
             </>
         )
@@ -248,7 +248,7 @@ export const recordingDisabledReason = (
         return (
             <>
                 Replay was not active when capturing this event.{' '}
-                <Link to="https://posthog.com/docs/session-replay/troubleshooting#recordings-are-not-being-captured">
+                <Link to="https://txlemetry.com/docs#session-replay">
                     Learn why
                 </Link>{' '}
                 not all recordings are captured.

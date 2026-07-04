@@ -38,13 +38,13 @@ export const personsManagementSceneLogic = kea<personsManagementSceneLogicType>(
                         key: 'persons',
                         url: urls.persons(),
                         label: 'Persons',
-                        tooltipDocLink: 'https://posthog.com/docs/data/persons',
+                        tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
                     },
                     {
                         key: 'cohorts',
                         url: urls.cohorts(),
                         label: 'Cohorts',
-                        tooltipDocLink: 'https://posthog.com/docs/data/cohorts',
+                        tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
                     },
                     ...groupTabs,
                 ]

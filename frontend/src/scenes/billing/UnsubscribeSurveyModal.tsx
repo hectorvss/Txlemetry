@@ -244,7 +244,7 @@ export const UnsubscribeSurveyModal = ({
                             <p>
                                 {'Are you looking to control your costs? Learn about ways to '}
                                 <Link
-                                    to="https://posthog.com/docs/billing/estimating-usage-costs#how-to-reduce-your-posthog-costs"
+                                    to="https://txlemetry.com/docs#getting-started"
                                     target="_blank"
                                     onClick={() => {
                                         reportSurveyDismissed(surveyID)

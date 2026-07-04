@@ -189,7 +189,7 @@ export function FunnelAttributionSelect({
             <div className="flex">
                 <span>Attribution type</span>
                 <Tooltip
-                    docLink="https://posthog.com/docs/product-analytics/funnels#attribution-types"
+                    docLink="https://txlemetry.com/docs#product-analytics"
                     title={
                         <div className="deprecated-space-y-2">
                             <div>

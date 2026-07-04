@@ -738,7 +738,7 @@ export default function SurveyEdit({ id }: { id: string }): JSX.Element {
                                                                         • Check more details about identifying
                                                                         respondents in the{' '}
                                                                         <Link
-                                                                            to="https://posthog.com/docs/surveys/creating-surveys#identifying-respondents-on-hosted-surveys"
+                                                                            to="https://txlemetry.com/docs#surveys"
                                                                             target="_blank"
                                                                         >
                                                                             documentation
@@ -1590,7 +1590,7 @@ export default function SurveyEdit({ id }: { id: string }): JSX.Element {
                                                                               help={
                                                                                   <>
                                                                                       <Link
-                                                                                          to="https://posthog.com/docs/surveys/creating-surveys#display-conditions"
+                                                                                          to="https://txlemetry.com/docs#surveys"
                                                                                           target="_blank"
                                                                                       >
                                                                                           See accepted values

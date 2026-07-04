@@ -54,7 +54,7 @@ const ExperimentsListToolbarMenu = (): JSX.Element => {
                                 <Link
                                     target="_blank"
                                     targetBlankIcon
-                                    to="https://posthog.com/docs/experiments/no-code-web-experiments"
+                                    to="https://txlemetry.com/docs#experiments"
                                 >
                                     Learn more
                                 </Link>

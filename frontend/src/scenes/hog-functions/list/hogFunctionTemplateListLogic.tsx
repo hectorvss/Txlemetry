@@ -259,7 +259,7 @@ export const hogFunctionTemplateListLogic = kea<hogFunctionTemplateListLogicType
                             return null
                         }
 
-                        return `https://posthog.com/docs/cdp/${template.type}s/${template.id}`
+                        return `https://txlemetry.com/docs#data-pipelines${template.type}s/${template.id}`
                     }
 
                     // TRICKY: Hacky place but this is where we handle "nonHogFunctionTemplates" to modify the linked url

@@ -111,7 +111,7 @@ function FunnelDataWarehouseStepDefinitionPopoverContent({
                                     SQL editor
                                 </Link>{' '}
                                 using fields like <code>distinct_id</code> or <code>email</code>.{' '}
-                                <Link to="https://posthog.com/docs/data-warehouse/join#table-joins" target="_blank">
+                                <Link to="https://txlemetry.com/docs#data-warehouse" target="_blank">
                                     For more help
                                 </Link>
                                 .

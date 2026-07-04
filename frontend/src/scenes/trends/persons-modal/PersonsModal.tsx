@@ -596,7 +596,7 @@ export function MissingPersonsAlert({
             {missingActorsCount}{' '}
             <span>{missingActorsCount > 1 ? `${actorLabel.plural} are` : `${actorLabel.singular} is`}</span> not shown
             because they've been merged with those listed, or deleted.{' '}
-            <Link to="https://posthog.com/docs/how-posthog-works/queries#insights-counting-unique-persons">
+            <Link to="https://txlemetry.com/docs">
                 Learn more.
             </Link>
         </LemonBanner>

@@ -160,7 +160,7 @@ export function CustomChannelTypes(): JSX.Element {
             <p>
                 You can create custom channel types by defining rules that match incoming events. The first matching
                 rule is used, and if no rule matches (or if none are defined) then the{' '}
-                <Link to="https://posthog.com/docs/data/channel-type#channel-type-calculation">
+                <Link to="https://txlemetry.com/docs#data-warehouse">
                     default channel type
                 </Link>{' '}
                 is used.

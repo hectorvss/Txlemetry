@@ -36,7 +36,7 @@ function TooExpensiveHelpMessage(): JSX.Element {
                     </li>
                 </ul>
             </p>
-            <Link to="https://posthog.com/docs/session-replay/cutting-costs" target="_blank">
+            <Link to="https://txlemetry.com/docs#session-replay" target="_blank">
                 Learn more
             </Link>
         </>
@@ -50,7 +50,7 @@ function PrivacyHelpMessage(): JSX.Element {
                 Txlemetry offers a range of controls to limit what data is captured by session recordings. Our privacy
                 controls run in the browser or mobile app. So, masked data is never sent over the network to Txlemetry.
             </p>
-            <Link to="https://posthog.com/docs/session-replay/privacy" target="_blank">
+            <Link to="https://txlemetry.com/docs#session-replay" target="_blank">
                 Learn more
             </Link>
         </>
@@ -67,13 +67,13 @@ function PerformanceHelpMessage(): JSX.Element {
             </p>
             <ul className="list-disc pl-4 text-secondary">
                 <li>
-                    <Link to="https://posthog.com/docs/session-replay/network-performance-recording" target="_blank">
+                    <Link to="https://txlemetry.com/docs#session-replay" target="_blank">
                         Network performance recording
                     </Link>
                 </li>
                 <li>
                     <Link
-                        to="https://posthog.com/docs/session-replay/canvas-recording#canvas-recording-performance"
+                        to="https://txlemetry.com/docs#session-replay"
                         target="_blank"
                     >
                         Canvas recording performance
@@ -81,7 +81,7 @@ function PerformanceHelpMessage(): JSX.Element {
                 </li>
                 <li>
                     <Link
-                        to="https://posthog.com/docs/session-replay/troubleshooting#angular-performance"
+                        to="https://txlemetry.com/docs#session-replay"
                         target="_blank"
                     >
                         Angular performance
@@ -100,7 +100,7 @@ function CannotConfigureHelpMessage(): JSX.Element {
                 <ul className="list-disc pl-4 text-secondary">
                     <li>
                         <Link
-                            to="https://posthog.com/docs/session-replay/how-to-control-which-sessions-you-record#programmatically-start-and-stop-recordings"
+                            to="https://txlemetry.com/docs#session-replay"
                             target="_blank"
                         >
                             Programmatically start and stop recordings
@@ -108,7 +108,7 @@ function CannotConfigureHelpMessage(): JSX.Element {
                     </li>
                     <li>
                         <Link
-                            to="https://posthog.com/docs/session-replay/how-to-control-which-sessions-you-record#with-url-trigger-conditions"
+                            to="https://txlemetry.com/docs#session-replay"
                             target="_blank"
                         >
                             With URL trigger conditions
@@ -116,7 +116,7 @@ function CannotConfigureHelpMessage(): JSX.Element {
                     </li>
                     <li>
                         <Link
-                            to="https://posthog.com/docs/session-replay/how-to-control-which-sessions-you-record#with-event-trigger-conditions"
+                            to="https://txlemetry.com/docs#session-replay"
                             target="_blank"
                         >
                             With Event trigger conditions
@@ -124,7 +124,7 @@ function CannotConfigureHelpMessage(): JSX.Element {
                     </li>
                     <li>
                         <Link
-                            to="https://posthog.com/docs/session-replay/how-to-control-which-sessions-you-record#with-feature-flags"
+                            to="https://txlemetry.com/docs#session-replay"
                             target="_blank"
                         >
                             With feature flags
@@ -132,7 +132,7 @@ function CannotConfigureHelpMessage(): JSX.Element {
                     </li>
                     <li>
                         <Link
-                            to="https://posthog.com/docs/session-replay/how-to-control-which-sessions-you-record#sampling"
+                            to="https://txlemetry.com/docs#session-replay"
                             target="_blank"
                         >
                             Sampling

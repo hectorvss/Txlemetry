@@ -19,7 +19,7 @@ export function RecordingNotFound({ sessionRecordingId }: { sessionRecordingId?:
                     <>
                         The requested recording could not be found. See the diagnosis below for likely reasons, or refer
                         to the{' '}
-                        <Link to="https://posthog.com/docs/session-replay/troubleshooting#recording-not-found">
+                        <Link to="https://txlemetry.com/docs#session-replay">
                             troubleshooting guide
                         </Link>
                         .

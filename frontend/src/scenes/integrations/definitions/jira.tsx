@@ -16,7 +16,7 @@ export const Jira = defineIntegration(
             'Link existing Jira issues to Txlemetry',
             'Keep your team in sync across tools',
         ],
-        docsUrl: 'https://posthog.com/docs/error-tracking/integrations',
+        docsUrl: 'https://txlemetry.com/docs#error-tracking',
     },
     JiraIntegration
 )

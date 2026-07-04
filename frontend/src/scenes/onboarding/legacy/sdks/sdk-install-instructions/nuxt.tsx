@@ -66,7 +66,7 @@ export function SDKInstallNuxtJSInstructions(): JSX.Element {
         <>
             <p>
                 The below guide is for Nuxt v3.0 and above. For Nuxt v2.16 and below, see our{' '}
-                <Link to="https://posthog.com/docs/libraries/nuxt-js#nuxt-v216-and-below">Nuxt docs</Link>
+                <Link to="https://txlemetry.com/docs#sdks">Nuxt docs</Link>
             </p>
             <h3>Install posthog-js using your package manager</h3>
             <JSInstallSnippet />

@@ -139,7 +139,7 @@ export function EditorFilters({ query, showing, embedded }: EditorFiltersProps):
             defaultExpanded: true,
             headerExtra:
                 isFunnels && (querySource as FunnelsQuery)?.funnelsFilter?.funnelVizType !== FunnelVizTypeEnum.Flow ? (
-                    <Tooltip docLink="https://posthog.com/docs/product-analytics/funnels#graph-type">
+                    <Tooltip docLink="https://txlemetry.com/docs#product-analytics">
                         <FunnelVizType insightProps={insightProps} />
                     </Tooltip>
                 ) : null,
@@ -314,7 +314,7 @@ export function EditorFilters({ query, showing, embedded }: EditorFiltersProps):
                                         </ul>
                                         <div>
                                             Read more in the{' '}
-                                            <Link to="https://posthog.com/docs/product-analytics/funnels#attribution-types">
+                                            <Link to="https://txlemetry.com/docs#product-analytics">
                                                 documentation.
                                             </Link>
                                         </div>

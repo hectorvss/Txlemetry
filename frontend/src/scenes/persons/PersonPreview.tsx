@@ -61,7 +61,7 @@ function PersonPreviewInner(props: PersonPreviewProps): JSX.Element | null {
                 <p>
                     Person profiles allow you to see a detailed view of a Person's user properties, track users across
                     devices, and more. To create person profiles, see{' '}
-                    <Link to="https://posthog.com/docs/data/persons#capturing-person-profiles">here.</Link>
+                    <Link to="https://txlemetry.com/docs#data-warehouse">here.</Link>
                 </p>
                 <div className="flex justify-center mt-2 w-fit">
                     <LemonButton

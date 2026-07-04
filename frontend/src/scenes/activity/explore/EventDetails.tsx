@@ -141,7 +141,7 @@ export function EventDetails({ event, tableProps }: EventDetailsProps): JSX.Elem
                                 <p>
                                     Person properties sent with this event. Will replace any property value that may
                                     have been set on this person profile before now.{' '}
-                                    <Link to="https://posthog.com/docs/getting-started/person-properties">
+                                    <Link to="https://txlemetry.com/docs#getting-started">
                                         Learn more
                                     </Link>
                                 </p>
@@ -160,7 +160,7 @@ export function EventDetails({ event, tableProps }: EventDetailsProps): JSX.Elem
                                 <p>
                                     "Set once" person properties sent with this event. Will replace any property value
                                     that has never been set on this person profile before now.{' '}
-                                    <Link to="https://posthog.com/docs/getting-started/person-properties">
+                                    <Link to="https://txlemetry.com/docs#getting-started">
                                         Learn more
                                     </Link>
                                 </p>

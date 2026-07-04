@@ -882,7 +882,7 @@ const WebVitalsEmptyState = (): JSX.Element => {
                 description="Track Core Web Vitals like LCP, FID, and CLS to understand your site's performance. 
                 Enabling this will capture performance metrics from your visitors, which counts towards your event quota.
                 You can always disable this feature in the settings."
-                docsURL="https://posthog.com/docs/web-analytics/web-vitals"
+                docsURL="https://txlemetry.com/docs#web-analytics"
                 actionElementOverride={
                     <LemonButton
                         type="primary"

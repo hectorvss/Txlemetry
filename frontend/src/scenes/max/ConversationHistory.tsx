@@ -86,7 +86,7 @@ export function ConversationHistory({ sidePanel = false, compact = false }: Conv
                         thingName="chat"
                         titleOverride="Start getting things done with Txlemetry AI"
                         description="Txlemetry AI is an agent that answers data questions, gets things done in UI, and provides insights from Txlemetry's documentation."
-                        docsURL="https://posthog.com/docs/data/max-ai"
+                        docsURL="https://txlemetry.com/docs#data-warehouse"
                         actionElementOverride={
                             <LemonButton
                                 type="primary"

@@ -30,7 +30,7 @@ export function getSourceDisplayStatus(unreleased: boolean, featureFlag: boolean
     const releasedDescriptionEl = (
         <>
             Data will be synced to Txlemetry and regularly refreshed.{' '}
-            <Link to="https://posthog.com/docs/cdp/sources">Learn more</Link>
+            <Link to="https://txlemetry.com/docs#data-pipelines">Learn more</Link>
         </>
     )
     // regardless of release status, those passing the feature flag should see a released source
@@ -119,7 +119,7 @@ export const nonHogFunctionTemplatesLogic = kea<nonHogFunctionTemplatesLogicType
                         description: (
                             <>
                                 Data will be queried directly from your data source that you manage.{' '}
-                                <Link to="https://posthog.com/docs/cdp/sources">Learn more</Link>
+                                <Link to="https://txlemetry.com/docs#data-pipelines">Learn more</Link>
                             </>
                         ),
                         code: '',

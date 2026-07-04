@@ -8,7 +8,7 @@ function ServerSideWarning(): JSX.Element {
             <p>
                 <b>Warning:</b> Server side experiment metrics require you to manually send the feature flag
                 information.{' '}
-                <Link to="https://posthog.com/docs/experiments/adding-experiment-code" target="_blank">
+                <Link to="https://txlemetry.com/docs#experiments" target="_blank">
                     See this tutorial for more information.
                 </Link>
             </p>
@@ -95,7 +95,7 @@ export function ReactSnippet({ flagKey, variant }: SnippetProps): JSX.Element {
         <>
             <CodeSnippet language={Language.JavaScript} wrap>
                 {`// You can either use the useFeatureFlagVariantKey hook,
-// or you can use the feature flags component - https://posthog.com/docs/libraries/react#feature-flags-react-component
+// or you can use the feature flags component - https://txlemetry.com/docs#sdks
 
 // Method one: using the useFeatureFlagVariantKey hook
 import { useFeatureFlagVariantKey } from '@posthog/react'
@@ -418,11 +418,11 @@ Constraints
   the SDK surface evolves.
 
 Reference docs
-- AI observability overview:     https://posthog.com/docs/ai-observability
-- Prompt management:             https://posthog.com/docs/prompt-management
-- Feature flag payloads:         https://posthog.com/docs/feature-flags/payloads
-- Experiments:                   https://posthog.com/docs/experiments
-- Txlemetry AI wrappers (OpenAI, Anthropic, Gemini): https://posthog.com/docs/ai-engineering
+- AI observability overview:     https://txlemetry.com/docs
+- Prompt management:             https://txlemetry.com/docs
+- Feature flag payloads:         https://txlemetry.com/docs#feature-flags
+- Experiments:                   https://txlemetry.com/docs#experiments
+- Txlemetry AI wrappers (OpenAI, Anthropic, Gemini): https://txlemetry.com/docs#ai-observability
 `}
         </CodeSnippet>
     )

@@ -135,7 +135,7 @@ export function SupportForm(): JSX.Element | null {
                     <Link
                         target="_blank"
                         disableDocsPanel
-                        to="https://posthog.com/handbook/engineering/feature-ownership"
+                        to="https://txlemetry.com"
                     >
                         Feature ownership
                     </Link>
@@ -209,7 +209,7 @@ export function SupportForm(): JSX.Element | null {
                     <Link
                         target="_blank"
                         disableDocsPanel
-                        to="https://posthog.com/docs/support-options#severity-levels"
+                        to="https://txlemetry.com/docs"
                     >
                         Definitions
                     </Link>

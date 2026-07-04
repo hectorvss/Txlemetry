@@ -44,14 +44,14 @@ export const SessionRecordingsPlaylistTroubleshooting = (): JSX.Element => {
                     </li>
                     <LemonDivider dashed={true} />
                     <li>
-                        <Link to="https://posthog.com/docs/session-replay/data-retention" target="_blank">
+                        <Link to="https://txlemetry.com/docs#session-replay" target="_blank">
                             Recordings might be outside the retention period
                         </Link>
                     </li>
                     <LemonDivider dashed={true} />
                     <li>
                         <Link
-                            to="https://posthog.com/docs/session-replay/troubleshooting#4-adtracking-blockers"
+                            to="https://txlemetry.com/docs#session-replay"
                             target="_blank"
                         >
                             An ad blocker might be preventing recordings

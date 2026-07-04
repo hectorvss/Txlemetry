@@ -73,7 +73,7 @@ export const RelatedExperimentsTable = ({
                                             {isLegacyExperiment(experiment) && (
                                                 <Tooltip
                                                     title="This experiment uses the legacy engine, so some features and improvements may be missing."
-                                                    docLink="https://posthog.com/docs/experiments/new-experimentation-engine"
+                                                    docLink="https://txlemetry.com/docs#experiments"
                                                 >
                                                     <LemonTag type="warning" className="ml-1">
                                                         Legacy

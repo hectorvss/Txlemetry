@@ -120,7 +120,7 @@ export function Exporter(props: ExportedData): JSX.Element {
                         <div className="SharedDashboard-header">
                             {!whitelabel && (
                                 <Link
-                                    to="https://posthog.com?utm_medium=in-product&utm_campaign=shared-dashboard"
+                                    to="https://txlemetry.com?utm_medium=in-product&utm_campaign=shared-dashboard"
                                     target="_blank"
                                 >
                                     <Logo className="text-lg" />
@@ -141,7 +141,7 @@ export function Exporter(props: ExportedData): JSX.Element {
                         </div>
                     ) : type === ExportType.Embed && !whitelabel ? (
                         <Link
-                            to="https://posthog.com?utm_medium=in-product&utm_campaign=shared-dashboard"
+                            to="https://txlemetry.com?utm_medium=in-product&utm_campaign=shared-dashboard"
                             target="_blank"
                         >
                             <Logo className="text-lg" />
@@ -158,7 +158,7 @@ export function Exporter(props: ExportedData): JSX.Element {
                         {!whitelabel && type === ExportType.Scene && (
                             <div className="SharedDashboard-header">
                                 <Link
-                                    to="https://posthog.com?utm_medium=in-product&utm_campaign=shared-notebook"
+                                    to="https://txlemetry.com?utm_medium=in-product&utm_campaign=shared-notebook"
                                     target="_blank"
                                 >
                                     <Logo className="text-lg" />
@@ -208,7 +208,7 @@ export function Exporter(props: ExportedData): JSX.Element {
                         <div>
                             Made with{' '}
                             <Link
-                                to="https://posthog.com?utm_medium=in-product&utm_campaign=shared-dashboard"
+                                to="https://txlemetry.com?utm_medium=in-product&utm_campaign=shared-dashboard"
                                 target="_blank"
                             >
                                 Txlemetry — open-source product analytics

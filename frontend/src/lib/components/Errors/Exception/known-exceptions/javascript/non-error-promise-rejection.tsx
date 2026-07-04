@@ -13,7 +13,7 @@ defineKnownException({
                 This issue occurs when non Error objects are provided to Promise rejections. When you do this a stack
                 trace is not captured as part of the caught exception.{' '}
                 <Link
-                    to="https://posthog.com/docs/error-tracking/common-questions#what-is-a-non-error-promise-rejection-error-with-no-stack-traces"
+                    to="https://txlemetry.com/docs#error-tracking"
                     target="_blank"
                 >
                     Read our docs

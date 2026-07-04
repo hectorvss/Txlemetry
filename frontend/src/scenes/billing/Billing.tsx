@@ -270,7 +270,7 @@ export function Billing(): JSX.Element {
                                 <LemonButton
                                     icon={<IconDocument />}
                                     size="small"
-                                    to="https://posthog.com/docs/posthog-code"
+                                    to="https://txlemetry.com/docs"
                                     tooltip="Read the docs"
                                 />
                             </div>

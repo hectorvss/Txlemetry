@@ -41,8 +41,8 @@ export function TaxonomicBreakdownButton({
                     disabledReason
                         ? undefined
                         : taxonomicBreakdownType === TaxonomicFilterGroupType.CohortsWithAllUsers
-                          ? 'https://posthog.com/docs/product-analytics/trends/breakdowns#cohorts-and-breakdowns'
-                          : 'https://posthog.com/docs/product-analytics/trends/breakdowns'
+                          ? 'https://txlemetry.com/docs#product-analytics'
+                          : 'https://txlemetry.com/docs#product-analytics'
                 }
             >
                 {taxonomicBreakdownType === TaxonomicFilterGroupType.CohortsWithAllUsers ? 'Cohort' : 'Breakdown'}

@@ -420,7 +420,7 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             identifier: Scene.Dashboards,
                             label: 'Dashboards',
                             icon: <IconDashboard />,
-                            tooltipDocLink: 'https://posthog.com/docs/product-analytics/dashboards',
+                            tooltipDocLink: 'https://txlemetry.com/docs#product-analytics',
                             to: urls.dashboards(),
                             sideAction:
                                 pinnedDashboards.length > 0
@@ -455,28 +455,28 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             label: 'Notebooks',
                             icon: <IconNotebook />,
                             to: urls.notebooks(),
-                            tooltipDocLink: 'https://posthog.com/docs/notebooks',
+                            tooltipDocLink: 'https://txlemetry.com/docs#dashboards',
                         },
                         {
                             identifier: Scene.DataManagement,
                             label: 'Data management',
                             icon: <IconDatabase />,
                             to: urls.eventDefinitions(),
-                            tooltipDocLink: 'https://posthog.com/docs/data',
+                            tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
                         },
                         {
                             identifier: Scene.Persons,
                             label: 'People and groups',
                             icon: <IconPeople />,
                             to: urls.persons(),
-                            tooltipDocLink: 'https://posthog.com/docs/data/persons',
+                            tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
                         },
                         {
                             identifier: Scene.ExploreEvents,
                             label: 'Activity',
                             icon: <IconLive />,
                             to: urls.activity(),
-                            tooltipDocLink: 'https://posthog.com/docs/data/events',
+                            tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
                         },
                     ],
                     [
@@ -484,7 +484,7 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             identifier: Scene.SavedInsights,
                             label: 'Product analytics',
                             icon: <IconGraph />,
-                            tooltipDocLink: 'https://posthog.com/docs/product-analytics/insights',
+                            tooltipDocLink: 'https://txlemetry.com/docs#product-analytics',
                             to: urls.savedInsights(),
                             sideAction:
                                 getAppContext()?.resource_access_control?.[AccessControlResourceType.Insight] ===
@@ -502,7 +502,7 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             label: 'Web analytics',
                             icon: <IconPieChart />,
                             to: urls.webAnalytics(),
-                            tooltipDocLink: 'https://posthog.com/docs/web-analytics/getting-started',
+                            tooltipDocLink: 'https://txlemetry.com/docs#web-analytics',
                         },
                         featureFlags[FEATURE_FLAGS.REVENUE_ANALYTICS]
                             ? {
@@ -511,7 +511,7 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                                   icon: <IconPiggyBank />,
                                   to: urls.revenueAnalytics(),
                                   tag: 'alpha' as const,
-                                  tooltipDocLink: 'https://posthog.com/docs/revenue-analytics/getting-started',
+                                  tooltipDocLink: 'https://txlemetry.com/docs#revenue-analytics',
                               }
                             : null,
                         {
@@ -519,7 +519,7 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             label: 'Session replay',
                             icon: <IconRewindPlay />,
                             to: urls.replay(),
-                            tooltipDocLink: 'https://posthog.com/docs/session-replay',
+                            tooltipDocLink: 'https://txlemetry.com/docs#session-replay',
                             sideAction: {
                                 identifier: 'replay-dropdown',
                                 dropdown: {
@@ -566,21 +566,21 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             label: 'Feature flags',
                             icon: <IconToggle />,
                             to: urls.featureFlags(),
-                            tooltipDocLink: 'https://posthog.com/docs/feature-flags/creating-feature-flags',
+                            tooltipDocLink: 'https://txlemetry.com/docs#feature-flags',
                         },
                         {
                             identifier: Scene.Experiments,
                             label: 'Experiments',
                             icon: <IconTestTube />,
                             to: urls.experiments(),
-                            tooltipDocLink: 'https://posthog.com/docs/experiments/creating-an-experiment',
+                            tooltipDocLink: 'https://txlemetry.com/docs#experiments',
                         },
                         {
                             identifier: Scene.Surveys,
                             label: 'Surveys',
                             icon: <IconMessage />,
                             to: urls.surveys(),
-                            tooltipDocLink: 'https://posthog.com/docs/surveys/creating-surveys',
+                            tooltipDocLink: 'https://txlemetry.com/docs#surveys',
                         },
                         featureFlags[FEATURE_FLAGS.PRODUCT_TOURS]
                             ? {
@@ -596,7 +596,7 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             label: 'Early access features',
                             icon: <IconRocket />,
                             to: urls.earlyAccessFeatures(),
-                            tooltipDocLink: 'https://posthog.com/docs/feature-flags/early-access-feature-management',
+                            tooltipDocLink: 'https://txlemetry.com/docs#feature-flags',
                         },
                         featureFlags[FEATURE_FLAGS.USER_INTERVIEWS]
                             ? {
@@ -612,7 +612,7 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             label: 'AI observability',
                             icon: <IconLlmAnalytics />,
                             to: urls.aiObservabilityDashboard(),
-                            tooltipDocLink: 'https://posthog.com/docs/ai-observability/dashboard',
+                            tooltipDocLink: 'https://txlemetry.com/docs',
                         },
                         featureFlags[FEATURE_FLAGS.MCP_ANALYTICS]
                             ? {
@@ -620,7 +620,7 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                                   label: 'MCP analytics',
                                   icon: <IconLlmAnalytics />,
                                   to: urls.mcpAnalyticsDashboard(),
-                                  tooltipDocLink: 'https://posthog.com/docs/mcp-analytics/installation',
+                                  tooltipDocLink: 'https://txlemetry.com/docs',
                               }
                             : null,
                         {
@@ -629,14 +629,14 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             icon: <IconLive />,
                             to: urls.logs(),
                             tag: 'beta' as const,
-                            tooltipDocLink: 'https://posthog.com/docs/logs',
+                            tooltipDocLink: 'https://txlemetry.com/docs#logs',
                         },
                         {
                             identifier: Scene.ErrorTracking,
                             label: 'Error tracking',
                             icon: <IconWarning />,
                             to: urls.errorTracking(),
-                            tooltipDocLink: 'https://posthog.com/docs/error-tracking/stack-traces',
+                            tooltipDocLink: 'https://txlemetry.com/docs#error-tracking',
                         },
                         {
                             identifier: Scene.SQLEditor,
@@ -644,14 +644,14 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             icon: <IconServer />,
                             to: urls.sqlEditor(),
                             logic: editorSceneLogic,
-                            tooltipDocLink: 'https://posthog.com/docs/data-warehouse/query#querying-sources-with-sql',
+                            tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
                         },
                         {
                             identifier: Scene.WebScripts,
                             label: 'Web scripts',
                             icon: <IconPlug />,
                             to: urls.webScripts(),
-                            tooltipDocLink: 'https://posthog.com/docs/cdp/apps',
+                            tooltipDocLink: 'https://txlemetry.com/docs#data-pipelines',
                         },
                         {
                             identifier: Scene.Heatmaps,
@@ -659,7 +659,7 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                             icon: <IconCursorClick />,
                             to: urls.heatmaps(),
                             tag: 'beta' as const,
-                            tooltipDocLink: 'https://posthog.com/docs/toolbar/heatmaps',
+                            tooltipDocLink: 'https://txlemetry.com/docs#getting-started',
                         },
                         featureFlags[FEATURE_FLAGS.LINKS]
                             ? {
@@ -668,7 +668,7 @@ export const navigation3000Logic = kea<navigation3000LogicType>([
                                   icon: <IconCursorClick />,
                                   to: urls.links(),
                                   tag: 'alpha' as const,
-                                  tooltipDocLink: 'https://posthog.com/docs/links',
+                                  tooltipDocLink: 'https://txlemetry.com/docs',
                               }
                             : null,
                         {

@@ -113,7 +113,7 @@ const DataWarehouseEmptyState = ({ isLoading = false }: { isLoading?: boolean })
                 to: urls.dataWarehouseSourceNew(),
                 text: 'New source',
             }}
-            docsUrl="https://posthog.com/docs/data-warehouse"
+            docsUrl="https://txlemetry.com/docs#data-warehouse"
             hog={HedgehogConstruction2}
         />
     )

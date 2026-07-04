@@ -159,7 +159,7 @@ const SupportResponseTimesTable = ({
             current_plan: currentPlan === 'free',
             features: [{ note: 'Community support only' }],
             plan_key: BillingPlan.Free,
-            link: 'https://posthog.com/questions',
+            link: 'https://txlemetry.com/docs#support',
         },
         {
             name: 'Pay-as-you-go',
@@ -432,7 +432,7 @@ export function SidePanelSupport(): JSX.Element {
                                     type="secondary"
                                     fullWidth
                                     center
-                                    to="https://posthog.com/questions"
+                                    to="https://txlemetry.com/docs#support"
                                     targetBlank
                                     className="mt-2"
                                 >
@@ -460,7 +460,7 @@ export function SidePanelSupport(): JSX.Element {
                                         <LemonButton
                                             type="secondary"
                                             status="alt"
-                                            to="https://posthog.com/wip"
+                                            to="https://txlemetry.com"
                                             icon={<IconHelmet />}
                                             targetBlank
                                         >
@@ -471,7 +471,7 @@ export function SidePanelSupport(): JSX.Element {
                                         <LemonButton
                                             type="secondary"
                                             status="alt"
-                                            to="https://posthog.com/roadmap"
+                                            to="https://txlemetry.com"
                                             icon={<IconMap />}
                                             targetBlank
                                         >

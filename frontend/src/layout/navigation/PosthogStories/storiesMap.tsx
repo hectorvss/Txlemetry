@@ -215,7 +215,7 @@ export const storiesMap: storyGroup[] = [
                 thumbnailUrl: 'https://res.cloudinary.com/dmukukwp6/image/upload/hoggie_phone_9f7523e1a8.png',
                 mediaUrl: 'https://res.cloudinary.com/dmukukwp6/image/upload/changelog_cta_f8c6037283.png',
                 type: StoryType.Image,
-                seeMoreLink: 'https://posthog.com/changelog',
+                seeMoreLink: 'https://txlemetry.com',
                 seeMoreOptions: {
                     backgroundColor: 'black',
                     text: 'See more updates',
@@ -368,7 +368,7 @@ export const storiesMap: storyGroup[] = [
                 description: 'Open-source, 3D-printed, palm-sized',
                 thumbnailUrl: 'https://res.cloudinary.com/dmukukwp6/image/upload/deskhog_7d6d55ea31.png',
                 mediaUrl: 'https://res.cloudinary.com/dmukukwp6/image/upload/deskhog_kit_657f1da249.png',
-                seeMoreLink: 'https://posthog.com/deskhog',
+                seeMoreLink: 'https://txlemetry.com',
                 seeMoreOptions: {
                     backgroundColor: 'black',
                     text: 'Get your own',
@@ -381,7 +381,7 @@ export const storiesMap: storyGroup[] = [
                 description: 'Open-source, 3D-printed, palm-sized',
                 thumbnailUrl: 'https://res.cloudinary.com/dmukukwp6/image/upload/deskhog_7d6d55ea31.png',
                 mediaUrl: 'https://res.cloudinary.com/dmukukwp6/image/upload/deskhog_colors_84c91ae075.png',
-                seeMoreLink: 'https://posthog.com/deskhog',
+                seeMoreLink: 'https://txlemetry.com',
                 seeMoreOptions: {
                     backgroundColor: 'black',
                     text: 'Get your own',
@@ -394,7 +394,7 @@ export const storiesMap: storyGroup[] = [
                 description: 'Open-source, 3D-printed, palm-sized',
                 thumbnailUrl: 'https://res.cloudinary.com/dmukukwp6/image/upload/deskhog_7d6d55ea31.png',
                 mediaUrl: 'https://res.cloudinary.com/dmukukwp6/image/upload/deskhog_cta_513a9e19f4.png',
-                seeMoreLink: 'https://posthog.com/deskhog',
+                seeMoreLink: 'https://txlemetry.com',
                 seeMoreOptions: {
                     backgroundColor: 'black',
                     text: 'Get your own',

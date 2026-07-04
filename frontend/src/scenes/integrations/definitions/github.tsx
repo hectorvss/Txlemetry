@@ -17,7 +17,7 @@ export const GitHub = defineIntegration(
             <>
                 Connect GitHub to link issues and pull requests with Txlemetry and create issues directly from error
                 tracking. With <Link to={urls.integration('slack')}>Slack</Link> and{' '}
-                <Link to="https://posthog.com/code" target="_blank">
+                <Link to="https://txlemetry.com" target="_blank">
                     Txlemetry code
                 </Link>{' '}
                 connected, tag @Txlemetry to draft pull requests and ship code changes straight to your repositories.
@@ -29,7 +29,7 @@ export const GitHub = defineIntegration(
             'Link pull requests and issues to Txlemetry',
             'Attribute code changes across your repositories',
         ],
-        docsUrl: 'https://posthog.com/docs/error-tracking/integrations',
+        docsUrl: 'https://txlemetry.com/docs#error-tracking',
     },
     GithubIntegration
 )

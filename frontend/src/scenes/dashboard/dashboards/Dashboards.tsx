@@ -29,7 +29,7 @@ import { DashboardsContent } from 'products/dashboards/frontend/components/Dashb
 
 import { FeaturedTemplatesChooser } from './templates/FeaturedTemplatesChooser'
 
-const DASHBOARD_DOCS_URL = 'https://posthog.com/docs/product-analytics/dashboards'
+const DASHBOARD_DOCS_URL = 'https://txlemetry.com/docs#product-analytics'
 
 export const scene: SceneExport = {
     component: Dashboards,

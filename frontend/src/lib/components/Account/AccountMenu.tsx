@@ -343,7 +343,7 @@ export function AccountMenu({ trigger, ...props }: AccountMenuProps): JSX.Elemen
 
                     <DropdownMenuItem asChild>
                         <Link
-                            to="https://posthog.com/changelog"
+                            to="https://txlemetry.com"
                             buttonProps={{
                                 menuItem: true,
                             }}

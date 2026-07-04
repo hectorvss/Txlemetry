@@ -18,7 +18,7 @@ export function HostedSurveyRespondentHint({ className }: { className?: string }
                 </li>
             </ul>
             <Link
-                to="https://posthog.com/docs/surveys/creating-surveys#identifying-respondents-on-hosted-surveys"
+                to="https://txlemetry.com/docs#surveys"
                 target="_blank"
             >
                 Learn more about hosted survey URLs

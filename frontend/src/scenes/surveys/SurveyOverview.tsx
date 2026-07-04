@@ -93,7 +93,7 @@ export function SurveyOverview({ onTabChange }: { onTabChange?: (tab: string) =>
                                     <code className="bg-surface-tertiary px-1 rounded">?distinct_id=user123</code> to
                                     the URL.{' '}
                                     <Link
-                                        to="https://posthog.com/docs/surveys/creating-surveys#identifying-respondents-on-hosted-surveys"
+                                        to="https://txlemetry.com/docs#surveys"
                                         target="_blank"
                                     >
                                         Check more details in the documentation
@@ -187,7 +187,7 @@ export function SurveyOverview({ onTabChange }: { onTabChange?: (tab: string) =>
                                 <Link
                                     data-attr="survey-doc-link"
                                     target="_blank"
-                                    to="https://posthog.com/docs/surveys/implementing-custom-surveys"
+                                    to="https://txlemetry.com/docs#surveys"
                                     targetBlankIcon
                                 >
                                     in the docs

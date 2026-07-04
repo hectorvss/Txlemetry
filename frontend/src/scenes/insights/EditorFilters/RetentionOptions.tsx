@@ -59,7 +59,7 @@ export function RetentionOptions(): JSX.Element {
             <div>
                 <p className="text-secondary mt-4">
                     <Link
-                        to="https://posthog.com/docs/product-analytics/retention?utm_campaign=learn-more-horizontal&utm_medium=in-product"
+                        to="https://txlemetry.com/docs#product-analytics"
                         target="_blank"
                         className="inline-flex items-center"
                     >

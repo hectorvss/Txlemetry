@@ -33,7 +33,7 @@ export function EmailUnavailableForInvitesBanner(): JSX.Element {
         <LemonBanner type="info" className="my-2">
             <>
                 This Txlemetry instance isn't{' '}
-                <Link to="https://posthog.com/docs/self-host/configure/email" target="_blank" targetBlankIcon>
+                <Link to="https://txlemetry.com/docs#getting-started" target="_blank" targetBlankIcon>
                     configured&nbsp;to&nbsp;send&nbsp;emails&nbsp;
                 </Link>
                 .<br />
@@ -84,7 +84,7 @@ export function ProjectAccessSelector({ inviteIndex }: { inviteIndex: number }):
             <div className="flex items-center gap-2">
                 <h4 className="text-sm font-medium mb-0">Project access</h4>
                 <Tooltip
-                    docLink="https://posthog.com/docs/settings/access-control"
+                    docLink="https://txlemetry.com/docs"
                     title="Give this user access to specific projects. These access controls will be applied when the user accepts the invite and joins the organization."
                 >
                     <IconInfo className="text-muted-alt" />

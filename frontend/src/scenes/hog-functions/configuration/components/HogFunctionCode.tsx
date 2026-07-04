@@ -90,7 +90,7 @@ export function HogFunctionCode(): JSX.Element {
                             {!type.startsWith('site_') ? (
                                 <span className="text-xs text-secondary">
                                     This is the underlying Hog code that will run whenever this triggers.{' '}
-                                    <Link to="https://posthog.com/docs/hog">See the docs</Link> for more info
+                                    <Link to="https://txlemetry.com/docs">See the docs</Link> for more info
                                 </span>
                             ) : null}
                             {mightDropEvents && (

@@ -51,7 +51,7 @@ export function WebAnalyticsHeaderButtons(): JSX.Element {
         <div className="flex items-center gap-2">
             {showLiveUserCount && (
                 <LiveUserCount
-                    docLink="https://posthog.com/docs/web-analytics/faq#i-am-online-but-the-online-user-count-is-not-reflecting-my-user"
+                    docLink="https://txlemetry.com/docs#web-analytics"
                     dataAttr="web-analytics-live-user-count"
                 />
             )}

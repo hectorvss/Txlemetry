@@ -46,7 +46,7 @@ function RNSetupSnippet({ includeReplay }: RNSetupProps): JSX.Element {
             <p>
                 Txlemetry is most easily used via the <code>PostHogProvider</code> component but if you need to
                 instantiate it directly,{' '}
-                <Link to="https://posthog.com/docs/libraries/react-native#without-the-posthogprovider">
+                <Link to="https://txlemetry.com/docs#sdks">
                     check out the docs
                 </Link>{' '}
                 which explain how to do this correctly.
@@ -63,7 +63,7 @@ export function MyApp() {
             ${
                 includeReplay
                     ? `
-            // check https://posthog.com/docs/session-replay/installation?tab=React+Native
+            // check https://txlemetry.com/docs#session-replay+Native
             // for more config and to learn about how we capture sessions on mobile
             // and what to expect
             enableSessionReplay: true,

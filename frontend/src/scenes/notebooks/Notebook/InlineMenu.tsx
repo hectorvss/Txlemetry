@@ -83,7 +83,7 @@ export const InlineMenu = ({
                     <>
                         <LemonInput
                             size="small"
-                            placeholder="https://posthog.com"
+                            placeholder="https://txlemetry.com"
                             onChange={setLink}
                             value={href ?? ''}
                             className="border-0"

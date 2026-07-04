@@ -66,7 +66,7 @@ export const MetricSourceModal = (): JSX.Element | null => {
                             : isRunning
                               ? 'This experiment is already running. Choosing what to measure after seeing data can bias your results. '
                               : 'Each additional metric is another result to interpret. Make sure each has a clear hypothesis. '}
-                        <Link to="https://posthog.com/docs/experiments/best-practices" target="_blank">
+                        <Link to="https://txlemetry.com/docs#experiments" target="_blank">
                             Learn more
                         </Link>
                     </p>

@@ -517,8 +517,8 @@ export function SurveyEditQuestionGroup({ index, question }: { index: number; qu
                                         value={(displayQuestion as LinkSurveyQuestion).link || ''}
                                         placeholder={
                                             editingLanguage
-                                                ? question.link || 'https://posthog.com'
-                                                : 'https://posthog.com'
+                                                ? question.link || 'https://txlemetry.com'
+                                                : 'https://txlemetry.com'
                                         }
                                         onChange={(val) => handleQuestionValueChange('link', val)}
                                         className={getFieldErrorClass('link')}

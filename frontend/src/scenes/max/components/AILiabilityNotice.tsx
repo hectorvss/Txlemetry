@@ -31,7 +31,7 @@ export function AILiabilityNotice(): JSX.Element | null {
                         .
                     </>
                 )}{' '}
-                <Link to="https://posthog.com/docs/posthog-ai/faq" target="_blank" disableDocsPanel>
+                <Link to="https://txlemetry.com/docs" target="_blank" disableDocsPanel>
                     Learn more
                 </Link>
             </LemonBanner>

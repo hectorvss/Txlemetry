@@ -26,7 +26,7 @@ export function aiConsentLegalDialogProps({ onConfirm }: { onConfirm: () => void
                 <p className="mb-0">
                     If your org requires a Data Processing Agreement (DPA) for compliance (and your existing DPA doesn't
                     already cover AI subprocessors),{' '}
-                    <Link to="https://posthog.com/dpa" target="_blank">
+                    <Link to="https://txlemetry.com" target="_blank">
                         you can get a fresh DPA here
                     </Link>
                     .

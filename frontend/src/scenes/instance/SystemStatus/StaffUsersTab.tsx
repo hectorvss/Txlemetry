@@ -78,7 +78,7 @@ export function StaffUsersTab(): JSX.Element {
                 Users who have permissions to manage instance-wide settings. Staff user permissions are set at the{' '}
                 <b>instance-level and are independent of any organization or project permissions.</b>{' '}
                 <Link
-                    to="https://posthog.com/docs/self-host/configure/instance-settings#staff-users"
+                    to="https://txlemetry.com/docs#getting-started"
                     target="_blank"
                     targetBlankIcon
                 >

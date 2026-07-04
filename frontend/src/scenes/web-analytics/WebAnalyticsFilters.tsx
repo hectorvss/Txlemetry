@@ -126,7 +126,7 @@ export const WebAnalyticsFilters = ({ tabs }: { tabs: JSX.Element }): JSX.Elemen
                             <WebAnalyticsDomainSelector />
                             <WebAnalyticsDeviceToggle />
                             <LiveUserCount
-                                docLink="https://posthog.com/docs/web-analytics/faq#i-am-online-but-the-online-user-count-is-not-reflecting-my-user"
+                                docLink="https://txlemetry.com/docs#web-analytics"
                                 dataAttr="web-analytics-live-user-count"
                             />
                         </>

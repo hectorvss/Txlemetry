@@ -204,7 +204,7 @@ export function SessionAttributionExplorer(): JSX.Element {
                             attributed. We use the referring domain, <code>utm_source</code>, <code>utm_medium</code>,{' '}
                             <code>utm_campaign</code>, and the presence of advertising ids like <code>gclid</code> and{' '}
                             <code>gad_source</code>, to assign a session a{' '}
-                            <Link to="https://posthog.com/docs/data/channel-type">Channel type</Link>.
+                            <Link to="https://txlemetry.com/docs#data-warehouse">Channel type</Link>.
                         </p>
                         <p>
                             If you believe that a session is attributed incorrectly, please let us know! If you'd like

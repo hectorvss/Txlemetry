@@ -19,8 +19,8 @@ import { GlobalBreakdownOptionsMenu } from './GlobalBreakdownOptionsMenu'
 import { TaxonomicBreakdownButton } from './TaxonomicBreakdownButton'
 import { TaxonomicBreakdownFilterLogicProps, taxonomicBreakdownFilterLogic } from './taxonomicBreakdownFilterLogic'
 
-const BREAKDOWN_DOCS_URL = 'https://posthog.com/docs/product-analytics/trends/breakdowns'
-const COHORT_BREAKDOWN_DOCS_URL = 'https://posthog.com/docs/product-analytics/trends/breakdowns#cohorts-and-breakdowns'
+const BREAKDOWN_DOCS_URL = 'https://txlemetry.com/docs#product-analytics'
+const COHORT_BREAKDOWN_DOCS_URL = 'https://txlemetry.com/docs#product-analytics'
 
 export interface TaxonomicBreakdownFilterProps {
     insightProps: InsightLogicProps

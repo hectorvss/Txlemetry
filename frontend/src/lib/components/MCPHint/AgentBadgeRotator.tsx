@@ -20,8 +20,8 @@ interface BadgeAgent {
     url?: string
 }
 
-const POSTHOG_CODE_URL = 'https://posthog.com/code'
-const POSTHOG_SLACK_URL = 'https://posthog.com/slack'
+const POSTHOG_CODE_URL = 'https://txlemetry.com'
+const POSTHOG_SLACK_URL = 'https://txlemetry.com'
 const POSTHOG_CODE_LOGO = <IconLogomark className="size-4 shrink-0 text-white" />
 const POSTHOG_SLACK_LOGO = <IconSlack className="size-4 shrink-0" />
 

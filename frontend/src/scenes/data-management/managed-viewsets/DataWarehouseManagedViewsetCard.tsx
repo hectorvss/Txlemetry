@@ -22,7 +22,7 @@ const VIEWSET_DESCRIPTIONS: Record<
         title: 'Revenue Analytics',
         description:
             'Track and analyze revenue data from your payment providers and custom events. Automatically creates optimized views for revenue metrics, trends, and customer lifetime value.',
-        docsUrl: 'https://posthog.com/docs/revenue-analytics',
+        docsUrl: 'https://txlemetry.com/docs#revenue-analytics',
         configUrl: '/data-management/revenue',
         icon: <IconPiggyBank className="text-xl" />,
     },

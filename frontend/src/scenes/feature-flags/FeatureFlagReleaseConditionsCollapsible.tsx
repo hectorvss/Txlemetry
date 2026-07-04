@@ -727,7 +727,7 @@ const ConditionContent = ({
                                             <span className="flex items-center gap-1">
                                                 <span className="font-medium text-default">Optional override</span>
                                                 <Tooltip
-                                                    docLink="https://posthog.com/docs/feature-flags/testing#method-1-assign-a-user-a-specific-flag-value"
+                                                    docLink="https://txlemetry.com/docs#feature-flags"
                                                     title={
                                                         <>
                                                             Force all matching {resolvedTargetName} to receive a
@@ -975,7 +975,7 @@ export function FeatureFlagReleaseConditionsCollapsible({
                       label: 'Device',
                       description: 'Stable assignment per device. Good fit for experiments on anonymous users.',
                       badge: { type: 'warning' as const, text: 'BETA' },
-                      learnMoreUrl: 'https://posthog.com/docs/feature-flags/device-bucketing',
+                      learnMoreUrl: 'https://txlemetry.com/docs#feature-flags',
                   },
               ]
             : []),

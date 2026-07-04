@@ -63,7 +63,7 @@ export function FeaturePreviews(): JSX.Element {
                         <span className="italic">
                             Note: If you use feature flags for your app, you can avoid this issue for your users by
                             using a{' '}
-                            <Link to="https://posthog.com/docs/advanced/proxy" target="_blank">
+                            <Link to="https://txlemetry.com/docs" target="_blank">
                                 reverse proxy
                             </Link>
                             .

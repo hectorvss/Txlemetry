@@ -1535,7 +1535,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                           {
                                               ...pathTabExtras,
                                               docs: {
-                                                  url: 'https://posthog.com/docs/web-analytics/dashboard#paths',
+                                                  url: 'https://txlemetry.com/docs#web-analytics',
                                                   title: 'Paths',
                                                   description: (
                                                       <div>
@@ -1552,7 +1552,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                                           ) : (
                                                               <p>
                                                                   The{' '}
-                                                                  <Link to="https://posthog.com/docs/web-analytics/dashboard#bounce-rate">
+                                                                  <Link to="https://txlemetry.com/docs#web-analytics">
                                                                       bounce rate
                                                                   </Link>{' '}
                                                                   indicates the percentage of users who left your page
@@ -1582,7 +1582,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                           {
                                               ...pathTabExtras,
                                               docs: {
-                                                  url: 'https://posthog.com/docs/web-analytics/dashboard#paths',
+                                                  url: 'https://txlemetry.com/docs#web-analytics',
                                                   title: 'Entry Path',
                                                   description: (
                                                       <div>
@@ -1617,7 +1617,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                           {
                                               ...pathTabExtras,
                                               docs: {
-                                                  url: 'https://posthog.com/docs/web-analytics/dashboard#paths',
+                                                  url: 'https://txlemetry.com/docs#web-analytics',
                                                   title: 'End Path',
                                                   description: (
                                                       <div>
@@ -1719,7 +1719,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                               ),
                                           }),
                                     docs: {
-                                        url: 'https://posthog.com/docs/data/channel-type',
+                                        url: 'https://txlemetry.com/docs#data-warehouse',
                                         title: 'Channels',
                                         description: (
                                             <div>
@@ -1756,7 +1756,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                 {},
                                 {
                                     docs: {
-                                        url: 'https://posthog.com/docs/web-analytics/dashboard#channels-referrers-utms',
+                                        url: 'https://txlemetry.com/docs#web-analytics',
                                         title: 'Referrers',
                                         description: 'Understand where your users are coming from',
                                     },
@@ -1773,7 +1773,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                           {},
                                           {
                                               docs: {
-                                                  url: 'https://posthog.com/docs/web-analytics/dashboard#channels-referrers-utms',
+                                                  url: 'https://txlemetry.com/docs#web-analytics',
                                                   title: 'Referrer URLs',
                                                   description:
                                                       'Full referring URLs (without query parameters) showing where your users came from',
@@ -1791,7 +1791,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                 {},
                                 {
                                     docs: {
-                                        url: 'https://posthog.com/docs/web-analytics/dashboard#utms',
+                                        url: 'https://txlemetry.com/docs#web-analytics',
                                         title: 'UTM source',
                                         description: (
                                             <>
@@ -1811,7 +1811,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                 {},
                                 {
                                     docs: {
-                                        url: 'https://posthog.com/docs/web-analytics/dashboard#utms',
+                                        url: 'https://txlemetry.com/docs#web-analytics',
                                         title: 'UTM medium',
                                         description: (
                                             <>
@@ -1831,7 +1831,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                 {},
                                 {
                                     docs: {
-                                        url: 'https://posthog.com/docs/web-analytics/dashboard#utms',
+                                        url: 'https://txlemetry.com/docs#web-analytics',
                                         title: 'UTM campaign',
                                         description: (
                                             <>
@@ -1851,7 +1851,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                 {},
                                 {
                                     docs: {
-                                        url: 'https://posthog.com/docs/web-analytics/dashboard#utms',
+                                        url: 'https://txlemetry.com/docs#web-analytics',
                                         title: 'UTM content',
                                         description: (
                                             <>
@@ -1871,7 +1871,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                 {},
                                 {
                                     docs: {
-                                        url: 'https://posthog.com/docs/web-analytics/dashboard#utms',
+                                        url: 'https://txlemetry.com/docs#web-analytics',
                                         title: 'UTM term',
                                         description: (
                                             <>
@@ -1891,7 +1891,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                 {},
                                 {
                                     docs: {
-                                        url: 'https://posthog.com/docs/web-analytics/dashboard#utms',
+                                        url: 'https://txlemetry.com/docs#web-analytics',
                                         title: 'UTM parameters',
                                         description: (
                                             <>
@@ -2108,7 +2108,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                               canOpenInsight: true,
                               canOpenModal: true,
                               docs: {
-                                  url: 'https://posthog.com/docs/web-analytics/dashboard#retention',
+                                  url: 'https://txlemetry.com/docs#web-analytics',
                                   title: 'Retention',
                                   description: (
                                       <>
@@ -2173,7 +2173,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                     },
                                 },
                                 docs: {
-                                    url: 'https://posthog.com/docs/web-analytics/dashboard#active-hours',
+                                    url: 'https://txlemetry.com/docs#web-analytics',
                                     title: 'Active hours - Unique users',
                                     description: (
                                         <>
@@ -2237,7 +2237,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                     },
                                 },
                                 docs: {
-                                    url: 'https://posthog.com/docs/web-analytics/dashboard#active-hours',
+                                    url: 'https://txlemetry.com/docs#web-analytics',
                                     title: 'Active hours - Total pageviews',
                                     description: (
                                         <>
@@ -2323,7 +2323,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                     ]
                                   : undefined,
                               docs: {
-                                  url: 'https://posthog.com/docs/web-analytics/dashboard#goals',
+                                  url: 'https://txlemetry.com/docs#web-analytics',
                                   title: 'Goals',
                                   description: (
                                       <>
@@ -2332,7 +2332,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                                   Goals shows your pinned or most recently created actions and the
                                                   number of conversions they've had. You can set a custom event or
                                                   action as a{' '}
-                                                  <Link to="https://posthog.com/docs/web-analytics/conversion-goals">
+                                                  <Link to="https://txlemetry.com/docs#web-analytics">
                                                       conversion goal
                                                   </Link>{' '}
                                                   at the top of the dashboard for more specific metrics.
@@ -2351,7 +2351,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                                   colSpanClassName: conversionGoal ? 'md:col-span-full' : 'md:col-span-1',
                               },
                               docs: {
-                                  url: 'https://posthog.com/docs/session-replay',
+                                  url: 'https://txlemetry.com/docs#session-replay',
                                   title: 'Session Replay',
                                   description:
                                       'Play back sessions to diagnose UI issues, improve support, and get context for nuanced user behavior.',
@@ -2367,7 +2367,7 @@ export const webAnalyticsLogic = kea<webAnalyticsLogicType>([
                               },
                               query: errorTrackingQ,
                               docs: {
-                                  url: 'https://posthog.com/docs/error-tracking',
+                                  url: 'https://txlemetry.com/docs#error-tracking',
                                   title: 'Error Tracking',
                                   description: (
                                       <>

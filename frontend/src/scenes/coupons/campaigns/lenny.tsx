@@ -69,7 +69,7 @@ export const lennyCampaign: CampaignConfig = {
     footerNote: (
         <>
             ... and{' '}
-            <Link to="https://posthog.com/platform-packages" target="_blank">
+            <Link to="https://txlemetry.com" target="_blank">
                 many more
             </Link>
             ! Special plans and features are available for 12 months from the date you redeem your coupon. After that

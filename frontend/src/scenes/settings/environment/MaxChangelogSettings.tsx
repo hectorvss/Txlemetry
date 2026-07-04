@@ -51,7 +51,7 @@ export function MaxChangelogSettings(): JSX.Element {
                 </div>
                 <p className="text-muted text-sm mt-3">
                     See the{' '}
-                    <Link to="https://posthog.com/changelog?team=Txlemetry+AI" target="_blank">
+                    <Link to="https://txlemetry.com+AI" target="_blank">
                         complete changelog
                     </Link>{' '}
                     for all Txlemetry AI updates.

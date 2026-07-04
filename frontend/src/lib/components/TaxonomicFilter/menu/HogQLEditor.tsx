@@ -109,7 +109,7 @@ export function MenuFilterHogQLEditor({
                                 </pre>
                                 <div className="mt-2 text-xs">
                                     <Link
-                                        to="https://posthog.com/docs/sql"
+                                        to="https://txlemetry.com/docs#sql"
                                         target="_blank"
                                         className="underline text-primary"
                                     >

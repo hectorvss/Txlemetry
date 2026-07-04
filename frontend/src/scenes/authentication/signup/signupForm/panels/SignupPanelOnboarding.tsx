@@ -80,11 +80,11 @@ export function SignupPanelOnboarding(): JSX.Element | null {
 
             <div className="text-center text-secondary">
                 By {!preflight?.demo ? 'creating an account' : 'entering the demo environment'}, you agree to our{' '}
-                <Link to={`https://posthog.com/terms?${UTM_TAGS}`} target="_blank">
+                <Link to={`https://txlemetry.com${UTM_TAGS}`} target="_blank">
                     Terms of Service
                 </Link>{' '}
                 and{' '}
-                <Link to={`https://posthog.com/privacy?${UTM_TAGS}`} target="_blank">
+                <Link to={`https://txlemetry.com${UTM_TAGS}`} target="_blank">
                     Privacy Policy
                 </Link>
                 .

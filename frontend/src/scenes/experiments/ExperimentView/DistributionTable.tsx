@@ -89,7 +89,7 @@ export function DistributionModal(): JSX.Element {
                 <LemonBanner type="info">
                     Adjusting variant distribution may impact the validity of your results. Adjust only if you're aware
                     of how changes will affect your experiment.{' '}
-                    <Link to="https://posthog.com/docs/experiments/changing-distribution-after-rollout" target="_blank">
+                    <Link to="https://txlemetry.com/docs#experiments" target="_blank">
                         Read more
                     </Link>
                 </LemonBanner>

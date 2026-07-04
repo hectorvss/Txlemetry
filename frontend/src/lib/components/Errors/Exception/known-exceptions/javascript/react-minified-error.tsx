@@ -18,7 +18,7 @@ defineKnownException({
                 </Link>{' '}
                 to see the full description of the error or{' '}
                 <Link
-                    to="https://posthog.com/docs/error-tracking/common-questions#what-is-a-minified-react-error-with-no-stack-traces"
+                    to="https://txlemetry.com/docs#error-tracking"
                     target="_blank"
                 >
                     read our docs

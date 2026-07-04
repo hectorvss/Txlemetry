@@ -305,7 +305,7 @@ export function Cohorts(): JSX.Element {
                 thingName="cohort"
                 description="Use cohorts to group people together, such as users who used your app in the last week, or people who viewed the signup page but didn't convert."
                 isEmpty={shouldShowEmptyState}
-                docsURL="https://posthog.com/docs/data/cohorts"
+                docsURL="https://txlemetry.com/docs#data-warehouse"
                 action={() => router.actions.push(urls.cohort('new'))}
                 customHog={HedgehogGreek}
                 mcpSurfaceKey="cohorts.create"

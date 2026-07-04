@@ -45,7 +45,7 @@ interface WebHealthCheckConfig {
 
 const INSTALL_GUIDE_ACTION: HealthCheckAction = {
     label: 'View installation guide',
-    to: 'https://posthog.com/docs/libraries/js',
+    to: 'https://txlemetry.com/docs#sdks',
 }
 
 const WEB_HEALTH_CHECKS: WebHealthCheckConfig[] = [
@@ -58,7 +58,7 @@ const WEB_HEALTH_CHECKS: WebHealthCheckConfig[] = [
             'Events are flowing in as expected. Head over to the Web Analytics tab to start reviewing your analytics!',
         failingDescription: 'Complete the Txlemetry installation to start seeing events in your dashboard.',
         failingAction: INSTALL_GUIDE_ACTION,
-        docsUrl: 'https://posthog.com/docs/product-analytics/capture-events',
+        docsUrl: 'https://txlemetry.com/docs#product-analytics',
         urgent: true,
     },
     {
@@ -69,7 +69,7 @@ const WEB_HEALTH_CHECKS: WebHealthCheckConfig[] = [
         passingDescription: 'Bounce rate and session duration are accurate!',
         failingDescription: 'Without $pageleave events, bounce rate and session duration might be inaccurate.',
         failingAction: INSTALL_GUIDE_ACTION,
-        docsUrl: 'https://posthog.com/docs/web-analytics/dashboard#bounce-rate',
+        docsUrl: 'https://txlemetry.com/docs#web-analytics',
     },
     {
         id: HealthCheckId.SCROLL_DEPTH,
@@ -79,7 +79,7 @@ const WEB_HEALTH_CHECKS: WebHealthCheckConfig[] = [
         passingDescription: 'Scroll tracking is enabled! Tracking how far users scroll on each page.',
         failingDescription: 'Enable scroll depth to see how far users read your content before leaving.',
         failingAction: INSTALL_GUIDE_ACTION,
-        docsUrl: 'https://posthog.com/docs/web-analytics/scroll-depth',
+        docsUrl: 'https://txlemetry.com/docs#web-analytics',
     },
     {
         id: HealthCheckId.AUTHORIZED_URLS,
@@ -102,7 +102,7 @@ const WEB_HEALTH_CHECKS: WebHealthCheckConfig[] = [
         failingDescription:
             'A reverse proxy routes Txlemetry requests through your own domain and helps prevent ad blockers from blocking tracking. Some metrics may not be accurate until this is configured.',
         failingAction: { label: 'Set up reverse proxy', to: urls.settings('organization-proxy') },
-        docsUrl: 'https://posthog.com/docs/advanced/proxy',
+        docsUrl: 'https://txlemetry.com/docs',
         urgent: true,
     },
     {
@@ -118,7 +118,7 @@ const WEB_HEALTH_CHECKS: WebHealthCheckConfig[] = [
             label: 'Enable Web Vitals',
             to: urls.settings('environment-web-analytics', 'web-vitals-autocapture'),
         },
-        docsUrl: 'https://posthog.com/docs/web-analytics/web-vitals',
+        docsUrl: 'https://txlemetry.com/docs#web-analytics',
     },
 ]
 

@@ -63,7 +63,7 @@ export function CSPReportingSettings(): JSX.Element {
                         <div>
                             We accept some additional parameters on the report URL. These require that you add
                             information when adding the URL to your pages.{' '}
-                            <Link to="https://posthog.com/docs/csp-tracking">See our docs for some examples.</Link>
+                            <Link to="https://txlemetry.com/docs">See our docs for some examples.</Link>
                         </div>
                     </div>
                 </LemonBanner>

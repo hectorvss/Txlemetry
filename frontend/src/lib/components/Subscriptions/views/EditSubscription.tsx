@@ -368,7 +368,7 @@ function EditSubscriptionForm({
                                     If this value is not configured correctly Txlemetry may be unable to correctly send
                                     Subscriptions.{' '}
                                     <Link
-                                        to="https://posthog.com/docs/configuring-posthog/environment-variables?utm_medium=in-product&utm_campaign=subcriptions-system-status-site-url-misconfig"
+                                        to="https://txlemetry.com/docs"
                                         target="_blank"
                                         targetBlankIcon
                                     >
@@ -453,7 +453,7 @@ function EditSubscriptionForm({
                                             Email subscriptions are not currently possible as this Txlemetry instance
                                             isn't{' '}
                                             <Link
-                                                to="https://posthog.com/docs/self-host/configure/email"
+                                                to="https://txlemetry.com/docs#getting-started"
                                                 target="_blank"
                                                 targetBlankIcon
                                             >
@@ -521,7 +521,7 @@ function EditSubscriptionForm({
                                                     <>
                                                         Private channels are only shown if you have{' '}
                                                         <Link
-                                                            to="https://posthog.com/docs/webhooks/slack"
+                                                            to="https://txlemetry.com/docs"
                                                             target="_blank"
                                                         >
                                                             added the Txlemetry Slack App

@@ -77,7 +77,7 @@ export function FirstSurveyHelper({ onTabChange }: FirstSurveyHelperProps): JSX.
                                         <p className="text-xs text-muted mb-2 leading-relaxed">
                                             Show to specific users.{' '}
                                             <Link
-                                                to="https://posthog.com/docs/surveys/creating-surveys#display-conditions"
+                                                to="https://txlemetry.com/docs#surveys"
                                                 target="_blank"
                                                 className="text-primary-3000"
                                             >
@@ -109,7 +109,7 @@ export function FirstSurveyHelper({ onTabChange }: FirstSurveyHelperProps): JSX.
                                         <p className="text-xs text-muted mb-2 leading-relaxed">
                                             See sample analytics.{' '}
                                             <Link
-                                                to="https://posthog.com/docs/surveys/viewing-results#1-on-the-survey-page"
+                                                to="https://txlemetry.com/docs#surveys"
                                                 target="_blank"
                                                 className="text-primary-3000"
                                             >
@@ -137,7 +137,7 @@ export function FirstSurveyHelper({ onTabChange }: FirstSurveyHelperProps): JSX.
                                         <p className="text-xs text-muted mb-2 leading-relaxed">
                                             Slack notifications.{' '}
                                             <Link
-                                                to="https://posthog.com/tutorials/slack-surveys"
+                                                to="https://txlemetry.com/docs"
                                                 target="_blank"
                                                 className="text-primary-3000"
                                             >

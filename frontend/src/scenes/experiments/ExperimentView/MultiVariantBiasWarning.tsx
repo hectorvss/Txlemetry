@@ -47,7 +47,7 @@ export function MultiVariantBiasWarning(): JSX.Element | null {
                         We recommend using an <strong>even split</strong> and controlling exposure with the overall
                         rollout (uneven splits have further disadvantages). Alternatively use{' '}
                         <Link
-                            to="https://posthog.com/docs/experiments/exposures#handling-multiple-exposures"
+                            to="https://txlemetry.com/docs#experiments"
                             target="_blank"
                         >
                             <strong>First seen</strong>

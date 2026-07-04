@@ -378,7 +378,7 @@ export function S3FamilyFields({
                     <>
                         Template variables are supported. Please check out the{' '}
                         <Link
-                            to="https://posthog.com/docs/cdp/batch-exports/s3#s3-key-prefix-template-variables"
+                            to="https://txlemetry.com/docs#data-pipelines"
                             target="_blank"
                         >
                             docs

@@ -598,7 +598,7 @@ export function FeatureFlagForm({ id }: FeatureFlagLogicProps): JSX.Element {
                                                             Control whether this flag evaluates on client, server, or
                                                             both.{' '}
                                                             <Link
-                                                                to="https://posthog.com/docs/feature-flags/creating-feature-flags#step-5-configure-evaluation-runtime-and-environments-optional"
+                                                                to="https://txlemetry.com/docs#feature-flags"
                                                                 target="_blank"
                                                             >
                                                                 Learn more
@@ -671,7 +671,7 @@ export function FeatureFlagForm({ id }: FeatureFlagLogicProps): JSX.Element {
                                                                     Keep flag values consistent before and after login.
                                                                     Requires anonymous user profiles.{' '}
                                                                     <Link
-                                                                        to="https://posthog.com/docs/feature-flags/creating-feature-flags#persisting-feature-flags-across-authentication-steps"
+                                                                        to="https://txlemetry.com/docs#feature-flags"
                                                                         target="_blank"
                                                                     >
                                                                         Learn more
@@ -1036,7 +1036,7 @@ export function FeatureFlagForm({ id }: FeatureFlagLogicProps): JSX.Element {
                                                             available via{' '}
                                                             <code className="text-xs">getFeatureFlagPayload</code>.{' '}
                                                             <Link
-                                                                to="https://posthog.com/docs/feature-flags/creating-feature-flags#payloads"
+                                                                to="https://txlemetry.com/docs#feature-flags"
                                                                 target="_blank"
                                                             >
                                                                 Learn more

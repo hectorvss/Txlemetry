@@ -53,7 +53,7 @@ export const AI_TASKS: SetupTask[] = [
             'An AI devtool that understands your product, not just your codebase — it triages bugs and opens pull requests from your product data.',
         taskType: 'ai',
         requiresManualCompletion: true,
-        docsUrl: 'https://posthog.com/code',
+        docsUrl: 'https://txlemetry.com',
     },
     {
         id: SetupTaskId.UsePosthogMcp,
@@ -62,7 +62,7 @@ export const AI_TASKS: SetupTask[] = [
             'Query your Txlemetry data in plain English from your coding agent — run funnels, check errors, and toggle flags without leaving your editor.',
         taskType: 'ai',
         requiresManualCompletion: true,
-        docsUrl: 'https://posthog.com/mcp',
+        docsUrl: 'https://txlemetry.com',
     },
     {
         id: SetupTaskId.UsePosthogInSlack,
@@ -165,7 +165,7 @@ export const PRODUCT_SETUP_REGISTRY: Partial<Record<ProductKey, ProductSetupConf
                 taskType: 'explore',
                 dependsOn: [SetupTaskId.IngestFirstEvent],
                 requiresManualCompletion: true,
-                docsUrl: 'https://posthog.com/tutorials/event-tracking-guide#setting-up-custom-events',
+                docsUrl: 'https://txlemetry.com/docs',
                 targetSelector: '[data-attr="help-button"]',
             },
             {
@@ -323,7 +323,7 @@ export const PRODUCT_SETUP_REGISTRY: Partial<Record<ProductKey, ProductSetupConf
                 taskType: 'onboarding',
                 requiresManualCompletion: true,
                 dependsOn: [SetupTaskId.CreateFeatureFlag],
-                docsUrl: 'https://posthog.com/docs/feature-flags/installation',
+                docsUrl: 'https://txlemetry.com/docs#feature-flags',
                 targetSelector: '[data-attr="help-button"]',
             },
             {
@@ -332,7 +332,7 @@ export const PRODUCT_SETUP_REGISTRY: Partial<Record<ProductKey, ProductSetupConf
                 description: 'Target specific users or percentages with your flag.',
                 taskType: 'explore',
                 dependsOn: [SetupTaskId.CreateFeatureFlag],
-                docsUrl: 'https://posthog.com/docs/feature-flags/creating-feature-flags#release-conditions',
+                docsUrl: 'https://txlemetry.com/docs#feature-flags',
             },
             {
                 id: SetupTaskId.CreateMultivariateFlag,
@@ -348,7 +348,7 @@ export const PRODUCT_SETUP_REGISTRY: Partial<Record<ProductKey, ProductSetupConf
                 title: 'Use flag payloads',
                 description: 'Pass dynamic configuration to your feature flags.',
                 taskType: 'explore',
-                docsUrl: 'https://posthog.com/docs/feature-flags/creating-feature-flags#payloads',
+                docsUrl: 'https://txlemetry.com/docs#feature-flags',
             },
             {
                 id: SetupTaskId.SetUpFlagEvaluationRuntimes,
@@ -356,7 +356,7 @@ export const PRODUCT_SETUP_REGISTRY: Partial<Record<ProductKey, ProductSetupConf
                 description: 'Control where your feature flags can be evaluated.',
                 taskType: 'explore',
                 docsUrl:
-                    'https://posthog.com/docs/feature-flags/creating-feature-flags#step-5-configure-evaluation-runtime-and-contexts-optional',
+                    'https://txlemetry.com/docs#feature-flags',
             },
         ],
     },
@@ -382,7 +382,7 @@ export const PRODUCT_SETUP_REGISTRY: Partial<Record<ProductKey, ProductSetupConf
                 taskType: 'onboarding',
                 requiresManualCompletion: true,
                 dependsOn: [SetupTaskId.CreateExperiment],
-                docsUrl: 'https://posthog.com/docs/experiments/installation',
+                docsUrl: 'https://txlemetry.com/docs#experiments',
             },
             {
                 id: SetupTaskId.LaunchExperiment,
@@ -496,7 +496,7 @@ export const PRODUCT_SETUP_REGISTRY: Partial<Record<ProductKey, ProductSetupConf
                 skipWarning: "Without source maps, stack traces won't be readable.",
                 taskType: 'setup',
                 requiresManualCompletion: true,
-                docsUrl: 'https://posthog.com/docs/error-tracking/upload-source-maps',
+                docsUrl: 'https://txlemetry.com/docs#error-tracking',
                 targetSelector: '[data-attr="help-button"]',
             },
             {
@@ -615,7 +615,7 @@ export const PRODUCT_SETUP_REGISTRY: Partial<Record<ProductKey, ProductSetupConf
                 taskType: 'setup',
                 requiresManualCompletion: true,
                 getUrl: () => urls.onboarding({ productKey: ProductKey.LOGS, stepKey: OnboardingStepKey.INSTALL }),
-                docsUrl: 'https://posthog.com/docs/logs',
+                docsUrl: 'https://txlemetry.com/docs#logs',
                 targetSelector: '[data-attr="menu-item-logs"]',
             },
             {

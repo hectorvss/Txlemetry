@@ -20,7 +20,7 @@ const MCPServerSettings = (): JSX.Element => {
             </div>
             <p>
                 You can learn more about what tools are available and other installation options{' '}
-                <Link to="https://posthog.com/docs/model-context-protocol" target="_blank">
+                <Link to="https://txlemetry.com/docs" target="_blank">
                     here
                 </Link>
             </p>

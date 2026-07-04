@@ -1183,7 +1183,7 @@ export const WebGoalsTile = ({
                 isEmpty={true}
                 titleOverride="Track your conversions"
                 description="Goals show how many visitors complete the actions that matter to you. Sign-ups, purchases, demo requests. Create an action for a key conversion to see its visitors and conversion rate here."
-                docsURL="https://posthog.com/docs/web-analytics/conversion-goals"
+                docsURL="https://txlemetry.com/docs#web-analytics"
                 hogLayout="responsive"
                 actionElementOverride={
                     <NewActionButton onSelectOption={() => updateHasSeenProductIntroFor(ProductKey.ACTIONS)} />

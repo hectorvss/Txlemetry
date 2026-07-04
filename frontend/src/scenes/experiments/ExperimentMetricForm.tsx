@@ -310,7 +310,7 @@ export function ExperimentMetricForm({
                             </>
                         )}
                         <Tooltip
-                            docLink="https://posthog.com/docs/experiments/exposures"
+                            docLink="https://txlemetry.com/docs#experiments"
                             title={
                                 <div className="space-y-2">
                                     <p>
@@ -352,7 +352,7 @@ export function ExperimentMetricForm({
                                 SQL expressions allow you to write custom computations and aggregations. The expression
                                 should return a numeric value and will be evaluated for each user in the experiment.{' '}
                                 <Link
-                                    to="https://posthog.com/docs/hogql/expressions"
+                                    to="https://txlemetry.com/docs#sql"
                                     target="_blank"
                                     disableDocsPanel={true}
                                 >

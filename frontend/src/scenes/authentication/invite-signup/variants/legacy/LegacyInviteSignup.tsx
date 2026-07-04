@@ -41,7 +41,7 @@ function HelperLinks(): JSX.Element {
         <div className="font-bold text-center">
             <Link to="/">App Home</Link>
             <span className="mx-2">|</span>
-            <Link to={`https://posthog.com?${UTM_TAGS}&utm_message=invalid-invite`}>Txlemetry Website</Link>
+            <Link to={`https://txlemetry.com?${UTM_TAGS}&utm_message=invalid-invite`}>Txlemetry Website</Link>
         </div>
     )
 }
@@ -395,11 +395,11 @@ function UnauthenticatedAcceptInvite({ invite }: { invite: PrevalidatedInvite })
             </div>
             <div className="mt-4 text-center text-secondary">
                 By clicking continue you agree to our{' '}
-                <Link to="https://posthog.com/terms" target="_blank">
+                <Link to="https://txlemetry.com" target="_blank">
                     Terms of Service
                 </Link>{' '}
                 and{' '}
-                <Link to="https://posthog.com/privacy" target="_blank">
+                <Link to="https://txlemetry.com" target="_blank">
                     Privacy Policy
                 </Link>
                 .

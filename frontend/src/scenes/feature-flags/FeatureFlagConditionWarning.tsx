@@ -32,7 +32,7 @@ export function FeatureFlagConditionWarning({
             <IconInfo className="text-base shrink-0 text-warning-dark" />
             <span>
                 Local evaluation unavailable ({warning}).{' '}
-                <Link to="https://posthog.com/docs/feature-flags/local-evaluation#restriction-on-local-evaluation">
+                <Link to="https://txlemetry.com/docs#feature-flags">
                     Learn more
                 </Link>
             </span>

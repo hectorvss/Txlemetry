@@ -25,7 +25,7 @@ export const WebAnalyticsHealthCheck = (): JSX.Element | null => {
                         </p>
                         <p>
                             To fix this, please see{' '}
-                            <Link to="https://posthog.com/docs/data/sessions#custom-session-ids">
+                            <Link to="https://txlemetry.com/docs#data-warehouse">
                                 documentation for custom session IDs
                             </Link>
                             .

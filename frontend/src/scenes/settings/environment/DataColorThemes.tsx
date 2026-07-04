@@ -35,7 +35,7 @@ export function DataColorThemes(): JSX.Element {
                     These themes can be used in insights. You can also set a default theme for all insights below. For
                     more details, check out our{' '}
                     <Link
-                        to="https://posthog.com/docs/product-analytics/color-themes?utm_campaign=settings&utm_medium=in-product"
+                        to="https://txlemetry.com/docs#product-analytics"
                         target="_blank"
                     >
                         docs

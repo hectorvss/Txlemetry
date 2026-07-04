@@ -163,7 +163,7 @@ export function TranslationsPanel({ tourId }: { tourId: string }): JSX.Element {
             <div className="flex flex-col gap-2">
                 <p className="text-muted mb-0">
                     Add translations to this {entityKeyword}.{' '}
-                    <Link to="https://posthog.com/docs/product-tours/localization" target="_blank" targetBlankIcon>
+                    <Link to="https://txlemetry.com/docs" target="_blank" targetBlankIcon>
                         Read the docs
                     </Link>
                 </p>
@@ -181,7 +181,7 @@ export function TranslationsPanel({ tourId }: { tourId: string }): JSX.Element {
 
             <LanguageCombobox tourId={tourId} />
 
-            <Link to="https://posthog.com/docs/product-tours/localization" target="_blank" targetBlankIcon>
+            <Link to="https://txlemetry.com/docs" target="_blank" targetBlankIcon>
                 Read the docs
             </Link>
         </div>

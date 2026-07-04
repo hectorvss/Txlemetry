@@ -89,7 +89,7 @@ export function HowToReadTooltip(): JSX.Element {
                 }
             >
                 <Link
-                    to="https://posthog.com/docs/experiments/analyzing-results"
+                    to="https://txlemetry.com/docs#experiments"
                     target="_blank"
                     className="text-xs text-secondary cursor-help"
                     onClick={(e) => e.stopPropagation()}

@@ -26,7 +26,7 @@ import { DASHBOARD_CANNOT_EDIT_MESSAGE } from './DashboardHeader'
 import { dashboardLogic } from './dashboardLogic'
 import { EmptyDashboardAiStarterPrompts } from './emptyDashboardAiStarterPrompts'
 
-const DASHBOARD_DOCS_URL = 'https://posthog.com/docs/product-analytics/dashboards'
+const DASHBOARD_DOCS_URL = 'https://txlemetry.com/docs#product-analytics'
 
 const BASE_TEXT =
     'A simple first step is to add an insight from your library. Over time this becomes the home for the data you care about most.'

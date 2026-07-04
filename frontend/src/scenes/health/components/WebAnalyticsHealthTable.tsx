@@ -17,17 +17,17 @@ const CHECK_META: Record<string, CheckMeta> = {
     no_live_events: {
         title: '$pageview',
         description: 'No pageview events detected recently. Complete the Txlemetry installation to start seeing events.',
-        docsUrl: 'https://posthog.com/docs/product-analytics/capture-events',
+        docsUrl: 'https://txlemetry.com/docs#product-analytics',
     },
     no_pageleave_events: {
         title: '$pageleave',
         description: 'Without $pageleave events, bounce rate and session duration might be inaccurate.',
-        docsUrl: 'https://posthog.com/docs/web-analytics/dashboard#bounce-rate',
+        docsUrl: 'https://txlemetry.com/docs#web-analytics',
     },
     scroll_depth: {
         title: 'Scroll depth',
         description: 'Enable scroll depth to see how far users read your content before leaving.',
-        docsUrl: 'https://posthog.com/tutorials/scroll-depth',
+        docsUrl: 'https://txlemetry.com/docs',
     },
     authorized_urls: {
         title: 'Authorized URLs',
@@ -39,13 +39,13 @@ const CHECK_META: Record<string, CheckMeta> = {
         title: 'Reverse proxy',
         description:
             'A reverse proxy routes requests through your domain and helps prevent ad blockers from blocking tracking.',
-        docsUrl: 'https://posthog.com/docs/advanced/proxy',
+        docsUrl: 'https://txlemetry.com/docs',
     },
     web_vitals: {
         title: '$web_vitals',
         description:
             'Core Web Vitals (LCP, INP, CLS) measure real user experience. Google uses these metrics for search ranking.',
-        docsUrl: 'https://posthog.com/docs/web-analytics/web-vitals',
+        docsUrl: 'https://txlemetry.com/docs#web-analytics',
     },
 }
 

@@ -284,7 +284,7 @@ export function AsyncMigrations(): JSX.Element {
                     />
                     <p>
                         Read about async migrations on our{' '}
-                        <Link to="https://posthog.com/docs/self-host/configure/async-migrations/overview">
+                        <Link to="https://txlemetry.com/docs#getting-started">
                             dedicated docs page
                         </Link>
                         .

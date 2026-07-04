@@ -144,7 +144,7 @@ export function SdkSection({ sdkType }: { sdkType: SdkType }): JSX.Element {
                         Docs
                     </Link>
                     <Link
-                        to="https://posthog.com/docs/sdk-doctor/keeping-sdks-current#ways-to-keep-sdk-versions-current"
+                        to="https://txlemetry.com/docs"
                         target="_blank"
                         targetBlankIcon
                     >

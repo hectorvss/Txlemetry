@@ -47,7 +47,7 @@ export function PathCleaningFiltersConfig(): JSX.Element | null {
         return (
             <p>
                 Advanced path cleaning is a premium feature. Check{' '}
-                <Link to="https://posthog.com/docs/product-analytics/paths#path-cleaning-rules">
+                <Link to="https://txlemetry.com/docs#product-analytics">
                     our path cleaning rules documentation
                 </Link>{' '}
                 to learn more about it.

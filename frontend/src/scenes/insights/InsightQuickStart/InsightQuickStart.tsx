@@ -174,7 +174,7 @@ export function InsightQuickStart(): JSX.Element {
                     url={urls.ai()}
                     dataAttr="insight-option-ai"
                     preview={AI_PREVIEW}
-                    docLink="https://posthog.com/docs/posthog-ai"
+                    docLink="https://txlemetry.com/docs"
                     index={0}
                 />
                 {insightEntries.map(([insightType, metadata], index) => (

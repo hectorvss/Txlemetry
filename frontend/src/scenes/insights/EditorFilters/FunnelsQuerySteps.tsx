@@ -69,7 +69,7 @@ export function FunnelsQuerySteps({ insightProps }: EditorFilterProps): JSX.Elem
                         hasPageview,
                         hasScreen,
                     })}
-                    addFilterDocLink="https://posthog.com/docs/product-analytics/trends/filters"
+                    addFilterDocLink="https://txlemetry.com/docs#product-analytics"
                     actionsTaxonomicGroupTypes={[
                         TaxonomicFilterGroupType.Events,
                         TaxonomicFilterGroupType.Actions,

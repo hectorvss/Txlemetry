@@ -192,7 +192,7 @@ export function Annotations(): JSX.Element {
                         productKey={ProductKey.ANNOTATIONS}
                         thingName="annotation"
                         description="Annotations allow you to mark when certain changes happened so you can easily see how they impacted your metrics."
-                        docsURL="https://posthog.com/docs/data/annotations"
+                        docsURL="https://txlemetry.com/docs#data-warehouse"
                         action={() => openModalToCreateAnnotation()}
                         isEmpty={shouldShowEmptyState}
                         customHog={HedgehogReporter}

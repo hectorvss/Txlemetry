@@ -158,7 +158,7 @@ export function HelpMenu({ iconOnly = false }: { iconOnly?: boolean }): JSX.Elem
                                     render={(props) => (
                                         <Link
                                             {...props}
-                                            to="https://posthog.com/docs"
+                                            to="https://txlemetry.com/docs"
                                             buttonProps={{ menuItem: true }}
                                             target="_blank"
                                             targetBlankIcon
@@ -253,7 +253,7 @@ export function HelpMenu({ iconOnly = false }: { iconOnly?: boolean }): JSX.Elem
                                             targetBlankIcon
                                             target="_blank"
                                             buttonProps={{ menuItem: true }}
-                                            to="https://posthog.com/changelog"
+                                            to="https://txlemetry.com"
                                             data-attr="more-menu-changelog-button"
                                         >
                                             <IconLive />

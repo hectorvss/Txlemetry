@@ -134,11 +134,11 @@ function InviteNewUser({ invite }: { invite: PrevalidatedInvite }): JSX.Element 
         <>
             <p className="PaperDesk__terms mt-5 mb-0 text-xs leading-relaxed text-tertiary text-center">
                 By continuing you agree to our{' '}
-                <Link to="https://posthog.com/terms" target="_blank">
+                <Link to="https://txlemetry.com" target="_blank">
                     terms
                 </Link>{' '}
                 and{' '}
-                <Link to="https://posthog.com/privacy" target="_blank">
+                <Link to="https://txlemetry.com" target="_blank">
                     privacy policy
                 </Link>
                 .
@@ -424,7 +424,7 @@ function InviteInvalid(): JSX.Element {
                 </>
             )}
             <Link
-                to="https://posthog.com"
+                to="https://txlemetry.com"
                 target="_blank"
                 className="font-semibold no-underline cursor-pointer hover:underline hover:underline-offset-2 text-warning"
             >

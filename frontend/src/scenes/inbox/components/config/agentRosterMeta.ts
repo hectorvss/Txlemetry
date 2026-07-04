@@ -47,7 +47,7 @@ export const AGENT_ROSTER_GROUPS: AgentRosterGroup[] = [
                 sourceProduct: SignalSourceProduct.ERROR_TRACKING,
                 label: 'Error tracking',
                 description: 'Bugs surfaced as new errors, regressions, and spikes.',
-                docsUrl: 'https://posthog.com/docs/error-tracking',
+                docsUrl: 'https://txlemetry.com/docs#error-tracking',
                 docsLabel: 'Error tracking',
             },
             {
@@ -55,7 +55,7 @@ export const AGENT_ROSTER_GROUPS: AgentRosterGroup[] = [
                 sourceProduct: SignalSourceProduct.CONVERSATIONS,
                 label: 'Support',
                 description: 'Problems customers raise in support.',
-                docsUrl: 'https://posthog.com/docs/support',
+                docsUrl: 'https://txlemetry.com/docs',
                 docsLabel: 'Support',
             },
             {
@@ -63,7 +63,7 @@ export const AGENT_ROSTER_GROUPS: AgentRosterGroup[] = [
                 sourceProduct: SignalSourceProduct.SESSION_REPLAY,
                 label: 'Session replay',
                 description: 'UX problems found in session recordings.',
-                docsUrl: 'https://posthog.com/docs/session-replay',
+                docsUrl: 'https://txlemetry.com/docs#session-replay',
                 docsLabel: 'Session replay',
                 alpha: true,
             },

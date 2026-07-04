@@ -467,7 +467,7 @@ function AggregationTargetContext({ insightProps, isHogQL }: AggregationTargetCo
                 </Link>{' '}
                 using fields like <code>distinct_id</code> or <code>email</code>.{' '}
                 <Link
-                    to="https://posthog.com/docs/data-warehouse/join#table-joins"
+                    to="https://txlemetry.com/docs#data-warehouse"
                     target="_blank"
                     className="underline text-primary"
                 >

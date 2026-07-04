@@ -105,7 +105,7 @@ export function WebVitals(props: {
                 </div>
                 <span className="text-xs text-text-tertiary self-center sm:self-end">
                     Metrics above are from the last day in the selected time range.{' '}
-                    <Link to="https://posthog.com/docs/web-analytics/web-vitals#web-vitals-dashboard" target="_blank">
+                    <Link to="https://txlemetry.com/docs#web-analytics" target="_blank">
                         Learn more in the Docs.
                     </Link>
                 </span>

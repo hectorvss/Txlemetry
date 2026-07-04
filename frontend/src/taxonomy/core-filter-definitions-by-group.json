@@ -278,7 +278,7 @@
             "label": "AI Evaluation Key ID (LLM)"
         },
         "$ai_evaluation_key_type": {
-            "description": "The type of API key used for the evaluation (byok = user's own key, posthog = PostHog default).",
+            "description": "The type of API key used for the evaluation (byok = user's own key, posthog = Txlemetry default).",
             "examples": [
                 "byok",
                 "posthog"
@@ -445,7 +445,7 @@
             "label": "AI Input State (LLM)"
         },
         "$ai_input_token_price": {
-            "description": "The price per input token used to compute the input cost. Set this to override PostHog's cost calculation.",
+            "description": "The price per input token used to compute the input cost. Set this to override Txlemetry's cost calculation.",
             "examples": [
                 3e-06
             ],
@@ -560,7 +560,7 @@
             "label": "AI Output State (LLM)"
         },
         "$ai_output_token_price": {
-            "description": "The price per output token used to compute the output cost. Set this to override PostHog's cost calculation.",
+            "description": "The price per output token used to compute the output cost. Set this to override Txlemetry's cost calculation.",
             "examples": [
                 1.5e-05
             ],
@@ -766,7 +766,7 @@
             "label": "AI Tagger Key ID (LLM)"
         },
         "$ai_tagger_key_type": {
-            "description": "The type of API key used for the tagger (byok = user's own key, posthog = PostHog default).",
+            "description": "The type of API key used for the tagger (byok = user's own key, posthog = Txlemetry default).",
             "examples": [
                 "byok",
                 "posthog"
@@ -1122,7 +1122,7 @@
             "label": "Initial UTM term"
         },
         "$config_defaults": {
-            "description": "The version of the PostHog config defaults that were used when capturing the event.",
+            "description": "The version of the Txlemetry config defaults that were used when capturing the event.",
             "label": "Config defaults",
             "type": "String",
             "used_for_debug": true
@@ -1525,7 +1525,7 @@
             "label": "Exception message"
         },
         "$exception_personURL": {
-            "description": "The PostHog person that experienced the exception.",
+            "description": "The Txlemetry person that experienced the exception.",
             "label": "Exception person URL"
         },
         "$exception_proposed_fingerprint": {
@@ -1581,11 +1581,11 @@
             "label": "Feature flag"
         },
         "$feature_flag_bootstrapped_payload": {
-            "description": "The payload value provided to the SDK at initialization via the bootstrap option, before evaluation against PostHog.",
+            "description": "The payload value provided to the SDK at initialization via the bootstrap option, before evaluation against Txlemetry.",
             "label": "Feature flag bootstrapped payload"
         },
         "$feature_flag_bootstrapped_response": {
-            "description": "The response value provided to the SDK at initialization via the bootstrap option, before evaluation against PostHog.",
+            "description": "The response value provided to the SDK at initialization via the bootstrap option, before evaluation against Txlemetry.",
             "label": "Feature flag bootstrapped response"
         },
         "$feature_flag_error": {
@@ -1608,7 +1608,7 @@
             "label": "Feature flag ID"
         },
         "$feature_flag_original_response": {
-            "description": "The original feature flag response from PostHog, before any local override was applied.",
+            "description": "The original feature flag response from Txlemetry, before any local override was applied.",
             "label": "Feature flag original response"
         },
         "$feature_flag_payload": {
@@ -1631,7 +1631,7 @@
             "label": "Feature flag evaluation reason"
         },
         "$feature_flag_request_id": {
-            "description": "The unique identifier for the request that retrieved this feature flag result.\n\nNote: Primarily used by PostHog support for debugging issues with feature flags.",
+            "description": "The unique identifier for the request that retrieved this feature flag result.\n\nNote: Primarily used by Txlemetry support for debugging issues with feature flags.",
             "examples": [
                 "01234567-89ab-cdef-0123-456789abcdef"
             ],
@@ -2083,7 +2083,7 @@
             "label": "MCP client version"
         },
         "$mcp_consumer": {
-            "description": "The upstream surface that initiated the MCP request, supplied via the `x-posthog-mcp-consumer` header. 'posthog-code' means the request came through PostHog Code; 'slack' means it was triggered from Slack.",
+            "description": "The upstream surface that initiated the MCP request, supplied via the `x-posthog-mcp-consumer` header. 'posthog-code' means the request came through Txlemetry Code; 'slack' means it was triggered from Slack.",
             "examples": [
                 "posthog-code",
                 "slack"
@@ -2104,11 +2104,11 @@
             "type": "Numeric"
         },
         "$mcp_error_message": {
-            "description": "Error message for a failed MCP tool call, truncated. Present when the server passes the thrown error to the SDK; PostHog's own server omits it to avoid capturing query content. Only set when $mcp_is_error is true.",
+            "description": "Error message for a failed MCP tool call, truncated. Present when the server passes the thrown error to the SDK; Txlemetry's own server omits it to avoid capturing query content. Only set when $mcp_is_error is true.",
             "label": "MCP error message"
         },
         "$mcp_error_status": {
-            "description": "Upstream HTTP status code when an MCP tool call failed against a PostHog API (e.g. 429, 500). Only set for API-originated failures.",
+            "description": "Upstream HTTP status code when an MCP tool call failed against a Txlemetry API (e.g. 429, 500). Only set for API-originated failures.",
             "examples": [
                 429,
                 500,
@@ -2118,7 +2118,7 @@
             "type": "Numeric"
         },
         "$mcp_error_type": {
-            "description": "Failure category for an errored MCP tool call, for breaking failures down by reason. PostHog's server emits a semantic bucket (missing_context, validation, permission, timeout, rate_limited, api_4xx, api_5xx, internal); external servers using the SDK fall back to the thrown error's type. Only set when $mcp_is_error is true.",
+            "description": "Failure category for an errored MCP tool call, for breaking failures down by reason. Txlemetry's server emits a semantic bucket (missing_context, validation, permission, timeout, rate_limited, api_4xx, api_5xx, internal); external servers using the SDK fall back to the thrown error's type. Only set when $mcp_is_error is true.",
             "examples": [
                 "rate_limited",
                 "validation",
@@ -2192,7 +2192,7 @@
             "label": "MCP OAuth client name"
         },
         "$mcp_organization_id": {
-            "description": "PostHog organization ID resolved for the authenticated MCP session.",
+            "description": "Txlemetry organization ID resolved for the authenticated MCP session.",
             "label": "MCP organization ID"
         },
         "$mcp_parameters": {
@@ -2200,15 +2200,15 @@
             "label": "MCP parameters"
         },
         "$mcp_project_id": {
-            "description": "PostHog project (team) numeric ID for the active project on the MCP session.",
+            "description": "Txlemetry project (team) numeric ID for the active project on the MCP session.",
             "label": "MCP project ID"
         },
         "$mcp_project_name": {
-            "description": "Display name of the active PostHog project on the MCP session.",
+            "description": "Display name of the active Txlemetry project on the MCP session.",
             "label": "MCP project name"
         },
         "$mcp_project_uuid": {
-            "description": "PostHog project UUID for the active project on the MCP session.",
+            "description": "Txlemetry project UUID for the active project on the MCP session.",
             "label": "MCP project UUID"
         },
         "$mcp_protocol_version": {
@@ -2224,7 +2224,7 @@
             "label": "MCP read-only"
         },
         "$mcp_region": {
-            "description": "The PostHog cloud region the MCP server routed the request to.",
+            "description": "The Txlemetry cloud region the MCP server routed the request to.",
             "examples": [
                 "us",
                 "eu"
@@ -2262,7 +2262,7 @@
             "label": "MCP source"
         },
         "$mcp_tool_category": {
-            "description": "The product category the invoked tool belongs to \u2014 the grouping dimension the MCP analytics dashboard buckets tool calls by. Stamped server-side from the tool catalog (PostHog's server) or declared per tool (external servers). Omitted when the tool has no catalogued category (e.g. the `exec` dispatcher), which the dashboard buckets as 'Uncategorized'. Present on mcp_tool_call.",
+            "description": "The product category the invoked tool belongs to \u2014 the grouping dimension the MCP analytics dashboard buckets tool calls by. Stamped server-side from the tool catalog (Txlemetry's server) or declared per tool (external servers). Omitted when the tool has no catalogued category (e.g. the `exec` dispatcher), which the dashboard buckets as 'Uncategorized'. Present on mcp_tool_call.",
             "examples": [
                 "Error tracking",
                 "Logs",
@@ -2398,7 +2398,7 @@
             "system": true
         },
         "$pageview_id": {
-            "description": "PostHog's internal ID for matching events to a pageview.",
+            "description": "Txlemetry's internal ID for matching events to a pageview.",
             "ignored_in_assistant": true,
             "label": "Pageview ID",
             "system": true
@@ -2579,7 +2579,7 @@
             "system": true
         },
         "$raw_user_agent": {
-            "description": "PostHog process information like browser, OS, and device type from the user agent string. This is the raw user agent string.",
+            "description": "Txlemetry process information like browser, OS, and device type from the user agent string. This is the raw user agent string.",
             "examples": [
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)"
             ],
@@ -2705,21 +2705,21 @@
             "used_for_debug": true
         },
         "$sdk_debug_extensions_init_method": {
-            "description": "The method used to initialize PostHog.js extensions.",
+            "description": "The method used to initialize Txlemetry.js extensions.",
             "examples": [
                 "deferred",
                 "synchronous"
             ],
-            "label": "PostHog.js extensions init method",
+            "label": "Txlemetry.js extensions init method",
             "type": "String",
             "used_for_debug": true
         },
         "$sdk_debug_extensions_init_time_ms": {
-            "description": "The time taken to initialize PostHog.js extensions in milliseconds.",
+            "description": "The time taken to initialize Txlemetry.js extensions in milliseconds.",
             "examples": [
                 150
             ],
-            "label": "PostHog.js extensions init time (ms)",
+            "label": "Txlemetry.js extensions init time (ms)",
             "type": "Numeric",
             "used_for_debug": true
         },
@@ -2863,7 +2863,7 @@
             "label": "Copied content"
         },
         "$sent_at": {
-            "description": "Time the event was sent to PostHog. Used for correcting the event timestamp when the device clock is off.",
+            "description": "Time the event was sent to Txlemetry. Used for correcting the event timestamp when the device clock is off.",
             "examples": [
                 "2023-05-20T15:31:00Z"
             ],
@@ -2974,7 +2974,7 @@
             "label": "Session entry Path name"
         },
         "$session_entry_ph_keyword": {
-            "description": "PostHog keyword tracking parameter. Captured at the start of the session and remains constant for the duration of the session.",
+            "description": "Txlemetry keyword tracking parameter. Captured at the start of the session and remains constant for the duration of the session.",
             "ignored_in_assistant": true,
             "label": "Session entry ph_keyword"
         },
@@ -3875,7 +3875,7 @@
             "label": "Dead click"
         },
         "$element_viewed": {
-            "description": "When an element wrapped in `<PostHogCaptureOnViewed>` becomes visible in the viewport.",
+            "description": "When an element wrapped in `<TxlemetryCaptureOnViewed>` becomes visible in the viewport.",
             "ignored_in_assistant": true,
             "label": "Element viewed"
         },
@@ -4038,7 +4038,7 @@
             "label": "Deep link opened"
         },
         "mcp feedback submitted": {
-            "description": "Fires when feedback is submitted through the MCP server's feedback tool \u2014 about any PostHog product, the MCP server itself, or the docs.",
+            "description": "Fires when feedback is submitted through the MCP server's feedback tool \u2014 about any Txlemetry product, the MCP server itself, or the docs.",
             "label": "MCP feedback submitted"
         },
         "mcp init": {
@@ -4074,7 +4074,7 @@
             "label": "MCP identify (mcpcat)"
         },
         "mcp_posthog:identify": {
-            "description": "Identify event emitted by PostHog's in-tree MCP analytics path. Fires for all traffic today (alongside posthog_identify where @posthog/mcp is enabled). Will be retired once @posthog/mcp reaches general availability.",
+            "description": "Identify event emitted by Txlemetry's in-tree MCP analytics path. Fires for all traffic today (alongside posthog_identify where @posthog/mcp is enabled). Will be retired once @posthog/mcp reaches general availability.",
             "label": "MCP identify (in-tree)"
         },
         "mcp_prompt_get": {
@@ -4098,7 +4098,7 @@
             "label": "MCP tool call"
         },
         "mcp_tool_called": {
-            "description": "Tool-call event emitted by PostHog's in-tree MCP analytics path. Fires for all traffic today (alongside mcp_tool_call where @posthog/mcp is enabled). Will be retired once @posthog/mcp reaches general availability; until then, filter on this event if you need coverage across all clients, or on mcp_tool_call if you only want the @posthog/mcp-enabled slice.",
+            "description": "Tool-call event emitted by Txlemetry's in-tree MCP analytics path. Fires for all traffic today (alongside mcp_tool_call where @posthog/mcp is enabled). Will be retired once @posthog/mcp reaches general availability; until then, filter on this event if you need coverage across all clients, or on mcp_tool_call if you only want the @posthog/mcp-enabled slice.",
             "label": "MCP tool called (in-tree)"
         },
         "mcp_tools_list": {
@@ -4379,7 +4379,7 @@
             "label": "AI Evaluation Key ID (LLM)"
         },
         "$ai_evaluation_key_type": {
-            "description": "The type of API key used for the evaluation (byok = user's own key, posthog = PostHog default).",
+            "description": "The type of API key used for the evaluation (byok = user's own key, posthog = Txlemetry default).",
             "examples": [
                 "byok",
                 "posthog"
@@ -4546,7 +4546,7 @@
             "label": "AI Input State (LLM)"
         },
         "$ai_input_token_price": {
-            "description": "The price per input token used to compute the input cost. Set this to override PostHog's cost calculation.",
+            "description": "The price per input token used to compute the input cost. Set this to override Txlemetry's cost calculation.",
             "examples": [
                 3e-06
             ],
@@ -4661,7 +4661,7 @@
             "label": "AI Output State (LLM)"
         },
         "$ai_output_token_price": {
-            "description": "The price per output token used to compute the output cost. Set this to override PostHog's cost calculation.",
+            "description": "The price per output token used to compute the output cost. Set this to override Txlemetry's cost calculation.",
             "examples": [
                 1.5e-05
             ],
@@ -4867,7 +4867,7 @@
             "label": "AI Tagger Key ID (LLM)"
         },
         "$ai_tagger_key_type": {
-            "description": "The type of API key used for the tagger (byok = user's own key, posthog = PostHog default).",
+            "description": "The type of API key used for the tagger (byok = user's own key, posthog = Txlemetry default).",
             "examples": [
                 "byok",
                 "posthog"
@@ -5223,7 +5223,7 @@
             "label": "Initial UTM term"
         },
         "$config_defaults": {
-            "description": "The version of the PostHog config defaults that were used when capturing the event.",
+            "description": "The version of the Txlemetry config defaults that were used when capturing the event.",
             "label": "Config defaults",
             "type": "String",
             "used_for_debug": true
@@ -5626,7 +5626,7 @@
             "label": "Exception message"
         },
         "$exception_personURL": {
-            "description": "The PostHog person that experienced the exception.",
+            "description": "The Txlemetry person that experienced the exception.",
             "label": "Exception person URL"
         },
         "$exception_proposed_fingerprint": {
@@ -5682,11 +5682,11 @@
             "label": "Feature flag"
         },
         "$feature_flag_bootstrapped_payload": {
-            "description": "The payload value provided to the SDK at initialization via the bootstrap option, before evaluation against PostHog.",
+            "description": "The payload value provided to the SDK at initialization via the bootstrap option, before evaluation against Txlemetry.",
             "label": "Feature flag bootstrapped payload"
         },
         "$feature_flag_bootstrapped_response": {
-            "description": "The response value provided to the SDK at initialization via the bootstrap option, before evaluation against PostHog.",
+            "description": "The response value provided to the SDK at initialization via the bootstrap option, before evaluation against Txlemetry.",
             "label": "Feature flag bootstrapped response"
         },
         "$feature_flag_error": {
@@ -5709,7 +5709,7 @@
             "label": "Feature flag ID"
         },
         "$feature_flag_original_response": {
-            "description": "The original feature flag response from PostHog, before any local override was applied.",
+            "description": "The original feature flag response from Txlemetry, before any local override was applied.",
             "label": "Feature flag original response"
         },
         "$feature_flag_payload": {
@@ -5732,7 +5732,7 @@
             "label": "Feature flag evaluation reason"
         },
         "$feature_flag_request_id": {
-            "description": "The unique identifier for the request that retrieved this feature flag result.\n\nNote: Primarily used by PostHog support for debugging issues with feature flags.",
+            "description": "The unique identifier for the request that retrieved this feature flag result.\n\nNote: Primarily used by Txlemetry support for debugging issues with feature flags.",
             "examples": [
                 "01234567-89ab-cdef-0123-456789abcdef"
             ],
@@ -6309,7 +6309,7 @@
             "label": "Initial qclid"
         },
         "$initial_raw_user_agent": {
-            "description": "PostHog process information like browser, OS, and device type from the user agent string. This is the raw user agent string. Data from the first time this user was seen.",
+            "description": "Txlemetry process information like browser, OS, and device type from the user agent string. This is the raw user agent string. Data from the first time this user was seen.",
             "examples": [
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)"
             ],
@@ -6601,7 +6601,7 @@
             "label": "MCP client version"
         },
         "$mcp_consumer": {
-            "description": "The upstream surface that initiated the MCP request, supplied via the `x-posthog-mcp-consumer` header. 'posthog-code' means the request came through PostHog Code; 'slack' means it was triggered from Slack.",
+            "description": "The upstream surface that initiated the MCP request, supplied via the `x-posthog-mcp-consumer` header. 'posthog-code' means the request came through Txlemetry Code; 'slack' means it was triggered from Slack.",
             "examples": [
                 "posthog-code",
                 "slack"
@@ -6622,11 +6622,11 @@
             "type": "Numeric"
         },
         "$mcp_error_message": {
-            "description": "Error message for a failed MCP tool call, truncated. Present when the server passes the thrown error to the SDK; PostHog's own server omits it to avoid capturing query content. Only set when $mcp_is_error is true.",
+            "description": "Error message for a failed MCP tool call, truncated. Present when the server passes the thrown error to the SDK; Txlemetry's own server omits it to avoid capturing query content. Only set when $mcp_is_error is true.",
             "label": "MCP error message"
         },
         "$mcp_error_status": {
-            "description": "Upstream HTTP status code when an MCP tool call failed against a PostHog API (e.g. 429, 500). Only set for API-originated failures.",
+            "description": "Upstream HTTP status code when an MCP tool call failed against a Txlemetry API (e.g. 429, 500). Only set for API-originated failures.",
             "examples": [
                 429,
                 500,
@@ -6636,7 +6636,7 @@
             "type": "Numeric"
         },
         "$mcp_error_type": {
-            "description": "Failure category for an errored MCP tool call, for breaking failures down by reason. PostHog's server emits a semantic bucket (missing_context, validation, permission, timeout, rate_limited, api_4xx, api_5xx, internal); external servers using the SDK fall back to the thrown error's type. Only set when $mcp_is_error is true.",
+            "description": "Failure category for an errored MCP tool call, for breaking failures down by reason. Txlemetry's server emits a semantic bucket (missing_context, validation, permission, timeout, rate_limited, api_4xx, api_5xx, internal); external servers using the SDK fall back to the thrown error's type. Only set when $mcp_is_error is true.",
             "examples": [
                 "rate_limited",
                 "validation",
@@ -6710,7 +6710,7 @@
             "label": "MCP OAuth client name"
         },
         "$mcp_organization_id": {
-            "description": "PostHog organization ID resolved for the authenticated MCP session.",
+            "description": "Txlemetry organization ID resolved for the authenticated MCP session.",
             "label": "MCP organization ID"
         },
         "$mcp_parameters": {
@@ -6718,15 +6718,15 @@
             "label": "MCP parameters"
         },
         "$mcp_project_id": {
-            "description": "PostHog project (team) numeric ID for the active project on the MCP session.",
+            "description": "Txlemetry project (team) numeric ID for the active project on the MCP session.",
             "label": "MCP project ID"
         },
         "$mcp_project_name": {
-            "description": "Display name of the active PostHog project on the MCP session.",
+            "description": "Display name of the active Txlemetry project on the MCP session.",
             "label": "MCP project name"
         },
         "$mcp_project_uuid": {
-            "description": "PostHog project UUID for the active project on the MCP session.",
+            "description": "Txlemetry project UUID for the active project on the MCP session.",
             "label": "MCP project UUID"
         },
         "$mcp_protocol_version": {
@@ -6742,7 +6742,7 @@
             "label": "MCP read-only"
         },
         "$mcp_region": {
-            "description": "The PostHog cloud region the MCP server routed the request to.",
+            "description": "The Txlemetry cloud region the MCP server routed the request to.",
             "examples": [
                 "us",
                 "eu"
@@ -6780,7 +6780,7 @@
             "label": "MCP source"
         },
         "$mcp_tool_category": {
-            "description": "The product category the invoked tool belongs to \u2014 the grouping dimension the MCP analytics dashboard buckets tool calls by. Stamped server-side from the tool catalog (PostHog's server) or declared per tool (external servers). Omitted when the tool has no catalogued category (e.g. the `exec` dispatcher), which the dashboard buckets as 'Uncategorized'. Present on mcp_tool_call.",
+            "description": "The product category the invoked tool belongs to \u2014 the grouping dimension the MCP analytics dashboard buckets tool calls by. Stamped server-side from the tool catalog (Txlemetry's server) or declared per tool (external servers). Omitted when the tool has no catalogued category (e.g. the `exec` dispatcher), which the dashboard buckets as 'Uncategorized'. Present on mcp_tool_call.",
             "examples": [
                 "Error tracking",
                 "Logs",
@@ -6916,7 +6916,7 @@
             "system": true
         },
         "$pageview_id": {
-            "description": "PostHog's internal ID for matching events to a pageview.",
+            "description": "Txlemetry's internal ID for matching events to a pageview.",
             "ignored_in_assistant": true,
             "label": "Pageview ID",
             "system": true
@@ -7107,7 +7107,7 @@
             "system": true
         },
         "$raw_user_agent": {
-            "description": "PostHog process information like browser, OS, and device type from the user agent string. This is the raw user agent string. Data from the last time this user was seen.",
+            "description": "Txlemetry process information like browser, OS, and device type from the user agent string. This is the raw user agent string. Data from the last time this user was seen.",
             "examples": [
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)"
             ],
@@ -7233,21 +7233,21 @@
             "used_for_debug": true
         },
         "$sdk_debug_extensions_init_method": {
-            "description": "The method used to initialize PostHog.js extensions.",
+            "description": "The method used to initialize Txlemetry.js extensions.",
             "examples": [
                 "deferred",
                 "synchronous"
             ],
-            "label": "PostHog.js extensions init method",
+            "label": "Txlemetry.js extensions init method",
             "type": "String",
             "used_for_debug": true
         },
         "$sdk_debug_extensions_init_time_ms": {
-            "description": "The time taken to initialize PostHog.js extensions in milliseconds.",
+            "description": "The time taken to initialize Txlemetry.js extensions in milliseconds.",
             "examples": [
                 150
             ],
-            "label": "PostHog.js extensions init time (ms)",
+            "label": "Txlemetry.js extensions init time (ms)",
             "type": "Numeric",
             "used_for_debug": true
         },
@@ -7391,7 +7391,7 @@
             "label": "Copied content"
         },
         "$sent_at": {
-            "description": "Time the event was sent to PostHog. Used for correcting the event timestamp when the device clock is off.",
+            "description": "Time the event was sent to Txlemetry. Used for correcting the event timestamp when the device clock is off.",
             "examples": [
                 "2023-05-20T15:31:00Z"
             ],
@@ -7502,7 +7502,7 @@
             "label": "Session entry Path name"
         },
         "$session_entry_ph_keyword": {
-            "description": "PostHog keyword tracking parameter. Captured at the start of the session and remains constant for the duration of the session.",
+            "description": "Txlemetry keyword tracking parameter. Captured at the start of the session and remains constant for the duration of the session.",
             "ignored_in_assistant": true,
             "label": "Session entry ph_keyword"
         },
@@ -8730,7 +8730,7 @@
             "type": "Numeric"
         },
         "$session_duration": {
-            "description": "The duration of the session being tracked. Learn more about how PostHog tracks sessions in [our documentation](https://posthog.com/docs/user-guides/sessions).\n\nNote: If the duration is formatted as a single number (not `HH:MM:SS`), it's in seconds.",
+            "description": "The duration of the session being tracked. Learn more about how Txlemetry tracks sessions in [our documentation](https://posthog.com/docs/user-guides/sessions).\n\nNote: If the duration is formatted as a single number (not `HH:MM:SS`), it's in seconds.",
             "examples": [
                 30,
                 146,

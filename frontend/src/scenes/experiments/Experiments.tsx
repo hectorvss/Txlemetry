@@ -232,7 +232,7 @@ const ExperimentsTable = ({
                                 {experiment.is_legacy && (
                                     <Tooltip
                                         title="This experiment uses the legacy engine, so some features and improvements may be missing."
-                                        docLink="https://posthog.com/docs/experiments/new-experimentation-engine"
+                                        docLink="https://txlemetry.com/docs#experiments"
                                     >
                                         <LemonTag type="warning" className="ml-1">
                                             Legacy
@@ -496,7 +496,7 @@ const ExperimentsTable = ({
                         productKey={ProductKey.EXPERIMENTS}
                         thingName="experiment"
                         description={EXPERIMENTS_PRODUCT_DESCRIPTION}
-                        docsURL="https://posthog.com/docs/experiments"
+                        docsURL="https://txlemetry.com/docs#experiments"
                         action={() => router.actions.push(urls.experiment('new'))}
                         isEmpty={shouldShowEmptyState}
                         customHog={HedgehogExperiment}

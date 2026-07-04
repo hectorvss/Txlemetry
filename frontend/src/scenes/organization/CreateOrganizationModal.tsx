@@ -39,7 +39,7 @@ export function CreateOrganizationModal({
                 <p>
                     Organizations gather people building together.
                     <br />
-                    <Link to="https://posthog.com/docs/user-guides/organizations-and-projects" target="_blank">
+                    <Link to="https://txlemetry.com/docs" target="_blank">
                         Learn more in Txlemetry docs.
                     </Link>
                 </p>

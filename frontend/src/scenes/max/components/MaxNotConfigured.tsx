@@ -32,7 +32,7 @@ export function MaxNotConfigured(): JSX.Element {
                 On a hobby deploy, add the key to your <code>.env</code> file and run <code>./bin/upgrade-hobby</code>,
                 or set it during install.{' '}
                 <Link
-                    to="https://posthog.com/docs/self-host/configure/environment-variables?utm_medium=in-product&utm_campaign=max-not-configured"
+                    to="https://txlemetry.com/docs#getting-started"
                     target="_blank"
                     targetBlankIcon
                     data-attr="max-not-configured-configure-key"

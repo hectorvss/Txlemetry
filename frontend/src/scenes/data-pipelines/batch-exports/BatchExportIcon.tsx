@@ -15,7 +15,7 @@ import IconSnowflake from 'public/services/snowflake.png'
 export function getBatchExportDocsUrl(service: BatchExportService['type']): string {
     // The whole S3 family (legacy S3, AwsS3, S3Compatible) shares the one S3 docs page.
     const slug = service === 'AwsS3' || service === 'S3Compatible' ? 's3' : service.toLowerCase()
-    return `https://posthog.com/docs/cdp/batch-exports/${slug}`
+    return `https://txlemetry.com/docs#data-pipelines${slug}`
 }
 
 export const BATCH_EXPORT_ICON_MAP: Record<BatchExportService['type'], string> = {

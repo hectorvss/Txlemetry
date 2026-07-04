@@ -93,7 +93,7 @@ export function RelatedFeatureFlags({ distinctId, groupTypeIndex, groups }: Prop
                 <div className="inline-flex items-center deprecated-space-x-1">
                     <div>Match evaluation</div>
                     <Tooltip
-                        docLink="https://posthog.com/docs/feature-flags/local-evaluation#step-3-evaluate-your-feature-flag"
+                        docLink="https://txlemetry.com/docs#feature-flags"
                         title={
                             <div className="deprecated-space-y-2">
                                 <div>

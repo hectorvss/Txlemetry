@@ -24,7 +24,7 @@ export const UnsubscribeCard = ({ product }: { product: BillingProductV2Type }):
                 <p className="">
                     Need to control your costs? Learn about ways to{' '}
                     <Link
-                        to="https://posthog.com/docs/billing/estimating-usage-costs#how-to-reduce-your-posthog-costs?utm_source=app-unsubscribe"
+                        to="https://txlemetry.com/docs#getting-started"
                         target="_blank"
                     >
                         reduce your bill
@@ -34,7 +34,7 @@ export const UnsubscribeCard = ({ product }: { product: BillingProductV2Type }):
                         chat with support.
                     </Link>{' '}
                     Check out more about our pricing on our{' '}
-                    <Link to="https://posthog.com/pricing" target="_blank">
+                    <Link to="https://txlemetry.com/pricing" target="_blank">
                         pricing page
                     </Link>
                     .

@@ -270,11 +270,11 @@ function CloudflareOptInBanner({
                     This feature routes certain customer and customer end-user traffic through Cloudflare, a third-party
                     infrastructure provider, for the purpose of delivering the managed proxy functionality. Cloudflare
                     is listed as a{' '}
-                    <Link to="https://posthog.com/subprocessors" target="_blank">
+                    <Link to="https://txlemetry.com" target="_blank">
                         subprocessor
                     </Link>{' '}
                     referenced in our{' '}
-                    <Link to="https://posthog.com/dpa" target="_blank">
+                    <Link to="https://txlemetry.com" target="_blank">
                         Data Processing Agreement
                     </Link>{' '}
                     ("<strong>DPA</strong>") for this purpose.

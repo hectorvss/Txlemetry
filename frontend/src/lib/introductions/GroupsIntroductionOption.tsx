@@ -8,7 +8,7 @@ export function GroupsIntroductionOption(): JSX.Element {
             <IconLock style={{ marginRight: 6, color: 'var(--warning)' }} />
             Unique groups –{' '}
             <Link
-                to="https://posthog.com/docs/user-guides/group-analytics?utm_medium=in-product&utm_campaign=group-analytics-learn-more"
+                to="https://txlemetry.com/docs"
                 target="_blank"
                 data-attr="group-analytics-learn-more"
                 className="font-semibold"

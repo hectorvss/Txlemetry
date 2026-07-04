@@ -356,7 +356,7 @@ export function ProductToursSidebar(): JSX.Element | null {
             >
                 <p>
                     With your permission, we'd like to enable{' '}
-                    <Link to="https://posthog.com/session-replay" target="_blank" targetBlankIcon>
+                    <Link to="https://txlemetry.com" target="_blank" targetBlankIcon>
                         Session Replay
                     </Link>{' '}
                     while you're working with Product Tours to help us build the best product for you.

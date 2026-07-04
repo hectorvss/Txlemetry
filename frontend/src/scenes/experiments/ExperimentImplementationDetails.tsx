@@ -32,7 +32,7 @@ interface ExperimentImplementationDetailsProps {
 }
 
 const UTM_TAGS = '?utm_medium=in-product&utm_campaign=experiment'
-const DOC_BASE_URL = 'https://posthog.com/docs/'
+const DOC_BASE_URL = 'https://txlemetry.com/docs'
 const FF_ANCHOR = '#feature-flags'
 
 export enum LibraryType {
@@ -242,7 +242,7 @@ function PromptExperimentImplementation({
                                 },
                             ]}
                         />
-                        <Link subtle to="https://posthog.com/docs/prompt-management" target="_blank">
+                        <Link subtle to="https://txlemetry.com/docs" target="_blank">
                             See the docs for prompt management.
                         </Link>
                     </div>

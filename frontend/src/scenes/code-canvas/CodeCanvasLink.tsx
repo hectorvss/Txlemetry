@@ -69,7 +69,7 @@ export function CodeCanvasLink({ channelId, dashboardId }: CodeCanvasLinkProps):
                             Open in Txlemetry Code
                         </LemonButton>
                     )}
-                    <LemonButton type="secondary" to="https://posthog.com/code" targetBlank>
+                    <LemonButton type="secondary" to="https://txlemetry.com" targetBlank>
                         Download Txlemetry Code
                     </LemonButton>
                 </div>

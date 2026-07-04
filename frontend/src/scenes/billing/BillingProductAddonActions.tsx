@@ -289,7 +289,7 @@ export const BillingProductAddonActions = ({
         // it never renders in production.
         content = (
             <>
-                <LemonButton type="primary" to="https://posthog.com/talk-to-a-human" targetBlank>
+                <LemonButton type="primary" to="https://txlemetry.com" targetBlank>
                     Contact us
                 </LemonButton>
                 {preflight?.is_debug && (
@@ -315,7 +315,7 @@ export const BillingProductAddonActions = ({
         )
     } else if (addon.contact_support) {
         content = (
-            <LemonButton type="secondary" to="https://posthog.com/talk-to-a-human">
+            <LemonButton type="secondary" to="https://txlemetry.com">
                 Contact support
             </LemonButton>
         )

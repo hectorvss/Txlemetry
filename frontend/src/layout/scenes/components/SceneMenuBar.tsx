@@ -106,7 +106,7 @@ function SceneMenuBarRightLinks(): JSX.Element {
                 data-attr="scene-menu-bar-docs"
                 className={RIGHT_TRIGGER_CLASSES}
                 onClick={() => captureSceneMenuBar('scene menu bar right link clicked', { link: 'docs' })}
-                render={<LinkPrimitive to="https://posthog.com/docs" target="_blank" />}
+                render={<LinkPrimitive to="https://txlemetry.com/docs" target="_blank" />}
             >
                 Docs
                 <IconExternal />

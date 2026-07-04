@@ -16,7 +16,7 @@ export const GitLab = defineIntegration(
             'Link existing GitLab issues to Txlemetry',
             'Keep engineering work connected to product signals',
         ],
-        docsUrl: 'https://posthog.com/docs/error-tracking/integrations',
+        docsUrl: 'https://txlemetry.com/docs#error-tracking',
     },
     GitLabIntegration
 )

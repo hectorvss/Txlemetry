@@ -104,7 +104,7 @@ function WelcomeStep({ onContinue }: { onContinue: () => void }): JSX.Element {
                 </LemonButton>
             }
             isEmpty={true}
-            docsURL="https://posthog.com/docs/web-analytics/marketing-analytics"
+            docsURL="https://txlemetry.com/docs#web-analytics"
             customHog={HedgehogMoney}
         />
     )

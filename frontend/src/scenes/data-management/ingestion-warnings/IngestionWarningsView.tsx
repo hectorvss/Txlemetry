@@ -37,7 +37,7 @@ export const WARNING_TYPE_TO_DESCRIPTION: Record<string, string> = {
     invalid_heatmap_data: 'Invalid heatmap data',
 }
 
-// Explicit anchor on https://posthog.com/docs/data/ingestion-warnings for each warning type.
+// Explicit anchor on https://txlemetry.com/docs#data-warehouse for each warning type.
 // Don't derive this from the display label — labels and section headings drift apart
 // (e.g. set_on_exception's heading is "Invalid set operations on exception events"), which
 // would land the link at the top of the page instead of the relevant section. Types without
@@ -329,7 +329,7 @@ export function IngestionWarningsView(): JSX.Element {
                     isEmpty={true}
                     titleOverride="Nice! No ingestion warnings in the past 30 days"
                     description="Your incoming events look clean. If we detect any issues with your data, we'll show them here."
-                    docsURL="https://posthog.com/docs/data/data-management#ingestion-warnings"
+                    docsURL="https://txlemetry.com/docs#data-warehouse"
                     customHog={HedgehogReadingIsMagic}
                     actionElementOverride={
                         <LemonButton
@@ -365,8 +365,8 @@ export function IngestionWarningsView(): JSX.Element {
                                         ] || summary.type
                                     const docsAnchor = WARNING_TYPE_TO_DOCS_ANCHOR[summary.type]
                                     const docsUrl = docsAnchor
-                                        ? `https://posthog.com/docs/data/ingestion-warnings#${docsAnchor}`
-                                        : 'https://posthog.com/docs/data/ingestion-warnings'
+                                        ? `https://txlemetry.com/docs#data-warehouse${docsAnchor}`
+                                        : 'https://txlemetry.com/docs#data-warehouse'
                                     return (
                                         <>
                                             {type} (<Link to={docsUrl}>docs)</Link>

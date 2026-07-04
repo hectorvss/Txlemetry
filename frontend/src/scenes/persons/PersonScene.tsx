@@ -106,7 +106,7 @@ function PersonCaption({ person }: { person: PersonType }): JSX.Element {
             <div className="flex items-center gap-1">
                 <span className="text-secondary">Merge restrictions:</span> {person.is_identified ? 'applied' : 'none'}
                 <Link
-                    to="https://posthog.com/docs/data/identify#alias-assigning-multiple-distinct-ids-to-the-same-user"
+                    to="https://txlemetry.com/docs#data-warehouse"
                     target="_blank"
                 >
                     <Tooltip
@@ -451,7 +451,7 @@ export function PersonScene(): JSX.Element | null {
                                               <div className="flex items-center">
                                                   Choose ID:
                                                   <Tooltip
-                                                      docLink="https://posthog.com/docs/feature-flags/creating-feature-flags#persisting-feature-flags-across-authentication-steps"
+                                                      docLink="https://txlemetry.com/docs#feature-flags"
                                                       title={
                                                           <div className="deprecated-space-y-2">
                                                               <div>

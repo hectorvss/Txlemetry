@@ -540,7 +540,7 @@ export function ViewLinkFormWithPreview({ mode }: ViewLinkModalProps): JSX.Eleme
                                 type="secondary"
                                 onClick={() => {
                                     window.open(
-                                        'https://posthog.com/support?utm_medium=in-product&utm_campaign=join-modal-validation-error',
+                                        'https://txlemetry.com',
                                         '_blank'
                                     )
                                 }}

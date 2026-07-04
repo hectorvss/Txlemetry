@@ -383,7 +383,7 @@ function MinimumDurationSetting(): JSX.Element | null {
                 </div>
                 <Tooltip
                     delayMs={200}
-                    docLink="https://posthog.com/docs/session-replay/how-to-control-which-sessions-you-record#limitations"
+                    docLink="https://txlemetry.com/docs#session-replay"
                     title="The JS SDK has an in-memory queue. This means that for traditional web apps the minimum duration control is best effort."
                 >
                     Setting a minimum session duration will ensure that only sessions that last longer than that value
@@ -663,7 +663,7 @@ const RecordingTriggersSummary = ({
             triggers={triggers}
             controlDescription="sessions recorded"
             docsLink={{
-                to: 'https://posthog.com/docs/session-replay/how-to-control-which-sessions-you-record',
+                to: 'https://txlemetry.com/docs#session-replay',
                 label: 'Read about how to start and stop sessions in our docs.',
             }}
         />

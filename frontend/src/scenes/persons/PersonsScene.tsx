@@ -166,9 +166,9 @@ export function PersonsScene(): JSX.Element {
                         ) : currentTeam?.ingested_event ? (
                             <>
                                 This page only shows{' '}
-                                <Link to="https://posthog.com/docs/data/persons">identified persons</Link>. Try
+                                <Link to="https://txlemetry.com/docs#data-warehouse">identified persons</Link>. Try
                                 adjusting your property filters, or make sure you're calling{' '}
-                                <Link to="https://posthog.com/docs/product-analytics/identify">identify</Link> in your
+                                <Link to="https://txlemetry.com/docs#product-analytics">identify</Link> in your
                                 app.
                             </>
                         ) : (

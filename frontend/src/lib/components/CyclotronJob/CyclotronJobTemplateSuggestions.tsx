@@ -74,7 +74,7 @@ export function CyclotronJobTemplateSuggestions({
                 </div>
                 <div className="text-xs text-secondary">
                     Below are a list of available functions for templating your inputs using <b>{templating}</b>.{' '}
-                    <Link to="https://posthog.com/docs/cdp/destinations/customizing-destinations#customizing-payload">
+                    <Link to="https://txlemetry.com/docs#data-pipelines">
                         Learn more
                     </Link>
                 </div>

@@ -76,7 +76,7 @@ function OutlierHandlingControls({
                 >
                     <Tooltip
                         title="Useful if a large number of participants in the experiment does not have the event resulting in a 0 value."
-                        docLink="https://posthog.com/docs/experiments/metrics#outlier-handling"
+                        docLink="https://txlemetry.com/docs#experiments"
                     >
                         <span>
                             <LemonCheckbox

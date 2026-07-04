@@ -36,7 +36,7 @@ export const ExperimentTabContent = ({
                     <div className="flex flex-col gap-3">
                         <div>
                             Experiments require a multivariate flag with multiple variants and a control variant.&nbsp;
-                            <Link to="https://posthog.com/docs/experiments/creating-an-experiment">
+                            <Link to="https://txlemetry.com/docs#experiments">
                                 Learn more in the docs
                             </Link>
                             .

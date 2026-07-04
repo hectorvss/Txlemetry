@@ -80,7 +80,7 @@ export const WebVitalsToolbarMenu = (): JSX.Element => {
                     <Link to={joinWithUiHost(uiHost, urls.webAnalyticsWebVitals())} target="_blank">
                         View all metrics
                     </Link>
-                    <Link to="https://posthog.com/docs/web-analytics/web-vitals" target="_blank">
+                    <Link to="https://txlemetry.com/docs#web-analytics" target="_blank">
                         View web vitals docs
                     </Link>
                 </div>

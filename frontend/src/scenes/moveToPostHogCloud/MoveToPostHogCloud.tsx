@@ -42,7 +42,7 @@ const CLOUD_FEATURES: CloudFeature[] = [
         description:
             "We've done this before. It's just a few clicks to get your data moving from self-hosted to Cloud.",
         icon: <IconUpload />,
-        link: 'https://posthog.com/docs/migrate/migrate-to-cloud',
+        link: 'https://txlemetry.com/docs#getting-started',
     },
     {
         name: 'Auto-scaling',
@@ -71,20 +71,20 @@ const CLOUD_FEATURES: CloudFeature[] = [
         description:
             'Group analytics, data pipelines, experiments, and other premium features are only available on Txlemetry Cloud.',
         icon: <IconFeatures />,
-        link: 'https://posthog.com/pricing',
+        link: 'https://txlemetry.com/pricing',
     },
     {
         name: 'World-class support',
         description:
             'Txlemetry Cloud customers get access to our world-class support team, not just the community forum.',
         icon: <IconSupport />,
-        link: 'https://posthog.com/handbook/growth/customer-support',
+        link: 'https://txlemetry.com',
     },
     {
         name: 'SOC 2 compliant',
         description: "We're SOC-2 compliant, so you can rest easy knowing your data is secure.",
         icon: <IconPrivacy />,
-        link: 'https://posthog.com/handbook/company/security',
+        link: 'https://txlemetry.com',
     },
     {
         name: 'HIPAA compliant',

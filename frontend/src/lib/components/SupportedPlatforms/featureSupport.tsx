@@ -9,7 +9,7 @@ export const FEATURE_SUPPORT: Record<Feature, PlatformSupportConfig> = {
             version: '3.24.0',
             note: (
                 <>
-                    <Link to="https://posthog.com/docs/error-tracking/installation/android#set-up-exception-autocapture">
+                    <Link to="https://txlemetry.com/docs#error-tracking">
                         Exception autocapture is supported on Android
                     </Link>{' '}
                     and can be controlled remotely using this toggle when running SDK version 3.32.0 or higher.
@@ -19,7 +19,7 @@ export const FEATURE_SUPPORT: Record<Feature, PlatformSupportConfig> = {
         flutter: {
             note: (
                 <>
-                    <Link to="https://posthog.com/docs/error-tracking/installation/flutter#set-up-exception-autocapture">
+                    <Link to="https://txlemetry.com/docs#error-tracking">
                         Exception autocapture is supported on Flutter
                     </Link>{' '}
                     but is not controlled remotely by this toggle
@@ -30,7 +30,7 @@ export const FEATURE_SUPPORT: Record<Feature, PlatformSupportConfig> = {
             version: '4.14.0',
             note: (
                 <>
-                    <Link to="https://posthog.com/docs/error-tracking/installation/react-native#set-up-exception-autocapture">
+                    <Link to="https://txlemetry.com/docs#error-tracking">
                         Exception autocapture is supported on React Native
                     </Link>{' '}
                     and can be controlled remotely using this toggle when running SDK version 4.35.0 or higher.
@@ -43,7 +43,7 @@ export const FEATURE_SUPPORT: Record<Feature, PlatformSupportConfig> = {
             version: '3.4.0',
             note: (
                 <>
-                    <Link to="https://posthog.com/docs/session-replay/console-log-recording?tab=Android">
+                    <Link to="https://txlemetry.com/docs#session-replay">
                         Console log recording is supported on Android
                     </Link>{' '}
                     and can be controlled remotely using this toggle when running SDK version 3.32.0 or higher.
@@ -54,7 +54,7 @@ export const FEATURE_SUPPORT: Record<Feature, PlatformSupportConfig> = {
             version: '3.26.0',
             note: (
                 <>
-                    <Link to="https://posthog.com/docs/session-replay/console-log-recording?tab=iOS">
+                    <Link to="https://txlemetry.com/docs#session-replay">
                         Console log recording is supported on iOS
                     </Link>{' '}
                     and can be controlled remotely using this toggle when running SDK version 3.41.1 or higher.
@@ -66,7 +66,7 @@ export const FEATURE_SUPPORT: Record<Feature, PlatformSupportConfig> = {
             version: '3.9.0',
             note: (
                 <>
-                    <Link to="https://posthog.com/docs/session-replay/console-log-recording?tab=React+Native">
+                    <Link to="https://txlemetry.com/docs#session-replay+Native">
                         Console log recording is supported on Android only
                     </Link>{' '}
                     and can be controlled remotely using this toggle when running SDK version 4.35.0 or higher.
@@ -91,7 +91,7 @@ export const FEATURE_SUPPORT: Record<Feature, PlatformSupportConfig> = {
             version: '3.4.0',
             note: (
                 <>
-                    <Link to="https://posthog.com/docs/session-replay/network-recording?tab=Android">
+                    <Link to="https://txlemetry.com/docs#session-replay">
                         Network recording is supported on Android
                     </Link>{' '}
                     and can be controlled remotely using this toggle when running SDK version 3.32.0 or higher.
@@ -102,7 +102,7 @@ export const FEATURE_SUPPORT: Record<Feature, PlatformSupportConfig> = {
             version: '3.12.6',
             note: (
                 <>
-                    <Link to="https://posthog.com/docs/session-replay/network-recording?tab=iOS">
+                    <Link to="https://txlemetry.com/docs#session-replay">
                         Network recording is supported on iOS
                     </Link>{' '}
                     and can be controlled remotely using this toggle when running SDK version 3.41.1 or higher.
@@ -114,7 +114,7 @@ export const FEATURE_SUPPORT: Record<Feature, PlatformSupportConfig> = {
             version: '3.2.0',
             note: (
                 <>
-                    <Link to="https://posthog.com/docs/session-replay/network-recording?tab=React+Native">
+                    <Link to="https://txlemetry.com/docs#session-replay+Native">
                         Network recording is supported on iOS only
                     </Link>{' '}
                     and can be controlled remotely using this toggle when running SDK version 4.35.0 or higher.

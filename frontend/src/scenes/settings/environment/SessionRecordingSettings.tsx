@@ -121,7 +121,7 @@ function PayloadWarning(): JSX.Element {
                 If they could contain sensitive data, you should provide a function to mask the data when you initialise
                 Txlemetry.{' '}
                 <Link
-                    to="https://posthog.com/docs/session-replay/network-recording#sensitive-information"
+                    to="https://txlemetry.com/docs#session-replay"
                     target="blank"
                 >
                     Learn how to mask header and body values in our docs

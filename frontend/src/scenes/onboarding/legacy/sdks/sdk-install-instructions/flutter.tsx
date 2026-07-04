@@ -24,7 +24,7 @@ function FlutterInstallSnippet(): JSX.Element {
 function FlutterDartSetup(props: FlutterSetupProps & FlutterInstallProps): JSX.Element {
     const configOptions = [
         props.includeReplay &&
-            `// check https://posthog.com/docs/session-replay/installation?tab=Flutter
+            `// check https://txlemetry.com/docs#session-replay
   // for more config and to learn about how we capture sessions on mobile
   // and what to expect
   config.sessionReplay = true;
@@ -92,7 +92,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 // If you're using go_router, check this page to learn how to set up the PosthogObserver
-// https://posthog.com/docs/libraries/flutter#capturing-screen-views`}
+// https://txlemetry.com/docs#sdks`}
         </CodeSnippet>
     )
 }
@@ -129,7 +129,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 // If you're using go_router, check this page to learn how to set up the PosthogObserver
-// https://posthog.com/docs/libraries/flutter#capturing-screen-views
+// https://txlemetry.com/docs#sdks
 
 `}
         </CodeSnippet>
@@ -285,7 +285,7 @@ export function SDKInstallFlutterTrackScreenInstructions(): JSX.Element {
     return (
         <>
             <p>
-                With the <Link to="https://posthog.com/docs/libraries/flutter#example">PosthogObserver</Link> Observer,
+                With the <Link to="https://txlemetry.com/docs#sdks">PosthogObserver</Link> Observer,
                 Txlemetry will try to record all screen changes automatically.
             </p>
             <p>

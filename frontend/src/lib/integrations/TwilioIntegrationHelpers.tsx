@@ -91,7 +91,7 @@ export function TwilioPhoneNumberPicker({
                 emptyStateComponent={
                     <p className="text-secondary italic p-1">
                         No phone numbers found. Make sure your Twilio account has phone numbers configured.{' '}
-                        <Link to="https://posthog.com/docs/cdp/destinations/twilio" target="_blank">
+                        <Link to="https://txlemetry.com/docs#data-pipelines" target="_blank">
                             See the docs for more information.
                         </Link>
                     </p>

@@ -478,7 +478,7 @@ export function OperatorSelect({
                       footer: (
                           <div className="mx-2 my-1">
                               <Link
-                                  to="https://posthog.com/docs/data/property-filters#semver-operators"
+                                  to="https://txlemetry.com/docs#data-warehouse"
                                   target="_blank"
                                   className="text-xs"
                               >

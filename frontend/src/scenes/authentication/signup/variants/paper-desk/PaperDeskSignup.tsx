@@ -201,11 +201,11 @@ function SignupAuthPanel(): JSX.Element {
         <>
             <p className="PaperDesk__terms mt-5 mb-0 text-xs leading-relaxed text-tertiary text-center">
                 By creating an account, you agree to our{' '}
-                <Link to="https://posthog.com/terms" target="_blank">
+                <Link to="https://txlemetry.com" target="_blank">
                     Terms of Service ↗
                 </Link>{' '}
                 and{' '}
-                <Link to="https://posthog.com/privacy" target="_blank">
+                <Link to="https://txlemetry.com" target="_blank">
                     Privacy Policy ↗
                 </Link>
                 .
@@ -333,11 +333,11 @@ function SignupProfilePanel(): JSX.Element {
         <>
             <p className="PaperDesk__terms mt-5 mb-0 text-xs leading-relaxed text-tertiary text-center">
                 By {preflight?.demo ? 'entering the demo environment' : 'creating an account'}, you agree to our{' '}
-                <Link to="https://posthog.com/terms" target="_blank">
+                <Link to="https://txlemetry.com" target="_blank">
                     Terms of Service ↗
                 </Link>{' '}
                 and{' '}
-                <Link to="https://posthog.com/privacy" target="_blank">
+                <Link to="https://txlemetry.com" target="_blank">
                     Privacy Policy ↗
                 </Link>
                 .

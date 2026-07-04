@@ -141,7 +141,7 @@ export function SdkHealthScene(): JSX.Element {
                                 An outdated SDK means you're missing out on bug fixes and enhancements.
                             </p>
                             <p className="text-sm mt-1">
-                                <Link to="https://posthog.com/docs/sdk-doctor/keeping-sdks-current" target="_blank">
+                                <Link to="https://txlemetry.com/docs" target="_blank">
                                     Learn how
                                 </Link>{' '}
                                 to keep your SDK versions current.

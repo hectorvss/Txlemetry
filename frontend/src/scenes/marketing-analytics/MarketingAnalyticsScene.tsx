@@ -287,7 +287,7 @@ export function MarketingAnalyticsScene(): JSX.Element {
                         actions={
                             <>
                                 <LemonButton
-                                    to="https://posthog.com/docs/web-analytics/marketing-analytics"
+                                    to="https://txlemetry.com/docs#web-analytics"
                                     type="secondary"
                                     targetBlank
                                     size="small"

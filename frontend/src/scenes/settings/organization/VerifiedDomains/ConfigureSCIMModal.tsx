@@ -84,7 +84,7 @@ export function ConfigureSCIMModal(): JSX.Element {
                 </LemonModal.Header>
                 <LemonModal.Content className="space-y-2">
                     <p>
-                        <Link to="https://posthog.com/docs/data/sso#setting-up-scim" target="_blank" targetBlankIcon>
+                        <Link to="https://txlemetry.com/docs#data-warehouse" target="_blank" targetBlankIcon>
                             Read the docs
                         </Link>
                     </p>

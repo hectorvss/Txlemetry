@@ -396,7 +396,7 @@ export function BodyDisplay({
             <p>
                 This content was redacted by Txlemetry to protect sensitive data.{' '}
                 <Link
-                    to="https://posthog.com/docs/session-replay/network-recording?utm_medium=in-product"
+                    to="https://txlemetry.com/docs#session-replay"
                     target="_blank"
                 >
                     Learn how to override Txlemetry's automatic redaction code.

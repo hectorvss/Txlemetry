@@ -274,7 +274,7 @@ export function MaterializationStatusPanel({ viewId, kind = 'view' }: Materializ
                                     <br />
                                     <Link
                                         data-attr="materializing-help"
-                                        to="https://posthog.com/docs/data-warehouse/views#materializing-and-scheduling-a-view"
+                                        to="https://txlemetry.com/docs#data-warehouse"
                                         target="_blank"
                                     >
                                         Learn more about materialization

@@ -54,7 +54,7 @@ export function AuthorizedUrlForm({
                     placeholder={
                         allowWildCards
                             ? 'Enter a URL or wildcard subdomain (e.g. https://*.posthog.com)'
-                            : 'Enter a URL (e.g. https://posthog.com)'
+                            : 'Enter a URL (e.g. https://txlemetry.com)'
                     }
                     data-attr="url-input"
                 />

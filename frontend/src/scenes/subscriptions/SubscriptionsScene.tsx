@@ -160,7 +160,7 @@ export function SubscriptionsScene(): JSX.Element {
                         customHog={HedgehogMagnifyingGlass}
                         hogLayout="responsive"
                         useMainContentContainerQueries
-                        docsURL="https://posthog.com/docs/user-guides/subscriptions"
+                        docsURL="https://txlemetry.com/docs"
                         actionElementOverride={
                             <span className="italic">
                                 Open a <Link to={urls.dashboards()}>dashboard</Link> or{' '}

@@ -69,7 +69,7 @@ const tabs: Record<DataManagementTab, TabConfig> = {
         url: urls.eventDefinitions(),
         label: 'Event definitions',
         content: <EventDefinitionsTable />,
-        tooltipDocLink: 'https://posthog.com/docs/data/events',
+        tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
     },
     [DataManagementTab.Actions]: {
         url: urls.actions(),
@@ -86,7 +86,7 @@ const tabs: Record<DataManagementTab, TabConfig> = {
         ),
         buttons: <NewActionButton />,
         content: <ActionsTable />,
-        tooltipDocLink: 'https://posthog.com/docs/data/actions',
+        tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
     },
     [DataManagementTab.PropertyDefinitions]: {
         url: urls.propertyDefinitions(),
@@ -102,7 +102,7 @@ const tabs: Record<DataManagementTab, TabConfig> = {
             </TitleWithIcon>
         ),
         content: <PropertyDefinitionsTable />,
-        tooltipDocLink: 'https://posthog.com/docs/new-to-posthog/understand-posthog#properties',
+        tooltipDocLink: 'https://txlemetry.com/docs',
     },
     [DataManagementTab.SchemaManagement]: {
         url: urls.schemaManagement(),
@@ -115,7 +115,7 @@ const tabs: Record<DataManagementTab, TabConfig> = {
         content: <Annotations />,
         label: 'Annotations',
         buttons: <NewAnnotationButton />,
-        tooltipDocLink: 'https://posthog.com/docs/data/annotations',
+        tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
         children: {
             [urls.annotation(':id')]: {},
         },
@@ -125,7 +125,7 @@ const tabs: Record<DataManagementTab, TabConfig> = {
         content: <Comments />,
         label: 'Comments',
         buttons: undefined,
-        tooltipDocLink: 'https://posthog.com/docs/data/comments',
+        tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
     },
     [DataManagementTab.History]: {
         url: urls.dataManagementHistory(),
@@ -136,7 +136,7 @@ const tabs: Record<DataManagementTab, TabConfig> = {
                 caption="Only actions taken in the UI are captured in History. Automatic creation of definitions by ingestion is not shown here."
             />
         ),
-        tooltipDocLink: 'https://posthog.com/docs/data#history',
+        tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
     },
     [DataManagementTab.Revenue]: {
         url: urls.revenueSettings(),
@@ -170,7 +170,7 @@ const tabs: Record<DataManagementTab, TabConfig> = {
         url: urls.ingestionWarnings(),
         label: 'Event ingestion warnings',
         content: <IngestionWarningsView />,
-        tooltipDocLink: 'https://posthog.com/docs/data/ingestion-warnings',
+        tooltipDocLink: 'https://txlemetry.com/docs#data-warehouse',
     },
     [DataManagementTab.DataWarehouseManagedViewsets]: {
         url: urls.dataWarehouseManagedViewsets(),
@@ -182,7 +182,7 @@ const tabs: Record<DataManagementTab, TabConfig> = {
         url: urls.variables(),
         label: 'SQL variables',
         content: <SqlVariablesTable />,
-        tooltipDocLink: 'https://posthog.com/docs/sql',
+        tooltipDocLink: 'https://txlemetry.com/docs#sql',
     },
 }
 

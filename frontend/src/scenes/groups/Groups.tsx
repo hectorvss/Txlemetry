@@ -113,7 +113,7 @@ export function GroupsScene(): JSX.Element {
                     ) : (
                         <>
                             Go to the{' '}
-                            <Link to="https://posthog.com/docs/product-analytics/group-analytics#how-to-create-groups">
+                            <Link to="https://txlemetry.com/docs#product-analytics">
                                 group analytics docs
                             </Link>{' '}
                             to learn what needs to be done

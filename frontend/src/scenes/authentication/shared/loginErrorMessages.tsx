@@ -7,8 +7,8 @@ export const ERROR_MESSAGES: Record<string, string | JSX.Element> = {
     invalid_sso_provider: (
         <>
             The SSO provider you specified is invalid. Visit{' '}
-            <Link to="https://posthog.com/sso" target="_blank">
-                https://posthog.com/sso
+            <Link to="https://txlemetry.com" target="_blank">
+                https://txlemetry.com
             </Link>{' '}
             for details.
         </>
@@ -17,8 +17,8 @@ export const ERROR_MESSAGES: Record<string, string | JSX.Element> = {
         <>
             Cannot login with SSO provider because the provider is not configured, or your instance does not have the
             required license. Please visit{' '}
-            <Link to="https://posthog.com/sso" target="_blank">
-                https://posthog.com/sso
+            <Link to="https://txlemetry.com" target="_blank">
+                https://txlemetry.com
             </Link>{' '}
             for details.
         </>

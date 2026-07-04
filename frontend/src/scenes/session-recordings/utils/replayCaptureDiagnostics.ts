@@ -53,7 +53,7 @@ const DIAGNOSTIC_KEYS = [
     '$replay_override_event_trigger',
 ] as const
 
-const TROUBLESHOOTING_URL = 'https://posthog.com/docs/session-replay/troubleshooting'
+const TROUBLESHOOTING_URL = 'https://txlemetry.com/docs#session-replay'
 
 export function hasReplayDiagnosticSignals(properties: Record<string, any> | null | undefined): boolean {
     if (!properties) {

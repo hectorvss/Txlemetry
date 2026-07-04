@@ -13,7 +13,7 @@ defineKnownException({
                 This error occurs when JavaScript exceptions are thrown from a third-party script but details are hidden
                 due to cross-origin restrictions.{' '}
                 <Link
-                    to="https://posthog.com/docs/error-tracking/common-questions#what-is-a-script-error-with-no-stack-traces"
+                    to="https://txlemetry.com/docs#error-tracking"
                     target="_blank"
                 >
                     Read our docs

@@ -31,7 +31,7 @@ export const PathCleaningToggle = ({
                         Path cleaning helps standardize URLs by removing unnecessary parameters and fragments.
                     </p>
                     <div className="mb-2">
-                        <Link to="https://posthog.com/docs/product-analytics/paths#path-cleaning-rules">
+                        <Link to="https://txlemetry.com/docs#product-analytics">
                             Learn more about path cleaning rules
                         </Link>
                     </div>

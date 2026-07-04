@@ -306,7 +306,7 @@ function HostedSurveyUrlParamsDropdown(): JSX.Element {
                         </div>
                     </dl>
                     <Link
-                        to="https://posthog.com/docs/surveys/creating-surveys#identifying-respondents-on-hosted-surveys"
+                        to="https://txlemetry.com/docs#surveys"
                         target="_blank"
                         className="mt-2 inline-block"
                     >

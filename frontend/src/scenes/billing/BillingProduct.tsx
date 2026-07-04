@@ -184,7 +184,7 @@ export const BillingProduct = ({ product }: { product: BillingProductV2Type }): 
                                             <>
                                                 <LemonButton
                                                     fullWidth
-                                                    to="https://posthog.com/docs/billing/estimating-usage-costs#how-to-reduce-your-posthog-costs"
+                                                    to="https://txlemetry.com/docs#getting-started"
                                                 >
                                                     Learn how to reduce your bill
                                                 </LemonButton>
@@ -599,7 +599,7 @@ export const FeatureFlagUsageNotice = ({ product }: { product: BillingProductV2T
             <p className="mt-0 ml-0 text-sm text-secondary italic">
                 <IconInfo className="mr-1" />
                 Questions? Here's{' '}
-                <Link to="https://posthog.com/docs/feature-flags/common-questions#billing--usage" className="italic">
+                <Link to="https://txlemetry.com/docs#feature-flags" className="italic">
                     how we calculate usage
                 </Link>{' '}
                 for feature flags.

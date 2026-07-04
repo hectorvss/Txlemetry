@@ -73,7 +73,7 @@ export function SDKInstallVueInstructions(): JSX.Element {
             <p>
                 The below guide is for integrating using plugins in Vue versions 3 and above. For integrating Txlemetry
                 using Provide/inject, Vue.prototype, or versions 2.7 and below, see our{' '}
-                <Link to="https://posthog.com/docs/libraries/vue-js">Vue docs</Link>
+                <Link to="https://txlemetry.com/docs#sdks">Vue docs</Link>
             </p>
             <h3>Install posthog-js using your package manager</h3>
             <JSInstallSnippet />

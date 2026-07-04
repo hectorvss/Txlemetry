@@ -180,7 +180,7 @@ export function TeamVariables(): JSX.Element {
                     {currentTeam?.api_token || ''}
                 </CodeSnippet>
                 <p className="text-muted text-xs mb-0">
-                    Write-only key for use in <Link to="https://posthog.com/docs/libraries">client libraries</Link>.
+                    Write-only key for use in <Link to="https://txlemetry.com/docs#sdks">client libraries</Link>.
                     Safe to use in public apps.
                 </p>
             </div>
@@ -192,7 +192,7 @@ export function TeamVariables(): JSX.Element {
                         {String(currentTeam?.id || '')}
                     </CodeSnippet>
                     <p className="text-muted text-xs mb-0">
-                        Use this ID in the <Link to="https://posthog.com/docs/api">Txlemetry API</Link>.
+                        Use this ID in the <Link to="https://txlemetry.com/docs#endpoints">Txlemetry API</Link>.
                     </p>
                 </div>
                 {region ? (

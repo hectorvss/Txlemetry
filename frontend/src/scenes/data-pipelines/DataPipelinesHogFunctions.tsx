@@ -78,7 +78,7 @@ export function DataPipelinesHogFunctions({
                     thingName={humanizedKind}
                     productKey={productInfoMapping.key}
                     description={productInfoMapping.description}
-                    docsURL="https://posthog.com/docs/cdp"
+                    docsURL="https://txlemetry.com/docs#data-pipelines"
                     actionElementOverride={action}
                     isEmpty={hogFunctions.length === 0 && !loading}
                 />

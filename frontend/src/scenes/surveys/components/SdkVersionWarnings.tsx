@@ -64,7 +64,7 @@ export function SdkVersionWarnings({ warnings }: { warnings: SurveyFeatureWarnin
                     </ul>
                     {hasVersionIssues && (
                         <p className="text-sm text-secondary">
-                            <Link to="https://posthog.com/docs/libraries" target="_blank">
+                            <Link to="https://txlemetry.com/docs#sdks" target="_blank">
                                 Update your SDK
                             </Link>{' '}
                             to ensure these features work correctly.

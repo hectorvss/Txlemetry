@@ -18,7 +18,7 @@ export function GroupActorDisplay({ actor }: GroupActorDisplayProps): JSX.Elemen
             <div>
                 Unidentified group{' '}
                 <Tooltip
-                    docLink="https://posthog.com/docs/product-analytics/group-analytics#how-to-create-groups"
+                    docLink="https://txlemetry.com/docs#product-analytics"
                     title="Group wasn't identified at the time of the event."
                 >
                     <IconInfo className="text-secondary" />

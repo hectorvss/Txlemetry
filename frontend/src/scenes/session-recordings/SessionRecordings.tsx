@@ -173,7 +173,7 @@ function Warnings(): JSX.Element {
                                 <LemonButton
                                     type="tertiary"
                                     sideIcon={<IconOpenSidebar className="w-4 h-4" />}
-                                    to="https://posthog.com/docs/session-replay?utm_medium=in-product&utm_campaign=empty-state-docs-link"
+                                    to="https://txlemetry.com/docs#session-replay"
                                     data-attr="product-introduction-docs-link"
                                     targetBlank
                                 >
@@ -236,13 +236,13 @@ function MainPanel(): JSX.Element {
 const ReplayPageTabs: ReplayTab[] = [
     {
         label: 'Recordings',
-        tooltipDocLink: 'https://posthog.com/docs/session-replay/tutorials',
+        tooltipDocLink: 'https://txlemetry.com/docs#session-replay',
         key: ReplayTabs.Home,
         'data-attr': 'session-recordings-home-tab',
     },
     {
         label: 'Collections',
-        tooltipDocLink: 'https://posthog.com/docs/session-replay/how-to-watch-recordings',
+        tooltipDocLink: 'https://txlemetry.com/docs#session-replay',
         key: ReplayTabs.Playlists,
         tooltip: 'View & create collections',
         'data-attr': 'session-recordings-collections-tab',

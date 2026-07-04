@@ -222,8 +222,8 @@ export const ActionFilter = React.forwardRef<HTMLDivElement, ActionFilterProps>(
         hogQLGlobals,
         operatorAllowlist,
         inlineEventsDocLink: isTrendsFilter(filters)
-            ? 'https://posthog.com/docs/product-analytics/trends/overview#combine-events-inline'
-            : 'https://posthog.com/docs/product-analytics/funnels#combine-events-inline',
+            ? 'https://txlemetry.com/docs#product-analytics'
+            : 'https://txlemetry.com/docs#product-analytics',
     }
 
     const reachedLimit: boolean = Boolean(entitiesLimit && localFilters.length >= entitiesLimit)

@@ -12,7 +12,7 @@ export type PreAggregatedBadgeVariant = 'preagg' | 'precomputed'
 export type PreAggregatedBadgePosition = 'top-right' | 'bottom-right'
 
 // FAQ answer explaining what the pre-computed badge means.
-const QUERY_ENGINE_DOCS_URL = 'https://posthog.com/docs/web-analytics/faq#what-does-the-pre-computed-badge-mean'
+const QUERY_ENGINE_DOCS_URL = 'https://txlemetry.com/docs#web-analytics'
 
 interface PreAggregatedBadgeProps {
     variant?: PreAggregatedBadgeVariant

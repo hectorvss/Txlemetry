@@ -132,7 +132,7 @@ function TTLWarning(): JSX.Element | null {
                                 <br />
                                 Refer to{' '}
                                 <Link
-                                    to="https://posthog.com/docs/session-replay/data-retention"
+                                    to="https://txlemetry.com/docs#session-replay"
                                     disableClientSideRouting
                                     disableDocsPanel
                                     target="_blank"

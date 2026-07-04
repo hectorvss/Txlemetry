@@ -43,7 +43,7 @@ export function ExperimentFlagKeyInput({
     onToggleReuseFlag,
 }: ExperimentFlagKeyInputProps): JSX.Element {
     const resetAnalysisLink = (
-        <Link to="https://posthog.com/docs/experiments/managing-lifecycle" target="_blank">
+        <Link to="https://txlemetry.com/docs#experiments" target="_blank">
             Reset analysis
         </Link>
     )

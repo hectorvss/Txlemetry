@@ -142,7 +142,7 @@ function UnresolvedIcon({ resolve_failure }: { resolve_failure: string | null })
                     <p className="text-xs text-secondary">{resolve_failure}</p>
                 </>
             }
-            docLink="https://posthog.com/docs/error-tracking/upload-source-maps"
+            docLink="https://txlemetry.com/docs#error-tracking"
         >
             <IconWarning className="text-secondary" fontSize={15} />
         </Tooltip>

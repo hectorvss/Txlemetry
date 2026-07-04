@@ -252,7 +252,7 @@ function SingleEventDetail({ item }: ItemEventProps): JSX.Element {
                                 <p>
                                     Person properties sent with this event. Will replace any property value that may
                                     have been set on this person profile before now.{' '}
-                                    <Link to="https://posthog.com/docs/getting-started/person-properties">
+                                    <Link to="https://txlemetry.com/docs#getting-started">
                                         Learn more
                                     </Link>
                                 </p>
@@ -265,7 +265,7 @@ function SingleEventDetail({ item }: ItemEventProps): JSX.Element {
                                 <p>
                                     "Set once" person properties sent with this event. Will replace any property value
                                     that has never been set on this person profile before now.{' '}
-                                    <Link to="https://posthog.com/docs/getting-started/person-properties">
+                                    <Link to="https://txlemetry.com/docs#getting-started">
                                         Learn more
                                     </Link>
                                 </p>

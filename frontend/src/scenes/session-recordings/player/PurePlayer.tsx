@@ -331,7 +331,7 @@ export function PurePlayer({ noMeta = false, noBorder = false }: PurePlayerProps
                                     The snapshot of the screen taken when this recording started never reached Txlemetry,
                                     so there is nothing to play back. This usually happens when the browser is closed or
                                     goes offline before the recording finishes uploading.{' '}
-                                    <Link to="https://posthog.com/docs/session-replay/troubleshooting">Learn more</Link>
+                                    <Link to="https://txlemetry.com/docs#session-replay">Learn more</Link>
                                 </p>
                                 <LemonButton type="secondary" onClick={loadSnapshots}>
                                     Reload
@@ -349,7 +349,7 @@ export function PurePlayer({ noMeta = false, noBorder = false }: PurePlayerProps
                                             {humanFriendlyDuration(leadingUnplayableMs / 1000, { maxUnits: 2 })} of this
                                             recording can't be shown — the initial snapshot of the screen arrived late,
                                             so playback starts from the first frame we can render.{' '}
-                                            <Link to="https://posthog.com/docs/session-replay/troubleshooting">
+                                            <Link to="https://txlemetry.com/docs#session-replay">
                                                 Learn more
                                             </Link>
                                         </LemonBanner>

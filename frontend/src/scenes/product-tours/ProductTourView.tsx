@@ -61,14 +61,14 @@ const ISSUE_CONFIG: Record<
         label: 'Missing target element',
         instruction:
             'Click "Select element in Toolbar" to choose an element on your page, or "Remove element" to position the step as a simple pop-up.',
-        docsLink: 'https://posthog.com/docs/product-tours/element-selection#automatic-element-targeting',
+        docsLink: 'https://txlemetry.com/docs',
     },
     missing_selector: {
         icon: <IconCode />,
         label: 'Missing CSS selector',
         instruction:
             'Enter a CSS selector in the step settings, or click "Remove element" to position the step as a simple pop-up.',
-        docsLink: 'https://posthog.com/docs/product-tours/element-selection#manual-element-targeting',
+        docsLink: 'https://txlemetry.com/docs',
     },
 }
 
