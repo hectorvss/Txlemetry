@@ -322,6 +322,55 @@
     },
   };
 
+  DOCS['error-tracking'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['installation', 'Installation']] },
+      { label: 'Core features', items: [['capture', 'Capturing exceptions'], ['stack-traces', 'Stack traces & source maps'], ['grouping', 'Issue grouping'], ['management', 'Issue management'], ['alerts', 'Alerts'], ['releases', 'Releases & deploys']] },
+      { label: 'Platform', items: [['with-platform', 'With replay & analytics']] },
+      { label: 'Reference', items: [['sdks', 'Supported SDKs'], ['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Capture, group and triage exceptions with full user context.', [
+        S('What is error tracking', { p: ['Error tracking captures the exceptions your application throws, groups them into issues, and shows each one with the users affected, the sessions where it happened and the releases involved. Instead of a bare stack trace, you get the full story around every failure.'] }),
+        S('Why here and not a separate tool', { list: ['Errors link to session replays — watch the crash happen.', 'Errors link to persons — see exactly who is affected.', 'Errors join analytics — chart error rates like any metric.', 'One snippet, one data model, no extra vendor.'] }),
+      ]),
+      installation: p('Enable exception capture in your stack.', [
+        S('Web', { p: ['With the JavaScript snippet installed, enable exception autocapture and unhandled errors and promise rejections are reported automatically. You can also capture handled errors explicitly from a try/catch.'] }),
+        S('Backend & mobile', { p: ['Server SDKs (Node, Python, Ruby, Go, PHP, .NET, Rust, Elixir…) and mobile SDKs (iOS, Android, React Native, Flutter) each expose a capture-exception call plus automatic hooks for their framework — pick your platform in SDKs & install.'] }),
+      ]),
+      capture: p('Automatic and manual exception capture.', [
+        S('Automatic', { p: ['Unhandled exceptions, unhandled promise rejections and framework-level errors are captured with no code changes once enabled.'] }),
+        S('Manual', { p: ['Capture handled errors with the SDK’s captureException call, attaching extra properties (context, tags) that later help filtering and grouping.'] }),
+      ]),
+      'stack-traces': p('Readable traces in production.', [
+        S('Source maps', { p: ['Upload source maps at build time so minified production traces resolve to your original files, lines and function names. The CLI integrates into CI so maps ship with every release.'] }),
+        S('Code context', { p: ['Traces show the surrounding source lines for each frame, and optionally the values of local variables at the moment of the crash, so many issues are diagnosable without reproducing.'] }),
+      ]),
+      grouping: p('From thousands of events to a handful of issues.', [
+        S('Overview', { p: ['Identical exceptions are grouped into a single issue by fingerprint — type, message and trace shape. Each issue tracks first seen, last seen, frequency and affected users.'] }),
+        S('Custom grouping', { p: ['When the default fingerprint is too coarse or too fine, set a custom grouping key on capture to control exactly how events cluster.'] }),
+      ]),
+      management: p('Triage and own what breaks.', [
+        S('Workflow', { list: ['States: active, resolved, suppressed — resolve when fixed; a regression reopens it.', 'Assign issues to teammates or teams.', 'Filter by frequency, recency, release or affected users to prioritize.', 'Link issues to your tracker (Linear, GitHub, GitLab).'] }),
+      ]),
+      alerts: p('Know when something new breaks.', [
+        S('Overview', { p: ['Set alerts for new issues, regressions or frequency spikes and deliver them to email or Slack, so the team learns about a breakage from a notification — not from a customer.'] }),
+      ]),
+      releases: p('Tie errors to the code that shipped.', [
+        S('Overview', { p: ['Tag events with a release identifier at build time. Issues then show which release introduced them and whether a fix actually shipped, making "did we break it yesterday?" a filter instead of an investigation.'] }),
+      ]),
+      'with-platform': p('Errors joined with the rest of your data.', [
+        S('Together with', { list: ['Session replay — jump from an issue to recordings of it happening.', 'Product analytics — chart error rate against releases or usage.', 'Feature flags — check if a flag rollout correlates with a spike.', 'Person profiles — see every error a specific user hit before a support ticket.'] }),
+      ]),
+      sdks: p('Platform coverage.', [
+        S('Overview', { p: ['Exception capture is available across the web SDK, major frontend frameworks (Next.js, React, Angular, Svelte, Vue/Nuxt), backends (Node, Python, Ruby/Rails, Go, PHP, .NET, Rust, Elixir, NestJS, Hono) and mobile (iOS, Android, React Native, Flutter), plus a manual API for anything else.'] }),
+      ]),
+      faq: p('Common questions about error tracking.', [
+        S('FAQ', { qa: [['Will it duplicate my current error tool?', 'You can run both during a migration; many teams consolidate once they see errors joined with replays and analytics.'], ['How is noise controlled?', 'Suppress known-noisy issues, rate-limit clients, and filter by release or environment.'], ['Are errors billed like events?', 'Exception events count towards usage like other events; suppression and sampling keep volume in check.']] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
