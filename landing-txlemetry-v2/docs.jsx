@@ -617,14 +617,32 @@
         S('Steps', { steps: ['Open Data pipelines and add a source.', 'Authorize the connection and pick the tables to sync.', 'Choose the sync frequency.', 'Query the synced tables alongside events in the SQL editor.'] }),
       ]),
       transformations: p('Shape events before they land.', [
-        S('Overview', { p: ['Transformations run on events as they are ingested: drop noisy events, strip or hash sensitive properties, normalize values, or add computed fields. They apply before storage, so downstream insights and destinations all see the cleaned data.'] }),
+        S('Overview', { p: ['Transformations run on events as they are ingested — before storage — so downstream insights and destinations all see the cleaned data. They are the right place for privacy scrubbing and normalization you want applied everywhere.'] }),
+        S('Common transformations', { table: { head: ['Transformation', 'What it does', 'Typical use'], rows: [
+          ['Filter out', 'Drops matching events entirely', 'Internal traffic, bots, health checks'],
+          ['Property scrub', 'Removes or hashes properties', 'PII minimization before storage'],
+          ['Normalize', 'Rewrites values to a standard', 'Lowercasing emails, mapping locales'],
+          ['GeoIP enrich', 'Adds location from IP', 'Country/city analytics'],
+        ] }, note: 'Transformations are not retroactive — they apply to events ingested after you enable them. Keep an unfiltered destination copy if you might need the originals.' }),
       ]),
       destinations: p('Send events anywhere, as they happen.', [
-        S('Overview', { p: ['Realtime destinations forward matching events to other systems within seconds — webhooks, queues, marketing tools, CRMs, Slack and more. Each destination has its own filter, so you send only what the target needs.'] }),
-        S('Steps', { steps: ['Add a destination and pick the service (or a generic webhook).', 'Filter which events and properties are forwarded.', 'Map fields to the destination’s format.', 'Enable it and watch deliveries in the monitoring tab.'] }),
+        S('Overview', { p: ['Realtime destinations forward matching events to other systems within seconds. Each destination has its own filter and field mapping, so every target receives only what it needs, in the shape it expects.'], table: { head: ['Destination type', 'Examples', 'Latency'], rows: [
+          ['Webhook', 'Your own endpoint', 'Seconds'],
+          ['Messaging', 'Slack, email', 'Seconds'],
+          ['CRM / Marketing', 'Customer platforms', 'Seconds'],
+          ['Queues & storage', 'Kafka-compatible, S3-style', 'Seconds'],
+        ] } }),
+        S('Set one up', { steps: ['Add a destination and pick the service (or a generic webhook).', 'Filter which events and properties are forwarded.', 'Map fields to the destination’s format.', 'Enable it and watch deliveries in the monitoring tab.'], code: [
+          { lang: 'JSON', code: `// Example webhook payload for one event\n{\n  "event": "subscription_started",\n  "distinct_id": "user_842",\n  "properties": {\n    "plan": "pro",\n    "seats": 5\n  },\n  "timestamp": "2026-07-04T10:32:11Z"\n}` },
+        ] }),
       ]),
       'batch-exports': p('Bulk delivery on a schedule.', [
-        S('Overview', { p: ['Batch exports deliver your events to a warehouse or object storage (e.g. BigQuery, Snowflake, S3, Postgres) on an hourly or daily schedule, with backfills for historical data. Use them when completeness matters more than latency.'] }),
+        S('Overview', { p: ['Batch exports deliver your events to a warehouse or object storage on an hourly or daily schedule. Use them when completeness matters more than latency — BI pipelines, archival, compliance copies.'], table: { head: ['Target', 'Granularity', 'Backfill'], rows: [
+          ['BigQuery / Snowflake / Redshift', 'Hourly or daily', 'Yes, by date range'],
+          ['S3-compatible storage', 'Hourly or daily', 'Yes, by date range'],
+          ['Postgres', 'Hourly or daily', 'Yes, by date range'],
+        ] } }),
+        S('Reliability', { list: ['Runs are idempotent — a retried window doesn’t duplicate rows.', 'Failed runs retry with backoff and surface in monitoring.', 'Backfills let you load history after connecting a new target.'] }),
       ]),
       'use-cases': p('What teams build with pipelines.', [
         S('Examples', { list: ['Keep the data warehouse in sync with product events for BI.', 'Send qualified-signup events to the CRM in real time.', 'Strip PII from events before storage with a transformation.', 'Alert a Slack channel when a high-value action happens.'] }),
@@ -654,12 +672,16 @@
         S('Notes', { list: ['Syncs are incremental where the source supports it.', 'Each table shows its last sync time and row count.', 'Sensitive columns can be excluded from the sync.'] }),
       ]),
       query: p('SQL over events and external tables.', [
-        S('Overview', { p: ['The SQL editor exposes your events, persons and every synced table in one schema. Standard SQL (with helpful extensions for event data) lets you answer questions the visual builder can’t, and results can be saved as insights or added to dashboards.'] }),
+        S('Overview', { p: ['The SQL editor exposes your events, persons and every synced table in one schema. Standard SQL (with helpful extensions for event data) lets you answer questions the visual builder can’t, and results can be saved as insights or added to dashboards.'], code: [
+          { lang: 'SQL', code: `-- Daily signups from events\nSELECT\n  toDate(timestamp) AS day,\n  count() AS signups\nFROM events\nWHERE event = 'signup_completed'\n  AND timestamp > now() - INTERVAL 30 DAY\nGROUP BY day\nORDER BY day` },
+        ] }),
         S('Tips', { list: ['Explore the schema tree to see available tables and columns.', 'Use LIMIT while iterating on a query.', 'Save frequent queries as views to reuse them.'] }),
       ]),
       joins: p('Connect external rows to your product data.', [
         S('Overview', { p: ['Define a join between a warehouse table and persons (or events) — e.g. billing customers joined on email — and the external columns become usable as if they were person properties: in filters, breakdowns and cohorts.'] }),
-        S('Steps', { steps: ['Open the joins configuration in Data warehouse.', 'Pick the table, and the key on each side (e.g. customers.email ↔ person.email).', 'Save — joined fields are now available across insights.'] }),
+        S('Steps', { steps: ['Open the joins configuration in Data warehouse.', 'Pick the table, and the key on each side (e.g. customers.email ↔ person.email).', 'Save — joined fields are now available across insights.'], code: [
+          { lang: 'SQL', code: `-- Events joined with synced billing data\nSELECT\n  c.plan,\n  count(DISTINCT e.person_id) AS active_users\nFROM events e\nJOIN billing_customers c\n  ON e.person.properties.email = c.email\nWHERE e.event = 'report_exported'\nGROUP BY c.plan` },
+        ] }),
       ]),
       views: p('Name queries; speed up the heavy ones.', [
         S('Views', { p: ['A view is a saved query that behaves like a table. Use views to encapsulate cleaning/renaming logic once, so every analysis starts from tidy data.'] }),
@@ -695,7 +717,12 @@
         S('Overview', { p: ['Dashboard-level filters and date overrides apply to every tile simultaneously — e.g. filter the whole board to one country or one plan. Underlying insights are not modified; the override lives on the dashboard.'] }),
       ]),
       sharing: p('Get the numbers in front of people.', [
-        S('Options', { list: ['Share with teammates via a direct link.', 'Public sharing generates a read-only link for people without an account.', 'Embed a dashboard in another tool with the embed link.', 'Access controls restrict who can edit vs view.'] }),
+        S('Sharing options', { table: { head: ['Option', 'Audience', 'Access'], rows: [
+          ['Direct link', 'Teammates with an account', 'Their project permissions'],
+          ['Public link', 'Anyone with the URL', 'Read-only snapshot of the board'],
+          ['Embed', 'Another tool (wiki, portal)', 'Read-only iframe'],
+        ] } }),
+        S('Access control', { p: ['Dashboard-level permissions restrict who can edit versus view, and public links can be revoked at any time — the URL stops working immediately.'], note: 'A public link exposes the dashboard’s data to anyone who has it. Share boards without sensitive segments, or use filters to scope them first.' }),
       ]),
       subscriptions: p('The board comes to you.', [
         S('Overview', { p: ['Subscribe a person or channel to a dashboard and a snapshot arrives on schedule (e.g. Monday 9:00 to Slack or email). Alerts on individual insights notify when a metric crosses a threshold, turning dashboards from something you check into something that warns you.'] }),
