@@ -184,7 +184,7 @@ export function HogFlowFunctionConfiguration({
                                 <LemonButton
                                     type="tertiary"
                                     size="xsmall"
-                                    to="https://posthog.com/docs/workflows/engagement-events"
+                                    to="https://txlemetry.com/docs#workflows"
                                     targetBlank
                                 >
                                     Learn more

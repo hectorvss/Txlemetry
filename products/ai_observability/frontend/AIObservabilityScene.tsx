@@ -390,15 +390,15 @@ function AIObservabilityGenerations(): JSX.Element {
     )
 }
 
-const DEFAULT_DOCS_URL = 'https://posthog.com/docs/ai-observability/installation'
+const DEFAULT_DOCS_URL = 'https://txlemetry.com/docs'
 const DOCS_URLS_BY_TAB: Record<string, string> = {
-    traces: 'https://posthog.com/docs/ai-observability/traces',
-    reviews: 'https://posthog.com/docs/ai-observability/trace-reviews',
-    generations: 'https://posthog.com/docs/ai-observability/generations',
-    sessions: 'https://posthog.com/docs/ai-observability/sessions',
-    errors: 'https://posthog.com/docs/ai-observability/errors',
-    tools: 'https://posthog.com/docs/ai-observability/tools',
-    sentiment: 'https://posthog.com/docs/ai-observability/sentiment',
+    traces: 'https://txlemetry.com/docs',
+    reviews: 'https://txlemetry.com/docs',
+    generations: 'https://txlemetry.com/docs',
+    sessions: 'https://txlemetry.com/docs',
+    errors: 'https://txlemetry.com/docs',
+    tools: 'https://txlemetry.com/docs',
+    sentiment: 'https://txlemetry.com/docs',
 }
 
 const TAB_DESCRIPTIONS: Record<string, string> = {

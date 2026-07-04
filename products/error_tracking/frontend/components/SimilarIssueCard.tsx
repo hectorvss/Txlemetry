@@ -81,7 +81,7 @@ export function MergeAction({ onClick }: { onClick: () => void }): JSX.Element {
             icon={<IconDirectedGraph />}
             onClick={onClick}
             tooltip="Merge this issue into the current one"
-            tooltipDocLink="https://posthog.com/docs/error-tracking/fingerprints"
+            tooltipDocLink="https://txlemetry.com/docs#error-tracking"
         />
     )
 }

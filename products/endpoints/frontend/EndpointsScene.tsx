@@ -105,7 +105,7 @@ export function EndpointsScene(): JSX.Element {
                         description={
                             activeTab === 'usage' ? ENDPOINTS_USAGE_PRODUCT_DESCRIPTION : ENDPOINTS_PRODUCT_DESCRIPTION
                         }
-                        docsURL="https://posthog.com/docs/endpoints"
+                        docsURL="https://txlemetry.com/docs#endpoints"
                         customHog={BigLeaguesHog}
                         isEmpty={false}
                         action={() => router.actions.push(urls.sqlEditor({ source: 'endpoint' }))}

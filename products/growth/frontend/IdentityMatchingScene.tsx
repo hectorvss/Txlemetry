@@ -417,7 +417,7 @@ export function IdentityMatchingScene(): JSX.Element {
                         <LemonBanner
                             type="info"
                             action={{
-                                to: 'https://posthog.com/docs',
+                                to: 'https://txlemetry.com/docs',
                                 targetBlank: true,
                                 children: 'Learn more',
                             }}

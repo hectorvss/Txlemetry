@@ -86,7 +86,7 @@ export function NotificationsSection(): JSX.Element {
                 description={
                     <>
                         Build custom automations on top of support events.{' '}
-                        <Link to="https://posthog.com/docs/support/workflows" target="_blank">
+                        <Link to="https://txlemetry.com/docs" target="_blank">
                             Workflow docs
                         </Link>
                     </>

@@ -86,7 +86,7 @@ export function BAAPreview(): JSX.Element {
             <p>
                 "<strong>Platform Package</strong>" shall mean the add-on that the Customer must be paying for to
                 receive coverage with a BAA (either the Boost, Scale or Enterprise add-on
-                (https://posthog.com/platform-packages)).
+                (https://txlemetry.com)).
             </p>
 
             <h4>2. Customer Assurances</h4>
@@ -161,7 +161,7 @@ export function BAAPreview(): JSX.Element {
             </p>
             <p>
                 (g) Txlemetry will comply with HIPAA security standards for electronic PHI. All Privacy and security
-                measures are found at https://posthog.com/docs/privacy
+                measures are found at https://txlemetry.com/docs
             </p>
             <p>
                 (h) Txlemetry will make its internal practices, books, and records relating to the use and disclosure of

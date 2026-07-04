@@ -26,7 +26,7 @@ export function SourcesList({ action }: { action: JSX.Element }): JSX.Element {
                     thingName="data source"
                     description="Use data warehouse sources to import data from your external data into Txlemetry."
                     isEmpty={dataWarehouseSources.results.length === 0 && !dataWarehouseSourcesLoading}
-                    docsURL="https://posthog.com/docs/data-warehouse"
+                    docsURL="https://txlemetry.com/docs#data-warehouse"
                     actionElementOverride={action}
                 />
             ) : null}

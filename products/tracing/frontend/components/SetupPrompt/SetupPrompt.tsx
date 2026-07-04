@@ -93,7 +93,7 @@ const NoSpansPrompt = ({ className }: { className?: string }): JSX.Element | nul
                 <div className="flex flex-col items-start gap-4">
                     <p className="text-sm text-secondary m-0">
                         Read our{' '}
-                        <Link to="https://posthog.com/docs/tracing" onClick={() => onDocsLinkClick('Tracing')}>
+                        <Link to="https://txlemetry.com/docs#distributed-tracing" onClick={() => onDocsLinkClick('Tracing')}>
                             tracing docs
                         </Link>
                         , learn more about{' '}

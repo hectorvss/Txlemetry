@@ -68,7 +68,7 @@ export const EnvironmentsEvaluationContextSuggestionsCreateBody = /* @__PURE__ *
 })
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -409,7 +409,7 @@ export const FeatureFlagsCreateBody = /* @__PURE__ */ zod.object({
 })
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -495,7 +495,7 @@ export const FeatureFlagsUpdateBody = /* @__PURE__ */ zod
     .describe('Serializer mixin that handles tags for objects.')
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -836,7 +836,7 @@ export const FeatureFlagsPartialUpdateBody = /* @__PURE__ */ zod.object({
 })
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -924,7 +924,7 @@ export const FeatureFlagsCreateStaticCohortForFlagCreateBody = /* @__PURE__ */ z
     .describe('Serializer mixin that handles tags for objects.')
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -1012,7 +1012,7 @@ export const FeatureFlagsDashboardCreateBody = /* @__PURE__ */ zod
     .describe('Serializer mixin that handles tags for objects.')
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -1244,7 +1244,7 @@ export const FeatureFlagsBulkUpdateTagsCreateBody = /* @__PURE__ */ zod.object({
 })
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */

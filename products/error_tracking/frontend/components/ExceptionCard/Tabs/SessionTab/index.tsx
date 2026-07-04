@@ -140,7 +140,7 @@ function NoSessionStepsView({ timestamp }: { timestamp?: string }): JSX.Element 
         <div className="flex flex-col flex-1 min-h-0">
             <LemonBanner type="info" className="m-2 shrink-0">
                 No session ID associated with this exception — showing exception steps only.{' '}
-                <Link to="https://posthog.com/docs/data/sessions#server-sdks-and-sessions" target="_blank">
+                <Link to="https://txlemetry.com/docs#data-warehouse" target="_blank">
                     Learn how to add session tracking →
                 </Link>
             </LemonBanner>
@@ -158,7 +158,7 @@ export function NoSessionIdFound(): JSX.Element {
                 title="No session found"
                 description="There is no $session_id associated with this exception. If it was captured from a server SDK, you can read our doc on how to forward session IDs"
                 buttonText="Check doc"
-                buttonTo="https://posthog.com/docs/data/sessions#server-sdks-and-sessions"
+                buttonTo="https://txlemetry.com/docs#data-warehouse"
                 size="small"
             />
         </div>

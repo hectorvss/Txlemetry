@@ -22,13 +22,13 @@ import { useOpenLogsSettingsPanel } from '../../hooks/useOpenLogsSettingsPanel'
 import { logsIngestionLogic } from './logsIngestionLogic'
 
 const FRAMEWORK_LINKS: { name: string; image?: string; docsLink: string }[] = [
-    { name: 'Node.js', image: nodejsImage, docsLink: 'https://posthog.com/docs/logs/installation/nodejs' },
-    { name: 'Next.js', image: nextjsImage, docsLink: 'https://posthog.com/docs/logs/installation/nextjs' },
-    { name: 'Python', image: pythonImage, docsLink: 'https://posthog.com/docs/logs/installation/python' },
-    { name: 'Java', image: javaImage, docsLink: 'https://posthog.com/docs/logs/installation/java' },
-    { name: 'Go', image: goImage, docsLink: 'https://posthog.com/docs/logs/installation/go' },
-    { name: 'Datadog', docsLink: 'https://posthog.com/docs/logs/installation/datadog' },
-    { name: 'Other', docsLink: 'https://posthog.com/docs/logs/installation' },
+    { name: 'Node.js', image: nodejsImage, docsLink: 'https://txlemetry.com/docs#logs' },
+    { name: 'Next.js', image: nextjsImage, docsLink: 'https://txlemetry.com/docs#logs' },
+    { name: 'Python', image: pythonImage, docsLink: 'https://txlemetry.com/docs#logs' },
+    { name: 'Java', image: javaImage, docsLink: 'https://txlemetry.com/docs#logs' },
+    { name: 'Go', image: goImage, docsLink: 'https://txlemetry.com/docs#logs' },
+    { name: 'Datadog', docsLink: 'https://txlemetry.com/docs#logs' },
+    { name: 'Other', docsLink: 'https://txlemetry.com/docs#logs' },
 ]
 
 const POLLING_INTERVAL_MS = 5000
@@ -101,7 +101,7 @@ const NoLogsPrompt = ({ className }: { className?: string }): JSX.Element | null
                 <div className="flex flex-col items-start gap-4">
                     <p className="text-sm text-secondary m-0">
                         Read our{' '}
-                        <Link to="https://posthog.com/docs/logs" onClick={() => onDocsLinkClick('Logs')}>
+                        <Link to="https://txlemetry.com/docs#logs" onClick={() => onDocsLinkClick('Logs')}>
                             logs docs
                         </Link>
                         , learn more about{' '}

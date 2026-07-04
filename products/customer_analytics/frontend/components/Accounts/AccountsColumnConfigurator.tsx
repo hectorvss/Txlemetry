@@ -22,7 +22,7 @@ import {
     accountsColumnConfigLogic,
 } from './accountsColumnConfigLogic'
 
-const HOGQL_DOCS_URL = 'https://posthog.com/docs/hogql'
+const HOGQL_DOCS_URL = 'https://txlemetry.com/docs#sql'
 
 export function AccountsColumnConfigurator(): JSX.Element {
     const { columnConfiguratorVisible } = useValues(accountsColumnConfigLogic)

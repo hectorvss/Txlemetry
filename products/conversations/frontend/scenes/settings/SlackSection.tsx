@@ -20,7 +20,7 @@ export function SlackSection(): JSX.Element {
                 <>
                     Add the SupportHog bot to your Slack workspace to create and manage support tickets directly from
                     Slack messages.{' '}
-                    <Link to="https://posthog.com/docs/support/slack" target="_blank">
+                    <Link to="https://txlemetry.com/docs" target="_blank">
                         Docs
                     </Link>
                 </>

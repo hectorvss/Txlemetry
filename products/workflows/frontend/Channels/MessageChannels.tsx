@@ -50,7 +50,7 @@ export function MessageChannels(): JSX.Element {
                         productName="Workflows channel"
                         thingName="channel integration"
                         description="Set up messaging channels to automatically send emails, SMS, or Slack notifications triggered by user actions and events."
-                        docsURL="https://posthog.com/docs/workflows/configure-channels"
+                        docsURL="https://txlemetry.com/docs#workflows"
                         action={() => openSetupModal(undefined, 'email')}
                         customHog={HedgehogReporter}
                         isEmpty

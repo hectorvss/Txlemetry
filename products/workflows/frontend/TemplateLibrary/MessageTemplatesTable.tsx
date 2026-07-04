@@ -33,7 +33,7 @@ export function MessageTemplatesTable(): JSX.Element {
                     productName="Message template"
                     thingName="message template"
                     description="Create and manage reusable message templates for your workflows."
-                    docsURL="https://posthog.com/docs/workflows"
+                    docsURL="https://txlemetry.com/docs#workflows"
                     action={() => {
                         router.actions.push(urls.workflowsLibraryTemplateNew())
                     }}

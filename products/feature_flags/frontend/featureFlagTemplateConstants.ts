@@ -29,7 +29,7 @@ export const INTENT_METADATA: Record<FlagIntent, IntentMetadata> = {
         icon: IconServer,
         consequence:
             'These will force a server request to evaluate this flag, removing the speed and cost benefits of local evaluation.',
-        docUrl: 'https://posthog.com/docs/feature-flags/local-evaluation#restriction-on-local-evaluation',
+        docUrl: 'https://txlemetry.com/docs#feature-flags',
     },
     'first-page-load': {
         name: 'Prevent flicker',
@@ -37,7 +37,7 @@ export const INTENT_METADATA: Record<FlagIntent, IntentMetadata> = {
         icon: IconRocket,
         consequence:
             'These may cause the flag to briefly return the wrong value on first page load, resulting in a visible flicker.',
-        docUrl: 'https://posthog.com/docs/feature-flags/bootstrapping',
+        docUrl: 'https://txlemetry.com/docs#feature-flags',
     },
 }
 

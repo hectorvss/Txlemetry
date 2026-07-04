@@ -160,7 +160,7 @@ export function LinksScene(): JSX.Element {
                 thingName="link"
                 description="Start creating links for your marketing campaigns, referral programs, and more."
                 action={() => router.actions.push(urls.link('new'))}
-                docsURL="https://posthog.com/docs/links"
+                docsURL="https://txlemetry.com/docs"
                 className="my-0"
             />
 

@@ -517,7 +517,7 @@ export function AIObservabilityEvaluationsScene(): JSX.Element {
                         }}
                         actions={
                             <LemonButton
-                                to="https://posthog.com/docs/ai-evals/evaluations"
+                                to="https://txlemetry.com/docs"
                                 type="secondary"
                                 targetBlank
                                 size="small"

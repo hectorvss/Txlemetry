@@ -123,14 +123,14 @@ export const DASHBOARD_WIDGET_GROUP_PRODUCT_INTRO = {
         requirement: 'exception_autocapture',
         valueProp: 'Catch and resolve the errors hurting your users.',
         ctaLabel: 'Explore error tracking',
-        docsHref: 'https://posthog.com/docs/error-tracking',
+        docsHref: 'https://txlemetry.com/docs#error-tracking',
     },
     session_replay: {
         productKey: ProductKey.SESSION_REPLAY,
         requirement: 'session_replay_enabled',
         valueProp: 'Watch real sessions to see exactly where users get stuck.',
         ctaLabel: 'Explore session replay',
-        docsHref: 'https://posthog.com/docs/session-replay',
+        docsHref: 'https://txlemetry.com/docs#session-replay',
     },
 } as const satisfies Partial<Record<keyof typeof DASHBOARD_WIDGET_GROUP_LABELS, DashboardWidgetGroupProductIntroConfig>>
 
@@ -196,7 +196,7 @@ export const DASHBOARD_WIDGET_CATALOG = {
             unavailableTitle: "You haven't captured any exceptions",
             unavailableReason: 'Enable exception autocapture to get started.',
             setupActionLabel: 'Enable exception autocapture',
-            docsHref: 'https://posthog.com/docs/error-tracking',
+            docsHref: 'https://txlemetry.com/docs#error-tracking',
         },
     },
     session_replay_list: {
@@ -221,7 +221,7 @@ export const DASHBOARD_WIDGET_CATALOG = {
             unavailableReason:
                 'Turn on session recordings for this project to watch recent replays from your dashboard.',
             setupActionLabel: 'Enable session replay',
-            docsHref: 'https://posthog.com/docs/session-replay',
+            docsHref: 'https://txlemetry.com/docs#session-replay',
         },
         tileFilters: {
             quickFilterContext: QuickFilterContext.Dashboards,

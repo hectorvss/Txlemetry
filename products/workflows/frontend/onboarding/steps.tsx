@@ -22,7 +22,7 @@ const WorkflowsInstallHeader = (): JSX.Element => {
                 Workflows is a no-code product — installing an SDK is optional. However, with an SDK installed, any
                 captured or custom event can be used as a{' '}
                 <Link
-                    to="https://posthog.com/docs/workflows/workflow-builder#triggers"
+                    to="https://txlemetry.com/docs#workflows"
                     target="_blank"
                     targetBlankIcon={false}
                 >

@@ -30,7 +30,7 @@ import {
 } from '../utils/screenName'
 import { EventName } from './EventName'
 
-const learnMoreLink = 'https://posthog.com/docs/data/actions?utm_medium=in-product&utm_campaign=action-page'
+const learnMoreLink = 'https://txlemetry.com/docs#data-warehouse'
 
 interface Props {
     step: ActionStepType
@@ -106,7 +106,7 @@ export function ActionStep({
                                 disabled={!!disabledReason}
                             />
 
-                            <Link to="https://posthog.com/docs/libraries" target="_blank">
+                            <Link to="https://txlemetry.com/docs#sdks" target="_blank">
                                 See documentation
                             </Link>
                         </div>

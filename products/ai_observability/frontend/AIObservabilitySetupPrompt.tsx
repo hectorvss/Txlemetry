@@ -42,7 +42,7 @@ function IngestionStatusCheck({ className, thing }: { className?: string; thing:
             isEmpty={true}
             productKey={ProductKey.AI_OBSERVABILITY}
             className={className}
-            docsURL="https://posthog.com/docs/ai-observability/installation"
+            docsURL="https://txlemetry.com/docs"
         />
     )
 }

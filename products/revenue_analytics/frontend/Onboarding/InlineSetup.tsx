@@ -353,7 +353,7 @@ export function InlineSetup({ completeOnboarding, initialSetupView }: InlineSetu
             <div className="text-center">
                 <p className="text-xs text-muted-alt">
                     Need help? Check our{' '}
-                    <Link to="https://posthog.com/docs/revenue-analytics" target="_blank">
+                    <Link to="https://txlemetry.com/docs#revenue-analytics" target="_blank">
                         documentation
                     </Link>
                 </p>

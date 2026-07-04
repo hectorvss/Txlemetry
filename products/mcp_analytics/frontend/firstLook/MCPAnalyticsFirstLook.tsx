@@ -110,7 +110,7 @@ export function MCPAnalyticsFirstLook(): JSX.Element | null {
                         </div>
                         <p className="m-0 text-xs text-muted">
                             Needs the Txlemetry MCP in your editor.{' '}
-                            <Link to="https://posthog.com/docs/model-context-protocol" target="_blank">
+                            <Link to="https://txlemetry.com/docs" target="_blank">
                                 Set it up
                             </Link>
                         </p>

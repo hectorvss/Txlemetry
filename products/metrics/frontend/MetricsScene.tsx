@@ -55,7 +55,7 @@ const MetricsSceneContent = (): JSX.Element => {
                     type="info"
                     dismissKey="metrics-setup-hint-banner"
                     action={{
-                        to: 'https://posthog.com/docs/metrics',
+                        to: 'https://txlemetry.com/docs',
                         targetBlank: true,
                         children: 'Setup guide',
                     }}

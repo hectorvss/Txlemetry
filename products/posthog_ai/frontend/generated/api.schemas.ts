@@ -13,7 +13,7 @@ export interface DocsSearchRequestApi {
 }
 
 export interface DocsSearchResponseApi {
-    /** Markdown-formatted documentation results. Each block has a title, URL and excerpt; an empty result set returns guidance to navigate to https://posthog.com/docs. */
+    /** Markdown-formatted documentation results. Each block has a title, URL and excerpt; an empty result set returns guidance to navigate to https://txlemetry.com */
     content: string
 }
 

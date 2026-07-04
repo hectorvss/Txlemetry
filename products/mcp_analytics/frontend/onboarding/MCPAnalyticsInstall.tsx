@@ -11,7 +11,7 @@ import { teamLogic } from 'scenes/teamLogic'
 
 import { mcpAnalyticsOnboardingLogic } from '../mcpAnalyticsOnboardingLogic'
 
-export const MCP_ANALYTICS_DOCS_URL = 'https://posthog.com/docs/mcp-analytics'
+export const MCP_ANALYTICS_DOCS_URL = 'https://txlemetry.com/docs'
 
 // The shared wizard hook only emits the base command; slot in our subcommand right
 // after the package reference (before any flags like `--region eu`). Matching

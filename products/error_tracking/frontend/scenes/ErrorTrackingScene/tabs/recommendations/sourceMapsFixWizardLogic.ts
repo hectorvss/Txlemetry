@@ -11,7 +11,7 @@ import type { sourceMapsFixWizardLogicType } from './sourceMapsFixWizardLogicTyp
 export type WizardRating = 'good' | 'bad'
 export type WizardOpenSource = 'issues_list' | 'recommendations'
 
-export const SOURCE_MAPS_DOCS_URL = 'https://posthog.com/docs/error-tracking/upload-source-maps'
+export const SOURCE_MAPS_DOCS_URL = 'https://txlemetry.com/docs#error-tracking'
 
 // Delay before we ask "how did the wizard do?" — long enough that the user has
 // actually had a chance to copy the command and kick the wizard off.

@@ -454,7 +454,7 @@ export function AIObservabilityEvaluation(): JSX.Element {
                                                 ) : isHog ? (
                                                     <>
                                                         Run deterministic{' '}
-                                                        <Link to="https://posthog.com/docs/hog" target="_blank">
+                                                        <Link to="https://txlemetry.com/docs" target="_blank">
                                                             Hog code
                                                         </Link>{' '}
                                                         against each generation. No LLM cost, instant results.

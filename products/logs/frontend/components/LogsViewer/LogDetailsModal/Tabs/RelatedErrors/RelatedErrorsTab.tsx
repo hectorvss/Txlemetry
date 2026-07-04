@@ -23,7 +23,7 @@ export function RelatedErrorsTab({ logUuid, logTimestamp, sessionId }: RelatedEr
                     title="No session ID found"
                     description="To see related errors, link your logs to session replay by including a session ID."
                     buttonText="Learn more"
-                    buttonTo="https://posthog.com/docs/logs/link-session-replay"
+                    buttonTo="https://txlemetry.com/docs#logs"
                     size="small"
                 />
             </div>

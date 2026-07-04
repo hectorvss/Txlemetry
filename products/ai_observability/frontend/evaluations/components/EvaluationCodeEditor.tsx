@@ -240,7 +240,7 @@ export function EvaluationCodeEditor(): JSX.Element {
                         <h4 className="text-sm font-semibold m-0">Examples</h4>
                         <p className="text-xs text-muted m-0">Starter examples to play with</p>
                     </div>
-                    <Link to="https://posthog.com/docs/hog" target="_blank" className="text-sm">
+                    <Link to="https://txlemetry.com/docs" target="_blank" className="text-sm">
                         Hog language reference <IconExternal className="inline text-xs" />
                     </Link>
                 </div>

@@ -100,7 +100,7 @@ export function ErrorTrackingIssueFingerprintsScene(): JSX.Element {
                         <LemonButton
                             size="small"
                             type="secondary"
-                            to="https://posthog.com/docs/error-tracking/fingerprints"
+                            to="https://txlemetry.com/docs#error-tracking"
                             targetBlank
                         >
                             Documentation

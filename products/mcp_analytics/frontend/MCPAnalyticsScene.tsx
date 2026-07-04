@@ -24,7 +24,7 @@ export const scene: SceneExport = {
     logic: mcpAnalyticsSceneLogic,
 }
 
-const DEFAULT_DOCS_URL = 'https://posthog.com/docs/mcp-analytics/installation'
+const DEFAULT_DOCS_URL = 'https://txlemetry.com/docs'
 
 export function MCPAnalyticsScene(): JSX.Element {
     const { searchParams } = useValues(router)

@@ -297,7 +297,7 @@ const SymbolSetTable = (): JSX.Element => {
             <div className="font-semibold">No symbol sets found</div>
             <div className="text-secondary">
                 Learn how to upload them from the{' '}
-                <Link to="https://posthog.com/docs/error-tracking/upload-source-maps">docs</Link>
+                <Link to="https://txlemetry.com/docs#error-tracking">docs</Link>
             </div>
         </div>
     )

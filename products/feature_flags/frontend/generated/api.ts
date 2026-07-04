@@ -284,7 +284,7 @@ export const getFeatureFlagsListUrl = (projectId: string, params?: FeatureFlagsL
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -304,7 +304,7 @@ export const getFeatureFlagsCreateUrl = (projectId: string) => {
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -326,7 +326,7 @@ export const getFeatureFlagsRetrieveUrl = (projectId: string, id: number) => {
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -346,7 +346,7 @@ export const getFeatureFlagsUpdateUrl = (projectId: string, id: number) => {
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -369,7 +369,7 @@ export const getFeatureFlagsPartialUpdateUrl = (projectId: string, id: number) =
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -422,7 +422,7 @@ export const getFeatureFlagsActivityRetrieveUrl = (
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -443,7 +443,7 @@ export const getFeatureFlagsCreateStaticCohortForFlagCreateUrl = (projectId: str
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -466,7 +466,7 @@ export const getFeatureFlagsDashboardCreateUrl = (projectId: string, id: number)
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -507,7 +507,7 @@ export const getFeatureFlagsEnrichUsageDashboardCreateUrl = (projectId: string, 
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -530,7 +530,7 @@ export const getFeatureFlagsRemoteConfigRetrieveUrl = (projectId: string, id: nu
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -550,7 +550,7 @@ export const getFeatureFlagsStatusRetrieveUrl = (projectId: string, id: number) 
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -595,7 +595,7 @@ export const getFeatureFlagsVersionsRetrieveUrl = (projectId: string, id: number
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -631,7 +631,7 @@ export const getFeatureFlagsAllActivityRetrieveUrl = (
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -752,7 +752,7 @@ export const getFeatureFlagsEvaluationReasonsRetrieveUrl = (
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -800,7 +800,7 @@ export const getFeatureFlagsMyFlagsRetrieveUrl = (projectId: string, params?: Fe
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */
@@ -820,7 +820,7 @@ export const getFeatureFlagsUserBlastRadiusCreateUrl = (projectId: string) => {
 }
 
 /**
- * Create, read, update and delete feature flags. [See docs](https://posthog.com/docs/feature-flags) for more information on feature flags.
+ * Create, read, update and delete feature flags. [See docs](https://txlemetry.com/docs#feature-flags) for more information on feature flags.
  *
  * If you're looking to use feature flags on your application, you can either use our JavaScript Library or our dedicated endpoint to check if feature flags are enabled for a given user.
  */

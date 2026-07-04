@@ -30,7 +30,7 @@ import { TracingSparkline } from './TracingSparkline'
 import type { Span } from './types'
 
 const TRACING_FEEDBACK_SURVEY_ID = '019e6a26-4943-0000-24a0-dc46310f6b7c'
-const TRACING_DOCS_URL = 'https://posthog.com/docs/tracing'
+const TRACING_DOCS_URL = 'https://txlemetry.com/docs#distributed-tracing'
 
 export const scene: SceneExport = {
     component: TracingScene,

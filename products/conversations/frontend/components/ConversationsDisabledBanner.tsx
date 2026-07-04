@@ -42,7 +42,7 @@ export function ConversationsDisabledBanner(): JSX.Element {
                         <LemonButton
                             type="tertiary"
                             sideIcon={<IconOpenSidebar className="w-4 h-4" />}
-                            to="https://posthog.com/docs/support?utm_medium=in-product&utm_campaign=support-empty-state-docs-link"
+                            to="https://txlemetry.com/docs"
                             data-attr="support-introduction-docs-link"
                             targetBlank
                         >

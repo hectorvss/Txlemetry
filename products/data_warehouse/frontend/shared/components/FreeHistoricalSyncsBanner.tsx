@@ -41,7 +41,7 @@ export function FreeHistoricalSyncsBanner({ hideGetStarted }: { hideGetStarted?:
                 footer={
                     <div className="flex items-center justify-between gap-2 w-full">
                         <Link
-                            to="https://posthog.com/docs/cdp/sources"
+                            to="https://txlemetry.com/docs#data-pipelines"
                             target="_blank"
                             onClick={() => {
                                 posthog.capture('historical_sync_banner_docs_link_clicked')

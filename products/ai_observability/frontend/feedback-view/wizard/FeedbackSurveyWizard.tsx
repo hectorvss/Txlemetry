@@ -294,7 +294,7 @@ function ImplementStep(): JSX.Element {
                 <div className="flex gap-2">
                     <LemonButton
                         type="primary"
-                        to="https://posthog.com/docs/ai-observability/collect-user-feedback"
+                        to="https://txlemetry.com/docs"
                         targetBlank
                         disableClientSideRouting
                     >

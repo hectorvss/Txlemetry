@@ -70,7 +70,7 @@ const LogsSceneContent = (): JSX.Element => {
                     type="info"
                     dismissKey="logs-setup-hint-banner"
                     action={{
-                        to: 'https://posthog.com/docs/logs/',
+                        to: 'https://txlemetry.com/docs#logs',
                         targetBlank: true,
                         children: 'Setup guide',
                     }}
@@ -117,7 +117,7 @@ const LogsSceneTabbedContent = (): JSX.Element => {
                     type="info"
                     dismissKey="logs-setup-hint-banner"
                     action={{
-                        to: 'https://posthog.com/docs/logs/',
+                        to: 'https://txlemetry.com/docs#logs',
                         targetBlank: true,
                         children: 'Setup guide',
                     }}

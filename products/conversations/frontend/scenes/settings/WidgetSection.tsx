@@ -47,12 +47,12 @@ export function WidgetSection(): JSX.Element {
             description={
                 <>
                     Add a chat widget to your website for customers to reach you.{' '}
-                    <Link to="https://posthog.com/docs/support/widget" target="_blank">
+                    <Link to="https://txlemetry.com/docs" target="_blank">
                         Docs
                     </Link>
                     . For logged-in users, use{' '}
                     <Link
-                        to="https://posthog.com/docs/support/javascript-api#user-identification"
+                        to="https://txlemetry.com/docs"
                         target="_blank"
                         targetBlankIcon
                     >

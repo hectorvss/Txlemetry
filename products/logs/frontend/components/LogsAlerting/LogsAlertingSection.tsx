@@ -42,7 +42,7 @@ function LogsAlertingSectionInner(): JSX.Element {
                 action={{ children: 'Send feedback', id: 'logs-alerts-feedback-button' }}
             >
                 Logs alerting is in beta. Alerts are checked every 5 minutes. Read the{' '}
-                <Link to="https://posthog.com/docs/logs/alerts" target="_blank">
+                <Link to="https://txlemetry.com/docs#logs" target="_blank">
                     docs
                 </Link>{' '}
                 or share feedback with what you'd like to see.

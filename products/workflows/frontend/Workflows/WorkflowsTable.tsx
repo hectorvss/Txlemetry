@@ -318,7 +318,7 @@ export function WorkflowsTable(): JSX.Element {
                     productName="Workflow"
                     thingName="workflow"
                     description="Create workflows that automate actions or send messages to your users."
-                    docsURL="https://posthog.com/docs/workflows/start-here"
+                    docsURL="https://txlemetry.com/docs#workflows"
                     action={() => {
                         showNewWorkflowModal()
                     }}

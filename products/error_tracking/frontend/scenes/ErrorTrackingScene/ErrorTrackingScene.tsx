@@ -221,7 +221,7 @@ const Header = (): JSX.Element => {
                         </LemonButton>
                         <LemonButton
                             size="small"
-                            to="https://posthog.com/docs/error-tracking"
+                            to="https://txlemetry.com/docs#error-tracking"
                             type="secondary"
                             targetBlank
                         >
@@ -242,7 +242,7 @@ const IngestionStatusCheck = (): JSX.Element | null => {
             </p>
             <p>
                 To use the Error tracking product, please{' '}
-                <Link to="https://posthog.com/docs/error-tracking/installation">
+                <Link to="https://txlemetry.com/docs#error-tracking">
                     enable exception capture within the Txlemetry SDK
                 </Link>{' '}
                 (otherwise it'll be a little empty!)

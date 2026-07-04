@@ -81,7 +81,7 @@ const NoMetricsPrompt = ({ className }: { className?: string }): JSX.Element | n
                 <div className="flex flex-col items-start gap-4">
                     <p className="text-sm text-secondary m-0">
                         Read our{' '}
-                        <Link to="https://posthog.com/docs/metrics" onClick={() => onDocsLinkClick('Metrics')}>
+                        <Link to="https://txlemetry.com/docs" onClick={() => onDocsLinkClick('Metrics')}>
                             metrics docs
                         </Link>{' '}
                         or learn more about{' '}
@@ -106,7 +106,7 @@ const NoMetricsPrompt = ({ className }: { className?: string }): JSX.Element | n
                         <LemonButton
                             type="secondary"
                             size="small"
-                            to="https://posthog.com/docs/metrics"
+                            to="https://txlemetry.com/docs"
                             onClick={() => onDocsLinkClick('Docs')}
                         >
                             View docs

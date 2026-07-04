@@ -260,7 +260,7 @@ function Step2Content(): JSX.Element {
                 the API. You can upload multiple times to update existing users.
                 <br />
                 <Link
-                    to="https://posthog.com/docs/workflows/import-customerio-optouts"
+                    to="https://txlemetry.com/docs#workflows"
                     target="_blank"
                     className="text-primary"
                 >
@@ -570,7 +570,7 @@ export function CustomerIOImportModal(): JSX.Element {
                     <LemonBanner type="info">
                         <span>
                             Check our{' '}
-                            <Link to="https://posthog.com/docs/workflows/import-customerio-optouts" target="_blank">
+                            <Link to="https://txlemetry.com/docs#workflows" target="_blank">
                                 Customer.io import guide
                             </Link>{' '}
                             for detailed instructions.

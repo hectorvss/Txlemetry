@@ -78,7 +78,7 @@ export const getPersonsListUrl = (projectId: string, params?: PersonsListParams)
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsList = async (
     projectId: string,
@@ -108,7 +108,7 @@ export const getPersonsRetrieveUrl = (projectId: string, id: string, params?: Pe
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsRetrieve = async (
     projectId: string,
@@ -175,7 +175,7 @@ export const getPersonsPartialUpdateUrl = (projectId: string, id: string, params
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsPartialUpdate = async (
     projectId: string,
@@ -213,7 +213,7 @@ export const getPersonsActivityRetrieveUrl = (
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsActivityRetrieve = async (
     projectId: string,
@@ -248,7 +248,7 @@ export const getPersonsDeletePropertyCreateUrl = (
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsDeletePropertyCreate = async (
     projectId: string,
@@ -286,7 +286,7 @@ export const getPersonsPropertiesTimelineRetrieveUrl = (
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsPropertiesTimelineRetrieve = async (
     projectId: string,
@@ -362,7 +362,7 @@ export const getPersonsUpdatePropertyCreateUrl = (
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsUpdatePropertyCreate = async (
     projectId: string,
@@ -396,7 +396,7 @@ export const getPersonsAllActivityRetrieveUrl = (projectId: string, params?: Per
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsAllActivityRetrieve = async (
     projectId: string,
@@ -429,7 +429,7 @@ export const getPersonsBatchByDistinctIdsCreateUrl = (
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsBatchByDistinctIdsCreate = async (
     projectId: string,
@@ -462,7 +462,7 @@ export const getPersonsBatchByUuidsCreateUrl = (projectId: string, params?: Pers
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsBatchByUuidsCreate = async (
     projectId: string,
@@ -528,7 +528,7 @@ export const getPersonsCohortsRetrieveUrl = (projectId: string, params: PersonsC
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsCohortsRetrieve = async (
     projectId: string,
@@ -588,7 +588,7 @@ export const getPersonsFunnelRetrieveUrl = (projectId: string, params?: PersonsF
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsFunnelRetrieve = async (
     projectId: string,
@@ -618,7 +618,7 @@ export const getPersonsFunnelCreateUrl = (projectId: string, params?: PersonsFun
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsFunnelCreate = async (
     projectId: string,
@@ -651,7 +651,7 @@ export const getPersonsLifecycleRetrieveUrl = (projectId: string, params?: Perso
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsLifecycleRetrieve = async (
     projectId: string,
@@ -758,7 +758,7 @@ export const getPersonsTrendsRetrieveUrl = (projectId: string, params?: PersonsT
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsTrendsRetrieve = async (
     projectId: string,
@@ -788,7 +788,7 @@ export const getPersonsValuesRetrieveUrl = (projectId: string, params: PersonsVa
 }
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const personsValuesRetrieve = async (
     projectId: string,

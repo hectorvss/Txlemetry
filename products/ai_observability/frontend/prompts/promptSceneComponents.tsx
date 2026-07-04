@@ -304,7 +304,7 @@ export function PromptUsage({ prompt }: { prompt: LLMPrompt }): JSX.Element {
         <div data-attr="llma-prompt-usage-container">
             <LemonBanner type="info" className="mb-4">
                 During the beta period, each prompt fetch is currently charged as a Product analytics event. See the{' '}
-                <Link to="https://posthog.com/pricing" target="_blank">
+                <Link to="https://txlemetry.com/pricing" target="_blank">
                     pricing page
                 </Link>
                 .

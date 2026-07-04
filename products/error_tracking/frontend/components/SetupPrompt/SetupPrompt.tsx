@@ -33,21 +33,21 @@ export const ERROR_TRACKING_FRAMEWORK_LINKS: {
     {
         name: 'JavaScript',
         image: javascriptImage,
-        docsLink: 'https://posthog.com/docs/error-tracking/installation/web',
+        docsLink: 'https://txlemetry.com/docs#error-tracking',
     },
-    { name: 'Next.js', image: nextjsImage, docsLink: 'https://posthog.com/docs/error-tracking/installation/nextjs' },
-    { name: 'React', image: reactImage, docsLink: 'https://posthog.com/docs/error-tracking/installation/react' },
-    { name: 'Node.js', image: nodejsImage, docsLink: 'https://posthog.com/docs/error-tracking/installation/nodejs' },
-    { name: 'Python', image: pythonImage, docsLink: 'https://posthog.com/docs/error-tracking/installation/python' },
-    { name: 'iOS', image: <IOSLogo />, docsLink: 'https://posthog.com/docs/error-tracking/installation/ios' },
-    { name: 'Android', image: androidImage, docsLink: 'https://posthog.com/docs/error-tracking/installation/android' },
+    { name: 'Next.js', image: nextjsImage, docsLink: 'https://txlemetry.com/docs#error-tracking' },
+    { name: 'React', image: reactImage, docsLink: 'https://txlemetry.com/docs#error-tracking' },
+    { name: 'Node.js', image: nodejsImage, docsLink: 'https://txlemetry.com/docs#error-tracking' },
+    { name: 'Python', image: pythonImage, docsLink: 'https://txlemetry.com/docs#error-tracking' },
+    { name: 'iOS', image: <IOSLogo />, docsLink: 'https://txlemetry.com/docs#error-tracking' },
+    { name: 'Android', image: androidImage, docsLink: 'https://txlemetry.com/docs#error-tracking' },
     {
         name: 'React Native',
         image: reactImage,
-        docsLink: 'https://posthog.com/docs/error-tracking/installation/react-native',
+        docsLink: 'https://txlemetry.com/docs#error-tracking',
     },
-    { name: 'Flutter', image: flutterImage, docsLink: 'https://posthog.com/docs/error-tracking/installation/flutter' },
-    { name: 'Other', docsLink: 'https://posthog.com/docs/error-tracking/installation' },
+    { name: 'Flutter', image: flutterImage, docsLink: 'https://txlemetry.com/docs#error-tracking' },
+    { name: 'Other', docsLink: 'https://txlemetry.com/docs#error-tracking' },
 ]
 
 export const ErrorTrackingSetupPrompt = ({
@@ -118,7 +118,7 @@ export function ErrorTrackingIngestionPrompt({
                 <div className={actionElementClassName}>
                     <p className="text-sm text-secondary m-0">
                         Read our{' '}
-                        <Link to="https://posthog.com/docs/error-tracking" onClick={onDocsLinkClick}>
+                        <Link to="https://txlemetry.com/docs#error-tracking" onClick={onDocsLinkClick}>
                             error tracking docs
                         </Link>
                         , or pick a framework to get started:

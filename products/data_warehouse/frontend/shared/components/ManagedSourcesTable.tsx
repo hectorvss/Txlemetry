@@ -295,7 +295,7 @@ export function ManagedSourcesTable(): JSX.Element {
     )
 }
 
-const DOCS_BASE_URL = 'https://posthog.com/docs/cdp/sources/'
+const DOCS_BASE_URL = 'https://txlemetry.com/docs#data-pipelines'
 
 export function getDataWarehouseSourceUrl(service: string): string {
     switch (service) {

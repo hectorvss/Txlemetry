@@ -111,7 +111,7 @@ function PowerUsersTable(): JSX.Element {
             <div className="flex items-center gap-2">
                 <Tooltip
                     title={`Power ${customerLabel.plural} are the ${customerLabel.plural} that performed your activity event most frequently in the past 30 days.`}
-                    docLink="https://posthog.com/docs/customer-analytics/dashboard-metrics#power-users"
+                    docLink="https://txlemetry.com/docs#customer-analytics"
                 >
                     <h2 className="mb-0 ml-1">Power {customerLabel.plural}</h2>
                 </Tooltip>

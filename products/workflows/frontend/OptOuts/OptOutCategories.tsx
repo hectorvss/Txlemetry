@@ -140,7 +140,7 @@ export function OptOutCategories(): JSX.Element {
                             productName="Message Categories"
                             thingName="category"
                             description="Configure message categories to manage user opt-out preferences for different types of communications."
-                            docsURL="https://posthog.com/docs/workflows/customerio-import"
+                            docsURL="https://txlemetry.com/docs#workflows"
                             actionElementOverride={
                                 <>
                                     <LemonButton type="primary" icon={<IconDownload />} onClick={openImportModal}>

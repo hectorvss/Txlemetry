@@ -22,7 +22,7 @@ export const PersonsUpdateBody = /* @__PURE__ */ zod.object({
 })
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const PersonsPartialUpdateBody = /* @__PURE__ */ zod.object({
     properties: zod
@@ -32,7 +32,7 @@ export const PersonsPartialUpdateBody = /* @__PURE__ */ zod.object({
 })
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const PersonsDeletePropertyCreateBody = /* @__PURE__ */ zod.object({
     $unset: zod.string().describe('The property key to remove from this person.'),
@@ -64,7 +64,7 @@ export const PersonsSplitCreateBody = /* @__PURE__ */ zod.object({
 })
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const PersonsUpdatePropertyCreateBody = /* @__PURE__ */ zod.object({
     key: zod.string().describe('The property key to set.'),
@@ -72,7 +72,7 @@ export const PersonsUpdatePropertyCreateBody = /* @__PURE__ */ zod.object({
 })
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const PersonsBatchByDistinctIdsCreateBody = /* @__PURE__ */ zod.object({
     properties: zod
@@ -82,7 +82,7 @@ export const PersonsBatchByDistinctIdsCreateBody = /* @__PURE__ */ zod.object({
 })
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const PersonsBatchByUuidsCreateBody = /* @__PURE__ */ zod.object({
     properties: zod
@@ -119,7 +119,7 @@ export const PersonsBulkDeleteCreateBody = /* @__PURE__ */ zod.object({
 })
 
 /**
- * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://posthog.com/docs/api/capture), the `$set` and `$unset` [properties](https://posthog.com/docs/product-analytics/user-properties), or one of our SDKs.
+ * This endpoint is meant for reading and deleting persons. To create or update persons, we recommend using the [capture API](https://txlemetry.com/docs#endpoints), the `$set` and `$unset` [properties](https://txlemetry.com/docs#product-analytics), or one of our SDKs.
  */
 export const PersonsFunnelCreateBody = /* @__PURE__ */ zod.object({
     properties: zod

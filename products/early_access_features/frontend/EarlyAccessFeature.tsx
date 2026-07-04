@@ -455,7 +455,7 @@ export function EarlyAccessFeature({ id }: EarlyAccessFeatureLogicProps): JSX.El
                         />
                         <SceneFile dataAttrKey={RESOURCE_TYPE} />
                         <Link
-                            to="https://posthog.com/docs/feature-flags/early-access-feature-management"
+                            to="https://txlemetry.com/docs#feature-flags"
                             target="_blank"
                             className="text-xs"
                         >
@@ -671,7 +671,7 @@ export function EarlyAccessFeature({ id }: EarlyAccessFeatureLogicProps): JSX.El
                                     flag evaluation. Use this for metadata like release notes or UI configuration that
                                     your opt-in interface can display.{' '}
                                     <Link
-                                        to="https://posthog.com/docs/feature-flags/early-access-feature-management"
+                                        to="https://txlemetry.com/docs#feature-flags"
                                         target="_blank"
                                     >
                                         Learn more

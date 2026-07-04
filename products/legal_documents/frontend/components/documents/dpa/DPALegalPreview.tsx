@@ -269,7 +269,7 @@ export function DPALegalPreview({ lawyerMode = false }: DPALegalPreviewProps): J
             <h4>5. Subprocessing</h4>
             <p>
                 5.1. The Company provides Processor with general authorization to engage the Subprocessors set out on
-                https://posthog.com/subprocessors (the "<strong>Subprocessor Page</strong>"). These will differ
+                https://txlemetry.com (the "<strong>Subprocessor Page</strong>"). These will differ
                 depending on the Data Center Location chosen by the Company. In addition, Company provides Processor
                 with general authorization to engage other third parties as Subprocessors, in accordance with this
                 Section 5.
@@ -492,8 +492,8 @@ export function DPALegalPreview({ lawyerMode = false }: DPALegalPreviewProps): J
             <h4 className="text-center mt-10">ANNEX II — Technical and Organizational Security Measures</h4>
             <p>
                 See{' '}
-                <Link to="https://posthog.com/handbook/company/security" target="_blank">
-                    https://posthog.com/handbook/company/security
+                <Link to="https://txlemetry.com" target="_blank">
+                    https://txlemetry.com
                 </Link>
                 .
             </p>

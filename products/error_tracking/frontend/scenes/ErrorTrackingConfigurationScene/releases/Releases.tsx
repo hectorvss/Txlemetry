@@ -115,7 +115,7 @@ const ReleasesTable = (): JSX.Element => {
             <div className="text-secondary">
                 Releases are automatically created when Txlemetry detects version information in your error tracking data.
                 Learn more in the{' '}
-                <Link to="https://posthog.com/docs/error-tracking" target="_blank">
+                <Link to="https://txlemetry.com/docs#error-tracking" target="_blank">
                     docs
                 </Link>
                 .

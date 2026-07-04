@@ -49,7 +49,7 @@ export const getAnnotationsListUrl = (projectId: string, params?: AnnotationsLis
 }
 
 /**
- * Create, Read, Update and Delete annotations. [See docs](https://posthog.com/docs/data/annotations) for more information on annotations.
+ * Create, Read, Update and Delete annotations. [See docs](https://txlemetry.com/docs#data-warehouse) for more information on annotations.
  */
 export const annotationsList = async (
     projectId: string,
@@ -67,7 +67,7 @@ export const getAnnotationsCreateUrl = (projectId: string) => {
 }
 
 /**
- * Create, Read, Update and Delete annotations. [See docs](https://posthog.com/docs/data/annotations) for more information on annotations.
+ * Create, Read, Update and Delete annotations. [See docs](https://txlemetry.com/docs#data-warehouse) for more information on annotations.
  */
 export const annotationsCreate = async (
     projectId: string,
@@ -87,7 +87,7 @@ export const getAnnotationsRetrieveUrl = (projectId: string, id: number) => {
 }
 
 /**
- * Create, Read, Update and Delete annotations. [See docs](https://posthog.com/docs/data/annotations) for more information on annotations.
+ * Create, Read, Update and Delete annotations. [See docs](https://txlemetry.com/docs#data-warehouse) for more information on annotations.
  */
 export const annotationsRetrieve = async (
     projectId: string,
@@ -105,7 +105,7 @@ export const getAnnotationsUpdateUrl = (projectId: string, id: number) => {
 }
 
 /**
- * Create, Read, Update and Delete annotations. [See docs](https://posthog.com/docs/data/annotations) for more information on annotations.
+ * Create, Read, Update and Delete annotations. [See docs](https://txlemetry.com/docs#data-warehouse) for more information on annotations.
  */
 export const annotationsUpdate = async (
     projectId: string,
@@ -126,7 +126,7 @@ export const getAnnotationsPartialUpdateUrl = (projectId: string, id: number) =>
 }
 
 /**
- * Create, Read, Update and Delete annotations. [See docs](https://posthog.com/docs/data/annotations) for more information on annotations.
+ * Create, Read, Update and Delete annotations. [See docs](https://txlemetry.com/docs#data-warehouse) for more information on annotations.
  */
 export const annotationsPartialUpdate = async (
     projectId: string,

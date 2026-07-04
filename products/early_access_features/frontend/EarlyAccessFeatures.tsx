@@ -81,7 +81,7 @@ export function EarlyAccessFeatures(): JSX.Element {
                 thingName="feature"
                 description="Allow your users to individually enable or disable features that are in public beta."
                 isEmpty={shouldShowEmptyState}
-                docsURL="https://posthog.com/docs/feature-flags/early-access-feature-management"
+                docsURL="https://txlemetry.com/docs#feature-flags"
                 action={() => router.actions.push(urls.earlyAccessFeature('new'))}
                 className="my-0"
                 mcpSurfaceKey="early_access_features.create"

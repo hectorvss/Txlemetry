@@ -293,7 +293,7 @@ export function ActionsTable(): JSX.Element {
                 thingName="action"
                 isEmpty={shouldShowEmptyState}
                 description="Use actions to combine events that you want to have tracked together or to make detailed Autocapture events easier to reuse."
-                docsURL="https://posthog.com/docs/data/actions"
+                docsURL="https://txlemetry.com/docs#data-warehouse"
                 actionElementOverride={
                     <NewActionButton onSelectOption={() => updateHasSeenProductIntroFor(ProductKey.ACTIONS)} />
                 }

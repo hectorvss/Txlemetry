@@ -10,7 +10,7 @@ export function ApiSection(): JSX.Element {
                 <>
                     Build a custom support UI on top of the conversations API — send messages, fetch tickets, mark as
                     read, and restore conversations across browsers.{' '}
-                    <Link to="https://posthog.com/docs/support/javascript-api" target="_blank" targetBlankIcon>
+                    <Link to="https://txlemetry.com/docs" target="_blank" targetBlankIcon>
                         JavaScript API reference
                     </Link>
                 </>

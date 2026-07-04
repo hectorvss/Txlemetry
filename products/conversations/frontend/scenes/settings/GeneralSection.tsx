@@ -104,7 +104,7 @@ export function GeneralSection(): JSX.Element {
                                 Specify which domains can call the conversations API (widget and direct API). Leave
                                 empty to allow all domains. Wildcards supported (e.g. <code>https://*.example.com</code>
                                 ).{' '}
-                                <Link to="https://posthog.com/docs/support/javascript-api" target="_blank">
+                                <Link to="https://txlemetry.com/docs" target="_blank">
                                     Docs
                                 </Link>
                             </>
@@ -134,7 +134,7 @@ export function GeneralSection(): JSX.Element {
                                 For logged-in users, sign their distinct_id on your backend with the secret API key so
                                 tickets persist across browsers and devices without email recovery.{' '}
                                 <Link
-                                    to="https://posthog.com/docs/support/javascript-api#user-identification"
+                                    to="https://txlemetry.com/docs"
                                     target="_blank"
                                     targetBlankIcon
                                 >
