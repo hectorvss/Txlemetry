@@ -181,25 +181,49 @@
         S('Steps', { steps: ['Install the snippet (see SDKs & install) so pageviews are captured.', 'Open Web analytics — traffic appears as soon as events arrive.', 'Optionally define a conversion goal to track success against traffic.'] }),
       ]),
       dashboard: p('Reading the web analytics dashboard.', [
-        S('Layout', { p: ['The dashboard is a fixed set of tiles: a traffic graph, source/channel tables, page tables and device/geo splits. Every tile responds to the shared date range and filters at the top, so the whole page always describes the same slice of traffic.'] }),
-        S('Filtering', { list: ['Filter by any property (country, device, campaign…).', 'Compare against the previous period to spot changes.', 'Click a row (a source, a page) to filter the whole dashboard by it.'] }),
+        S('Layout', { p: ['The dashboard is a fixed set of tiles designed for at-a-glance monitoring. Every tile responds to the shared date range and filters at the top, so the whole page always describes the same slice of traffic.'], table: { head: ['Tile', 'What it shows'], rows: [
+          ['Traffic graph', 'Visitors, pageviews and sessions over time, with period comparison'],
+          ['Sources & channels', 'Referrers, channels and UTM campaigns ranked by volume'],
+          ['Pages', 'Top pages, entry pages and exit pages'],
+          ['Devices & geography', 'Device type, browser, OS and country splits'],
+          ['Retention & goals', 'Returning-visitor rate and conversion tiles'],
+        ] } }),
+        S('Working with it', { list: ['Filter by any property (country, device, campaign…) from the top bar.', 'Compare against the previous period to spot changes instantly.', 'Click a row — a source, a page — to filter the entire dashboard by it.', 'Drill from any number into the underlying sessions and events.'] }),
       ]),
       channels: p('Where your traffic comes from.', [
-        S('Channels', { p: ['Traffic is classified into channels — direct, organic search, paid, referral, social, email — based on the referrer and UTM parameters of each session, so you can compare acquisition sources at a glance.'] }),
-        S('UTM tracking', { p: ['UTM parameters (utm_source, utm_medium, utm_campaign, utm_term, utm_content) are captured automatically on first touch and attached to the session, making campaign breakdowns available with no extra setup.'] }),
+        S('Channel classification', { p: ['Each session is classified into a channel from its referrer and UTM parameters, so acquisition sources are comparable at a glance.'], table: { head: ['Channel', 'Classified when'], rows: [
+          ['Direct', 'No referrer and no UTMs'],
+          ['Organic search', 'Referrer is a search engine, no paid UTMs'],
+          ['Paid', 'Paid UTM medium (cpc, ppc…) or click IDs'],
+          ['Referral', 'Another site links to you'],
+          ['Social / Email', 'Social referrers, or utm_medium = email'],
+        ] } }),
+        S('UTM tracking', { p: ['UTM parameters are captured automatically on first touch and attached to the session and person — campaign breakdowns work with zero configuration. Tag your campaign links consistently:'], code: [
+          { lang: 'URL', code: `https://txlemetry.com/pricing\n  ?utm_source=newsletter\n  &utm_medium=email\n  &utm_campaign=spring_launch` },
+        ], note: 'Decide one naming convention (lowercase, underscores) and stick to it — "Email" and "email" become two different campaigns otherwise.' }),
       ]),
       'conversion-goals': p('Define what success means for your site.', [
-        S('Overview', { p: ['A conversion goal is an event that represents success — a signup, a purchase, a demo booking. Once set, the dashboard shows conversion alongside traffic so you can judge quality, not just volume.'] }),
-        S('Set a goal', { steps: ['Open Web analytics and choose "Add conversion goal".', 'Pick the event (or action) that represents success.', 'The conversion tile now tracks it against visitors and sessions.'] }),
+        S('Overview', { p: ['A conversion goal is an event that represents success — a signup, a purchase, a demo booking. Once set, the dashboard shows conversion rate alongside traffic, so you judge acquisition by quality instead of volume.'] }),
+        S('Set a goal', { steps: ['Open Web analytics and choose "Add conversion goal".', 'Pick the event (or action) that represents success.', 'The conversion tile now tracks it against visitors and sessions — and every source row shows its own conversion rate.'], code: [
+          { lang: 'JavaScript', code: `// Make sure the success moment sends an event\ntxlemetry.capture('signup_completed', {\n  plan: 'free',\n})` },
+        ] }),
       ]),
       sessions: p('How visits are grouped into sessions.', [
-        S('Overview', { p: ['A session groups the activity of one visitor until 30 minutes of inactivity. Session duration, entry page and exit page are derived automatically, and each web session links to its full event stream and replay if recording is enabled.'] }),
+        S('Session rules', { p: ['A session groups the activity of one visitor until 30 minutes of inactivity; the next event after that starts a new session. Duration, entry page and exit page are derived automatically.'], list: ['Entry page — the first pageview of the session (with its referrer and UTMs).', 'Exit page — the last pageview before the session ended.', 'Duration — time between the first and last event.', 'Each session links to its full event stream, and to its replay if recording is enabled.'] }),
+        S('Session properties', { p: ['Session-scoped properties (initial referrer, entry URL, channel) are available across the platform — filter a funnel by entry channel, or break retention down by first-touch campaign.'] }),
       ]),
       'web-vitals': p('Monitor real-user performance.', [
-        S('Overview', { p: ['Core web vitals (LCP, CLS, INP, FCP) are collected from real users when enabled, so you can watch performance percentiles per page and catch regressions after a release.'] }),
+        S('The metrics', { table: { head: ['Vital', 'Measures', 'Good target'], rows: [
+          ['LCP', 'Largest contentful paint — loading', '≤ 2.5s'],
+          ['INP', 'Interaction to next paint — responsiveness', '≤ 200ms'],
+          ['CLS', 'Cumulative layout shift — visual stability', '≤ 0.1'],
+          ['FCP', 'First contentful paint — first render', '≤ 1.8s'],
+        ] } }),
+        S('How it works', { p: ['With web vitals capture enabled, measurements come from real user sessions — not lab tests — and are charted as percentiles (p75, p90, p99) per page. Watch them after each release: a performance regression shows up as a step change on the graph.'], note: 'Optimize for p75 and worse, not the average — the average hides the slow experiences that lose users.' }),
       ]),
       'bounce-rate': p('How bounce rate is measured.', [
-        S('Overview', { p: ['A session bounces when it has a single pageview, no autocaptured interaction and lasts under 10 seconds. Bounce rate is shown per page and per source, so you can see which acquisition traffic actually engages.'] }),
+        S('Definition', { p: ['A session bounces when it has a single pageview, no autocaptured interaction, and lasts under 10 seconds. This stricter definition avoids counting engaged single-page visits (e.g. reading a long article) as bounces.'] }),
+        S('Using it', { list: ['Per page — landing pages with high bounce need content or speed work.', 'Per source — a campaign with high bounce is attracting the wrong audience.', 'Trend it — a sudden bounce spike often means a broken page or slow deploy.'] }),
       ]),
       'vs-product-analytics': p('When to use each.', [
         S('Comparison', { list: ['Web analytics: fixed, zero-config dashboard for site traffic questions.', 'Product analytics: fully flexible insights (trends, funnels, retention) for product behavior questions.', 'Both read the same events — start in web analytics, drill into product analytics when you need depth.'] }),
