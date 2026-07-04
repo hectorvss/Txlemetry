@@ -229,6 +229,47 @@
     },
   };
 
+  DOCS['experiments'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['create', 'Create an experiment']] },
+      { label: 'Features', items: [['metrics', 'Goals & metrics'], ['variants', 'Variants & assignment'], ['results', 'Reading results'], ['no-code', 'No-code experiments']] },
+      { label: 'Reference', items: [['sample-size', 'Duration & sample size'], ['best-practices', 'Best practices'], ['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Run A/B tests tied to your metrics and let Txlemetry call the winner.', [
+        S('What are experiments', { p: ['Experiments measure whether a change actually moves a metric. Variants are assigned with a feature flag, exposures and goals are tracked on your event data, and Txlemetry computes the statistics — so the decision is grounded in evidence, not opinion.'] }),
+        S('How it fits together', { list: ['A feature flag assigns each user a variant, consistently.', 'An exposure event marks who saw which variant.', 'Your goal metric (a funnel or trend) is compared across variants.', 'The engine reports each variant’s probability of being best.'] }),
+      ]),
+      create: p('Set up a test from hypothesis to launch.', [
+        S('Steps', { steps: ['Create an experiment: name it and write the hypothesis.', 'Choose the primary metric — a funnel (conversion) or trend (count/value).', 'Define the variants — control plus one or more tests — and traffic split.', 'Implement the variant behavior in code by reading the experiment’s flag.', 'Launch, and let it run until results are conclusive.'] }),
+      ]),
+      metrics: p('What you measure decides what you learn.', [
+        S('Primary metric', { p: ['The primary metric is the single number the experiment exists to move — conversion through a funnel, count of a key event, or a property sum (e.g. revenue). Decide it before launching to avoid cherry-picking afterwards.'] }),
+        S('Secondary metrics', { p: ['Add secondary and guardrail metrics to catch side effects — e.g. a variant that raises signups but hurts retention.'] }),
+      ]),
+      variants: p('How users are split.', [
+        S('Assignment', { p: ['Assignment is deterministic per distinct ID: the same user always sees the same variant, across sessions and devices, as long as identification is consistent. Splits can be equal or weighted.'] }),
+        S('Exposure', { p: ['A user counts as exposed the first time the flag is evaluated for them. Only exposed users enter the analysis, keeping the comparison fair.'] }),
+      ]),
+      results: p('Interpreting the numbers.', [
+        S('Overview', { p: ['The results view shows each variant’s metric value, the observed uplift versus control, and the probability that each variant is the best. When the probability crosses the significance threshold, the experiment is marked conclusive.'] }),
+        S('Caution', { list: ['Don’t stop early on a lucky streak — respect the planned duration.', 'Check secondary metrics before shipping the winner.', 'A conclusive "no effect" is also a valid, useful result.'] }),
+      ]),
+      'no-code': p('Test copy and UI without a deploy.', [
+        S('Overview', { p: ['No-code experiments let you define visual changes (text, styles, element visibility) on top of a variant from the toolbar, so marketing-style tests don’t need engineering time.'] }),
+      ]),
+      'sample-size': p('How long to run a test.', [
+        S('Overview', { p: ['Duration depends on traffic, baseline conversion and the effect size you care about. The setup screen estimates the days needed from your recent traffic. Small effects on low-traffic pages take long — consider testing bigger changes or higher-traffic surfaces.'] }),
+      ]),
+      'best-practices': p('Running trustworthy experiments.', [
+        S('Recommendations', { list: ['One primary metric, decided upfront.', 'Run full weeks to average out weekday/weekend cycles.', 'Don’t peek-and-stop; wait for conclusiveness.', 'Document the hypothesis and the decision, win or lose.'] }),
+      ]),
+      faq: p('Common questions about experiments.', [
+        S('FAQ', { qa: [['Can I run several experiments at once?', 'Yes — independent random assignment means concurrent experiments generally don’t bias each other.'], ['What if I change a running experiment?', 'Changing variants or metrics mid-flight invalidates the comparison; restart instead.'], ['Do experiments work server-side?', 'Yes — read the flag in your backend and track the exposure event there.']] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
