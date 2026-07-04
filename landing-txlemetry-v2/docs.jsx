@@ -182,6 +182,53 @@
     },
   };
 
+  DOCS['feature-flags'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['create', 'Create a flag'], ['use-in-code', 'Use flags in code']] },
+      { label: 'Features', items: [['targeting', 'Release conditions'], ['multivariate', 'Multivariate flags'], ['payloads', 'Payloads & remote config'], ['bootstrapping', 'Bootstrapping & local eval'], ['scheduling', 'Scheduling & rollbacks']] },
+      { label: 'Reference', items: [['best-practices', 'Best practices'], ['troubleshooting', 'Troubleshooting'], ['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Ship safely with progressive rollouts and remote configuration.', [
+        S('What are feature flags', { p: ['Feature flags decouple deploying code from releasing it. You ship a feature dark, then turn it on for a percentage of users, a cohort, or users matching a property — and turn it off instantly if something goes wrong, without another deploy.'] }),
+        S('Why use them', { list: ['Progressive rollouts: 5% → 25% → 100%, watching metrics at each step.', 'Kill switches: disable a misbehaving feature in seconds.', 'Targeting: beta features only for a cohort or plan.', 'Experiments: flags are the assignment mechanism for A/B tests.', 'Remote config: change values in production without deploying.'] }),
+      ]),
+      create: p('Create and configure your first flag.', [
+        S('Steps', { steps: ['Open Feature flags and create a new flag with a descriptive key (e.g. new-checkout).', 'Choose the release condition: percentage of users, person properties, or a cohort.', 'Save — the flag is live and evaluable from every SDK immediately.', 'Increase the rollout percentage as confidence grows.'] }),
+        S('Flag states', { list: ['Enabled/disabled — the master switch.', 'Rollout % — what share of matching users get the flag.', 'Conditions — who is eligible at all.'] }),
+      ]),
+      'use-in-code': p('Read flags from your application.', [
+        S('Client-side', { p: ['In the browser or mobile app, check a flag with the SDK’s isFeatureEnabled / getFeatureFlag call and branch your UI on the result. Flags are fetched for the current user and cached.'] }),
+        S('Server-side', { p: ['Backend SDKs evaluate flags per distinct ID. With local evaluation enabled, flag definitions are cached in your server and evaluated in-process for minimal latency.'] }),
+      ]),
+      targeting: p('Who gets the feature.', [
+        S('Release conditions', { list: ['Percentage rollout — a stable hash of the user ID decides, so the same user always gets the same result.', 'Person properties — e.g. plan = enterprise, country = ES.', 'Cohorts — reuse behavioral groups defined in analytics.', 'Groups — roll out per organization/account instead of per user.'] }),
+      ]),
+      multivariate: p('More than on/off.', [
+        S('Overview', { p: ['Multivariate flags return one of several string variants (e.g. control / red / blue) with weights you define — the building block for experiments with multiple treatments.'] }),
+      ]),
+      payloads: p('Attach configuration to a flag.', [
+        S('Overview', { p: ['A flag can carry a JSON payload. Use it as remote config: change copy, limits, or endpoints in production by editing the payload — no deploy needed. The payload is returned alongside the flag value in every SDK.'] }),
+      ]),
+      bootstrapping: p('Avoid flicker and evaluate locally.', [
+        S('Bootstrapping', { p: ['Pass the user’s flags to the client on first render (from your server) so UI gated by flags renders correctly immediately, with no flash of the wrong variant.'] }),
+        S('Local evaluation', { p: ['Server SDKs can poll flag definitions and evaluate them in-process — microsecond checks, no network call per request.'] }),
+      ]),
+      scheduling: p('Automate flag changes over time.', [
+        S('Overview', { p: ['Schedule a flag to change at a future time — enable a launch at 9:00, or ramp a rollout automatically. Every change is recorded in the flag’s history so rollbacks are one click.'] }),
+      ]),
+      'best-practices': p('Naming, cleanup and safety.', [
+        S('Recommendations', { list: ['Use descriptive kebab-case keys and a naming convention per team.', 'Default to safe behavior when a flag can’t be evaluated.', 'Remove flags once fully rolled out — stale flags are tech debt.', 'Pair risky rollouts with a dashboard of guardrail metrics.'] }),
+      ]),
+      troubleshooting: p('Flag not behaving as expected?', [
+        S('Checklist', { steps: ['Check the flag’s conditions against the actual person properties of the affected user.', 'Confirm the SDK identifies the user before evaluating (anonymous vs identified IDs differ).', 'Use the flag’s usage tab to see recent evaluations and results.', 'For local evaluation, confirm definitions are refreshing (poll interval).'] }),
+      ]),
+      faq: p('Common questions about feature flags.', [
+        S('FAQ', { qa: [['Do flags affect performance?', 'Client evaluations are cached; server local-evaluation is in-process. Overhead is negligible in practice.'], ['Same user, different devices?', 'Evaluation keys off the distinct ID — identify users consistently and results follow them across devices.'], ['Can non-developers change flags?', 'Yes, rollout and conditions are editable from the UI without code changes.']] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
