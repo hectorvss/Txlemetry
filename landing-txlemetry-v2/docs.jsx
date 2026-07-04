@@ -408,6 +408,42 @@
     },
   };
 
+  DOCS['data-warehouse'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['link-source', 'Link your first source']] },
+      { label: 'Working with data', items: [['query', 'Query with SQL'], ['joins', 'Joins'], ['views', 'Views & materialization'], ['unify', 'Unify customer data']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Join product, revenue and business data in one queryable place.', [
+        S('What is the data warehouse', { p: ['The data warehouse lets you bring external data — billing, CRM, support, your own database — into Txlemetry and query it with SQL alongside your product events. Analyses can then span behavior and business context without exporting anything to a separate BI stack.'] }),
+        S('What you can do', { list: ['Sync tables from databases and SaaS tools on a schedule.', 'Query synced tables and events together with SQL.', 'Join external rows to persons and events.', 'Save queries as views and materialize the expensive ones.', 'Use warehouse data inside regular insights.'] }),
+      ]),
+      'link-source': p('Connect a database or SaaS tool.', [
+        S('Steps', { steps: ['Open Data warehouse and add a source (Postgres, MySQL, billing/CRM tools, or files in object storage).', 'Authorize the connection and select the tables to sync.', 'Pick a sync schedule.', 'Once the first sync completes, the tables appear in the SQL editor’s schema.'] }),
+        S('Notes', { list: ['Syncs are incremental where the source supports it.', 'Each table shows its last sync time and row count.', 'Sensitive columns can be excluded from the sync.'] }),
+      ]),
+      query: p('SQL over events and external tables.', [
+        S('Overview', { p: ['The SQL editor exposes your events, persons and every synced table in one schema. Standard SQL (with helpful extensions for event data) lets you answer questions the visual builder can’t, and results can be saved as insights or added to dashboards.'] }),
+        S('Tips', { list: ['Explore the schema tree to see available tables and columns.', 'Use LIMIT while iterating on a query.', 'Save frequent queries as views to reuse them.'] }),
+      ]),
+      joins: p('Connect external rows to your product data.', [
+        S('Overview', { p: ['Define a join between a warehouse table and persons (or events) — e.g. billing customers joined on email — and the external columns become usable as if they were person properties: in filters, breakdowns and cohorts.'] }),
+        S('Steps', { steps: ['Open the joins configuration in Data warehouse.', 'Pick the table, and the key on each side (e.g. customers.email ↔ person.email).', 'Save — joined fields are now available across insights.'] }),
+      ]),
+      views: p('Name queries; speed up the heavy ones.', [
+        S('Views', { p: ['A view is a saved query that behaves like a table. Use views to encapsulate cleaning/renaming logic once, so every analysis starts from tidy data.'] }),
+        S('Materialization', { p: ['Materializing a view precomputes and stores its result on a schedule, so expensive joins or aggregations become instant to query. Ideal for daily rollups used by many dashboards.'] }),
+      ]),
+      unify: p('One view of the customer.', [
+        S('Overview', { p: ['With sources linked and joins defined, revenue, plan and lifecycle data sit next to behavior: chart MRR against feature usage, break retention down by plan from billing, or target an experiment at customers above a revenue threshold.'] }),
+      ]),
+      faq: p('Common questions about the data warehouse.', [
+        S('FAQ', { qa: [['Is this a replacement for my Snowflake/BigQuery?', 'It can be, for product-adjacent analysis; you can also keep both and use batch exports to feed your existing warehouse.'], ['How fresh is synced data?', 'As fresh as the sync schedule you choose per source.'], ['Does querying synced tables cost extra?', 'Storage and sync volume follow warehouse pricing; querying is included.']] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
