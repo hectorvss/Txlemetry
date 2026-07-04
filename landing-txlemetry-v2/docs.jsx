@@ -430,15 +430,24 @@
         S('How it fits together', { list: ['A feature flag assigns each user a variant, consistently.', 'An exposure event marks who saw which variant.', 'Your goal metric (a funnel or trend) is compared across variants.', 'The engine reports each variant’s probability of being best.'] }),
       ]),
       create: p('Set up a test from hypothesis to launch.', [
-        S('Steps', { steps: ['Create an experiment: name it and write the hypothesis.', 'Choose the primary metric — a funnel (conversion) or trend (count/value).', 'Define the variants — control plus one or more tests — and traffic split.', 'Implement the variant behavior in code by reading the experiment’s flag.', 'Launch, and let it run until results are conclusive.'] }),
+        S('Steps', { steps: ['Create an experiment: name it and write the hypothesis ("changing X will improve Y because Z").', 'Choose the primary metric — a funnel (conversion) or trend (count/value).', 'Define the variants — control plus one or more tests — and the traffic split.', 'Implement the variant behavior in code by reading the experiment’s flag.', 'Launch, and let it run until results are conclusive.'] }),
+        S('Implementing the variants', { code: [
+          { lang: 'JavaScript', code: `const variant = txlemetry.getFeatureFlag('checkout-test')\n\nif (variant === 'one-page') {\n  renderOnePageCheckout()\n} else if (variant === 'progress-bar') {\n  renderStepsWithProgressBar()\n} else {\n  renderCurrentCheckout() // control\n}` },
+          { lang: 'React', code: `import { useFeatureFlagVariantKey } from '@txlemetry/react'\n\nfunction Checkout() {\n  const variant = useFeatureFlagVariantKey('checkout-test')\n  if (variant === 'one-page') return <OnePageCheckout />\n  if (variant === 'progress-bar') return <ProgressCheckout />\n  return <CurrentCheckout />\n}` },
+        ], note: 'Handle the "flag not loaded yet" state explicitly (undefined) — render control rather than flashing between variants.' }),
       ]),
       metrics: p('What you measure decides what you learn.', [
-        S('Primary metric', { p: ['The primary metric is the single number the experiment exists to move — conversion through a funnel, count of a key event, or a property sum (e.g. revenue). Decide it before launching to avoid cherry-picking afterwards.'] }),
-        S('Secondary metrics', { p: ['Add secondary and guardrail metrics to catch side effects — e.g. a variant that raises signups but hurts retention.'] }),
+        S('Metric types', { table: { head: ['Type', 'Measures', 'Example'], rows: [
+          ['Funnel', 'Conversion through ordered steps', 'Visited pricing → started trial'],
+          ['Trend (count)', 'How often an event happens', 'Reports created per user'],
+          ['Trend (value)', 'Sum/average of a property', 'Revenue per user'],
+        ] } }),
+        S('Primary metric', { p: ['The primary metric is the single number the experiment exists to move. Decide it before launching — choosing metrics after seeing data is how teams fool themselves.'] }),
+        S('Secondary & guardrails', { p: ['Secondary metrics add context; guardrail metrics catch harm — e.g. a variant that raises signups but hurts retention or increases errors. A win on the primary that trips a guardrail is not a win.'] }),
       ]),
       variants: p('How users are split.', [
-        S('Assignment', { p: ['Assignment is deterministic per distinct ID: the same user always sees the same variant, across sessions and devices, as long as identification is consistent. Splits can be equal or weighted.'] }),
-        S('Exposure', { p: ['A user counts as exposed the first time the flag is evaluated for them. Only exposed users enter the analysis, keeping the comparison fair.'] }),
+        S('Assignment', { p: ['Assignment is deterministic per distinct ID: a hash of the user and flag decides the variant, so the same user always sees the same experience across sessions and devices — as long as identification is consistent. Splits can be equal or weighted.'] }),
+        S('Exposure', { p: ['A user enters the analysis the first time the flag is evaluated for them — the exposure. Only exposed users count, which keeps the comparison fair: users who never saw either experience can’t dilute the result.'], note: 'If a variant renders nothing visible (e.g. a backend change), make sure the flag is still evaluated where users experience the effect, or exposures won’t match reality.' }),
       ]),
       results: p('Interpreting the numbers.', [
         S('Overview', { p: ['The results view shows each variant’s metric value, the observed uplift versus control, and the probability that each variant is the best. When the probability crosses the significance threshold, the experiment is marked conclusive.'] }),
