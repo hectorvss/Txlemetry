@@ -98,6 +98,51 @@
     },
   };
 
+  DOCS['web-analytics'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['getting-started', 'Getting started']] },
+      { label: 'Features', items: [['dashboard', 'The dashboard'], ['channels', 'Channels & UTMs'], ['conversion-goals', 'Conversion goals'], ['sessions', 'Sessions'], ['web-vitals', 'Core web vitals'], ['bounce-rate', 'Bounce rate']] },
+      { label: 'Reference', items: [['vs-product-analytics', 'Web vs product analytics'], ['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Traffic, sources, conversion and content performance in one simple view.', [
+        S('What is web analytics', { p: ['Web analytics gives you the familiar top-level view of your site — visitors, sessions, top pages, referrers and conversion — without setting anything up beyond the snippet. It is designed for at-a-glance monitoring, while staying connected to the deeper product data underneath: when a number looks off, you can drill straight into the events and sessions behind it.'] }),
+        S('What you get', { list: ['Visitors, pageviews and sessions over time, with period comparison.', 'Top sources, channels and UTM campaign breakdowns.', 'Top pages, entry pages and exit pages.', 'Device, browser and geography splits.', 'Conversion goals tied to your own events.', 'Core web vitals monitoring.'] }),
+      ]),
+      'getting-started': p('From snippet to populated dashboard in minutes.', [
+        S('Requirements', { p: ['Web analytics is powered by the same capture as everything else: once the Txlemetry snippet is installed and sending pageviews, the dashboard populates automatically — no extra tagging plan needed.'] }),
+        S('Steps', { steps: ['Install the snippet (see SDKs & install) so pageviews are captured.', 'Open Web analytics — traffic appears as soon as events arrive.', 'Optionally define a conversion goal to track success against traffic.'] }),
+      ]),
+      dashboard: p('Reading the web analytics dashboard.', [
+        S('Layout', { p: ['The dashboard is a fixed set of tiles: a traffic graph, source/channel tables, page tables and device/geo splits. Every tile responds to the shared date range and filters at the top, so the whole page always describes the same slice of traffic.'] }),
+        S('Filtering', { list: ['Filter by any property (country, device, campaign…).', 'Compare against the previous period to spot changes.', 'Click a row (a source, a page) to filter the whole dashboard by it.'] }),
+      ]),
+      channels: p('Where your traffic comes from.', [
+        S('Channels', { p: ['Traffic is classified into channels — direct, organic search, paid, referral, social, email — based on the referrer and UTM parameters of each session, so you can compare acquisition sources at a glance.'] }),
+        S('UTM tracking', { p: ['UTM parameters (utm_source, utm_medium, utm_campaign, utm_term, utm_content) are captured automatically on first touch and attached to the session, making campaign breakdowns available with no extra setup.'] }),
+      ]),
+      'conversion-goals': p('Define what success means for your site.', [
+        S('Overview', { p: ['A conversion goal is an event that represents success — a signup, a purchase, a demo booking. Once set, the dashboard shows conversion alongside traffic so you can judge quality, not just volume.'] }),
+        S('Set a goal', { steps: ['Open Web analytics and choose "Add conversion goal".', 'Pick the event (or action) that represents success.', 'The conversion tile now tracks it against visitors and sessions.'] }),
+      ]),
+      sessions: p('How visits are grouped into sessions.', [
+        S('Overview', { p: ['A session groups the activity of one visitor until 30 minutes of inactivity. Session duration, entry page and exit page are derived automatically, and each web session links to its full event stream and replay if recording is enabled.'] }),
+      ]),
+      'web-vitals': p('Monitor real-user performance.', [
+        S('Overview', { p: ['Core web vitals (LCP, CLS, INP, FCP) are collected from real users when enabled, so you can watch performance percentiles per page and catch regressions after a release.'] }),
+      ]),
+      'bounce-rate': p('How bounce rate is measured.', [
+        S('Overview', { p: ['A session bounces when it has a single pageview, no autocaptured interaction and lasts under 10 seconds. Bounce rate is shown per page and per source, so you can see which acquisition traffic actually engages.'] }),
+      ]),
+      'vs-product-analytics': p('When to use each.', [
+        S('Comparison', { list: ['Web analytics: fixed, zero-config dashboard for site traffic questions.', 'Product analytics: fully flexible insights (trends, funnels, retention) for product behavior questions.', 'Both read the same events — start in web analytics, drill into product analytics when you need depth.'] }),
+      ]),
+      faq: p('Common questions about web analytics.', [
+        S('FAQ', { qa: [['Do I need to configure anything?', 'No — pageviews from the snippet are enough; goals and vitals are optional toggles.'], ['Does it work alongside product analytics?', 'Yes, they share the same event data; nothing is double-counted or duplicated.'], ['Can I see individual visitors?', 'Yes — drill from any tile into the underlying sessions and persons.']] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
