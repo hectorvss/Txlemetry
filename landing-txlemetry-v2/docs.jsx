@@ -1065,6 +1065,137 @@
     },
   };
 
+  DOCS['workflows'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['create', 'Create a workflow']] },
+      { label: 'Features', items: [['triggers', 'Triggers & conditions'], ['actions', 'Actions'], ['recipes', 'Common recipes']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Automate actions when something happens in your data.', [
+        S('What are workflows', { p: ['Workflows turn your data from something you look at into something that acts: when an event or condition occurs, a workflow runs — notify a channel, sync a record, send a message, call a webhook. The trigger vocabulary is the same events, properties and cohorts you already use everywhere else.'] }),
+      ]),
+      create: p('From trigger to action.', [
+        S('Steps', { steps: ['Create a workflow and pick the trigger event (or condition).', 'Add filters so it fires only for the cases you care about.', 'Choose the action — message, webhook, sync — and map the fields.', 'Test with a sample event, then enable it.'] }),
+      ]),
+      triggers: p('When workflows fire.', [
+        S('Trigger types', { table: { head: ['Trigger', 'Example'], rows: [
+          ['Event captured', 'subscription_cancelled happens'],
+          ['Event with filters', 'purchase_completed where amount > 500'],
+          ['Cohort entry/exit', 'User enters "at-risk" cohort'],
+          ['Schedule', 'Every Monday 9:00, run a check'],
+        ] } }),
+      ]),
+      actions: p('What workflows can do.', [
+        S('Action types', { list: ['Send to Slack or email — alert a channel with event context.', 'Call a webhook — trigger anything in your own stack.', 'Sync to a destination — push the user/event to a CRM or tool.', 'Capture an event — chain workflows by emitting new events.'] }),
+      ]),
+      recipes: p('Patterns teams reuse.', [
+        S('Examples', { list: ['High-value signup → Slack #sales with company context.', 'Payment failure → email the account owner and open a ticket.', 'Feature adopted first time → trigger an onboarding email.', 'At-risk cohort entry → create a task for customer success.'] }),
+      ]),
+      faq: p('Common workflow questions.', [
+        S('FAQ', { qa: [
+          ['How fast do workflows run?', 'Triggers evaluate on ingestion — actions typically fire within seconds.'],
+          ['Can a workflow loop?', 'Guards prevent a workflow from re-triggering itself through its own captured events.'],
+        ] }),
+      ]),
+    },
+  };
+
+  DOCS['logs'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['ship', 'Ship your logs']] },
+      { label: 'Features', items: [['search', 'Search & filters'], ['correlate', 'Correlate with sessions']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Search and correlate application logs alongside product data.', [
+        S('What is Logs', { p: ['Logs ingests your application logs into the same platform as your events and sessions. The payoff is correlation: a log line sits next to the session, user and events around it, so debugging stops being a tab-switching exercise between tools that disagree about time.'] }),
+      ]),
+      ship: p('Get logs flowing.', [
+        S('Options', { list: ['OpenTelemetry — point your OTLP logs exporter at the logs endpoint.', 'Collectors — forward from your existing agent (e.g. a fluent-style shipper).', 'Direct API — post structured log records from anywhere.'], code: [
+          { lang: 'YAML', code: `# OpenTelemetry collector exporter\nexporters:\n  otlphttp/txlemetry:\n    endpoint: https://txlemetry.com/i/v1/logs\n    headers:\n      Authorization: Bearer <project-api-key>` },
+        ] }),
+        S('Structure pays off', { note: 'Ship structured logs (JSON with level, service, message, user id when known) — every field becomes filterable.' }),
+      ]),
+      search: p('Find the line that matters.', [
+        S('Query tools', { list: ['Full-text search over messages.', 'Filters by level, service, host and any structured field.', 'Time-range brushing synced with charts.', 'Live tail for incidents in progress.'] }),
+      ]),
+      correlate: p('The reason logs live here.', [
+        S('Overview', { p: ['When a log record carries a user or session identifier, it links both ways: from a log line to the session replay and events around it, and from an error or replay to the backend logs of that exact moment.'] }),
+      ]),
+      faq: p('Common logs questions.', [
+        S('FAQ', { qa: [
+          ['How long are logs retained?', 'Per your plan’s retention window, configurable by project.'],
+          ['Do logs count as events?', 'No — logs are billed and stored as their own signal type.'],
+        ] }),
+      ]),
+    },
+  };
+
+  DOCS['distributed-tracing'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['instrument', 'Instrument services']] },
+      { label: 'Features', items: [['read-traces', 'Reading traces'], ['find-latency', 'Finding latency']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Follow a request across services to find where time goes.', [
+        S('What is tracing', { p: ['A trace stitches together the spans of one request as it crosses your services — API gateway, backend, database, external calls — into a single timeline. Instead of guessing which hop is slow, you see it.'] }),
+        S('Concepts', { table: { head: ['Term', 'Meaning'], rows: [
+          ['Trace', 'The whole journey of one request'],
+          ['Span', 'One operation within it (a handler, a query, an HTTP call)'],
+          ['Parent/child', 'Spans nest to show causality'],
+          ['Attributes', 'Key-values on spans (route, status, user)'],
+        ] } }),
+      ]),
+      instrument: p('OpenTelemetry-native setup.', [
+        S('Overview', { p: ['Tracing ingests standard OpenTelemetry — if your services already emit OTLP traces, point the exporter at the traces endpoint and they appear. Auto-instrumentation libraries cover common frameworks with near-zero code.'], code: [
+          { lang: 'YAML', code: `exporters:\n  otlphttp/txlemetry:\n    endpoint: https://txlemetry.com/i/v1/traces\n    headers:\n      Authorization: Bearer <project-api-key>` },
+        ] }),
+      ]),
+      'read-traces': p('The waterfall view.', [
+        S('Overview', { p: ['A trace renders as a waterfall: each span a bar, positioned in time, nested by causality. Wide bars are where the time went; gaps are waiting; error badges mark failed spans. Click a span for its attributes and logs.'] }),
+      ]),
+      'find-latency': p('From slow endpoint to root cause.', [
+        S('Workflow', { steps: ['Start from the endpoint’s latency percentiles and open a slow trace.', 'Find the widest span — that hop owns the latency.', 'Check its attributes: which query, which downstream, which user.', 'Fix, deploy, and watch the percentile drop.'] }),
+      ]),
+      faq: p('Common tracing questions.', [
+        S('FAQ', { qa: [
+          ['Do I need to sample?', 'High-traffic systems usually sample traces; errors and slow requests can be kept preferentially.'],
+          ['Does it connect to product data?', 'Traces carrying a user/session attribute link to the person and session like logs do.'],
+        ] }),
+      ]),
+    },
+  };
+
+  DOCS['support'] = {
+    toc: [
+      { label: 'Get help', items: [['overview', 'Overview'], ['channels', 'Contact channels'], ['reporting', 'Reporting a bug well']] },
+      { label: 'Reference', items: [['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Get help from the Txlemetry team.', [
+        S('We reply fast', { p: ['Stuck on setup, puzzled by a number, or hit something that looks broken? Reach the team — most questions get a same-day answer, and bugs get tracked to resolution.'] }),
+      ]),
+      channels: p('Where to reach us.', [
+        S('Channels', { table: { head: ['Channel', 'Best for'], rows: [
+          ['In-app support panel', 'Questions tied to your account and data'],
+          ['Talk to us (from the landing)', 'Sales, onboarding, demos'],
+          ['These docs', 'Self-serve answers, guides and FAQs'],
+        ] } }),
+      ]),
+      reporting: p('Help us fix it fast.', [
+        S('Include', { list: ['What you did, what you expected, what happened instead.', 'The URL of the page and the approximate time.', 'A screenshot or, better, the session replay link if it is your own product.', 'Your browser/OS if the issue looks visual.'], note: 'A precise report often turns a multi-day back-and-forth into a same-day fix.' }),
+      ]),
+      faq: p('Support basics.', [
+        S('FAQ', { qa: [
+          ['Is support included in every plan?', 'Yes — response-time commitments scale with plan tier.'],
+          ['Where do I see known issues?', 'The team communicates incidents in-app and via the status channel.'],
+        ] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
