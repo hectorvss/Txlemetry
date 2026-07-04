@@ -270,6 +270,58 @@
     },
   };
 
+  DOCS['surveys'] = {
+    toc: [
+      { label: 'Get started', items: [['overview', 'Overview'], ['create-first', 'Create your first survey']] },
+      { label: 'Features', items: [['question-types', 'Question types'], ['targeting', 'Targeting & display'], ['customization', 'Customization'], ['custom-ui', 'Custom survey UI'], ['results', 'Analyzing results']] },
+      { label: 'Templates', items: [['nps', 'NPS'], ['csat', 'CSAT'], ['churn', 'Churn surveys']] },
+      { label: 'Reference', items: [['troubleshooting', 'Troubleshooting'], ['faq', 'FAQ']] },
+    ],
+    pages: {
+      overview: p('Collect in-product feedback without bolting on another tool.', [
+        S('What are surveys', { p: ['Surveys let you ask users questions directly in your product — satisfaction scores, open feedback, interest in a feature — and analyze the responses next to the rest of your product data. Because targeting uses the same properties, cohorts and flags as everything else, you can ask exactly the right users at exactly the right moment.'] }),
+        S('Typical uses', { list: ['NPS and CSAT programs.', 'Feedback prompts after using a new feature.', 'Churn/cancellation reasons.', 'Recruiting users for interviews.'] }),
+      ]),
+      'create-first': p('From zero to a live survey in minutes.', [
+        S('Requirements', { p: ['Surveys render through the same JavaScript snippet/SDK used for capture — if events flow, surveys can display. No extra installation is needed on the web.'] }),
+        S('Steps', { steps: ['Open Surveys and create a new survey (blank or from a template).', 'Write the questions and choose their types.', 'Define who sees it and where (URL, properties, cohort or flag).', 'Preview it, then launch. Responses stream into the results view.'] }),
+      ]),
+      'question-types': p('Pick the right format for the question.', [
+        S('Available types', { list: ['Rating (1–5, 1–10 or emoji) — for scores like NPS/CSAT.', 'Single choice — pick one option.', 'Multiple choice — pick several.', 'Open text — free-form feedback.', 'Link — drive users to an external page (e.g. book an interview).'] }),
+        S('Multi-step surveys', { p: ['Chain several questions with optional branching, so a low rating can be followed by "what went wrong?" while a high one asks for a review.'] }),
+      ]),
+      targeting: p('Who sees the survey, where and when.', [
+        S('Conditions', { list: ['URL contains/matches — show only on certain pages.', 'Person properties and cohorts — segment precisely.', 'Feature flag — tie display to a rollout.', 'Wait period and response limits — avoid over-surveying the same person.'] }),
+        S('Scheduling', { p: ['Control when a survey starts and stops, and cap total responses so analysis stays manageable.'] }),
+      ]),
+      customization: p('Make it look like your product.', [
+        S('Overview', { p: ['Adjust colors, position, border radius and button text from the survey editor — no code. The widget inherits your font by default so it blends into the page.'] }),
+      ]),
+      'custom-ui': p('Render surveys with your own components.', [
+        S('Overview', { p: ['If the built-in widget doesn’t fit, fetch active surveys from the SDK and render them with your own UI, then send responses back with a capture call. You keep full visual control while targeting and analysis stay in Txlemetry.'] }),
+      ]),
+      results: p('From responses to decisions.', [
+        S('Overview', { p: ['Each survey has a results view: response counts, score distributions, and every open-text answer. Because responses are events, you can also slice them in product analytics — e.g. NPS by plan, or churn reasons by cohort.'] }),
+      ]),
+      nps: p('Measure loyalty with Net Promoter Score.', [
+        S('Overview', { p: ['The NPS template asks "how likely are you to recommend us?" on a 0–10 scale. Detractors (0–6), passives (7–8) and promoters (9–10) are classified automatically, and the score trend is tracked over time.'] }),
+        S('Tips', { list: ['Survey a rolling sample, not everyone at once.', 'Follow the score with an open "why?" question.', 'Compare NPS across plans or cohorts to find friction.'] }),
+      ]),
+      csat: p('Measure satisfaction after key moments.', [
+        S('Overview', { p: ['CSAT asks "how satisfied are you?" right after an experience — onboarding, support, a purchase. Trigger it on the event that ends the experience so feedback is fresh.'] }),
+      ]),
+      churn: p('Learn why users leave.', [
+        S('Overview', { p: ['Show a short survey in the cancellation flow asking the reason for leaving. Pair the answers with usage data to separate price complaints from product gaps.'] }),
+      ]),
+      troubleshooting: p('Survey not showing?', [
+        S('Checklist', { steps: ['Confirm the survey is launched (not draft) and within its schedule.', 'Check the display conditions against the current user’s properties and URL.', 'The same user won’t see a survey twice unless configured to.', 'Ad blockers can suppress the widget for some visitors.'] }),
+      ]),
+      faq: p('Common questions about surveys.', [
+        S('FAQ', { qa: [['Do surveys work on mobile?', 'Yes — mobile SDKs support surveys, with the same targeting.'], ['Can I export responses?', 'Yes — responses are events, so they export like any other data.'], ['Can I A/B test a survey?', 'Yes — gate it with a flag or experiment like any feature.']] }),
+      ]),
+    },
+  };
+
   // Categories without full docs yet get a generated single-page overview,
   // so the whole dropdown works today and content is expanded per category next.
   CATEGORIES.forEach((c) => {
