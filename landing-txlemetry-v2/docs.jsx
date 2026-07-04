@@ -143,6 +143,39 @@
     );
   }
 
+  /* Monochrome black icons per category (match the SaaS sidebar's black icon set). */
+  function CatIcon({ slug }) {
+    const P = {
+      'product-analytics': <g><line x1="3" y1="13" x2="3" y2="8"/><line x1="8" y1="13" x2="8" y2="3"/><line x1="13" y1="13" x2="13" y2="6"/></g>,
+      'web-analytics': <g><circle cx="8" cy="8" r="5.5"/><path d="M2.5 8h11M8 2.5c-3.5 3.5-3.5 7.5 0 11M8 2.5c3.5 3.5 3.5 7.5 0 11"/></g>,
+      'dashboards': <g><rect x="2.5" y="2.5" width="4.5" height="6" rx="1"/><rect x="9" y="2.5" width="4.5" height="3.5" rx="1"/><rect x="9" y="8" width="4.5" height="5.5" rx="1"/><rect x="2.5" y="10.5" width="4.5" height="3" rx="1"/></g>,
+      'revenue-analytics': <g><circle cx="8" cy="8" r="5.5"/><path d="M10 6c-.5-.8-1.2-1.2-2-1.2-1.2 0-2 .7-2 1.6 0 2.4 4 1.2 4 3.4 0 1-.9 1.7-2 1.7-.9 0-1.7-.4-2.2-1.2M8 3.6v1.2M8 11.5v1.2"/></g>,
+      'customer-analytics': <g><circle cx="5.5" cy="5.5" r="2.2"/><path d="M1.8 13c.4-2.4 1.9-3.7 3.7-3.7s3.3 1.3 3.7 3.7"/><circle cx="11" cy="6" r="1.8"/><path d="M10 9.5c1.9 0 3.3 1.1 3.7 3"/></g>,
+      'session-replay': <g><circle cx="8" cy="8" r="5.5"/><path d="M6.5 5.7l4 2.3-4 2.3z"/></g>,
+      'feature-flags': <g><rect x="2" y="5" width="12" height="6" rx="3"/><circle cx="11" cy="8" r="2"/></g>,
+      'experiments': <g><path d="M6.2 2.5h3.6M7 2.5v4L3.4 12a1.6 1.6 0 001.4 2.4h6.4a1.6 1.6 0 001.4-2.4L9 6.5v-4"/><line x1="5" y1="10.5" x2="11" y2="10.5"/></g>,
+      'error-tracking': <g><path d="M8 2.2L14.3 13H1.7z"/><line x1="8" y1="6.5" x2="8" y2="9.5"/><circle cx="8" cy="11.4" r=".6"/></g>,
+      'surveys': <g><path d="M13.5 10.5a1.5 1.5 0 01-1.5 1.5H5.5L2.5 15V4a1.5 1.5 0 011.5-1.5h8A1.5 1.5 0 0113.5 4z"/><line x1="5.5" y1="6" x2="10.5" y2="6"/><line x1="5.5" y1="8.5" x2="9" y2="8.5"/></g>,
+      'data-pipelines': <g><circle cx="3.5" cy="8" r="1.6"/><circle cx="12.5" cy="4" r="1.6"/><circle cx="12.5" cy="12" r="1.6"/><path d="M5 7.4l6-2.7M5 8.6l6 2.7"/></g>,
+      'data-warehouse': <g><ellipse cx="8" cy="4" rx="5.5" ry="2"/><path d="M2.5 4v8c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2V4M2.5 8c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2"/></g>,
+      'sql': <g><rect x="2" y="3" width="12" height="10" rx="1.5"/><path d="M4.5 6.5l2 1.8-2 1.8M8.5 10.5h3"/></g>,
+      'endpoints': <g><path d="M5.5 4L2 8l3.5 4M10.5 4L14 8l-3.5 4"/></g>,
+      'txlemetry-ai': <g><path d="M8 2l1.4 3.8L13 7l-3.6 1.2L8 12l-1.4-3.8L3 7l3.6-1.2zM12.5 11.5l.6 1.5 1.4.6-1.4.6-.6 1.5-.6-1.5-1.4-.6 1.4-.6z"/></g>,
+      'ai-observability': <g><path d="M1.8 8S4 3.8 8 3.8 14.2 8 14.2 8 12 12.2 8 12.2 1.8 8 1.8 8z"/><circle cx="8" cy="8" r="2"/></g>,
+      'getting-started': <g><path d="M8 1.8l5.5 4.4V14h-4v-4h-3v4h-4V6.2z"/></g>,
+      'sdks': <g><path d="M8 1.8l5.5 3.1v6.2L8 14.2l-5.5-3.1V4.9z"/><path d="M2.5 4.9L8 8m0 0l5.5-3.1M8 8v6.2"/></g>,
+      'workflows': <g><rect x="1.8" y="2" width="4.6" height="4" rx="1"/><rect x="9.6" y="10" width="4.6" height="4" rx="1"/><path d="M4 6v3a2 2 0 002 2h3.6"/></g>,
+      'logs': <g><line x1="3" y1="4" x2="13" y2="4"/><line x1="3" y1="8" x2="13" y2="8"/><line x1="3" y1="12" x2="9" y2="12"/><circle cx="12" cy="12" r="1.8"/></g>,
+      'distributed-tracing': <g><circle cx="3.2" cy="12.8" r="1.6"/><circle cx="8" cy="8" r="1.6"/><circle cx="12.8" cy="3.2" r="1.6"/><path d="M4.3 11.7L6.9 9.1M9.1 6.9l2.6-2.6"/></g>,
+      'support': <g><circle cx="8" cy="8" r="5.5"/><circle cx="8" cy="8" r="2.2"/><path d="M4.1 4.1l2.3 2.3M9.6 9.6l2.3 2.3M11.9 4.1L9.6 6.4M6.4 9.6l-2.3 2.3"/></g>,
+    };
+    return (
+      <svg viewBox="0 0 16 16" className="w-[15px] h-[15px] shrink-0" fill="none" stroke="#17100e" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+        {P[slug] || <circle cx="8" cy="8" r="5.5" />}
+      </svg>
+    );
+  }
+
   function CategoryDropdown({ current, onPick }) {
     const [open, setOpen] = useState(false);
     useEffect(() => {
@@ -159,20 +192,24 @@
     return (
       <div className="docs-cat-dd relative mb-5">
         <button type="button" onClick={() => setOpen((v) => !v)}
-          className="w-full flex items-center gap-2 px-3 py-2.5 rounded-[9px] border border-[#e3ded9] bg-white text-left hover:border-[#d0c7bf] transition-colors">
-          <span className="flex-1 text-[#17100e] text-[14px] font-semibold truncate">{CAT[current].name}</span>
+          className="w-full flex items-center gap-2 px-3 py-2 rounded-[9px] border border-[#e3ded9] bg-white text-left hover:border-[#d0c7bf] transition-colors">
+          <CatIcon slug={current} />
+          <span className="flex-1 text-[#17100e] text-[13.5px] font-semibold truncate">{CAT[current].name}</span>
           <span className={`text-[10px] text-[#b0a69f] transition-transform ${open ? 'rotate-180' : ''}`}>▼</span>
         </button>
         {open && (
-          <div className="absolute z-30 left-0 right-0 mt-1.5 bg-white border border-[#e9e3dd] rounded-[11px] shadow-[0_16px_40px_rgba(20,20,20,0.16)] py-1.5 max-h-[460px] overflow-y-auto">
+          /* Compact panel: every category visible at once (no internal scroll), icon + ✓ on current. */
+          <div className="absolute z-30 left-0 w-[248px] mt-1.5 bg-white border border-[#e9e3dd] rounded-[11px] shadow-[0_16px_40px_rgba(20,20,20,0.16)] py-1">
             {groups.map((g) => (
-              <div key={g.label} className="py-1">
-                <p className="px-3 py-1 text-[#9a908a] text-[11px] font-semibold uppercase tracking-[1px]">{g.label}</p>
+              <div key={g.label}>
                 {g.items.map((c) => (
                   <button key={c.slug} type="button"
                     onClick={() => { onPick(c.slug); setOpen(false); }}
-                    className={`w-full text-left px-3 py-1.5 text-[14px] ${current === c.slug ? 'text-[#b8552e] font-semibold' : 'text-[#3a332f] hover:bg-[#f6f1ec]'}`}>
-                    {c.name}
+                    className={`w-full flex items-center gap-2 text-left px-2.5 py-[3.5px] text-[13px] ${current === c.slug ? 'font-semibold' : 'hover:bg-[#f6f1ec]'}`}
+                    style={{ color: '#17100e' }}>
+                    <span className="w-3 shrink-0 text-[11px]">{current === c.slug ? '✓' : ''}</span>
+                    <CatIcon slug={c.slug} />
+                    <span className="truncate">{c.name}</span>
                   </button>
                 ))}
               </div>
@@ -205,8 +242,13 @@
           <div className="max-w-[1220px] mx-auto px-6 pb-20 flex gap-10">
             {/* Sidebar: category dropdown + this category's grouped TOC */}
             <aside className="hidden lg:block w-[270px] shrink-0">
-              <div className="sticky top-[124px] max-h-[calc(100vh-148px)] overflow-y-auto pr-2">
-                <CategoryDropdown current={cat} onPick={pickCategory} />
+              {/* Dropdown lives OUTSIDE the scroll area so its panel is never clipped;
+                  only the table of contents below scrolls. */}
+              <div className="sticky top-[124px] flex flex-col max-h-[calc(100vh-148px)]">
+                <div className="shrink-0">
+                  <CategoryDropdown current={cat} onPick={pickCategory} />
+                </div>
+                <div className="flex-1 overflow-y-auto pr-2">
                 {DOCS[cat].toc.map((grp) => (
                   <div key={grp.label} className="mb-4">
                     <p className="text-[#9a908a] text-[11px] font-semibold uppercase tracking-[1px] mb-1.5 px-1">{grp.label}</p>
@@ -217,8 +259,11 @@
                           <li key={slug}>
                             <a href={'#' + k}
                               className={`block px-2.5 py-1.5 rounded-[7px] text-[14px] no-underline transition-colors ${
-                                key === k ? 'bg-[#17100e] text-white font-semibold' : 'text-[#4a423e] hover:bg-[#f4ede7]'
-                              }`}>
+                                key === k ? 'bg-[#17100e] font-semibold' : 'hover:bg-[#f4ede7]'
+                              }`}
+                              /* Inline color beats the landing's global anchor color rules,
+                                 which were overriding text-white and rendering dark-on-dark. */
+                              style={{ color: key === k ? '#ffffff' : '#4a423e' }}>
                               {name}
                             </a>
                           </li>
@@ -227,6 +272,7 @@
                     </ul>
                   </div>
                 ))}
+                </div>
               </div>
             </aside>
 
