@@ -251,6 +251,7 @@
               <NavDropdownProduct open={openMenu === 'product'} />
             </li>
             <li style={{ position: 'relative' }}><a data-spa href="/pricing" className="nav-link">Pricing</a></li>
+            <li style={{ position: 'relative' }}><a data-spa href="/docs" className="nav-link">Docs</a></li>
           </ul>
           <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: 12, justifySelf: 'end', gridColumn: 3 }}>
             <a href="/signin" className="btn btn-secondary hide-mobile">Log in</a>
