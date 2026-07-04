@@ -170,7 +170,7 @@
       'support': <g><circle cx="8" cy="8" r="5.5"/><circle cx="8" cy="8" r="2.2"/><path d="M4.1 4.1l2.3 2.3M9.6 9.6l2.3 2.3M11.9 4.1L9.6 6.4M6.4 9.6l-2.3 2.3"/></g>,
     };
     return (
-      <svg viewBox="0 0 16 16" className="w-[15px] h-[15px] shrink-0" fill="none" stroke="#17100e" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <svg viewBox="0 0 16 16" className="w-[13px] h-[13px] shrink-0" fill="none" stroke="#17100e" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
         {P[slug] || <circle cx="8" cy="8" r="5.5" />}
       </svg>
     );
@@ -199,15 +199,15 @@
         </button>
         {open && (
           /* Compact panel: every category visible at once (no internal scroll), icon + ✓ on current. */
-          <div className="absolute z-30 left-0 w-[248px] mt-1.5 bg-white border border-[#e9e3dd] rounded-[11px] shadow-[0_16px_40px_rgba(20,20,20,0.16)] py-1">
+          <div className="absolute z-30 left-0 w-[218px] mt-1.5 bg-white border border-[#e9e3dd] rounded-[10px] shadow-[0_16px_40px_rgba(20,20,20,0.16)] py-1">
             {groups.map((g) => (
               <div key={g.label}>
                 {g.items.map((c) => (
                   <button key={c.slug} type="button"
                     onClick={() => { onPick(c.slug); setOpen(false); }}
-                    className={`w-full flex items-center gap-2 text-left px-2.5 py-[3.5px] text-[13px] ${current === c.slug ? 'font-semibold' : 'hover:bg-[#f6f1ec]'}`}
+                    className={`w-full flex items-center gap-1.5 text-left px-2 py-[2.5px] text-[12.5px] leading-[1.35] ${current === c.slug ? 'font-semibold' : 'hover:bg-[#f6f1ec]'}`}
                     style={{ color: '#17100e' }}>
-                    <span className="w-3 shrink-0 text-[11px]">{current === c.slug ? '✓' : ''}</span>
+                    <span className="w-2.5 shrink-0 text-[10px]">{current === c.slug ? '✓' : ''}</span>
                     <CatIcon slug={c.slug} />
                     <span className="truncate">{c.name}</span>
                   </button>
@@ -295,7 +295,9 @@
                   <p className="text-[#17100e] text-[17px] font-semibold tracking-[-0.3px]">Still have a question?</p>
                   <p className="mt-1 text-[#7a716c] text-[14px]">Talk to the Txlemetry team — we reply fast.</p>
                 </div>
-                <a data-spa href="/demo" className="bg-[#17100e] rounded-[7px] px-[16px] py-[10px] text-white text-[14px] font-semibold no-underline whitespace-nowrap">Contact support</a>
+                <a data-spa href="/demo" className="bg-[#17100e] rounded-[7px] px-[16px] py-[10px] text-[14px] font-semibold no-underline whitespace-nowrap"
+                  /* Inline color beats the landing's global anchor rules (dark-on-dark otherwise). */
+                  style={{ color: '#ffffff' }}>Contact support</a>
               </div>
             </main>
           </div>
