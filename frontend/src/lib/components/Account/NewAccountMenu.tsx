@@ -105,7 +105,9 @@ export function NewAccountMenu({ isLayoutNavCollapsed }: AccountMenuProps): JSX.
                                     name={currentOrganization.name}
                                     entityId={currentOrganization.id}
                                     mediaId={currentOrganization.logo_media_id}
-                                    size="small"
+                                    size="large"
+                                    className="!rounded-none"
+                                    imgClassName="object-contain"
                                 />
                             ) : (
                                 <UploadedLogo name="?" entityId="" mediaId="" size="xsmall" />

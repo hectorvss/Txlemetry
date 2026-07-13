@@ -357,19 +357,11 @@ const iconTypes: Record<FileSystemIconType, { icon: JSX.Element; iconColor?: Fil
     },
 }
 
-const getIconColor = (type?: string, colorOverride?: FileSystemIconColor): FileSystemIconColor => {
-    // Manifest color takes precedence
-    const fileSystemColor = (fileSystemTypes as unknown as Record<string, { iconColor?: FileSystemIconColor }>)[
-        type as keyof typeof fileSystemTypes
-    ]?.iconColor
-
-    // Fallback to iconTypes if no manifest color is provided
-    const iconTypeColor = type && iconTypes[type as keyof typeof iconTypes]?.iconColor
-
-    // If we have a color override, use it
-    // Otherwise, use the above colors in order of precedence
-    const color = colorOverride ?? fileSystemColor ?? iconTypeColor ?? ['currentColor', 'currentColor']
-    return color.length === 1 ? [color[0], color[0]] : (color as FileSystemIconColor)
+const getIconColor = (_type?: string, _colorOverride?: FileSystemIconColor): FileSystemIconColor => {
+    // Shopify UI: every product/file-system icon renders as a uniform dark monochrome
+    // in light theme (and light monochrome in dark theme), matching Shopify Admin's
+    // flat monochrome iconography instead of per-product brand colors.
+    return ['#303030', '#e3e3e3']
 }
 
 type ProductIconWrapperProps = {

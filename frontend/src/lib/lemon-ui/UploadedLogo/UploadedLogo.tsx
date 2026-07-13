@@ -16,13 +16,17 @@ export interface UploadedLogoProps {
     entityId: number | string
     mediaId?: string | null
     /** @default 'medium' */
-    size?: 'xsmall' | 'small' | 'medium' | 'xlarge'
+    size?: 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
     /** Use the outlined lettermark for signifying projects, to differentiate them from organizations. */
     outlinedLettermark?: boolean
+    /** Extra classes for the wrapper (e.g. to drop the rounded box). */
+    className?: string
+    /** Extra classes for the <img> (e.g. object-contain instead of cover). */
+    imgClassName?: string
 }
 
 export const UploadedLogo = React.forwardRef<HTMLDivElement, UploadedLogoProps>(function UploadedLogo(
-    { name, mediaId, entityId, size = 'medium', outlinedLettermark },
+    { name, mediaId, entityId, size = 'medium', outlinedLettermark, className, imgClassName },
     ref
 ) {
     const [isLoadingImage, setIsLoadingImage] = useState(true)
@@ -42,17 +46,20 @@ export const UploadedLogo = React.forwardRef<HTMLDivElement, UploadedLogoProps>(
                 'relative flex overflow-hidden select-none',
                 size === 'xlarge'
                     ? 'size-16 rounded before:absolute before:inset-0 before:border before:rounded'
-                    : size === 'medium'
-                      ? 'size-6 rounded-xs'
-                      : size === 'small'
-                        ? 'size-5 rounded-xs'
-                        : 'size-4 rounded-xs'
+                    : size === 'large'
+                      ? 'size-8'
+                      : size === 'medium'
+                        ? 'size-6 rounded-xs'
+                        : size === 'small'
+                          ? 'size-5 rounded-xs'
+                          : 'size-4 rounded-xs',
+                className
             )}
             ref={ref}
         >
             {isLoadingImage && <LemonSkeleton className="absolute inset-0" />}
             <img
-                className="size-full object-cover"
+                className={clsx('size-full object-cover', imgClassName)}
                 src={mediaId.startsWith('data:') ? mediaId : backendAssetUrl(`/uploaded_media/${mediaId}`)}
                 alt="Uploaded logo"
                 onError={() => setIsLoadingImage(false)}

@@ -164,7 +164,11 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function P
             onClickOutside?.(event as Event)
         },
         placement,
-        strategy: 'absolute',
+        // Shopify UI fix: use the fixed strategy so popovers position relative to the
+        // viewport and are immune to transformed/perspective ancestors (which were
+        // pushing some dropdowns — e.g. Export, the Browse mega-menu — to the top-left
+        // corner). autoUpdate keeps them anchored to their trigger on scroll/resize.
+        strategy: 'fixed',
         middleware: [
             ...(fallbackPlacements
                 ? [
