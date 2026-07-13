@@ -437,7 +437,10 @@
     // Backgrounds
     // Behind surfaces, large areas: app scenes, etc.
     // //////////////////////////////////////////////////////////
-    --color-bg-primary: var(--color-posthog-3000-50);
+    // Shopify UI F1: the app canvas is Shopify's cool admin gray instead of the
+    // warm PostHog cream — white surfaces (cards, tables) float on top of it.
+    // Light mode only; the dark theme block below keeps its own value.
+    --color-bg-primary: #f1f1f2;
 
     /* Most prominent/used background (replaces --color-bg-3000) */
     --color-bg-surface-primary: var(--color-white);
@@ -448,10 +451,10 @@
     /* Second most prominent surface (Toolbars) */
     --color-bg-surface-tertiary: var(--color-posthog-3000-150);
 
-    /* Txlemetry sidebar/background: off-white ("blanco roto"), whiter than the cream
-       main content card (--color-bg-primary) so the main card keeps standing out.
+    /* Shopify UI F1: sidebar sits on the same cool admin gray as the canvas
+       (Shopify's nav and page share one background; white cards float on top).
        Theme-aware: dark mode keeps the original dark sidebar surface below. */
-    --txl-sidebar-surface: hsl(75deg 14% 98%);
+    --txl-sidebar-surface: #f1f1f2;
 
     /* Most prominent surface (Cards, tables, etc.) */
     --color-bg-surface-tooltip: var(--color-neutral-cool-850);
