@@ -534,8 +534,10 @@
     // Borders
     // Borders for surfaces/fills (TODO: perhaps we need to do border-fill-primary, border-fill-warning, etc.)
     // //////////////////////////////////////////////////////////
-    --color-border-primary: var(--color-posthog-3000-200);
-    --color-border-secondary: var(--color-posthog-3000-400);
+    // Shopify UI A5 (light theme only): neutral admin borders instead of the warm
+    // PostHog grey, so surfaces read as clean cards on the near-white canvas.
+    --color-border-primary: #e3e3e3;
+    --color-border-secondary: #d0d0d0;
     --color-border-info: var(--color-blue-400);
     --color-border-warning: var(--color-yellow-400);
     --color-border-error: var(--color-red-400);
