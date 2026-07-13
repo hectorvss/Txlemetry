@@ -1,14 +1,14 @@
 {
-    "name": "PostHog",
-    "short_name": "PostHog",
+    "name": "Txlemetry",
+    "short_name": "Txlemetry",
     "icons": [
         {
-            "src": "/static/icons/android-chrome-192x192.png?v=2023-07-07",
+            "src": "/static/icons/android-chrome-192x192.png?v=txl-20260704",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/static/icons/android-chrome-512x512.png?v=2023-07-07",
+            "src": "/static/icons/android-chrome-512x512.png?v=txl-20260704",
             "sizes": "512x512",
             "type": "image/png"
         }
