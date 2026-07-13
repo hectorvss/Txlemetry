@@ -164,11 +164,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function P
             onClickOutside?.(event as Event)
         },
         placement,
-        // Shopify UI fix: use the fixed strategy so popovers position relative to the
-        // viewport and are immune to transformed/perspective ancestors (which were
-        // pushing some dropdowns — e.g. Export, the Browse mega-menu — to the top-left
-        // corner). autoUpdate keeps them anchored to their trigger on scroll/resize.
-        strategy: 'fixed',
+        strategy: 'absolute',
         middleware: [
             ...(fallbackPlacements
                 ? [
@@ -266,6 +262,11 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function P
         []
     )
     const mergedReferenceRef = useMergeRefs([
+        // floating-ui 0.27 needs its setReference callback to actually register the trigger
+        // element — assigning refs.reference.current alone is NOT enough, so without this the
+        // popover computes with no reference and renders at (0,0) (top-left corner). This is the
+        // load-bearing line that anchors EVERY child-triggered popover, tooltip and dropdown.
+        setReference,
         referenceRef,
         extraReferenceRef || null,
         (children as any)?.ref,
