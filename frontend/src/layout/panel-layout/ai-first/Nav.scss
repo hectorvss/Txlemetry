@@ -21,3 +21,18 @@
         }
     }
 }
+
+// Shopify UI B2 (light theme only — dark keeps its own active styling): the active
+// nav item and the selected tree row render as a white pill with a soft shadow,
+// floating on the gray sidebar. ButtonPrimitive marks active with [data-active];
+// LemonTree marks the selected row with the bg-fill-button-tertiary-active utility.
+[theme='light'] .txl-sidebar {
+    [data-active='true'],
+    .bg-fill-button-tertiary-active {
+        background: #fff !important;
+        border-radius: 8px;
+        box-shadow:
+            0 0 0 1px #e3e3e3,
+            0 1px 4px rgb(20 20 20 / 12%);
+    }
+}

@@ -31,7 +31,7 @@
 
 | # | Elemento | Estructura actual | Cambio | Dependencias/riesgo |
 |---|---|---|---|---|
-| B1 | **Topbar negra (NUEVA)** | No existe topbar global; grid `'left/content'` en `Navigation.scss` | Añadir fila superior: logo mini + **búsqueda central** (abre la paleta de comandos existente, `commandLogic`/Cmd+K → funcionalidad real) + cuenta a la derecha (reutilizar `NewAccountMenu`) | `--z-layout-navbar`, modo móvil (`panelLayoutLogic`), resizer. **El más delicado del shell** — probar móvil y side panel |
+| B1 | ~~Topbar negra~~ | **DESCARTADA por decisión de producto (2026-07-04)** — no se añade topbar global | — | — |
 | B2 | Sidebar detalle | Ya gris/negrita/iconos negros | Item activo = **píldora blanca + sombra** (patrón Shopify), iconos 20px, labels sección 11px uppercase | Bajo: carril `.txl-sidebar` ya existe en `Nav.scss` |
 | B3 | Contenedor principal | `main-content-container` = tarjeta única con borde | Contenido directo sobre gris con `max-width` centrado (patrón Page); conservar excepciones `sceneConfig` (replay, canvas, raw) | Medio: `--side-panel-width`, `noPaddingScene` |
 
