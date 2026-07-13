@@ -9,16 +9,18 @@
         font-weight: 600;
     }
 
+    // Shopify UI: EVERY sidebar icon renders with the heavier stroke so the top nav
+    // icons (Home, Activity, Data, Files, Tools…) match the bold weight of the product
+    // icons — uniform bold iconography across the whole sidebar.
+    svg {
+        stroke-width: 2.25;
+    }
+
     // ProductIconWrapper tints its brand icons via an inline `--product-icon-color-light`
-    // custom property applied through `color` (currentColor). Targeting exactly those wrappers
-    // (not arbitrary status svgs like warning triangles or notification dots) forces the product
-    // icons to black. The heavier stroke gives them the "bold" weight.
+    // custom property applied through `color` (currentColor). Force those product icons
+    // to the primary text color so they're dark like the rest.
     [style*='--product-icon-color-light'] {
         color: var(--color-text-primary) !important;
-
-        svg {
-            stroke-width: 2.25;
-        }
     }
 }
 

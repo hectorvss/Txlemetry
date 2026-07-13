@@ -87,8 +87,9 @@ export function PanelLayoutPanel({
         >
             <div
                 className={cn(
-                    'z-main-nav flex flex-1 flex-col justify-between overflow-y-auto bg-surface-secondary group/colorful-product-icons colorful-product-icons-true',
-                    'bg-surface-tertiary'
+                    // Shopify UI: the Browse mega-menu panel renders on the pure-white surface
+                    // (was the warm surface-secondary/tertiary) so it matches the rest of the app.
+                    'z-main-nav flex flex-1 flex-col justify-between overflow-y-auto bg-surface-primary group/colorful-product-icons colorful-product-icons-true'
                 )}
             >
                 {searchField || filterDropdown || sortDropdown ? (
