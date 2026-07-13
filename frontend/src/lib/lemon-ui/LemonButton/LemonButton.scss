@@ -493,3 +493,20 @@
         transform: none !important;
     }
 }
+
+// Shopify UI (light theme only): flatten every button. Shopify Admin buttons are
+// flat — no 3D "pushable" plate. We zero the chrome depth and the hover/press
+// translate so the button reads as a clean flat rectangle with an 8px radius,
+// and drop the hard bottom frame shadow. Dark mode keeps the original 3000 look.
+[theme='light'] {
+    .LemonButton,
+    .Link.LemonButton {
+        --lemon-button-chrome-depth: 0;
+        --lemon-button-hover-depth: 0;
+        --lemon-button-press-depth: 0;
+
+        .LemonButton__chrome::after {
+            box-shadow: none;
+        }
+    }
+}

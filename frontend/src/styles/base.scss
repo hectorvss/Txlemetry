@@ -585,7 +585,10 @@
 
     // Shadows
     // //////////////////////////////////////////////////////////
-    --shadow-elevation-3000: 0 3px 0 var(--border-3000-light);
+    // Shopify UI: soft, diffuse elevation instead of the hard 3px offset plate
+    // (the old PostHog look). This token is the default fallback; the light/dark
+    // specific values below refine it per theme.
+    --shadow-elevation-3000: 0 1px 3px 0 rgb(0 0 0 / 8%), 0 1px 2px 0 rgb(0 0 0 / 4%);
 
     // Non-color vars
     --radius: 0.5rem; // Increased from Tailwind's default of 0.25rem
@@ -822,7 +825,7 @@
     --danger-3000-frame-bg-light: #c70a2480;
     --danger-3000-button-border-light: #d82c0d;
     --danger-3000-button-border-hover-light: #c70a24;
-    --shadow-elevation-3000-light: 0 3px 0 var(--border-3000-light);
+    --shadow-elevation-3000-light: 0 1px 3px 0 rgb(0 0 0 / 8%), 0 1px 2px 0 rgb(0 0 0 / 4%);
     --shadow-elevation-3000-dark: 0 3px 0 var(--border-3000-dark);
     --text-3000-dark: #fff;
     --color-text-secondary-3000-dark: rgb(255 255 255 / 70%);
