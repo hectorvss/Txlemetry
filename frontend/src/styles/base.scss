@@ -437,10 +437,10 @@
     // Backgrounds
     // Behind surfaces, large areas: app scenes, etc.
     // //////////////////////////////////////////////////////////
-    // Shopify UI F1: the app canvas is Shopify's cool admin gray instead of the
-    // warm PostHog cream — white surfaces (cards, tables) float on top of it.
-    // Light mode only; the dark theme block below keeps its own value.
-    --color-bg-primary: #f1f1f2;
+    // Shopify UI F1 (rev. 2026-07-04, decisión de producto): the app canvas is
+    // near-white — minimally darker than the pure-white cards (#fff) so surfaces
+    // still float, without reading as gray. Light mode only; dark keeps its own.
+    --color-bg-primary: #fafafa;
 
     /* Most prominent/used background (replaces --color-bg-3000) */
     --color-bg-surface-primary: var(--color-white);
@@ -451,10 +451,10 @@
     /* Second most prominent surface (Toolbars) */
     --color-bg-surface-tertiary: var(--color-posthog-3000-150);
 
-    /* Shopify UI F1: sidebar sits on the same cool admin gray as the canvas
-       (Shopify's nav and page share one background; white cards float on top).
+    /* Shopify UI F1 (rev.): sidebar shares the near-white canvas — one background
+       for nav and page, pure-white cards floating on top.
        Theme-aware: dark mode keeps the original dark sidebar surface below. */
-    --txl-sidebar-surface: #f1f1f2;
+    --txl-sidebar-surface: #fafafa;
 
     /* Most prominent surface (Cards, tables, etc.) */
     --color-bg-surface-tooltip: var(--color-neutral-cool-850);
