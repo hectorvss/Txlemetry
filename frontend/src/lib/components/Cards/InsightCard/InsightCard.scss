@@ -8,8 +8,16 @@
     height: 30rem;
     background: var(--color-bg-surface-primary);
     border: 1px solid var(--color-border-primary);
-    border-radius: var(--radius);
-    transition: border 200ms ease;
+    border-radius: var(--radius-lg);
+    transition:
+        border 200ms ease,
+        box-shadow 200ms ease;
+
+    // Shopify UI D2 (light theme only): dashboard tiles get the soft admin card
+    // elevation so they float on the near-white canvas. Dark mode keeps its flat look.
+    [theme='light'] & {
+        box-shadow: 0 1px 3px rgb(0 0 0 / 6%);
+    }
 
     &--highlighted {
         border-color: var(--color-accent);
