@@ -1161,6 +1161,16 @@
         outline: 2px solid var(--color-accent);
     }
 
+    // Shopify UI (light theme): keyboard focus is the Shopify Admin blue ring with
+    // a small offset, instead of the dark accent outline.
+    [theme='light'] a:focus-visible,
+    [theme='light'] button:focus-visible,
+    [theme='light'] [role='button']:focus-visible,
+    [theme='light'] input:focus-visible {
+        outline: 2px solid #005bd3;
+        outline-offset: 1px;
+    }
+
     /* Radix menus highlight items on pointer-move; only show the outline for
        keyboard focus, and render it inset so the container's rounded
        overflow:hidden mask can't clip the corners */
