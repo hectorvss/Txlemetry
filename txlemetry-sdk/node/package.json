@@ -1,0 +1,18 @@
+{
+  "name": "@txlemetry/node",
+  "version": "5.44.0",
+  "description": "Txlemetry SDK for Node.js — server-side product analytics, feature flags and LLM analytics.",
+  "license": "MIT",
+  "homepage": "https://txlemetry.com",
+  "keywords": ["txlemetry", "analytics", "node", "server", "feature-flags"],
+  "type": "module",
+  "main": "./index.cjs",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": { "types": "./index.d.ts", "import": "./index.js", "require": "./index.cjs" },
+    "./package.json": "./package.json"
+  },
+  "files": ["index.js", "index.cjs", "index.d.ts", "README.md"],
+  "dependencies": { "posthog-node": "5.44.0" }
+}

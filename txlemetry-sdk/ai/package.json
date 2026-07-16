@@ -1,0 +1,93 @@
+{
+  "name": "@txlemetry/ai",
+  "version": "8.3.0",
+  "description": "Txlemetry LLM analytics \u2014 observability for OpenAI, Anthropic, Gemini, LangChain, Vercel AI and OpenTelemetry.",
+  "license": "MIT",
+  "homepage": "https://txlemetry.com",
+  "keywords": [
+    "txlemetry",
+    "llm",
+    "ai",
+    "observability",
+    "openai",
+    "anthropic",
+    "langchain"
+  ],
+  "type": "module",
+  "main": "./index.cjs",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "require": "./index.cjs"
+    },
+    "./package.json": "./package.json",
+    "./anthropic": {
+      "types": "./anthropic.d.ts",
+      "import": "./anthropic.js",
+      "require": "./anthropic.cjs"
+    },
+    "./gemini": {
+      "types": "./gemini.d.ts",
+      "import": "./gemini.js",
+      "require": "./gemini.cjs"
+    },
+    "./openai": {
+      "types": "./openai.d.ts",
+      "import": "./openai.js",
+      "require": "./openai.cjs"
+    },
+    "./vercel": {
+      "types": "./vercel.d.ts",
+      "import": "./vercel.js",
+      "require": "./vercel.cjs"
+    },
+    "./otel": {
+      "types": "./otel.d.ts",
+      "import": "./otel.js",
+      "require": "./otel.cjs"
+    },
+    "./langchain": {
+      "types": "./langchain.d.ts",
+      "import": "./langchain.js",
+      "require": "./langchain.cjs"
+    },
+    "./openai-agents": {
+      "types": "./openai-agents.d.ts",
+      "import": "./openai-agents.js",
+      "require": "./openai-agents.cjs"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.cjs",
+    "index.d.ts",
+    "README.md",
+    "anthropic.js",
+    "anthropic.cjs",
+    "anthropic.d.ts",
+    "gemini.js",
+    "gemini.cjs",
+    "gemini.d.ts",
+    "openai.js",
+    "openai.cjs",
+    "openai.d.ts",
+    "vercel.js",
+    "vercel.cjs",
+    "vercel.d.ts",
+    "otel.js",
+    "otel.cjs",
+    "otel.d.ts",
+    "langchain.js",
+    "langchain.cjs",
+    "langchain.d.ts",
+    "openai-agents.js",
+    "openai-agents.cjs",
+    "openai-agents.d.ts"
+  ],
+  "dependencies": {
+    "@posthog/ai": "8.3.0"
+  }
+}

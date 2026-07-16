@@ -1,0 +1,31 @@
+{
+  "name": "@txlemetry/nuxt",
+  "version": "1.7.80",
+  "description": "Txlemetry module for Nuxt.",
+  "license": "MIT",
+  "homepage": "https://txlemetry.com",
+  "keywords": [
+    "txlemetry",
+    "nuxt",
+    "analytics"
+  ],
+  "type": "module",
+  "main": "./index.mjs",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.mjs",
+    "index.d.ts",
+    "README.md"
+  ],
+  "dependencies": {
+    "@posthog/nuxt": "1.7.80"
+  }
+}
