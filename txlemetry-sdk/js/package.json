@@ -1,0 +1,24 @@
+{
+  "name": "@txlemetry/js",
+  "version": "1.396.3",
+  "description": "Txlemetry SDK for the browser — product analytics, session replay, feature flags, A/B testing and surveys.",
+  "license": "MIT",
+  "homepage": "https://txlemetry.com",
+  "keywords": ["txlemetry", "analytics", "product-analytics", "session-replay", "feature-flags", "ab-testing", "surveys"],
+  "type": "module",
+  "main": "./index.cjs",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "require": "./index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["index.js", "index.cjs", "index.d.ts", "README.md"],
+  "dependencies": {
+    "posthog-js": "1.396.3"
+  }
+}

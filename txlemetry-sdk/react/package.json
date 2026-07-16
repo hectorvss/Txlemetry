@@ -1,0 +1,28 @@
+{
+  "name": "@txlemetry/react",
+  "version": "1.9.0",
+  "description": "Txlemetry SDK for React — provider and hooks.",
+  "license": "MIT",
+  "homepage": "https://txlemetry.com",
+  "keywords": ["txlemetry", "react", "analytics", "product-analytics"],
+  "type": "module",
+  "main": "./index.cjs",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "require": "./index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["index.js", "index.cjs", "index.d.ts", "README.md"],
+  "dependencies": {
+    "@posthog/react": "1.9.0",
+    "@txlemetry/js": "1.396.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
+  }
+}
