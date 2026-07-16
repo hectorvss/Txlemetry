@@ -18,7 +18,7 @@ export const getOpenAISteps = (ctx: OnboardingComponentsContext): StepDefinition
                             See the complete
                             [Node.js](https://github.com/PostHog/posthog-js/tree/main/examples/example-ai-openai) and
                             [Python](https://github.com/PostHog/posthog-python/tree/master/examples/example-ai-openai)
-                            examples on GitHub. If you're using the PostHog SDK wrapper instead of OpenTelemetry, see
+                            examples on GitHub. If you're using the Txlemetry SDK wrapper instead of OpenTelemetry, see
                             the [Node.js
                             wrapper](https://github.com/PostHog/posthog-js/tree/e08ff1be/examples/example-ai-openai) and
                             [Python
@@ -57,7 +57,7 @@ export const getOpenAISteps = (ctx: OnboardingComponentsContext): StepDefinition
                 <>
                     <Markdown>
                         Configure OpenTelemetry to auto-instrument OpenAI SDK calls and export traces to PostHog.
-                        PostHog converts `gen_ai.*` spans into `$ai_generation` events automatically.
+                        Txlemetry converts `gen_ai.*` spans into `$ai_generation` events automatically.
                     </Markdown>
 
                     <CodeBlock
@@ -127,7 +127,7 @@ export const getOpenAISteps = (ctx: OnboardingComponentsContext): StepDefinition
             content: (
                 <>
                     <Markdown>
-                        Now, when you use the OpenAI SDK to call OpenAI, PostHog automatically captures `$ai_generation`
+                        Now, when you use the OpenAI SDK to call OpenAI, Txlemetry automatically captures `$ai_generation`
                         events via the OpenTelemetry instrumentation.
                     </Markdown>
 
@@ -198,7 +198,7 @@ export const getOpenAISteps = (ctx: OnboardingComponentsContext): StepDefinition
             content: (
                 <>
                     <Markdown>
-                        PostHog can also capture embedding generations as `$ai_embedding` events. The OpenTelemetry
+                        Txlemetry can also capture embedding generations as `$ai_embedding` events. The OpenTelemetry
                         instrumentation automatically captures these when you use the embeddings API:
                     </Markdown>
 

@@ -4,6 +4,9 @@ import { useActions, useValues } from 'kea'
 import React, { useCallback, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 
+import { AppProvider as PolarisAppProvider } from '@shopify/polaris'
+import polarisEnTranslations from '@shopify/polaris/locales/en.json'
+
 import { IconCollapse, IconExpand } from '@posthog/icons'
 import {
     LemonBadge,
@@ -616,5 +619,10 @@ export const openPersonsModal = (props: OpenPersonsModalProps): void => {
     }
 
     document.body.appendChild(div)
-    root.render(<PersonsModal {...props} onAfterClose={destroy} />)
+    root.render(
+        // Detached React root: wrap in Polaris provider so LemonButtons (now Polaris) render.
+        <PolarisAppProvider i18n={polarisEnTranslations}>
+            <PersonsModal {...props} onAfterClose={destroy} />
+        </PolarisAppProvider>
+    )
 }

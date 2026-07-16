@@ -1213,13 +1213,8 @@ class CSPMiddleware:
                 # used by the error page
                 "frame-src https://posthog.com",
                 "base-uri 'self'",
-                "report-uri https://us.i.posthog.com/report/?token=sTMFPsFhdP1Ssg&v=2",
-                "report-to posthog",
             ]
 
-            response.headers["Reporting-Endpoints"] = (
-                'posthog="https://us.i.posthog.com/report/?token=sTMFPsFhdP1Ssg&v=2"'
-            )
             response.headers["Content-Security-Policy"] = "; ".join(csp_parts)
         else:
             resource_url = "https://*.posthog.com"
@@ -1245,12 +1240,14 @@ class CSPMiddleware:
                 "frame-src https:",
                 "manifest-src 'self'",
                 "base-uri 'self'",
-                "report-uri https://us.i.posthog.com/report/?token=sTMFPsFhdP1Ssg&sample_rate=0.1&v=2",
-                "report-to posthog",
             ]
 
-            response.headers["Reporting-Endpoints"] = (
-                'posthog="https://us.i.posthog.com/report/?token=sTMFPsFhdP1Ssg&sample_rate=0.1&v=2"'
+            # TXLEMETRY: block ALL browser data egress to PostHog Inc. connect-src is the
+            # channel posthog-js uses to POST events and fetch config/flags; 'self' covers
+            # the app's own API, so no product or user data can ever leave to *.posthog.com.
+            response.headers["Content-Security-Policy"] = (
+                "connect-src 'self' https://raw.githubusercontent.com https://api.github.com; "
+                "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com"
             )
             response.headers["Content-Security-Policy-Report-Only"] = "; ".join(csp_parts)
 

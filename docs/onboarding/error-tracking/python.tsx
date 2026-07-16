@@ -9,7 +9,7 @@ export const getPythonSteps = (ctx: OnboardingComponentsContext): StepDefinition
     const installSteps = getPythonStepsPA(ctx)
 
     const verifyInitStep: StepDefinition = {
-        title: 'Verify PostHog is initialized',
+        title: 'Verify Txlemetry is initialized',
         badge: 'recommended',
         checkpoint: true,
         content: (
@@ -28,7 +28,7 @@ export const getPythonSteps = (ctx: OnboardingComponentsContext): StepDefinition
             <>
                 <Markdown>
                     {dedent`
-                        Exception autocapture can be enabled during initialization of the PostHog client to automatically capture any unhandled exceptions thrown by your Python application. It works by setting Python's built-in exception hooks, such as \`sys.excepthook\` and \`threading.excepthook\`.
+                        Exception autocapture can be enabled during initialization of the Txlemetry client to automatically capture any unhandled exceptions thrown by your Python application. It works by setting Python's built-in exception hooks, such as \`sys.excepthook\` and \`threading.excepthook\`.
                     `}
                 </Markdown>
                 <CodeBlock

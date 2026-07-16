@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react'
 
 import { FeatureFlagKey } from 'lib/constants'
 
-const DEFAULT_API_KEY = 'sTMFPsFhdP1Ssg'
+const DEFAULT_API_KEY = 'txlemetry_disabled'
 
 const runningOnPosthog = !!window.POSTHOG_APP_CONTEXT
 const apiKey = runningOnPosthog ? window.JS_POSTHOG_API_KEY : DEFAULT_API_KEY
-const apiHost = runningOnPosthog ? window.JS_POSTHOG_HOST : 'https://internal-j.posthog.com'
+const apiHost = (runningOnPosthog && window.JS_POSTHOG_HOST) ? window.JS_POSTHOG_HOST : window.location.origin
 
 const initResult = posthog.init(
     apiKey || DEFAULT_API_KEY,

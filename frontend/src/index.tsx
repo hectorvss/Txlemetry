@@ -15,6 +15,8 @@ import { PostHogProvider } from '@posthog/react'
 
 import { App } from 'scenes/App'
 
+import { Link } from 'lib/lemon-ui/Link'
+
 import { initKea } from './initKea'
 import { ErrorBoundary } from './layout/ErrorBoundary'
 import { loadPostHogJS } from './loadPostHogJS'
@@ -59,12 +61,23 @@ if (typeof window !== 'undefined') {
     }
 }
 
+// Polaris renders every `<Button url>` / link through this component. Routing it through PostHog's
+// <Link> preserves client-side routing, project-id rewriting, notebook drag and external handling
+// while giving link-buttons the real Shopify/Polaris visual style.
+function PolarisLink({ url, external, children, ...rest }: any): JSX.Element {
+    return (
+        <Link to={url} {...rest}>
+            {children}
+        </Link>
+    )
+}
+
 function renderApp(): void {
     const root = document.getElementById('root')
     if (root) {
         createRoot(root).render(
             <ErrorBoundary>
-                <PolarisAppProvider i18n={polarisEnTranslations}>
+                <PolarisAppProvider i18n={polarisEnTranslations} linkComponent={PolarisLink}>
                     <PostHogProvider client={posthog}>
                         <BaseTooltip.Provider delay={500} closeDelay={0} timeout={400}>
                             <App />

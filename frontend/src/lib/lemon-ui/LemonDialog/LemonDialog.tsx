@@ -5,8 +5,23 @@ import posthog from 'posthog-js'
 import { ReactNode, forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import { Root, createRoot } from 'react-dom/client'
 
+import { AppProvider as PolarisAppProvider } from '@shopify/polaris'
+import polarisEnTranslations from '@shopify/polaris/locales/en.json'
+
+// Dialogs render in a DETACHED React root (createRoot), so they are outside the app's
+// <PolarisAppProvider>. Wrap the dialog tree in its own provider — otherwise the now-Polaris
+// LemonButtons inside throw MissingAppProviderError and the whole dialog fails to render.
+function DialogPolarisLink({ url, external, children, ...rest }: any): JSX.Element {
+    return (
+        <Link to={url} {...rest}>
+            {children}
+        </Link>
+    )
+}
+
 import { ApiError } from 'lib/api-error'
 import { LemonButton, LemonButtonProps } from 'lib/lemon-ui/LemonButton'
+import { Link } from 'lib/lemon-ui/Link'
 import { LemonModal, LemonModalProps } from 'lib/lemon-ui/LemonModal'
 import { uuid } from 'lib/utils/dom'
 
@@ -296,12 +311,20 @@ export const LemonDialog = LemonDialogComponent as typeof LemonDialogComponent &
 
 LemonDialog.open = (props: LemonDialogProps) => {
     const { root, onDestroy } = createAndInsertRoot()
-    root.render(<LemonDialog {...props} onAfterClose={onDestroy} />)
+    root.render(
+        <PolarisAppProvider i18n={polarisEnTranslations} linkComponent={DialogPolarisLink}>
+            <LemonDialog {...props} onAfterClose={onDestroy} />
+        </PolarisAppProvider>
+    )
 }
 
 LemonDialog.openForm = (props: LemonFormDialogProps) => {
     const { root, onDestroy } = createAndInsertRoot()
     // Each dialog gets a unique key so nested dialogs don't share the same
     // lemonDialogLogic instance and corrupt each other's form state.
-    root.render(<LemonFormDialog {...props} dialogKey={uuid()} onAfterClose={onDestroy} />)
+    root.render(
+        <PolarisAppProvider i18n={polarisEnTranslations} linkComponent={DialogPolarisLink}>
+            <LemonFormDialog {...props} dialogKey={uuid()} onAfterClose={onDestroy} />
+        </PolarisAppProvider>
+    )
 }

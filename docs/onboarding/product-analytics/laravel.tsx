@@ -11,7 +11,7 @@ export const getLaravelSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog PHP library using Composer:</Markdown>
+                    <Markdown>Install the Txlemetry PHP library using Composer:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -32,7 +32,7 @@ export const getLaravelSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             content: (
                 <>
                     <Markdown>
-                        Initialize PostHog in the `boot` method of `app/Providers/AppServiceProvider.php`:
+                        Initialize Txlemetry in the `boot` method of `app/Providers/AppServiceProvider.php`:
                     </Markdown>
                     <CodeBlock
                         blocks={[
@@ -71,7 +71,7 @@ export const getLaravelSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             badge: 'optional',
             content: (
                 <>
-                    <Markdown>Capture custom events using the PostHog client:</Markdown>
+                    <Markdown>Capture custom events using the Txlemetry client:</Markdown>
                     <CodeBlock
                         blocks={[
                             {

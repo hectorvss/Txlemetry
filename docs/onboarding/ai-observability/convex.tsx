@@ -13,7 +13,7 @@ export const getConvexSteps = (ctx: OnboardingComponentsContext): StepDefinition
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog AI package, the Vercel AI SDK, and the OpenTelemetry SDK.</Markdown>
+                    <Markdown>Install the Txlemetry AI package, the Vercel AI SDK, and the OpenTelemetry SDK.</Markdown>
 
                     <CodeBlock
                         language="bash"
@@ -30,7 +30,7 @@ export const getConvexSteps = (ctx: OnboardingComponentsContext): StepDefinition
             content: (
                 <>
                     <Markdown>
-                        Set your PostHog project API key and host as Convex environment variables. You can find these in
+                        Set your Txlemetry project API key and host as Convex environment variables. You can find these in
                         your [project settings](https://app.posthog.com/settings/project).
                     </Markdown>
 
@@ -59,7 +59,7 @@ export const getConvexSteps = (ctx: OnboardingComponentsContext): StepDefinition
             content: (
                 <>
                     <Markdown>
-                        Create a Convex action that initializes a `BasicTracerProvider` with PostHog's trace exporter
+                        Create a Convex action that initializes a `BasicTracerProvider` with Txlemetry's trace exporter
                         and enables telemetry on your AI SDK calls. The provider is initialized at module scope so it
                         persists across warm V8 isolate invocations.
                     </Markdown>
@@ -120,7 +120,7 @@ export const getConvexSteps = (ctx: OnboardingComponentsContext): StepDefinition
                     <CalloutBox type="fyi" icon="IconInfo" title="How this works">
                         <Markdown>
                             The `PostHogTraceExporter` sends OpenTelemetry `gen_ai.*` spans to PostHog's OTLP ingestion
-                            endpoint. PostHog converts these into `$ai_generation` events automatically. The
+                            endpoint. Txlemetry converts these into `$ai_generation` events automatically. The
                             `posthog_distinct_id` metadata field links events to a specific user.
                         </Markdown>
                     </CalloutBox>

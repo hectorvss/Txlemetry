@@ -18,7 +18,7 @@ export const getReactNativeSteps = (
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog React Native library and its dependencies:</Markdown>
+                    <Markdown>Install the Txlemetry React Native library and its dependencies:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -59,7 +59,7 @@ export const getReactNativeSteps = (
             content: (
                 <>
                     <Markdown>
-                        PostHog is most easily used via the `PostHogProvider` component. Wrap your app with the
+                        Txlemetry is most easily used via the `PostHogProvider` component. Wrap your app with the
                         provider:
                     </Markdown>
                     <CodeBlock
@@ -95,7 +95,7 @@ export const getReactNativeSteps = (
             content: (
                 <>
                     <Markdown>
-                        Once installed, PostHog will automatically start capturing events. You can also manually send
+                        Once installed, Txlemetry will automatically start capturing events. You can also manually send
                         events using the `usePostHog` hook:
                     </Markdown>
                     <CodeBlock

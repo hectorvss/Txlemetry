@@ -24,7 +24,7 @@ export const getOpenTelemetrySteps = (ctx: OnboardingComponentsContext): StepDef
                     </CalloutBox>
 
                     <Markdown>
-                        Install the OpenTelemetry SDK, PostHog's OpenTelemetry helper, and an OpenTelemetry
+                        Install the OpenTelemetry SDK, Txlemetry's OpenTelemetry helper, and an OpenTelemetry
                         instrumentation for the provider you want to trace. The examples below use the OpenAI
                         instrumentation, but any library that emits `gen_ai.*` spans will work.
                     </Markdown>
@@ -56,9 +56,9 @@ export const getOpenTelemetrySteps = (ctx: OnboardingComponentsContext): StepDef
             content: (
                 <>
                     <Markdown>
-                        Configure OpenTelemetry to export spans to PostHog via the `PostHogSpanProcessor`. The processor
+                        Configure OpenTelemetry to export spans to Txlemetry via the `PostHogSpanProcessor`. The processor
                         only forwards AI-related spans — spans whose name or attribute keys start with `gen_ai.`,
-                        `llm.`, `ai.`, or `traceloop.` — and drops everything else. PostHog converts `gen_ai.*` spans
+                        `llm.`, `ai.`, or `traceloop.` — and drops everything else. Txlemetry converts `gen_ai.*` spans
                         into `$ai_generation` events automatically.
                     </Markdown>
 
@@ -123,7 +123,7 @@ export const getOpenTelemetrySteps = (ctx: OnboardingComponentsContext): StepDef
 
                     <Markdown>
                         {dedent`
-                            PostHog identifies each event using the \`posthog.distinct_id\` attribute on the OpenTelemetry
+                            Txlemetry identifies each event using the \`posthog.distinct_id\` attribute on the OpenTelemetry
                             **Resource** (with \`user.id\` as a fallback, then a random UUID if neither is set). Because
                             the Resource applies to every span in a batched export, you only need to set the distinct ID
                             once — there's no need for a \`BaggageSpanProcessor\` or per-span propagation. Any other
@@ -140,7 +140,7 @@ export const getOpenTelemetrySteps = (ctx: OnboardingComponentsContext): StepDef
                 <>
                     <Markdown>
                         With the processor and instrumentation wired up, any LLM call made through the instrumented SDK
-                        is captured. PostHog receives the emitted `gen_ai.*` span and converts it into an
+                        is captured. Txlemetry receives the emitted `gen_ai.*` span and converts it into an
                         `$ai_generation` event.
                     </Markdown>
 
@@ -207,14 +207,14 @@ export const getOpenTelemetrySteps = (ctx: OnboardingComponentsContext): StepDef
             content: (
                 <>
                     <Markdown>
-                        PostHog translates standard OpenTelemetry GenAI semantic convention attributes into the same
+                        Txlemetry translates standard OpenTelemetry GenAI semantic convention attributes into the same
                         `$ai_*` event properties our native SDK wrappers emit, so traces look the same in PostHog
                         whether they arrive through OpenTelemetry or a native wrapper. The most common mappings:
                     </Markdown>
 
                     <Markdown>
                         {dedent`
-                            | OpenTelemetry attribute | PostHog event property |
+                            | OpenTelemetry attribute | Txlemetry event property |
                             | --- | --- |
                             | \`gen_ai.response.model\` (or \`gen_ai.request.model\`) | \`$ai_model\` |
                             | \`gen_ai.provider.name\` (or \`gen_ai.system\`) | \`$ai_provider\` |
@@ -236,7 +236,7 @@ export const getOpenTelemetrySteps = (ctx: OnboardingComponentsContext): StepDef
                             - **Custom attributes pass through.** Any Resource or span attribute that isn't part of the known mapping is forwarded onto the event as-is, so you can add dimensions like \`conversation_id\` or \`tenant_id\` and filter on them in PostHog.
                             - **Trace and span IDs are preserved** as \`$ai_trace_id\`, \`$ai_span_id\`, and \`$ai_parent_id\`, so multi-step traces reconstruct correctly.
                             - **Events are classified by operation.** \`gen_ai.operation.name=chat\` becomes an \`$ai_generation\` event; \`embeddings\` becomes \`$ai_embedding\`. Spans without a recognized operation become \`$ai_span\` (or \`$ai_trace\` if they're the root of a trace).
-                            - **Vercel AI SDK, Pydantic AI, and Traceloop/OpenLLMetry** emit their own namespaces (\`ai.*\`, \`pydantic_ai.*\`, \`traceloop.*\`) and PostHog normalizes those to the same \`$ai_*\` properties.
+                            - **Vercel AI SDK, Pydantic AI, and Traceloop/OpenLLMetry** emit their own namespaces (\`ai.*\`, \`pydantic_ai.*\`, \`traceloop.*\`) and Txlemetry normalizes those to the same \`$ai_*\` properties.
                             - **Noisy resource attributes are dropped.** OpenTelemetry auto-detected attributes under \`host.*\`, \`process.*\`, \`os.*\`, and \`telemetry.*\` (except \`telemetry.sdk.name\` / \`telemetry.sdk.version\`) don't pollute event properties.
                         `}
                     </Markdown>
@@ -261,7 +261,7 @@ export const getOpenTelemetrySteps = (ctx: OnboardingComponentsContext): StepDef
 
                     <Markdown>
                         {dedent`
-                            **Direct OTLP export.** If you run an OpenTelemetry Collector, or want to export from a language that isn't Python or Node.js, point any OTLP/HTTP exporter directly at PostHog's AI ingestion endpoint. PostHog accepts OTLP over HTTP in both \`application/x-protobuf\` and \`application/json\`, authenticated with a \`Bearer\` token. The endpoint is signal-specific (traces only), so use the \`OTEL_EXPORTER_OTLP_TRACES_*\` variants rather than the general \`OTEL_EXPORTER_OTLP_*\` ones (the SDK appends \`/v1/traces\` to the latter and would 404).
+                            **Direct OTLP export.** If you run an OpenTelemetry Collector, or want to export from a language that isn't Python or Node.js, point any OTLP/HTTP exporter directly at PostHog's AI ingestion endpoint. Txlemetry accepts OTLP over HTTP in both \`application/x-protobuf\` and \`application/json\`, authenticated with a \`Bearer\` token. The endpoint is signal-specific (traces only), so use the \`OTEL_EXPORTER_OTLP_TRACES_*\` variants rather than the general \`OTEL_EXPORTER_OTLP_*\` ones (the SDK appends \`/v1/traces\` to the latter and would 404).
                         `}
                     </Markdown>
 

@@ -18,7 +18,7 @@ export const getAnthropicSteps = (ctx: OnboardingComponentsContext): StepDefinit
                             See the complete
                             [Node.js](https://github.com/PostHog/posthog-js/tree/main/examples/example-ai-anthropic) and
                             [Python](https://github.com/PostHog/posthog-python/tree/master/examples/example-ai-anthropic)
-                            examples on GitHub. If you're using the PostHog SDK wrapper instead of OpenTelemetry, see
+                            examples on GitHub. If you're using the Txlemetry SDK wrapper instead of OpenTelemetry, see
                             the [Node.js
                             wrapper](https://github.com/PostHog/posthog-js/tree/e08ff1be/examples/example-ai-anthropic)
                             and [Python
@@ -59,7 +59,7 @@ export const getAnthropicSteps = (ctx: OnboardingComponentsContext): StepDefinit
                 <>
                     <Markdown>
                         Configure OpenTelemetry to auto-instrument Anthropic SDK calls and export traces to PostHog.
-                        PostHog converts `gen_ai.*` spans into `$ai_generation` events automatically.
+                        Txlemetry converts `gen_ai.*` spans into `$ai_generation` events automatically.
                     </Markdown>
 
                     <CodeBlock
@@ -129,7 +129,7 @@ export const getAnthropicSteps = (ctx: OnboardingComponentsContext): StepDefinit
             content: (
                 <>
                     <Markdown>
-                        Now, when you use the Anthropic SDK to call LLMs, PostHog automatically captures
+                        Now, when you use the Anthropic SDK to call LLMs, Txlemetry automatically captures
                         `$ai_generation` events via the OpenTelemetry instrumentation.
                     </Markdown>
 

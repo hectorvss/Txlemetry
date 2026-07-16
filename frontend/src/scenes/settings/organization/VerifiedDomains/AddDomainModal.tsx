@@ -51,7 +51,7 @@ export function AddDomainModal(): JSX.Element {
             }
         >
             <LemonInput
-                placeholder="posthog.com"
+                placeholder="txlemetry.com"
                 autoFocus
                 value={newDomain}
                 onChange={setNewDomain}
@@ -59,7 +59,7 @@ export function AddDomainModal(): JSX.Element {
             />
             {submitted && errored && (
                 <span className="text-danger text-xs">
-                    Please enter a valid domain or subdomain name (e.g. my.posthog.com)
+                    Please enter a valid domain or subdomain name (e.g. my.txlemetry.com)
                 </span>
             )}
         </LemonModal>

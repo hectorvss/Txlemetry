@@ -11,7 +11,7 @@ export const getRubySteps = (ctx: OnboardingComponentsContext): StepDefinition[]
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Add the PostHog Ruby gem to your Gemfile:</Markdown>
+                    <Markdown>Add the Txlemetry Ruby gem to your Gemfile:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -31,7 +31,7 @@ export const getRubySteps = (ctx: OnboardingComponentsContext): StepDefinition[]
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Initialize the PostHog client with your project token and host:</Markdown>
+                    <Markdown>Initialize the Txlemetry client with your project token and host:</Markdown>
                     <CodeBlock
                         blocks={[
                             {

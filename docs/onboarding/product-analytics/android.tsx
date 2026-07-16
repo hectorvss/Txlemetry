@@ -11,7 +11,7 @@ export const getAndroidSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Add the PostHog Android SDK to your `build.gradle` dependencies:</Markdown>
+                    <Markdown>Add the Txlemetry Android SDK to your `build.gradle` dependencies:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -33,7 +33,7 @@ export const getAndroidSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Initialize PostHog in your Application class:</Markdown>
+                    <Markdown>Initialize Txlemetry in your Application class:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -56,7 +56,7 @@ export const getAndroidSteps = (ctx: OnboardingComponentsContext): StepDefinitio
                                                 host = POSTHOG_HOST
                                             )
 
-                                            // Setup PostHog with the given Context and Config
+                                            // Setup Txlemetry with the given Context and Config
                                             PostHogAndroid.setup(this, config)
                                         }
                                     }
@@ -73,7 +73,7 @@ export const getAndroidSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             content: (
                 <>
                     <Markdown>
-                        Once installed, PostHog will automatically start capturing events. You can also manually send
+                        Once installed, Txlemetry will automatically start capturing events. You can also manually send
                         events to test your integration:
                     </Markdown>
                     <CodeBlock

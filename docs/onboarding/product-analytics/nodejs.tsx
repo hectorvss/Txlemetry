@@ -11,7 +11,7 @@ export const getNodeJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog Node.js library using your package manager:</Markdown>
+                    <Markdown>Install the Txlemetry Node.js library using your package manager:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -45,7 +45,7 @@ export const getNodeJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Initialize the PostHog client with your project token:</Markdown>
+                    <Markdown>Initialize the Txlemetry client with your project token:</Markdown>
                     <CodeBlock
                         blocks={[
                             {

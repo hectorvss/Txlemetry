@@ -19,7 +19,7 @@ export const getHuggingFaceSteps = (ctx: OnboardingComponentsContext): StepDefin
                             [Node.js](https://github.com/PostHog/posthog-js/tree/main/examples/example-ai-hugging-face)
                             and
                             [Python](https://github.com/PostHog/posthog-python/tree/master/examples/example-ai-hugging-face)
-                            examples on GitHub. If you're using the PostHog SDK wrapper instead of OpenTelemetry, see
+                            examples on GitHub. If you're using the Txlemetry SDK wrapper instead of OpenTelemetry, see
                             the [Node.js
                             wrapper](https://github.com/PostHog/posthog-js/tree/e08ff1be/examples/example-ai-hugging-face)
                             and [Python
@@ -58,7 +58,7 @@ export const getHuggingFaceSteps = (ctx: OnboardingComponentsContext): StepDefin
                 <>
                     <Markdown>
                         Configure OpenTelemetry to auto-instrument OpenAI SDK calls and export traces to PostHog.
-                        PostHog converts `gen_ai.*` spans into `$ai_generation` events automatically.
+                        Txlemetry converts `gen_ai.*` spans into `$ai_generation` events automatically.
                     </Markdown>
 
                     <CodeBlock
@@ -128,7 +128,7 @@ export const getHuggingFaceSteps = (ctx: OnboardingComponentsContext): StepDefin
             content: (
                 <>
                     <Markdown>
-                        Now, when you use the OpenAI SDK to call Hugging Face, PostHog automatically captures
+                        Now, when you use the OpenAI SDK to call Hugging Face, Txlemetry automatically captures
                         `$ai_generation` events via the OpenTelemetry instrumentation.
                     </Markdown>
 

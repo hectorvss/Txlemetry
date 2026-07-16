@@ -7,15 +7,15 @@ export const getZapierSteps = (ctx: OnboardingComponentsContext): StepDefinition
 
     return [
         {
-            title: 'Connect PostHog to Zapier',
+            title: 'Connect Txlemetry to Zapier',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Zapier lets you connect PostHog to thousands of other apps. You can use it to send events to
-                        PostHog from other services or trigger actions based on PostHog events. Go to the [PostHog
+                        Zapier lets you connect Txlemetry to thousands of other apps. You can use it to send events to
+                        Txlemetry from other services or trigger actions based on Txlemetry events. Go to the [PostHog
                         integration page](https://zapier.com/apps/posthog/integrations) on Zapier and click **Connect
-                        PostHog**. When prompted, enter your PostHog project token:
+                        PostHog**. When prompted, enter your Txlemetry project token:
                     </Markdown>
                     <CodeBlock
                         blocks={[
@@ -28,7 +28,7 @@ export const getZapierSteps = (ctx: OnboardingComponentsContext): StepDefinition
                             },
                         ]}
                     />
-                    <Markdown>Enter your PostHog host:</Markdown>
+                    <Markdown>Enter your Txlemetry host:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -49,12 +49,12 @@ export const getZapierSteps = (ctx: OnboardingComponentsContext): StepDefinition
             content: (
                 <>
                     <Markdown>
-                        Create a Zap that sends events to PostHog using the "Capture Event" action. Events captured via
-                        Zapier will appear in PostHog just like events from any other source.
+                        Create a Zap that sends events to Txlemetry using the "Capture Event" action. Events captured via
+                        Zapier will appear in Txlemetry just like events from any other source.
                     </Markdown>
                     <Markdown>
                         You can use Zapier to connect CRMs, payment processors, customer support tools, and more to your
-                        PostHog analytics.
+                        Txlemetry analytics.
                     </Markdown>
                 </>
             ),

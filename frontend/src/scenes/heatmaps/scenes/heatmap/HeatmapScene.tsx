@@ -1,7 +1,7 @@
 import { BindLogic, useActions, useValues } from 'kea'
 import { useEffect, useRef } from 'react'
 
-import { HedgehogDirector } from '@posthog/brand/hoggies'
+import { HedgehogDirector } from 'lib/components/hedgehogs'
 import { IconBrowser, IconDownload } from '@posthog/icons'
 import { LemonTag, Spinner } from '@posthog/lemon-ui'
 

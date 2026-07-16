@@ -15,7 +15,7 @@ export const getReactRouterSteps = (ctx: OnboardingComponentsContext): StepDefin
             content: (
                 <>
                     <Markdown>
-                        Install the PostHog JavaScript library and React SDK using your package manager:
+                        Install the Txlemetry JavaScript library and React SDK using your package manager:
                     </Markdown>
                     <CodeBlock
                         blocks={[
@@ -81,7 +81,7 @@ export const getReactRouterSteps = (ctx: OnboardingComponentsContext): StepDefin
             content: (
                 <>
                     <Markdown>
-                        Initialize PostHog and wrap your app with the `PostHogProvider` in your `app/entry.client.tsx`
+                        Initialize Txlemetry and wrap your app with the `PostHogProvider` in your `app/entry.client.tsx`
                         file:
                     </Markdown>
                     <CodeBlock

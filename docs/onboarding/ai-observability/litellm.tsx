@@ -13,7 +13,7 @@ export const getLiteLLMSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             content: (
                 <Blockquote>
                     <Markdown>
-                        **Note:** LiteLLM can be used as a Python SDK or as a proxy server. PostHog observability
+                        **Note:** LiteLLM can be used as a Python SDK or as a proxy server. Txlemetry observability
                         requires LiteLLM version 1.77.3 or higher.
                     </Markdown>
                 </Blockquote>
@@ -52,12 +52,12 @@ export const getLiteLLMSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             ),
         },
         {
-            title: 'Configure PostHog observability',
+            title: 'Configure Txlemetry observability',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Configure PostHog by setting your project token and host as well as adding `posthog` to your
+                        Configure Txlemetry by setting your project token and host as well as adding `posthog` to your
                         LiteLLM callback handlers. You can find your project token in [your project
                         settings](https://app.posthog.com/settings/project).
                     </Markdown>
@@ -75,7 +75,7 @@ export const getLiteLLMSteps = (ctx: OnboardingComponentsContext): StepDefinitio
                                     os.environ["POSTHOG_API_KEY"] = "<ph_project_token>"
                                     os.environ["POSTHOG_API_URL"] = "<ph_client_api_host>"  # Optional, defaults to https://app.posthog.com
 
-                                    # Enable PostHog callbacks
+                                    # Enable Txlemetry callbacks
                                     litellm.success_callback = ["posthog"]
                                     litellm.failure_callback = ["posthog"]  # Optional: also log failures
                                 `,
@@ -110,7 +110,7 @@ export const getLiteLLMSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             content: (
                 <>
                     <Markdown>
-                        Now, when you use LiteLLM to call various LLM providers, PostHog automatically captures an
+                        Now, when you use LiteLLM to call various LLM providers, Txlemetry automatically captures an
                         `$ai_generation` event.
                     </Markdown>
 
@@ -126,7 +126,7 @@ export const getLiteLLMSteps = (ctx: OnboardingComponentsContext): StepDefinitio
                                             {"role": "user", "content": "Tell me a fun fact about hedgehogs"}
                                         ],
                                         metadata={
-                                            "user_id": "user_123",  # Maps to PostHog distinct_id
+                                            "user_id": "user_123",  # Maps to Txlemetry distinct_id
                                             "company": "company_id_in_your_db"  # Custom property
                                         }
                                     )
@@ -188,7 +188,7 @@ export const getLiteLLMSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             content: (
                 <>
                     <Markdown>
-                        PostHog can also capture embedding generations as `$ai_embedding` events through LiteLLM:
+                        Txlemetry can also capture embedding generations as `$ai_embedding` events through LiteLLM:
                     </Markdown>
 
                     <CodeBlock
@@ -201,7 +201,7 @@ export const getLiteLLMSteps = (ctx: OnboardingComponentsContext): StepDefinitio
                                         input="The quick brown fox",
                                         model="text-embedding-3-small",
                                         metadata={
-                                            "user_id": "user_123",  # Maps to PostHog distinct_id
+                                            "user_id": "user_123",  # Maps to Txlemetry distinct_id
                                             "company": "company_id_in_your_db"  # Custom property
                                         }
                                     )

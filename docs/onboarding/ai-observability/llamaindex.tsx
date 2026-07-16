@@ -17,7 +17,7 @@ export const getLlamaIndexSteps = (ctx: OnboardingComponentsContext): StepDefini
                         <Markdown>
                             See the complete [Python
                             example](https://github.com/PostHog/posthog-python/tree/master/examples/example-ai-llamaindex)
-                            on GitHub. If you're using the PostHog SDK wrapper instead of OpenTelemetry, see the [Python
+                            on GitHub. If you're using the Txlemetry SDK wrapper instead of OpenTelemetry, see the [Python
                             wrapper
                             example](https://github.com/PostHog/posthog-python/tree/7223c52/examples/example-ai-llamaindex).
                         </Markdown>
@@ -43,7 +43,7 @@ export const getLlamaIndexSteps = (ctx: OnboardingComponentsContext): StepDefini
                 <>
                     <Markdown>
                         Configure OpenTelemetry to auto-instrument LlamaIndex calls and export traces to PostHog.
-                        PostHog converts `gen_ai.*` spans into `$ai_generation` events automatically.
+                        Txlemetry converts `gen_ai.*` spans into `$ai_generation` events automatically.
                     </Markdown>
 
                     <CodeBlock

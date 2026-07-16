@@ -12,7 +12,7 @@ export const getAndroidSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Add the PostHog Android SDK to your `build.gradle` dependencies:</Markdown>
+                    <Markdown>Add the Txlemetry Android SDK to your `build.gradle` dependencies:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -28,7 +28,7 @@ export const getAndroidSteps = (ctx: OnboardingComponentsContext): StepDefinitio
                     />
                     <CalloutBox type="fyi" title="SDK version">
                         <Markdown>
-                            Session replay requires PostHog Android SDK version 3.4.0 or higher. We recommend always
+                            Session replay requires Txlemetry Android SDK version 3.4.0 or higher. We recommend always
                             using the latest version.
                         </Markdown>
                     </CalloutBox>
@@ -48,12 +48,12 @@ export const getAndroidSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             ),
         },
         {
-            title: 'Configure PostHog with session replay',
+            title: 'Configure Txlemetry with session replay',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Add `sessionReplay = true` to your PostHog configuration. Here are all the available options:
+                        Add `sessionReplay = true` to your Txlemetry configuration. Here are all the available options:
                     </Markdown>
                     <CodeBlock
                         blocks={[

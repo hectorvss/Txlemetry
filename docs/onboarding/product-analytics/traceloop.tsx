@@ -17,7 +17,7 @@ export const getTraceloopSteps = (ctx: OnboardingComponentsContext): StepDefinit
                     </Markdown>
                     <Markdown>
                         Go to the [integrations page](https://app.traceloop.com/settings/integrations) in your Traceloop
-                        dashboard and click on the PostHog card.
+                        dashboard and click on the Txlemetry card.
                     </Markdown>
                 </>
             ),
@@ -27,7 +27,7 @@ export const getTraceloopSteps = (ctx: OnboardingComponentsContext): StepDefinit
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Paste in your PostHog project token:</Markdown>
+                    <Markdown>Paste in your Txlemetry project token:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -39,7 +39,7 @@ export const getTraceloopSteps = (ctx: OnboardingComponentsContext): StepDefinit
                             },
                         ]}
                     />
-                    <Markdown>Paste in your PostHog host:</Markdown>
+                    <Markdown>Paste in your Txlemetry host:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -51,9 +51,9 @@ export const getTraceloopSteps = (ctx: OnboardingComponentsContext): StepDefinit
                             },
                         ]}
                     />
-                    <Markdown>Select the environment you want to connect to PostHog and click **Enable**.</Markdown>
+                    <Markdown>Select the environment you want to connect to Txlemetry and click **Enable**.</Markdown>
                     <Markdown>
-                        Traceloop events will now be exported into PostHog as soon as they're available.
+                        Traceloop events will now be exported into Txlemetry as soon as they're available.
                     </Markdown>
                 </>
             ),

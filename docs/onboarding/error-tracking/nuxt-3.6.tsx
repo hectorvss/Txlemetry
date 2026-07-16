@@ -15,7 +15,7 @@ export const getNuxt36Steps = (ctx: OnboardingComponentsContext): StepDefinition
             <>
                 <Markdown>
                     {dedent`
-                        To send errors directly using the PostHog client, import it and use the \`captureException\` method like this:
+                        To send errors directly using the Txlemetry client, import it and use the \`captureException\` method like this:
                     `}
                 </Markdown>
                 <CodeBlock

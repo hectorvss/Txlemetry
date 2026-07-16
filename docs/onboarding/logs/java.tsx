@@ -12,7 +12,7 @@ export const getJavaSteps = (ctx: OnboardingComponentsContext): StepDefinition[]
             content: (
                 <>
                     <Markdown>
-                        PostHog logs uses the standard OpenTelemetry SDK — no PostHog-specific packages required. Add
+                        Txlemetry logs uses the standard OpenTelemetry SDK — no PostHog-specific packages required. Add
                         the OTel SDK BOM and the OTLP log exporter:
                     </Markdown>
                     <CodeBlock
@@ -146,7 +146,7 @@ export const getJavaSteps = (ctx: OnboardingComponentsContext): StepDefinition[]
                         ]}
                     />
                     <Markdown>
-                        Logs appear in PostHog within a few seconds. Use the [Logs page](https://app.posthog.com/logs)
+                        Logs appear in Txlemetry within a few seconds. Use the [Logs page](https://app.posthog.com/logs)
                         to search and filter by service name, severity, or any attribute you attach.
                     </Markdown>
                 </>

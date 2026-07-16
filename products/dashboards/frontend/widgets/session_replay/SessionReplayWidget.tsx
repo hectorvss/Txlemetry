@@ -3,7 +3,7 @@ import { useActions, useValues } from 'kea'
 import posthog from 'posthog-js'
 import { useRef, useState } from 'react'
 
-import { HedgehogDirector } from '@posthog/brand/hoggies'
+import { HedgehogDirector } from 'lib/components/hedgehogs'
 
 import api from 'lib/api'
 import { CardTopHeadingRow } from 'lib/components/Cards/CardTopHeadingRow'

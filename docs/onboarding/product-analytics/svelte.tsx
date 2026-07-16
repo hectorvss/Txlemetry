@@ -12,7 +12,7 @@ export const getSvelteClientSteps = (ctx: OnboardingComponentsContext): StepDefi
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog JavaScript library using your package manager:</Markdown>
+                    <Markdown>Install the Txlemetry JavaScript library using your package manager:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -48,7 +48,7 @@ export const getSvelteClientSteps = (ctx: OnboardingComponentsContext): StepDefi
                 <>
                     <Markdown>
                         If you haven't created a root layout already, create a new file called `+layout.js` in your
-                        `src/routes` folder. Check the environment is the browser, and initialize PostHog if so:
+                        `src/routes` folder. Check the environment is the browser, and initialize Txlemetry if so:
                     </Markdown>
                     <CodeBlock
                         blocks={[
@@ -132,7 +132,7 @@ export const getSvelteServerSteps = (ctx: OnboardingComponentsContext): StepDefi
                         ]}
                     />
                     <Markdown>
-                        Then, initialize the PostHog Node client where you'd like to use it on the server side. For
+                        Then, initialize the Txlemetry Node client where you'd like to use it on the server side. For
                         example, in a load function:
                     </Markdown>
                     <CodeBlock
@@ -160,7 +160,7 @@ export const getSvelteServerSteps = (ctx: OnboardingComponentsContext): StepDefi
                     <CalloutBox type="fyi" title="Note">
                         <Markdown>
                             Make sure to always call `posthog.shutdown()` after capturing events from the server-side.
-                            PostHog queues events into larger batches, and this call forces all batched events to be
+                            Txlemetry queues events into larger batches, and this call forces all batched events to be
                             flushed immediately.
                         </Markdown>
                     </CalloutBox>

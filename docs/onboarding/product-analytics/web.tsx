@@ -36,8 +36,8 @@ export const getWebSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
                             <Tab.Panel>
                                 <Markdown>
                                     {dedent`
-                                        Install the PostHog JavaScript library using your package manager.
-                                        Then, import and initialize the PostHog library with your project token and host:
+                                        Install the Txlemetry JavaScript library using your package manager.
+                                        Then, import and initialize the Txlemetry library with your project token and host:
                                     `}
                                 </Markdown>
                                 <CodeBlock
@@ -78,7 +78,7 @@ export const getWebSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
             content: (
                 <>
                     <Markdown>
-                        Once installed, PostHog will automatically start capturing events. You can also manually send
+                        Once installed, Txlemetry will automatically start capturing events. You can also manually send
                         events to test your integration:
                     </Markdown>
                     {JSEventCapture && <JSEventCapture />}

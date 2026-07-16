@@ -1,7 +1,7 @@
 import { useActions, useValues } from 'kea'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
-import { HedgehogDirector } from '@posthog/brand/hoggies'
+import { HedgehogDirector } from 'lib/components/hedgehogs'
 import { IconPencil, IconUndo } from '@posthog/icons'
 import { LemonButton, LemonColorPicker, LemonInput, LemonModal, LemonSelect } from '@posthog/lemon-ui'
 

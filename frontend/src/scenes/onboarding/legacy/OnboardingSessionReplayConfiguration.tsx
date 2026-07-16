@@ -1,6 +1,6 @@
 import { useActions } from 'kea'
 
-import { HedgehogDirector } from '@posthog/brand/hoggies'
+import { HedgehogDirector } from 'lib/components/hedgehogs'
 import { LemonButton } from '@posthog/lemon-ui'
 
 import { OnboardingStepKey } from '~/types'

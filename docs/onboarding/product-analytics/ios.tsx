@@ -41,7 +41,7 @@ export const getIOSSteps = (
                             },
                         ]}
                     />
-                    <Markdown>Or add PostHog to your Podfile:</Markdown>
+                    <Markdown>Or add Txlemetry to your Podfile:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -61,7 +61,7 @@ export const getIOSSteps = (
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Initialize PostHog in your AppDelegate:</Markdown>
+                    <Markdown>Initialize Txlemetry in your AppDelegate:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -96,7 +96,7 @@ export const getIOSSteps = (
             content: (
                 <>
                     <Markdown>
-                        Once installed, PostHog will automatically start capturing events. You can also manually send
+                        Once installed, Txlemetry will automatically start capturing events. You can also manually send
                         events to test your integration:
                     </Markdown>
                     <CodeBlock

@@ -11,7 +11,7 @@ export const getGoSteps = (ctx: OnboardingComponentsContext): StepDefinition[] =
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog Go library:</Markdown>
+                    <Markdown>Install the Txlemetry Go library:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -31,7 +31,7 @@ export const getGoSteps = (ctx: OnboardingComponentsContext): StepDefinition[] =
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Initialize the PostHog client with your project token and host:</Markdown>
+                    <Markdown>Initialize the Txlemetry client with your project token and host:</Markdown>
                     <CodeBlock
                         blocks={[
                             {

@@ -53,7 +53,7 @@ export const getCloudflareAIGatewaySteps = (ctx: OnboardingComponentsContext): S
                 <>
                     <Markdown>
                         Configure OpenTelemetry to auto-instrument OpenAI SDK calls and export traces to PostHog.
-                        PostHog converts `gen_ai.*` spans into `$ai_generation` events automatically.
+                        Txlemetry converts `gen_ai.*` spans into `$ai_generation` events automatically.
                     </Markdown>
 
                     <CodeBlock

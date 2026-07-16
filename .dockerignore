@@ -21,6 +21,7 @@
 !frontend/.storybook
 !frontend/bin
 !frontend/public
+!frontend/brand-overrides
 !frontend/src
 !frontend/types
 !frontend/babel.config.js

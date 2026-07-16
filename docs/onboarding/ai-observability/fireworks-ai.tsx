@@ -19,7 +19,7 @@ export const getFireworksAISteps = (ctx: OnboardingComponentsContext): StepDefin
                             [Node.js](https://github.com/PostHog/posthog-js/tree/main/examples/example-ai-fireworks-ai)
                             and
                             [Python](https://github.com/PostHog/posthog-python/tree/master/examples/example-ai-fireworks-ai)
-                            examples on GitHub. If you're using the PostHog SDK wrapper instead of OpenTelemetry, see
+                            examples on GitHub. If you're using the Txlemetry SDK wrapper instead of OpenTelemetry, see
                             the [Node.js
                             wrapper](https://github.com/PostHog/posthog-js/tree/e08ff1be/examples/example-ai-fireworks-ai)
                             and [Python
@@ -58,7 +58,7 @@ export const getFireworksAISteps = (ctx: OnboardingComponentsContext): StepDefin
                 <>
                     <Markdown>
                         Configure OpenTelemetry to auto-instrument OpenAI SDK calls and export traces to PostHog.
-                        PostHog converts `gen_ai.*` spans into `$ai_generation` events automatically.
+                        Txlemetry converts `gen_ai.*` spans into `$ai_generation` events automatically.
                     </Markdown>
 
                     <CodeBlock
@@ -128,7 +128,7 @@ export const getFireworksAISteps = (ctx: OnboardingComponentsContext): StepDefin
             content: (
                 <>
                     <Markdown>
-                        Now, when you use the OpenAI SDK to call Fireworks AI, PostHog automatically captures
+                        Now, when you use the OpenAI SDK to call Fireworks AI, Txlemetry automatically captures
                         `$ai_generation` events via the OpenTelemetry instrumentation.
                     </Markdown>
 

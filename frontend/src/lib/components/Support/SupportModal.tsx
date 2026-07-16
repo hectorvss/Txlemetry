@@ -2,6 +2,9 @@ import { useActions, useValues } from 'kea'
 import { useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 
+import { AppProvider as PolarisAppProvider } from '@shopify/polaris'
+import polarisEnTranslations from '@shopify/polaris/locales/en.json'
+
 import { LemonButton } from '@posthog/lemon-ui'
 
 import { LemonModal } from 'lib/lemon-ui/LemonModal/LemonModal'
@@ -75,6 +78,11 @@ export const openSupportModal = (): void => {
     }
 
     document.body.appendChild(div)
-    root.render(<SupportModal onAfterClose={destroy} />)
+    root.render(
+        // Detached React root — wrap in Polaris provider so the (now-Polaris) LemonButtons render.
+        <PolarisAppProvider i18n={polarisEnTranslations}>
+            <SupportModal onAfterClose={destroy} />
+        </PolarisAppProvider>
+    )
     return
 }

@@ -187,11 +187,7 @@ export function loadPostHogJS(options: LoadPostHogJSOptions = {}): void {
             window.POSTHOG_GLOBAL_ERRORS['onFeatureFlagsLoadError'] = true
         })
     } else {
-        posthog.init('fake_token', {
-            autocapture: false,
-            loaded: function (ph) {
-                ph.opt_out_capturing()
-            },
-        })
+        // TXLEMETRY: no telemetry key configured — do not initialize posthog-js at all,
+        // so the browser never even attempts a request to PostHog Inc.
     }
 }

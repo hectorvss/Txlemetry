@@ -15,7 +15,7 @@ export const getGoSteps = (ctx: OnboardingComponentsContext): StepDefinition[] =
             <>
                 <Markdown>
                     {dedent`
-                        Use \`NewDefaultException\` when you have an error value and want PostHog to group it in Error tracking.
+                        Use \`NewDefaultException\` when you have an error value and want Txlemetry to group it in Error tracking.
                     `}
                 </Markdown>
                 <CodeBlock

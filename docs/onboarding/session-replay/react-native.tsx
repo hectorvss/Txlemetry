@@ -13,7 +13,7 @@ export const getReactNativeSteps = (ctx: OnboardingComponentsContext): StepDefin
             content: (
                 <>
                     <Markdown>
-                        Install the PostHog React Native library, its dependencies, and the session replay plugin:
+                        Install the Txlemetry React Native library, its dependencies, and the session replay plugin:
                     </Markdown>
                     <CodeBlock
                         blocks={[
@@ -55,7 +55,7 @@ export const getReactNativeSteps = (ctx: OnboardingComponentsContext): StepDefin
                     </CalloutBox>
                     <CalloutBox type="fyi" title="SDK version">
                         <Markdown>
-                            Session replay requires PostHog React Native SDK version 3.2.0 or higher. We recommend
+                            Session replay requires Txlemetry React Native SDK version 3.2.0 or higher. We recommend
                             always using the latest version.
                         </Markdown>
                     </CalloutBox>
@@ -75,12 +75,12 @@ export const getReactNativeSteps = (ctx: OnboardingComponentsContext): StepDefin
             ),
         },
         {
-            title: 'Configure PostHog with session replay',
+            title: 'Configure Txlemetry with session replay',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Add `enableSessionReplay: true` to your PostHog configuration. Here are all the available
+                        Add `enableSessionReplay: true` to your Txlemetry configuration. Here are all the available
                         options:
                     </Markdown>
                     <CodeBlock

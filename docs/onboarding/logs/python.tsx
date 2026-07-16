@@ -12,7 +12,7 @@ export const getPythonSteps = (ctx: OnboardingComponentsContext): StepDefinition
             content: (
                 <>
                     <Markdown>
-                        PostHog logs uses the standard OpenTelemetry SDK. No PostHog-specific packages required.
+                        Txlemetry logs uses the standard OpenTelemetry SDK. No PostHog-specific packages required.
                     </Markdown>
                     <CodeBlock
                         blocks={[
@@ -96,7 +96,7 @@ export const getPythonSteps = (ctx: OnboardingComponentsContext): StepDefinition
                         ]}
                     />
                     <Markdown>
-                        Logs appear in PostHog within a few seconds. Use the [Logs page](https://app.posthog.com/logs)
+                        Logs appear in Txlemetry within a few seconds. Use the [Logs page](https://app.posthog.com/logs)
                         to search and filter by service name, severity, or any attribute you attach.
                     </Markdown>
                 </>

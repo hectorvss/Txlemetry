@@ -79,7 +79,9 @@ class License(models.Model):
         AvailableFeature.SSO_ENFORCEMENT,
         AvailableFeature.ROLE_BASED_ACCESS,
     ]
-    PLANS = {SCALE_PLAN: SCALE_FEATURES, ENTERPRISE_PLAN: ENTERPRISE_FEATURES}
+    # TXLEMETRY: unlock every product feature on this self-hosted instance
+    ENTERPRISE_FEATURES = list(AvailableFeature)
+    PLANS = {SCALE_PLAN: ENTERPRISE_FEATURES, ENTERPRISE_PLAN: ENTERPRISE_FEATURES}
     # The higher the plan, the higher its sorting value - sync with front-end licenseLogic
     PLAN_TO_SORTING_VALUE = {SCALE_PLAN: 10, ENTERPRISE_PLAN: 20}
 

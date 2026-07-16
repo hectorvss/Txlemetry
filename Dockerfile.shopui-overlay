@@ -1,0 +1,15 @@
+# Overlay build: reuse the fully-built production image and swap in only the
+# freshly-compiled frontend (dist) + regenerated collectstatic manifest.
+# Skips the heavy Python/lxml stage entirely so it fits the tight disk.
+FROM txlemetry/posthog:latest
+USER root
+COPY --from=txl-fe-dist:tmp /code/frontend/dist /code/frontend/dist
+COPY --from=txl-fe-dist:tmp /code/frontend/src/products.json /code/frontend/src/products.json
+# Strip JS/CSS source maps (~5.5GB). They are only for browser devtools and are NOT
+# needed in production. Left in, collectstatic duplicates them and fills the disk.
+RUN find /code/frontend/dist -name "*.map" -delete 2>/dev/null || true
+RUN cd /code && SKIP_SERVICE_VERSION_REQUIREMENTS=1 STATIC_COLLECTION=1 \
+    DATABASE_URL=postgres:/// REDIS_URL=redis:/// \
+    python manage.py collectstatic --noinput 2>&1 | tail -20
+RUN chown -R posthog:posthog /code/frontend/dist /code/staticfiles 2>/dev/null || true
+USER root

@@ -12,7 +12,7 @@ export const getFlutterSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Add the PostHog Flutter SDK to your `pubspec.yaml`:</Markdown>
+                    <Markdown>Add the Txlemetry Flutter SDK to your `pubspec.yaml`:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -26,7 +26,7 @@ export const getFlutterSteps = (ctx: OnboardingComponentsContext): StepDefinitio
                     />
                     <CalloutBox type="fyi" title="SDK version">
                         <Markdown>
-                            Session replay requires PostHog Flutter SDK version 4.7.0 or higher. We recommend always
+                            Session replay requires Txlemetry Flutter SDK version 4.7.0 or higher. We recommend always
                             using the latest version.
                         </Markdown>
                     </CalloutBox>
@@ -131,12 +131,12 @@ export const getFlutterSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             ),
         },
         {
-            title: 'Initialize PostHog with session replay',
+            title: 'Initialize Txlemetry with session replay',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Initialize PostHog in your `main.dart` with session replay enabled. Here are all the available
+                        Initialize Txlemetry in your `main.dart` with session replay enabled. Here are all the available
                         options:
                     </Markdown>
                     <CodeBlock

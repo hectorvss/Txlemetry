@@ -20,7 +20,7 @@ export const getRemixSteps = (ctx: OnboardingComponentsContext): StepDefinition[
                             docs](https://posthog.com/docs/libraries/react-router).
                         </Markdown>
                     </CalloutBox>
-                    <Markdown>Install the PostHog JavaScript library using your package manager:</Markdown>
+                    <Markdown>Install the Txlemetry JavaScript library using your package manager:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -96,7 +96,7 @@ export const getRemixSteps = (ctx: OnboardingComponentsContext): StepDefinition[
             content: (
                 <>
                     <Markdown>
-                        Create a `provider.tsx` file in the app folder. Set up the PostHog provider to initialize after
+                        Create a `provider.tsx` file in the app folder. Set up the Txlemetry provider to initialize after
                         hydration:
                     </Markdown>
                     <CodeBlock

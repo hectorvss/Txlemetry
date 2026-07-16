@@ -17,7 +17,7 @@ export const getPydanticAISteps = (ctx: OnboardingComponentsContext): StepDefini
                         <Markdown>
                             See the complete [Python
                             example](https://github.com/PostHog/posthog-python/tree/master/examples/example-ai-pydantic-ai)
-                            on GitHub. If you're using the PostHog SDK wrapper instead of OpenTelemetry, see the [Python
+                            on GitHub. If you're using the Txlemetry SDK wrapper instead of OpenTelemetry, see the [Python
                             wrapper
                             example](https://github.com/PostHog/posthog-python/tree/7223c52/examples/example-ai-pydantic-ai).
                         </Markdown>
@@ -40,8 +40,8 @@ export const getPydanticAISteps = (ctx: OnboardingComponentsContext): StepDefini
             content: (
                 <>
                     <Markdown>
-                        Configure OpenTelemetry to export traces to PostHog and enable Pydantic AI's built-in OTel
-                        instrumentation. PostHog converts `gen_ai.*` spans into `$ai_generation` events automatically.
+                        Configure OpenTelemetry to export traces to Txlemetry and enable Pydantic AI's built-in OTel
+                        instrumentation. Txlemetry converts `gen_ai.*` spans into `$ai_generation` events automatically.
                     </Markdown>
 
                     <CodeBlock
@@ -82,7 +82,7 @@ export const getPydanticAISteps = (ctx: OnboardingComponentsContext): StepDefini
             content: (
                 <>
                     <Markdown>
-                        Create a Pydantic AI agent and run it. PostHog automatically captures an `$ai_generation` event
+                        Create a Pydantic AI agent and run it. Txlemetry automatically captures an `$ai_generation` event
                         for each LLM call via the OTel instrumentation.
                     </Markdown>
 

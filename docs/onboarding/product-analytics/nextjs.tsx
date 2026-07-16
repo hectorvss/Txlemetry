@@ -12,7 +12,7 @@ export const getNextJSClientSteps = (ctx: OnboardingComponentsContext): StepDefi
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog JavaScript library using your package manager:</Markdown>
+                    <Markdown>Install the Txlemetry JavaScript library using your package manager:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -47,7 +47,7 @@ export const getNextJSClientSteps = (ctx: OnboardingComponentsContext): StepDefi
             content: (
                 <>
                     <Markdown>
-                        Add your PostHog project token and host to your `.env.local` file and to your hosting provider
+                        Add your Txlemetry project token and host to your `.env.local` file and to your hosting provider
                         (e.g. Vercel, Netlify). These values need to start with `NEXT_PUBLIC_` to be accessible on the
                         client-side.
                     </Markdown>
@@ -171,7 +171,7 @@ export const getNextJSClientSteps = (ctx: OnboardingComponentsContext): StepDefi
                             </Tab.Panel>
                             <Tab.Panel>
                                 <Markdown>
-                                    For the Pages router, integrate PostHog at the root of your app in `pages/_app.tsx`:
+                                    For the Pages router, integrate Txlemetry at the root of your app in `pages/_app.tsx`:
                                 </Markdown>
                                 <CodeBlock
                                     blocks={[
@@ -213,7 +213,7 @@ export const getNextJSClientSteps = (ctx: OnboardingComponentsContext): StepDefi
 
                     <CalloutBox type="fyi" title="Defaults option">
                         <Markdown>
-                            The `defaults` option automatically configures PostHog with recommended settings for new
+                            The `defaults` option automatically configures Txlemetry with recommended settings for new
                             projects. See [SDK defaults](https://posthog.com/docs/libraries/js#sdk-defaults) for
                             details.
                         </Markdown>
@@ -222,7 +222,7 @@ export const getNextJSClientSteps = (ctx: OnboardingComponentsContext): StepDefi
             ),
         },
         {
-            title: 'Accessing PostHog on the client',
+            title: 'Accessing Txlemetry on the client',
             badge: 'recommended',
             content: (
                 <>
@@ -260,7 +260,7 @@ export const getNextJSClientSteps = (ctx: OnboardingComponentsContext): StepDefi
                                 />
                             </Tab.Panel>
                             <Tab.Panel>
-                                <Markdown>Use the `usePostHog` hook to access PostHog in client components:</Markdown>
+                                <Markdown>Use the `usePostHog` hook to access Txlemetry in client components:</Markdown>
                                 <CodeBlock
                                     blocks={[
                                         {
@@ -329,7 +329,7 @@ export const getNextJSServerSteps = (ctx: OnboardingComponentsContext): StepDefi
                         ]}
                     />
                     <Markdown>
-                        Then, initialize PostHog in your API route or server action. Choose the method based on your
+                        Then, initialize Txlemetry in your API route or server action. Choose the method based on your
                         router type:
                     </Markdown>
 
@@ -341,8 +341,8 @@ export const getNextJSServerSteps = (ctx: OnboardingComponentsContext): StepDefi
                         <Tab.Panels>
                             <Tab.Panel>
                                 <Markdown>
-                                    For the App router, you can use PostHog in API routes or server actions. Create a
-                                    new PostHog client instance for each request, or reuse a singleton instance across
+                                    For the App router, you can use Txlemetry in API routes or server actions. Create a
+                                    new Txlemetry client instance for each request, or reuse a singleton instance across
                                     requests:
                                 </Markdown>
                                 <CodeBlock
@@ -369,7 +369,7 @@ export const getNextJSServerSteps = (ctx: OnboardingComponentsContext): StepDefi
                                         },
                                     ]}
                                 />
-                                <Markdown>You can also use PostHog in server actions:</Markdown>
+                                <Markdown>You can also use Txlemetry in server actions:</Markdown>
                                 <CodeBlock
                                     blocks={[
                                         {
@@ -398,7 +398,7 @@ export const getNextJSServerSteps = (ctx: OnboardingComponentsContext): StepDefi
                                 />
                             </Tab.Panel>
                             <Tab.Panel>
-                                <Markdown>For the Pages router, use PostHog in your API routes:</Markdown>
+                                <Markdown>For the Pages router, use Txlemetry in your API routes:</Markdown>
                                 <CodeBlock
                                     blocks={[
                                         {
@@ -437,7 +437,7 @@ export const getNextJSServerSteps = (ctx: OnboardingComponentsContext): StepDefi
                         <Markdown>
                             Always call `await posthog.shutdown()` when you're done with the client to ensure all events
                             are flushed before the request completes. For better performance, consider creating a
-                            singleton PostHog instance that you reuse across requests.
+                            singleton Txlemetry instance that you reuse across requests.
                         </Markdown>
                     </CalloutBox>
                 </>

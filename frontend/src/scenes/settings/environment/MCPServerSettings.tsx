@@ -3,7 +3,7 @@ import { Link } from '@posthog/lemon-ui'
 import { CodeSnippet, Language } from 'lib/components/CodeSnippet'
 
 const MCPServerSettings = (): JSX.Element => {
-    const codeSnippet = `npx @posthog/wizard mcp add`
+    const codeSnippet = `claude mcp add --transport http txlemetry ${window.location.origin}/mcp`
 
     return (
         <div>

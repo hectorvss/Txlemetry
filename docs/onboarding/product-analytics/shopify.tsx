@@ -18,7 +18,7 @@ export const getShopifySteps = (ctx: OnboardingComponentsContext): StepDefinitio
             ),
         },
         {
-            title: 'Add the PostHog snippet',
+            title: 'Add the Txlemetry snippet',
             badge: 'required',
             content: (
                 <>
@@ -51,7 +51,7 @@ export const getShopifySteps = (ctx: OnboardingComponentsContext): StepDefinitio
             badge: 'recommended',
             content: (
                 <Markdown>
-                    PostHog will now capture pageviews, clicks, and other events on your Shopify store. See the [Shopify
+                    Txlemetry will now capture pageviews, clicks, and other events on your Shopify store. See the [Shopify
                     integration docs](https://posthog.com/docs/libraries/shopify) for tracking checkout events and
                     revenue.
                 </Markdown>

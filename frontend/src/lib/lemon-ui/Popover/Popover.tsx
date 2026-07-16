@@ -146,6 +146,10 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function P
     const additionalRefsRef = useRef(additionalRefs)
     additionalRefsRef.current = additionalRefs
 
+    // TXLEMETRY FIX: control the reference element via React state so floating-ui always has it.
+    // The cloneElement + useMergeRefs path was not registering child triggers, leaving every
+    // dropdown/popover computed with no reference and rendered at (0,0).
+    const [controlledReferenceEl, setControlledReferenceEl] = useState<HTMLElement | null>(null)
     const {
         x,
         y,
@@ -155,6 +159,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function P
         update,
         middlewareData,
         context,
+        isPositioned,
     } = useFloating<HTMLElement>({
         open: visible,
         onOpenChange: (open, event) => {
@@ -164,7 +169,13 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function P
             onClickOutside?.(event as Event)
         },
         placement,
-        strategy: 'absolute',
+        // TXLEMETRY FIX: let floating-ui manage repositioning via its own internal element
+        // tracking. The manual autoUpdate effect below keyed on referenceRef.current never
+        // re-runs (mutating a ref's .current does not trigger a React render), so popovers
+        // were computing once with no reference and rendering at (0,0).
+        whileElementsMounted: autoUpdate,
+        strategy: 'fixed',
+        elements: { reference: controlledReferenceEl },
         middleware: [
             ...(fallbackPlacements
                 ? [
@@ -261,16 +272,25 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function P
         },
         []
     )
-    const mergedReferenceRef = useMergeRefs([
-        // floating-ui 0.27 needs its setReference callback to actually register the trigger
-        // element — assigning refs.reference.current alone is NOT enough, so without this the
-        // popover computes with no reference and renders at (0,0) (top-left corner). This is the
-        // load-bearing line that anchors EVERY child-triggered popover, tooltip and dropdown.
-        setReference,
-        referenceRef,
-        extraReferenceRef || null,
-        (children as any)?.ref,
-    ]) as React.RefCallback<HTMLElement>
+    // TXLEMETRY FIX: capture the child trigger DOM node into React state (drives the controlled
+    // elements.reference above) and also forward setReference + the child own ref. A plain
+    // callback ref guarantees it runs on mount, unlike the previous useMergeRefs path.
+    const mergedReferenceRef = useCallback(
+        (node: HTMLElement | null) => {
+            setControlledReferenceEl(node)
+            setReference(node)
+            if (extraReferenceRef) {
+                extraReferenceRef.current = node
+            }
+            const childRef = (children as any)?.ref
+            if (typeof childRef === 'function') {
+                childRef(node)
+            } else if (childRef && typeof childRef === 'object') {
+                childRef.current = node
+            }
+        },
+        [setReference, extraReferenceRef, children]
+    ) as React.RefCallback<HTMLElement>
 
     const arrowStyle = middlewareData.arrow
         ? {
@@ -281,6 +301,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function P
 
     useLayoutEffect(() => {
         if (referenceElement) {
+            setControlledReferenceEl(referenceElement)
             setReference(referenceElement)
         }
     }, [referenceElement]) // oxlint-disable-line react-hooks/exhaustive-deps
@@ -351,7 +372,24 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function P
         onClickInside?.(e)
     }
 
-    const clonedChildren = children ? React.cloneElement(children as ReactElement, { ref: mergedReferenceRef }) : null
+    // TXLEMETRY FIX: LemonButton (and other triggers) did not deliver their DOM node through the
+    // cloneElement ref path, so floating-ui had no reference and every popover computed at (0,0).
+    // Wrap the trigger in a layout-transparent (display:contents) span whose ref we own, and use
+    // its rendered element child as the floating-ui reference — independent of whether the trigger
+    // forwards its own ref.
+    const referenceWrapperRef = useCallback(
+        (node: HTMLSpanElement | null) => {
+            const el = (node?.firstElementChild as HTMLElement | null) ?? null
+            setControlledReferenceEl(el)
+            setReference(el)
+        },
+        [setReference]
+    )
+    const clonedChildren = children ? (
+        <span ref={referenceWrapperRef} style={{ display: 'contents' }}>
+            {children}
+        </span>
+    ) : null
 
     const floatingCallbackRef = useCallback(
         (el: HTMLDivElement | null) => {
@@ -370,7 +408,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(function P
     // When attached to a reference, floating-ui needs at least one update cycle to compute
     // x/y. Until then, rendering at the (0, 0) fallback would briefly flash the overlay at
     // the top-left of the viewport. Hide it until positioning resolves.
-    const isPositionPending = isAttached && (x == null || y == null)
+    const isPositionPending = isAttached && !isPositioned
 
     return (
         <>

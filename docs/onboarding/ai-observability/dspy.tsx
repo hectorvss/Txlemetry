@@ -9,12 +9,12 @@ export const getDSPySteps = (ctx: OnboardingComponentsContext): StepDefinition[]
 
     return [
         {
-            title: 'Install the PostHog SDK',
+            title: 'Install the Txlemetry SDK',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Setting up analytics starts with installing the PostHog SDK. The DSPy integration uses PostHog's
+                        Setting up analytics starts with installing the Txlemetry SDK. The DSPy integration uses PostHog's
                         LiteLLM callback.
                     </Markdown>
 
@@ -33,7 +33,7 @@ export const getDSPySteps = (ctx: OnboardingComponentsContext): StepDefinition[]
             content: (
                 <>
                     <Markdown>
-                        Install DSPy and LiteLLM. DSPy uses LiteLLM natively for provider access, and PostHog integrates
+                        Install DSPy and LiteLLM. DSPy uses LiteLLM natively for provider access, and Txlemetry integrates
                         with LiteLLM's callback system.
                     </Markdown>
 
@@ -47,13 +47,13 @@ export const getDSPySteps = (ctx: OnboardingComponentsContext): StepDefinition[]
             ),
         },
         {
-            title: 'Configure PostHog with LiteLLM',
+            title: 'Configure Txlemetry with LiteLLM',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Set your PostHog project token and host as environment variables, then configure LiteLLM to use
-                        PostHog as a callback handler. You can find your project token in [your project
+                        Set your Txlemetry project token and host as environment variables, then configure LiteLLM to use
+                        Txlemetry as a callback handler. You can find your project token in [your project
                         settings](https://app.posthog.com/settings/project).
                     </Markdown>
 
@@ -64,11 +64,11 @@ export const getDSPySteps = (ctx: OnboardingComponentsContext): StepDefinition[]
                             import dspy
                             import litellm
 
-                            # Set PostHog environment variables
+                            # Set Txlemetry environment variables
                             os.environ["POSTHOG_API_KEY"] = "<ph_project_token>"
                             os.environ["POSTHOG_API_URL"] = "<ph_client_api_host>"
 
-                            # Enable PostHog callbacks in LiteLLM
+                            # Enable Txlemetry callbacks in LiteLLM
                             litellm.success_callback = ["posthog"]
                             litellm.failure_callback = ["posthog"]
 
@@ -80,7 +80,7 @@ export const getDSPySteps = (ctx: OnboardingComponentsContext): StepDefinition[]
 
                     <CalloutBox type="fyi" icon="IconInfo" title="How this works">
                         <Markdown>
-                            DSPy uses LiteLLM under the hood for LLM provider access. By configuring PostHog as a
+                            DSPy uses LiteLLM under the hood for LLM provider access. By configuring Txlemetry as a
                             LiteLLM callback, all LLM calls made through DSPy are automatically captured as
                             `$ai_generation` events.
                         </Markdown>
@@ -94,7 +94,7 @@ export const getDSPySteps = (ctx: OnboardingComponentsContext): StepDefinition[]
             content: (
                 <>
                     <Markdown>
-                        Use DSPy as normal. PostHog automatically captures an `$ai_generation` event for each LLM call
+                        Use DSPy as normal. Txlemetry automatically captures an `$ai_generation` event for each LLM call
                         made through LiteLLM.
                     </Markdown>
 

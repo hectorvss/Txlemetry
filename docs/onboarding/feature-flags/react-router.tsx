@@ -28,7 +28,7 @@ export const getReactRouterSteps = (ctx: OnboardingComponentsContext): StepDefin
             content: (
                 <>
                     <Markdown>
-                        Use `posthog-node` to evaluate feature flags on the server. You can access PostHog in a React
+                        Use `posthog-node` to evaluate feature flags on the server. You can access Txlemetry in a React
                         Router loader:
                     </Markdown>
                     <CodeBlock
@@ -68,7 +68,7 @@ export const getReactRouterSteps = (ctx: OnboardingComponentsContext): StepDefin
             content: (
                 <Markdown>
                     Experiments run on top of our feature flags. Once you've implemented the flag in your code, you run
-                    an experiment by creating a new experiment in the PostHog dashboard.
+                    an experiment by creating a new experiment in the Txlemetry dashboard.
                 </Markdown>
             ),
         },

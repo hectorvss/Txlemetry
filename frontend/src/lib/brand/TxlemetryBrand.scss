@@ -60,3 +60,10 @@
         display: none;
     }
 }
+
+
+// TXLEMETRY dark-mode mark: the mark asset is now a transparent near-black silhouette (no baked
+// background), so on dark surfaces it would vanish. Invert it to near-white when the app is dark.
+[theme='dark'] .TxlemetryBrand__mark {
+    filter: invert(1) brightness(1.06);
+}

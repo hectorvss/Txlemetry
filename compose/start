@@ -1,0 +1,18 @@
+#!/bin/bash
+# Inject cross-subdomain auth settings so the marketing landing (txlemetry.com)
+# can authenticate against this PostHog app (app.txlemetry.com) with a shared session.
+if ! grep -q 'TXLEMETRY_AUTH_OVERRIDES' /code/posthog/settings/__init__.py 2>/dev/null; then
+cat >> /code/posthog/settings/__init__.py <<'PYEOF'
+
+# TXLEMETRY_AUTH_OVERRIDES
+import os as _os
+_ck = _os.getenv('SHARED_COOKIE_DOMAIN') or None
+if _ck:
+    SESSION_COOKIE_DOMAIN = _ck
+    CSRF_COOKIE_DOMAIN = _ck
+CORS_ALLOW_CREDENTIALS = True
+PYEOF
+fi
+./compose/wait
+./bin/migrate
+./bin/docker-server

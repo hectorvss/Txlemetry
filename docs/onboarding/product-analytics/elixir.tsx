@@ -11,7 +11,7 @@ export const getElixirSteps = (ctx: OnboardingComponentsContext): StepDefinition
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Add the PostHog Elixir library to your `mix.exs` dependencies:</Markdown>
+                    <Markdown>Add the Txlemetry Elixir library to your `mix.exs` dependencies:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -35,7 +35,7 @@ export const getElixirSteps = (ctx: OnboardingComponentsContext): StepDefinition
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Add your PostHog configuration to your config file:</Markdown>
+                    <Markdown>Add your Txlemetry configuration to your config file:</Markdown>
                     <CodeBlock
                         blocks={[
                             {

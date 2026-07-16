@@ -196,7 +196,7 @@ export const getReactNativeSteps = (ctx: OnboardingComponentsContext): StepDefin
 
                     - No automatic source map uploads on React Native web
 
-                    This will be added in a future release. We recommend you stay up to date with the latest version of the PostHog React Native SDK.
+                    This will be added in a future release. We recommend you stay up to date with the latest version of the Txlemetry React Native SDK.
                 `}
             </Markdown>
         ),

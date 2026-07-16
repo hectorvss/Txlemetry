@@ -38,7 +38,7 @@ export const getIOSSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
                 />
                 <Markdown>
                     {dedent`
-                        Logs appear in PostHog within a few seconds. Use the [Logs page](https://app.posthog.com/logs) to search and filter
+                        Logs appear in Txlemetry within a few seconds. Use the [Logs page](https://app.posthog.com/logs) to search and filter
                         by service name, severity, or any attribute you attach.
                     `}
                 </Markdown>

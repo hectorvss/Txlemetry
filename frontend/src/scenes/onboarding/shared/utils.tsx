@@ -1,13 +1,13 @@
 import {
     HedgehogChartHog,
     HedgehogConstruction1,
-    HedgehogDirector,
     HedgehogExperiment,
     HedgehogMagnifyingGlass,
     HedgehogReadingIsMagic,
     HedgehogReporter,
     HedgehogRoboHog,
 } from '@posthog/brand/hoggies'
+import { HedgehogDirector } from 'lib/components/hedgehogs'
 import {
     IconBolt,
     IconBuilding,
@@ -37,6 +37,8 @@ import {
     IconUnlock,
     IconWarning,
 } from '@posthog/icons'
+
+import { TxlemetryMark } from 'lib/brand/TxlemetryBrand'
 
 import { ExplorerHog, FeatureFlagHog, MailHog } from 'lib/components/hedgehogs'
 import { Scene } from 'scenes/sceneTypes'
@@ -90,7 +92,7 @@ export function getProductIcon(
         return <IconComponent className={className} color={iconColor} />
     }
 
-    return <IconLogomark className={className} />
+    return <TxlemetryMark className={className} />
 }
 
 export function toSentenceCase(name: string): string {

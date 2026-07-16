@@ -139,7 +139,7 @@ export const getFlutterSteps = (ctx: OnboardingComponentsContext): StepDefinitio
                         | \`inAppExcludes\` | List of package names to be excluded from inApp frames |
                         | \`inAppByDefault\` | Whether frames are considered inApp by default when their origin cannot be determined |
 
-                        \`inApp\` frames are stack trace frames that belong to your application code (as opposed to third-party libraries or system code). These are highlighted in the PostHog error tracking interface to help you focus on the relevant parts of the stack trace.
+                        \`inApp\` frames are stack trace frames that belong to your application code (as opposed to third-party libraries or system code). These are highlighted in the Txlemetry error tracking interface to help you focus on the relevant parts of the stack trace.
                     `}
                 </Markdown>
             </>
@@ -177,7 +177,7 @@ export const getFlutterSteps = (ctx: OnboardingComponentsContext): StepDefinitio
                       For symbolicated stack traces on native platforms, see the [Flutter debug symbols guide](https://posthog.com/docs/error-tracking/upload-source-maps/flutter).
 
                       These features will be added in future releases. We recommend you stay 
-                      up to date with the latest version of the PostHog Flutter SDK.
+                      up to date with the latest version of the Txlemetry Flutter SDK.
                   `}
             </Markdown>
         ),

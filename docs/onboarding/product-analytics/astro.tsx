@@ -10,7 +10,7 @@ export const getAstroSteps = (ctx: OnboardingComponentsContext): StepDefinition[
 
     return [
         {
-            title: 'Create the PostHog component',
+            title: 'Create the Txlemetry component',
             badge: 'required',
             content: (
                 <>
@@ -29,7 +29,7 @@ export const getAstroSteps = (ctx: OnboardingComponentsContext): StepDefinition[
                         ]}
                     />
                     <Markdown>
-                        In this file, add your PostHog web snippet. Be sure to include the `is:inline` directive to
+                        In this file, add your Txlemetry web snippet. Be sure to include the `is:inline` directive to
                         prevent Astro from processing it:
                     </Markdown>
                     <CodeBlock
@@ -85,10 +85,10 @@ export const getAstroSteps = (ctx: OnboardingComponentsContext): StepDefinition[
                                 file: 'src/layouts/PostHogLayout.astro',
                                 code: dedent`
                                     ---
-                                    import PostHog from '../components/posthog.astro'
+                                    import Txlemetry from '../components/posthog.astro'
                                     ---
                                     <head>
-                                        <PostHog />
+                                        <Txlemetry />
                                     </head>
                                 `,
                             },

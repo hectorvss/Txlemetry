@@ -16,7 +16,7 @@ export const getGoogleTagManagerSteps = (ctx: OnboardingComponentsContext): Step
                 <>
                     <Markdown>
                         Google Tag Manager (GTM) lets you manage tracking scripts without code changes. You can add
-                        PostHog to your site using a custom HTML tag.
+                        Txlemetry to your site using a custom HTML tag.
                     </Markdown>
                     <Markdown>
                         {`1. Log into your Google Tag Manager account and open your container.
@@ -49,11 +49,11 @@ export const getGoogleTagManagerSteps = (ctx: OnboardingComponentsContext): Step
             content: (
                 <>
                     <Markdown>
-                        {`1. Under **Triggering**, select **All Pages** to load PostHog on every page.
+                        {`1. Under **Triggering**, select **All Pages** to load Txlemetry on every page.
 2. Save the tag, then click **Submit** to publish your changes.`}
                     </Markdown>
                     <Markdown>
-                        Once published, PostHog will automatically capture pageviews, clicks, and other events on your
+                        Once published, Txlemetry will automatically capture pageviews, clicks, and other events on your
                         site.
                     </Markdown>
                 </>

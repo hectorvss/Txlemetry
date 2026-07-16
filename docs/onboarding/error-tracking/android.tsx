@@ -25,7 +25,7 @@ export const getAndroidSteps = (ctx: OnboardingComponentsContext): StepDefinitio
                 <Markdown>
                     {dedent`
                         You can autocapture exceptions by setting the \`errorTrackingConfig.autoCapture\` 
-                        argument to \`true\` when initializing the PostHog SDK.
+                        argument to \`true\` when initializing the Txlemetry SDK.
                     `}
                 </Markdown>
                 <CodeBlock

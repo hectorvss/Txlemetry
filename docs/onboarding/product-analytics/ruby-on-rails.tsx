@@ -50,7 +50,7 @@ export const getRubyOnRailsSteps = (ctx: OnboardingComponentsContext): StepDefin
                 <>
                     <Markdown>
                         {dedent`
-                            Run the install generator to create the PostHog initializer:
+                            Run the install generator to create the Txlemetry initializer:
                         `}
                     </Markdown>
                     <CodeBlock

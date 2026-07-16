@@ -18,7 +18,7 @@ export const getHeliconeSteps = (ctx: OnboardingComponentsContext): StepDefiniti
                             See the complete
                             [Node.js](https://github.com/PostHog/posthog-js/tree/main/examples/example-ai-helicone) and
                             [Python](https://github.com/PostHog/posthog-python/tree/master/examples/example-ai-helicone)
-                            examples on GitHub. If you're using the PostHog SDK wrapper instead of OpenTelemetry, see
+                            examples on GitHub. If you're using the Txlemetry SDK wrapper instead of OpenTelemetry, see
                             the [Node.js
                             wrapper](https://github.com/PostHog/posthog-js/tree/e08ff1be/examples/example-ai-helicone)
                             and [Python
@@ -65,7 +65,7 @@ export const getHeliconeSteps = (ctx: OnboardingComponentsContext): StepDefiniti
                 <>
                     <Markdown>
                         Configure OpenTelemetry to auto-instrument OpenAI SDK calls and export traces to PostHog.
-                        PostHog converts `gen_ai.*` spans into `$ai_generation` events automatically.
+                        Txlemetry converts `gen_ai.*` spans into `$ai_generation` events automatically.
                     </Markdown>
 
                     <CodeBlock
@@ -135,7 +135,7 @@ export const getHeliconeSteps = (ctx: OnboardingComponentsContext): StepDefiniti
             content: (
                 <>
                     <Markdown>
-                        Now, when you call Helicone with the OpenAI SDK, PostHog automatically captures `$ai_generation`
+                        Now, when you call Helicone with the OpenAI SDK, Txlemetry automatically captures `$ai_generation`
                         events via the OpenTelemetry instrumentation.
                     </Markdown>
 

@@ -150,3 +150,30 @@
         }
     }
 }
+// TXLEMETRY: status tag pills used to be hollow (transparent centre + strong coloured border),
+// so the border colour and the (empty) centre read as two different colours. Fill the whole pill
+// with one cohesive light pastel of the tag's own colour (border AND background the SAME colour),
+// and keep the strong colour only for the text on top — the clean filled-badge look of Realtime.
+.LemonTag.LemonTag--completion {
+    background-color: color-mix(in srgb, var(--purple) 22%, white) !important;
+    border-color: color-mix(in srgb, var(--purple) 22%, white) !important;
+}
+.LemonTag.LemonTag--danger,
+.LemonTag.LemonTag--caution {
+    background-color: color-mix(in srgb, var(--danger) 22%, white) !important;
+    border-color: color-mix(in srgb, var(--danger) 22%, white) !important;
+}
+.LemonTag.LemonTag--success {
+    background-color: color-mix(in srgb, var(--success) 22%, white) !important;
+    border-color: color-mix(in srgb, var(--success) 22%, white) !important;
+}
+.LemonTag.LemonTag--warning {
+    background-color: color-mix(in srgb, var(--warning) 22%, white) !important;
+    border-color: color-mix(in srgb, var(--warning) 22%, white) !important;
+    color: #4f4700 !important;
+}
+.LemonTag.LemonTag--primary,
+.LemonTag.LemonTag--highlight {
+    background-color: color-mix(in srgb, var(--color-accent) 22%, white) !important;
+    border-color: color-mix(in srgb, var(--color-accent) 22%, white) !important;
+}

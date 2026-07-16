@@ -7,7 +7,7 @@ export const getN8nSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
 
     return [
         {
-            title: 'Add the PostHog node',
+            title: 'Add the Txlemetry node',
             badge: 'required',
             content: (
                 <Markdown>
@@ -21,7 +21,7 @@ export const getN8nSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Create credentials with your PostHog project token:</Markdown>
+                    <Markdown>Create credentials with your Txlemetry project token:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -33,7 +33,7 @@ export const getN8nSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
                             },
                         ]}
                     />
-                    <Markdown>Set the PostHog host URL:</Markdown>
+                    <Markdown>Set the Txlemetry host URL:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -54,7 +54,7 @@ export const getN8nSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
             content: (
                 <Markdown>
                     Configure the node to capture events, identify users, or create aliases based on your workflow
-                    needs. Events from n8n will appear in PostHog just like events from any other source.
+                    needs. Events from n8n will appear in Txlemetry just like events from any other source.
                 </Markdown>
             ),
         },

@@ -510,3 +510,56 @@
         }
     }
 }
+
+// TXLEMETRY: Polaris primary buttons read their fill from the token --p-color-bg-fill-brand
+// (#303030), but that fill is NOT applied on our <a>-rendered link buttons + slim size, so the
+// button comes out transparent with dark text. Paint the real Polaris <Button> element directly
+// so the fill covers the whole button (perfectly aligned) with a light label. Critical/danger
+// tone keeps Polaris's own red (hence the :not guard).
+[theme='light'] {
+    .Polaris-Button--variantPrimary:not([class*='Critical']) {
+        background: var(--p-color-bg-fill-brand, #303030);
+        color: var(--p-color-text-brand-on-bg-fill, #fff);
+    }
+    .Polaris-Button--variantPrimary:not([class*='Critical']):hover {
+        background: var(--p-color-bg-fill-brand-hover, #1a1a1a);
+    }
+}
+
+// Legacy (non-Polaris) primary buttons — e.g. disableClientSideRouting links — still paint their
+// surface on the chrome so the white label never lands on a bare surface. Scoped to :not(--polaris)
+// so it never touches (and mis-paints/mis-aligns) the real Polaris buttons above.
+[theme='light'] .LemonButton--primary:not(.LemonButton--polaris):not(.LemonButton--reduce) .LemonButton__chrome {
+    background-color: var(--lemon-button-bg-color, #303030) !important;
+    border-radius: var(--lemon-button-radius) !important;
+}
+
+// TXLEMETRY: icon/side-icon buttons hugged their icon-side edge because the
+// adjacent-icon padding (padding on the side that holds the icon) was about half
+// the text-side padding: 6px vs 12px on default. Bump it per size so the icon
+// breathes, never exceeding that size text-side padding, so small buttons stay
+// symmetric and nothing inverts. Applies to every icon button app-wide.
+.LemonButton,
+.Link.LemonButton {
+    --lemon-button-padding-adjacent-icon: 0.625rem; // default: 10px (text side 12px)
+}
+.LemonButton--small {
+    --lemon-button-padding-adjacent-icon: 0.5rem; // 8px (text side 8px)
+}
+.LemonButton--xsmall {
+    --lemon-button-padding-adjacent-icon: 0.375rem; // 6px (text side 6px)
+}
+.LemonButton--xxsmall {
+    --lemon-button-padding-adjacent-icon: 0.1875rem; // keep tiny
+}
+
+
+// TXLEMETRY: critical/danger primary buttons (e.g. the "Delete" confirm in dialogs) render as
+// Polaris red but with a near-invisible label. Force the label to black so it is clearly legible.
+[theme='light'] {
+    .Polaris-Button--variantPrimary[class*='Critical'],
+    .Polaris-Button--variantPrimary[class*='Critical'] .Polaris-Text--root,
+    .Polaris-Button--variantPrimary[class*='Critical'] span {
+        color: #1a1a1a !important;
+    }
+}

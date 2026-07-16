@@ -18,7 +18,7 @@ export const getLangChainSteps = (ctx: OnboardingComponentsContext): StepDefinit
                             See the complete
                             [Node.js](https://github.com/PostHog/posthog-js/tree/main/examples/example-ai-langchain) and
                             [Python](https://github.com/PostHog/posthog-python/tree/master/examples/example-ai-langchain)
-                            examples on GitHub. If you're using the PostHog SDK wrapper instead of OpenTelemetry, see
+                            examples on GitHub. If you're using the Txlemetry SDK wrapper instead of OpenTelemetry, see
                             the [Node.js
                             wrapper](https://github.com/PostHog/posthog-js/tree/e08ff1be/examples/example-ai-langchain)
                             and [Python
@@ -187,7 +187,7 @@ export const getLangChainSteps = (ctx: OnboardingComponentsContext): StepDefinit
                     </Blockquote>
 
                     <Markdown>
-                        PostHog automatically captures an `$ai_generation` event along with these properties:
+                        Txlemetry automatically captures an `$ai_generation` event along with these properties:
                     </Markdown>
 
                     {NotableGenerationProperties && <NotableGenerationProperties />}

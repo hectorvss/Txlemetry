@@ -20,7 +20,7 @@ export const getIOSSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
                     <>
                         {MobileFinalSteps && <MobileFinalSteps />}
                         <Markdown>
-                            To automatically track screen views, configure PostHog to capture screen views:
+                            To automatically track screen views, configure Txlemetry to capture screen views:
                         </Markdown>
                         <CodeBlock
                             blocks={[

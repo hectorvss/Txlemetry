@@ -17,7 +17,7 @@ export const getSemanticKernelSteps = (ctx: OnboardingComponentsContext): StepDe
                         <Markdown>
                             See the complete [Python
                             example](https://github.com/PostHog/posthog-python/tree/master/examples/example-ai-semantic-kernel)
-                            on GitHub. If you're using the PostHog SDK wrapper instead of OpenTelemetry, see the [Python
+                            on GitHub. If you're using the Txlemetry SDK wrapper instead of OpenTelemetry, see the [Python
                             wrapper
                             example](https://github.com/PostHog/posthog-python/tree/7223c52/examples/example-ai-semantic-kernel).
                         </Markdown>
@@ -41,7 +41,7 @@ export const getSemanticKernelSteps = (ctx: OnboardingComponentsContext): StepDe
                 <>
                     <Markdown>
                         Configure OpenTelemetry to auto-instrument OpenAI SDK calls and export traces to PostHog.
-                        PostHog converts `gen_ai.*` spans into `$ai_generation` events automatically.
+                        Txlemetry converts `gen_ai.*` spans into `$ai_generation` events automatically.
                     </Markdown>
 
                     <CodeBlock
@@ -80,7 +80,7 @@ export const getSemanticKernelSteps = (ctx: OnboardingComponentsContext): StepDe
             content: (
                 <>
                     <Markdown>
-                        Use Semantic Kernel as normal. PostHog automatically captures an `$ai_generation` event for each
+                        Use Semantic Kernel as normal. Txlemetry automatically captures an `$ai_generation` event for each
                         LLM call made through the OpenAI SDK that Semantic Kernel uses internally.
                     </Markdown>
 

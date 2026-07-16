@@ -14,7 +14,7 @@ export const getVueSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog JavaScript library using your package manager:</Markdown>
+                    <Markdown>Install the Txlemetry JavaScript library using your package manager:</Markdown>
                     <CodeBlock
                         blocks={[
                             {

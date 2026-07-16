@@ -9,11 +9,11 @@ export const getClaudeAgentSDKSteps = (ctx: OnboardingComponentsContext): StepDe
 
     return [
         {
-            title: 'Install the PostHog SDK',
+            title: 'Install the Txlemetry SDK',
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Setting up analytics starts with installing the PostHog Python SDK.</Markdown>
+                    <Markdown>Setting up analytics starts with installing the Txlemetry Python SDK.</Markdown>
 
                     <CodeBlock
                         language="bash"
@@ -30,8 +30,8 @@ export const getClaudeAgentSDKSteps = (ctx: OnboardingComponentsContext): StepDe
             content: (
                 <>
                     <Markdown>
-                        Install the Claude Agent SDK. PostHog instruments your agent queries by wrapping the `query()`
-                        function. The PostHog SDK **does not** proxy your calls.
+                        Install the Claude Agent SDK. Txlemetry instruments your agent queries by wrapping the `query()`
+                        function. The Txlemetry SDK **does not** proxy your calls.
                     </Markdown>
 
                     <CodeBlock
@@ -43,7 +43,7 @@ export const getClaudeAgentSDKSteps = (ctx: OnboardingComponentsContext): StepDe
 
                     <CalloutBox type="fyi" icon="IconInfo" title="Proxy note">
                         <Markdown>
-                            These SDKs **do not** proxy your calls. They only fire off an async call to PostHog in the
+                            These SDKs **do not** proxy your calls. They only fire off an async call to Txlemetry in the
                             background to send the data. You can also use AI observability with other SDKs or our API,
                             but you will need to capture the data in the right format. See the schema in the [manual
                             capture section](https://posthog.com/docs/ai-observability/installation/manual-capture) for
@@ -54,12 +54,12 @@ export const getClaudeAgentSDKSteps = (ctx: OnboardingComponentsContext): StepDe
             ),
         },
         {
-            title: 'Initialize PostHog and run a query',
+            title: 'Initialize Txlemetry and run a query',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Initialize PostHog with your project token and host from [your project
+                        Initialize Txlemetry with your project token and host from [your project
                         settings](https://app.posthog.com/settings/project), then use the PostHog `query()` wrapper as a
                         drop-in replacement for `claude_agent_sdk.query()`. This automatically captures
                         `$ai_generation`, `$ai_span`, and `$ai_trace` events.
@@ -127,7 +127,7 @@ export const getClaudeAgentSDKSteps = (ctx: OnboardingComponentsContext): StepDe
             content: (
                 <>
                     <Markdown>
-                        If you make multiple `query()` calls with the same PostHog configuration, use `instrument()` to
+                        If you make multiple `query()` calls with the same Txlemetry configuration, use `instrument()` to
                         configure once and reuse across queries.
                     </Markdown>
 
@@ -153,7 +153,7 @@ export const getClaudeAgentSDKSteps = (ctx: OnboardingComponentsContext): StepDe
                             options = ClaudeAgentOptions(max_turns=10)
 
                             async def main():
-                                # All queries share the same PostHog config
+                                # All queries share the same Txlemetry config
                                 async for msg in ph.query(prompt="Question 1", options=options):
                                     ...
                                 async for msg in ph.query(prompt="Question 2", options=options):
@@ -165,7 +165,7 @@ export const getClaudeAgentSDKSteps = (ctx: OnboardingComponentsContext): StepDe
 
                     <Markdown>
                         {dedent`
-                            You can override any PostHog parameter per-query:
+                            You can override any Txlemetry parameter per-query:
 
                             \`\`\`python
                             async for msg in ph.query(
@@ -187,7 +187,7 @@ export const getClaudeAgentSDKSteps = (ctx: OnboardingComponentsContext): StepDe
             content: (
                 <>
                     <Markdown>
-                        PostHog captures the full trace hierarchy for multi-turn agent conversations with tool calls.
+                        Txlemetry captures the full trace hierarchy for multi-turn agent conversations with tool calls.
                         Each tool use is captured as an `$ai_span` event linked to its parent generation.
                     </Markdown>
 

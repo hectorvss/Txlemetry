@@ -217,7 +217,7 @@ export function InviteRow({
             <div className="flex gap-2">
                 <div className="flex-2">
                     <LemonInput
-                        placeholder={`${name.toLowerCase()}@posthog.com`}
+                        placeholder={`${name.toLowerCase()}@txlemetry.com`}
                         type="email"
                         className={`error-on-blur${!invitesToSend[index]?.isValid ? ' errored' : ''}`}
                         onChange={(v) => {
@@ -326,7 +326,7 @@ export function InviteTeamMatesComponent({
             {preflight?.licensed_users_available === 0 && (
                 <LemonBanner type="warning">
                     You've hit the limit of team members you can invite to your Txlemetry instance given your license.
-                    Please contact <Link to="mailto:sales@posthog.com">sales@posthog.com</Link> to upgrade your license.
+                    Please contact <Link to="mailto:sales@txlemetry.com">sales@txlemetry.com</Link> to upgrade your license.
                 </LemonBanner>
             )}
             <div className="deprecated-space-y-4">

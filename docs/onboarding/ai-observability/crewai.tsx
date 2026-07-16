@@ -9,13 +9,13 @@ export const getCrewAISteps = (ctx: OnboardingComponentsContext): StepDefinition
 
     return [
         {
-            title: 'Install the PostHog SDK',
+            title: 'Install the Txlemetry SDK',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Setting up analytics starts with installing the PostHog SDK. CrewAI uses LiteLLM under the hood,
-                        and PostHog integrates with LiteLLM's callback system.
+                        Setting up analytics starts with installing the Txlemetry SDK. CrewAI uses LiteLLM under the hood,
+                        and Txlemetry integrates with LiteLLM's callback system.
                     </Markdown>
 
                     <CodeBlock
@@ -33,7 +33,7 @@ export const getCrewAISteps = (ctx: OnboardingComponentsContext): StepDefinition
             content: (
                 <>
                     <Markdown>
-                        Install CrewAI. PostHog instruments your LLM calls through LiteLLM's callback system that CrewAI
+                        Install CrewAI. Txlemetry instruments your LLM calls through LiteLLM's callback system that CrewAI
                         uses natively.
                     </Markdown>
 
@@ -47,13 +47,13 @@ export const getCrewAISteps = (ctx: OnboardingComponentsContext): StepDefinition
             ),
         },
         {
-            title: 'Configure PostHog with LiteLLM',
+            title: 'Configure Txlemetry with LiteLLM',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Set your PostHog project token and host as environment variables, then configure LiteLLM to use
-                        PostHog as a callback handler. You can find your project token in [your project
+                        Set your Txlemetry project token and host as environment variables, then configure LiteLLM to use
+                        Txlemetry as a callback handler. You can find your project token in [your project
                         settings](https://app.posthog.com/settings/project).
                     </Markdown>
 
@@ -64,11 +64,11 @@ export const getCrewAISteps = (ctx: OnboardingComponentsContext): StepDefinition
                             import litellm
                             from crewai import Agent, Task, Crew
 
-                            # Set PostHog environment variables
+                            # Set Txlemetry environment variables
                             os.environ["POSTHOG_API_KEY"] = "<ph_project_token>"
                             os.environ["POSTHOG_API_URL"] = "<ph_client_api_host>"
 
-                            # Enable PostHog callbacks in LiteLLM
+                            # Enable Txlemetry callbacks in LiteLLM
                             litellm.success_callback = ["posthog"]
                             litellm.failure_callback = ["posthog"]
                         `}
@@ -76,7 +76,7 @@ export const getCrewAISteps = (ctx: OnboardingComponentsContext): StepDefinition
 
                     <CalloutBox type="fyi" icon="IconInfo" title="How this works">
                         <Markdown>
-                            CrewAI uses LiteLLM under the hood for LLM provider access. By configuring PostHog as a
+                            CrewAI uses LiteLLM under the hood for LLM provider access. By configuring Txlemetry as a
                             LiteLLM callback, all LLM calls made through CrewAI are automatically captured as
                             `$ai_generation` events without proxying your calls.
                         </Markdown>
@@ -90,7 +90,7 @@ export const getCrewAISteps = (ctx: OnboardingComponentsContext): StepDefinition
             content: (
                 <>
                     <Markdown>
-                        Run your CrewAI agents as normal. PostHog automatically captures generation events for each LLM
+                        Run your CrewAI agents as normal. Txlemetry automatically captures generation events for each LLM
                         call.
                     </Markdown>
 

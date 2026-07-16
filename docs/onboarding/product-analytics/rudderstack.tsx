@@ -7,7 +7,7 @@ export const getRudderstackSteps = (ctx: OnboardingComponentsContext): StepDefin
 
     return [
         {
-            title: 'Add PostHog destination',
+            title: 'Add Txlemetry destination',
             badge: 'required',
             content: (
                 <Markdown>
@@ -22,7 +22,7 @@ export const getRudderstackSteps = (ctx: OnboardingComponentsContext): StepDefin
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Enter your PostHog project token:</Markdown>
+                    <Markdown>Enter your Txlemetry project token:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -34,7 +34,7 @@ export const getRudderstackSteps = (ctx: OnboardingComponentsContext): StepDefin
                             },
                         ]}
                     />
-                    <Markdown>Enter your PostHog host:</Markdown>
+                    <Markdown>Enter your Txlemetry host:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -55,7 +55,7 @@ export const getRudderstackSteps = (ctx: OnboardingComponentsContext): StepDefin
             content: (
                 <>
                     <Markdown>
-                        Connect your source to the PostHog destination. RudderStack will now forward `track`,
+                        Connect your source to the Txlemetry destination. RudderStack will now forward `track`,
                         `identify`, `page`, and `group` calls to PostHog.
                     </Markdown>
                     <CalloutBox type="fyi" title="Learn more">

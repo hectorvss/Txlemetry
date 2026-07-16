@@ -298,21 +298,54 @@ export const LemonButton: React.FunctionComponent<LemonButtonProps & React.RefAt
                 if (!buttonProps['aria-label'] && typeof tooltip === 'string') {
                     buttonProps['aria-label'] = tooltip
                 }
-                workingButton = (
-                    <Link
-                        ref={ref as any}
-                        className={legacyClassName}
-                        onClick={onClickHandler}
-                        aria-disabled={!!disabled}
-                        disableClientSideRouting={disableClientSideRouting}
-                        target={targetBlank ? '_blank' : undefined}
-                        to={!disabled ? to : undefined}
-                        {...buttonProps}
-                        data-attr-id={buttonProps['data-attr-id'] ?? buttonProps['data-attr']}
-                    >
-                        {chromeContent}
-                    </Link>
-                )
+                if (disableClientSideRouting) {
+                    // Full-page-load links keep the legacy <Link> (Polaris `url` would client-side route
+                    // via the AppProvider linkComponent).
+                    workingButton = (
+                        <Link
+                            ref={ref as any}
+                            className={legacyClassName}
+                            onClick={onClickHandler}
+                            aria-disabled={!!disabled}
+                            disableClientSideRouting={disableClientSideRouting}
+                            target={targetBlank ? '_blank' : undefined}
+                            to={!disabled ? to : undefined}
+                            {...buttonProps}
+                            data-attr-id={buttonProps['data-attr-id'] ?? buttonProps['data-attr']}
+                        >
+                            {chromeContent}
+                        </Link>
+                    )
+                } else {
+                    // Navigation buttons render through the real Polaris <Button> (Shopify look) via its
+                    // `url` prop. Client-side routing + project-id rewriting + notebook drag are preserved
+                    // because Polaris renders the url through the AppProvider `linkComponent` (PostHog <Link>).
+                    workingButton = (
+                        <span
+                            className={clsx(legacyClassName, 'LemonButton--polaris')}
+                            data-attr={buttonProps['data-attr']}
+                            data-attr-id={buttonProps['data-attr-id'] ?? buttonProps['data-attr']}
+                        >
+                            <PolarisButton
+                                ref={ref as any}
+                                id={buttonProps.id}
+                                variant={type}
+                                tone={status === 'danger' ? 'critical' : undefined}
+                                size={POLARIS_SIZE_BY_LEMON_SIZE[size ?? 'medium']}
+                                fullWidth={fullWidth}
+                                pressed={active}
+                                disabled={!!disabled}
+                                url={!disabled ? to : undefined}
+                                external={targetBlank}
+                                target={targetBlank ? '_blank' : undefined}
+                                accessibilityLabel={buttonProps['aria-label']}
+                                onClick={onClickHandler as any}
+                            >
+                                {chromeContent as any}
+                            </PolarisButton>
+                        </span>
+                    )
+                }
             } else {
                 // Plain action buttons: the real Polaris <Button> renders the visual chrome.
                 // `legacyClassName` is kept on the wrapper for CSS/test back-compat (data-attr

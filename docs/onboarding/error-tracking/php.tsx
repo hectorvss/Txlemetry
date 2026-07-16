@@ -15,7 +15,7 @@ export const getPHPSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
             <>
                 <Markdown>
                     {dedent`
-                        Enable PHP error tracking when initializing PostHog to capture exceptions, PHP errors, and fatal shutdown errors.
+                        Enable PHP error tracking when initializing Txlemetry to capture exceptions, PHP errors, and fatal shutdown errors.
                     `}
                 </Markdown>
                 <CodeBlock

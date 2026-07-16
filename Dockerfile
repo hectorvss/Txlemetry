@@ -45,6 +45,10 @@ RUN --mount=type=cache,id=pnpm,target=/tmp/pnpm-store-v24 \
     CI=1 pnpm --filter=@posthog/frontend... install --frozen-lockfile --store-dir /tmp/pnpm-store-v24
 
 COPY frontend/ frontend/
+# TXLEMETRY: overwrite selected @posthog/brand hoggie SVGs with parrot equivalents
+# (components render inline SVG from these .mjs) before the build, so every usage
+# of those hedgehogs renders the parrot with no per-usage code changes.
+RUN for f in magnifying-glass magnifying-glass-2 robo-hog reading-is-magic traffic-police construction-1 construction-2 chart-hog; do for tgt in node_modules/.pnpm/@posthog+brand@*/node_modules/@posthog/brand/dist/generated/hoggies/svg/$f.mjs; do cp --remove-destination "frontend/brand-overrides/$f.mjs" "$tgt" && echo "OVERRODE $tgt"; done; done; true
 RUN TURBO_TELEMETRY_DISABLED=1 NODE_OPTIONS="--max-old-space-size=4096" bin/turbo --concurrency=1 --filter=@posthog/frontend build
 
 

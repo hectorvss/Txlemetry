@@ -9,11 +9,11 @@ export const getOpenAIAgentsSteps = (ctx: OnboardingComponentsContext): StepDefi
 
     return [
         {
-            title: 'Install the PostHog SDK',
+            title: 'Install the Txlemetry SDK',
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Setting up analytics starts with installing the PostHog Python SDK.</Markdown>
+                    <Markdown>Setting up analytics starts with installing the Txlemetry Python SDK.</Markdown>
 
                     <CodeBlock
                         language="bash"
@@ -30,8 +30,8 @@ export const getOpenAIAgentsSteps = (ctx: OnboardingComponentsContext): StepDefi
             content: (
                 <>
                     <Markdown>
-                        Install the OpenAI Agents SDK. PostHog instruments your agent runs by registering a tracing
-                        processor. The PostHog SDK **does not** proxy your calls.
+                        Install the OpenAI Agents SDK. Txlemetry instruments your agent runs by registering a tracing
+                        processor. The Txlemetry SDK **does not** proxy your calls.
                     </Markdown>
 
                     <CodeBlock
@@ -43,7 +43,7 @@ export const getOpenAIAgentsSteps = (ctx: OnboardingComponentsContext): StepDefi
 
                     <CalloutBox type="fyi" icon="IconInfo" title="Proxy note">
                         <Markdown>
-                            These SDKs **do not** proxy your calls. They only fire off an async call to PostHog in the
+                            These SDKs **do not** proxy your calls. They only fire off an async call to Txlemetry in the
                             background to send the data. You can also use AI observability with other SDKs or our API,
                             but you will need to capture the data in the right format. See the schema in the [manual
                             capture section](https://posthog.com/docs/ai-observability/installation/manual-capture) for
@@ -54,14 +54,14 @@ export const getOpenAIAgentsSteps = (ctx: OnboardingComponentsContext): StepDefi
             ),
         },
         {
-            title: 'Initialize PostHog tracing',
+            title: 'Initialize Txlemetry tracing',
             badge: 'required',
             content: (
                 <>
                     <Markdown>
-                        Initialize PostHog with your project token and host from [your project
+                        Initialize Txlemetry with your project token and host from [your project
                         settings](https://app.posthog.com/settings/project), then call `instrument()` to register
-                        PostHog tracing with the OpenAI Agents SDK. This automatically captures all agent traces, spans,
+                        Txlemetry tracing with the OpenAI Agents SDK. This automatically captures all agent traces, spans,
                         and LLM generations.
                     </Markdown>
 
@@ -102,7 +102,7 @@ export const getOpenAIAgentsSteps = (ctx: OnboardingComponentsContext): StepDefi
             content: (
                 <>
                     <Markdown>
-                        Run your OpenAI agents as normal. PostHog automatically captures `$ai_generation` events for LLM
+                        Run your OpenAI agents as normal. Txlemetry automatically captures `$ai_generation` events for LLM
                         calls and `$ai_span` events for agent execution, tool calls, and handoffs.
                     </Markdown>
 
@@ -137,7 +137,7 @@ export const getOpenAIAgentsSteps = (ctx: OnboardingComponentsContext): StepDefi
             content: (
                 <>
                     <Markdown>
-                        PostHog captures the full trace hierarchy for complex agent workflows including handoffs and
+                        Txlemetry captures the full trace hierarchy for complex agent workflows including handoffs and
                         tool calls.
                     </Markdown>
 

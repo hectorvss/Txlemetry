@@ -15,7 +15,7 @@ export const getNextJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
             <>
                 <Markdown>
                     {dedent`
-                        PostHog can automatically capture unhandled exceptions in your Next.js app using the JavaScript Web SDK.
+                        Txlemetry can automatically capture unhandled exceptions in your Next.js app using the JavaScript Web SDK.
 
                         You can enable exception autocapture for the JavaScript Web SDK in the **Error tracking** section of [your project settings](https://us.posthog.com/settings/project-error-tracking#exception-autocapture). 
 
@@ -118,7 +118,7 @@ export const getNextJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
                         <Tab.Panel>
                             <Markdown>
                                 {dedent`
-                                    For Pages Router, you can use React's [Error Boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) to catch JavaScript errors anywhere in the component tree. Create a custom error boundary component and report errors to PostHog in the \`componentDidCatch\` method:
+                                    For Pages Router, you can use React's [Error Boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary) to catch JavaScript errors anywhere in the component tree. Create a custom error boundary component and report errors to Txlemetry in the \`componentDidCatch\` method:
                                 `}
                             </Markdown>
                             <CodeBlock
@@ -180,13 +180,13 @@ export const getNextJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
     }
 
     const installServerStep: StepDefinition = {
-        title: 'Installing PostHog SDK for server-side',
+        title: 'Installing Txlemetry SDK for server-side',
         badge: 'required',
         content: (
             <>
                 <Markdown>
                     {dedent`
-                        Next.js enables you to both server-side render pages and add server-side functionality. To integrate PostHog into your Next.js app on the server-side, you can use the [Node SDK](https://posthog.com/docs/libraries/node).
+                        Next.js enables you to both server-side render pages and add server-side functionality. To integrate Txlemetry into your Next.js app on the server-side, you can use the [Node SDK](https://posthog.com/docs/libraries/node).
 
                         First, install the \`posthog-node\` library:
                     `}
@@ -201,7 +201,7 @@ export const getNextJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
                 />
                 <Markdown>
                     {dedent`
-                        For the backend, we can create a \`lib/posthog-server.js\` file. In it, initialize PostHog from \`posthog-node\` as a singleton with your project token and host from [your project settings](https://app.posthog.com/settings/project).
+                        For the backend, we can create a \`lib/posthog-server.js\` file. In it, initialize Txlemetry from \`posthog-node\` as a singleton with your project token and host from [your project settings](https://app.posthog.com/settings/project).
 
                         This looks like this:
                     `}
@@ -266,7 +266,7 @@ export const getNextJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
         content: (
             <Markdown>
                 {dedent`
-                    You should also see events and exceptions in PostHog coming from your server-side code in the activity feed.
+                    You should also see events and exceptions in Txlemetry coming from your server-side code in the activity feed.
 
                     [Check for server events in PostHog](https://app.posthog.com/activity/explore)
                 `}
@@ -286,7 +286,7 @@ export const getNextJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
                         Importantly, you need to:
 
                         1. Set up a \`posthog-node\` client in your server-side code. See our doc on [setting up Next.js server-side analytics](https://posthog.com/docs/libraries/next-js#server-side-analytics) for more.
-                        2. Check the request is running in the \`nodejs\` runtime to ensure PostHog works. You can call \`posthog.debug()\` to get verbose logging.
+                        2. Check the request is running in the \`nodejs\` runtime to ensure Txlemetry works. You can call \`posthog.debug()\` to get verbose logging.
                         3. Get the \`distinct_id\` from the cookie to connect the error to a specific user.
 
                         This looks like this:
@@ -319,7 +319,7 @@ export const getNextJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
                                           const postHogData = JSON.parse(decodedCookie)
                                           distinctId = postHogData.distinct_id
                                         } catch (e) {
-                                          console.error('Error parsing PostHog cookie:', e)
+                                          console.error('Error parsing Txlemetry cookie:', e)
                                         }
                                       }
                                     }

@@ -13,7 +13,7 @@ export const getVercelAISteps = (ctx: OnboardingComponentsContext): StepDefiniti
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog AI package, the Vercel AI SDK, and the OpenTelemetry SDK.</Markdown>
+                    <Markdown>Install the Txlemetry AI package, the Vercel AI SDK, and the OpenTelemetry SDK.</Markdown>
 
                     <CodeBlock
                         language="bash"
@@ -31,7 +31,7 @@ export const getVercelAISteps = (ctx: OnboardingComponentsContext): StepDefiniti
                 <>
                     <Markdown>
                         Initialize the OpenTelemetry SDK with PostHog's `PostHogSpanProcessor`. This sends `gen_ai.*`
-                        spans directly to PostHog's OTLP ingestion endpoint. PostHog converts these into
+                        spans directly to PostHog's OTLP ingestion endpoint. Txlemetry converts these into
                         `$ai_generation` events automatically.
                     </Markdown>
 

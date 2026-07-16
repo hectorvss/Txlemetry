@@ -11,7 +11,7 @@ export const getMoEngageSteps = (ctx: OnboardingComponentsContext): StepDefiniti
             badge: 'required',
             content: (
                 <Markdown>
-                    MoEngage is a customer engagement platform. Follow the [MoEngage PostHog integration
+                    MoEngage is a customer engagement platform. Follow the [MoEngage Txlemetry integration
                     guide](https://posthog.com/docs/libraries/moengage) to set up the connection.
                 </Markdown>
             ),
@@ -21,7 +21,7 @@ export const getMoEngageSteps = (ctx: OnboardingComponentsContext): StepDefiniti
             badge: 'required',
             content: (
                 <>
-                    <Markdown>When prompted, enter your PostHog project token:</Markdown>
+                    <Markdown>When prompted, enter your Txlemetry project token:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -33,7 +33,7 @@ export const getMoEngageSteps = (ctx: OnboardingComponentsContext): StepDefiniti
                             },
                         ]}
                     />
-                    <Markdown>Enter your PostHog host:</Markdown>
+                    <Markdown>Enter your Txlemetry host:</Markdown>
                     <CodeBlock
                         blocks={[
                             {

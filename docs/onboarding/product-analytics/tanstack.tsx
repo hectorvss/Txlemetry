@@ -14,7 +14,7 @@ export const getTanStackSteps = (ctx: OnboardingComponentsContext): StepDefiniti
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog JavaScript library using your package manager:</Markdown>
+                    <Markdown>Install the Txlemetry JavaScript library using your package manager:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -48,7 +48,7 @@ export const getTanStackSteps = (ctx: OnboardingComponentsContext): StepDefiniti
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Add your PostHog project token and host to your environment variables:</Markdown>
+                    <Markdown>Add your Txlemetry project token and host to your environment variables:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -103,7 +103,7 @@ export const getTanStackSteps = (ctx: OnboardingComponentsContext): StepDefiniti
                     />
                     <CalloutBox type="fyi" title="defaults option">
                         <Markdown>
-                            The `defaults` option automatically configures PostHog with recommended settings for new
+                            The `defaults` option automatically configures Txlemetry with recommended settings for new
                             projects. See [SDK defaults](https://posthog.com/docs/libraries/js#sdk-defaults) for
                             details.
                         </Markdown>

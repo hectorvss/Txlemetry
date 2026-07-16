@@ -50,13 +50,13 @@ export const getSentrySteps = (ctx: OnboardingComponentsContext): StepDefinition
                                   dsn: 'your-sentry-dsn',
                                 })
 
-                                // Initialize PostHog with Sentry integration
+                                // Initialize Txlemetry with Sentry integration
                                 posthog.init('<ph_project_token>', {
                                   api_host: '<ph_client_api_host>',
                                   defaults: '${SDK_DEFAULTS_DATE}'
                                 })
 
-                                // Set PostHog session ID on Sentry scope
+                                // Set Txlemetry session ID on Sentry scope
                                 Sentry.getCurrentScope().setTag('posthog_session_id', posthog.get_session_id())
                             `,
                             },
@@ -64,7 +64,7 @@ export const getSentrySteps = (ctx: OnboardingComponentsContext): StepDefinition
                     />
                     <CalloutBox type="fyi" title="Full setup guide">
                         <Markdown>
-                            This allows you to link Sentry errors to PostHog sessions. See the [Sentry integration
+                            This allows you to link Sentry errors to Txlemetry sessions. See the [Sentry integration
                             docs](https://posthog.com/docs/libraries/sentry) for the full setup guide.
                         </Markdown>
                     </CalloutBox>

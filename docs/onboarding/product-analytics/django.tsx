@@ -13,7 +13,7 @@ export const getDjangoSteps = (ctx: OnboardingComponentsContext): StepDefinition
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Install the PostHog Python library using pip:</Markdown>
+                    <Markdown>Install the Txlemetry Python library using pip:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -34,7 +34,7 @@ export const getDjangoSteps = (ctx: OnboardingComponentsContext): StepDefinition
             content: (
                 <>
                     <Markdown>
-                        Set the PostHog project token and host in your `AppConfig` in `apps.py` so that it's available
+                        Set the Txlemetry project token and host in your `AppConfig` in `apps.py` so that it's available
                         everywhere:
                     </Markdown>
                     <CodeBlock

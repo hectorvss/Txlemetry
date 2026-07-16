@@ -1,0 +1,2 @@
+FROM txlemetry/posthog:shopui
+USER root

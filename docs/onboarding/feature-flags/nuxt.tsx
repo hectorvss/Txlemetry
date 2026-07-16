@@ -31,7 +31,7 @@ export const getNuxtSteps = (ctx: OnboardingComponentsContext): StepDefinition[]
             content: (
                 <>
                     <Markdown>
-                        Use `posthog-node` to evaluate feature flags on the server. Initialize PostHog in your server
+                        Use `posthog-node` to evaluate feature flags on the server. Initialize Txlemetry in your server
                         route:
                     </Markdown>
                     <CodeBlock
@@ -64,7 +64,7 @@ export const getNuxtSteps = (ctx: OnboardingComponentsContext): StepDefinition[]
             content: (
                 <Markdown>
                     Experiments run on top of our feature flags. Once you've implemented the flag in your code, you run
-                    an experiment by creating a new experiment in the PostHog dashboard.
+                    an experiment by creating a new experiment in the Txlemetry dashboard.
                 </Markdown>
             ),
         },

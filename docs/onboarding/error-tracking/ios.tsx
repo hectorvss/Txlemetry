@@ -37,7 +37,7 @@ export const getIOSSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
                 <Markdown>
                     {dedent`
                         You can autocapture exceptions by setting the \`errorTrackingConfig.autoCapture\` 
-                        argument to \`true\` when initializing the PostHog SDK.
+                        argument to \`true\` when initializing the Txlemetry SDK.
                     `}
                 </Markdown>
                 <CodeBlock
@@ -168,7 +168,7 @@ export const getIOSSteps = (ctx: OnboardingComponentsContext): StepDefinition[] 
             <>
                 <Markdown>
                     {dedent`
-                        By default, PostHog automatically marks your app's code as "in-app" in stack traces to help you focus on your code rather than system frameworks.
+                        By default, Txlemetry automatically marks your app's code as "in-app" in stack traces to help you focus on your code rather than system frameworks.
                         
                         You can customize this behavior with \`errorTrackingConfig\`:
                     `}

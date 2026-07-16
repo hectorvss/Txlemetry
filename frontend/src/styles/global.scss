@@ -13,3 +13,19 @@
 @import '../../node_modules/@posthog/quill/dist/base.scoped.css';
 @import '../../node_modules/@posthog/quill/dist/primitives.css';
 @import 'quill-bridge';
+
+// TXLEMETRY FIX: `space-x-*` / `deprecated-space-x-*` space children via margin-inline-start on the
+// direct children. Our Popover trigger wrapper is a display:contents span (needed so floating-ui can
+// measure the trigger box); margins do not apply to display:contents boxes, so wrapped buttons lost
+// their spacing and appeared glued together. Re-implement the utility as column-gap on the container,
+// which DOES apply to display:contents-promoted flex items — no double spacing, works either way.
+$txl-space-x-scale: (1: 0.25rem, 2: 0.5rem, 3: 0.75rem, 4: 1rem, 8: 2rem);
+@each $n, $v in $txl-space-x-scale {
+    .space-x-#{$n},
+    .deprecated-space-x-#{$n} {
+        column-gap: $v;
+        & > :not([hidden]) ~ :not([hidden]) {
+            margin-inline-start: 0 !important;
+        }
+    }
+}

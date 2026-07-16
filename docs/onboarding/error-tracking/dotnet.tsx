@@ -10,7 +10,7 @@ export const getDotNetSteps = (ctx: OnboardingComponentsContext): StepDefinition
         badge: 'required',
         content: (
             <>
-                <Markdown>Install the PostHog package for your .NET app:</Markdown>
+                <Markdown>Install the Txlemetry package for your .NET app:</Markdown>
                 <CodeBlock
                     blocks={[
                         {
@@ -38,7 +38,7 @@ export const getDotNetSteps = (ctx: OnboardingComponentsContext): StepDefinition
         badge: 'required',
         content: (
             <>
-                <Markdown>Register PostHog and configure your project token and host:</Markdown>
+                <Markdown>Register Txlemetry and configure your project token and host:</Markdown>
                 <CodeBlock
                     blocks={[
                         {

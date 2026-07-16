@@ -34,6 +34,7 @@ import supermanHog from 'public/hedgehog/superman-hog.png'
 import supportHeroHog from 'public/hedgehog/support-hero-hog.png'
 import warningHog from 'public/hedgehog/warning-hog.png'
 import wavingHog from 'public/hedgehog/waving-hog.png'
+import directorHog from 'public/hedgehog/director-hog.png'
 
 type HedgehogProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'>
 
@@ -109,4 +110,18 @@ export const ClimberHog2 = (props: HedgehogProps): JSX.Element => {
 /** @deprecated Migrating to `@posthog/brand` (see file header) — don't add new usages. */
 export const BigLeaguesHog = (props: HedgehogProps): JSX.Element => {
     return <SquaredHedgehog src={bigLeaguesHog} {...props} />
+}
+
+// Txlemetry replay director parrot. Replaces the @posthog/brand HedgehogDirector
+// across session replay / heatmaps / onboarding / screenshot editor. object-contain
+// keeps the parrot undistorted inside whatever w-/h- box the caller sets.
+export const HedgehogDirector = (props: HedgehogProps): JSX.Element => {
+    return (
+        <img
+            src={directorHog}
+            alt="Txlemetry replay"
+            {...props}
+            style={{ objectFit: 'contain', ...props.style }}
+        />
+    )
 }

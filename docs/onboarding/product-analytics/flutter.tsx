@@ -12,7 +12,7 @@ export const getFlutterSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             badge: 'required',
             content: (
                 <>
-                    <Markdown>Add the PostHog Flutter SDK to your `pubspec.yaml`:</Markdown>
+                    <Markdown>Add the Txlemetry Flutter SDK to your `pubspec.yaml`:</Markdown>
                     <CodeBlock
                         blocks={[
                             {
@@ -148,7 +148,7 @@ export const getFlutterSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             content: (
                 <>
                     <Markdown>
-                        Once installed, PostHog will automatically start capturing events. You can also manually send
+                        Once installed, Txlemetry will automatically start capturing events. You can also manually send
                         events to test your integration:
                     </Markdown>
                     <CodeBlock

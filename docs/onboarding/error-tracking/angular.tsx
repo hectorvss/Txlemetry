@@ -15,7 +15,7 @@ export const getAngularSteps = (ctx: OnboardingComponentsContext): StepDefinitio
             <>
                 <Markdown>
                     {dedent`
-                        Exception autocapture can be enabled during initialization of the PostHog client to automatically capture any exception thrown by your Angular application.
+                        Exception autocapture can be enabled during initialization of the Txlemetry client to automatically capture any exception thrown by your Angular application.
 
                         This requires overriding Angular's default \`ErrorHandler\` provider:
                     `}

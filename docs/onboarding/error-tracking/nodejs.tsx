@@ -15,7 +15,7 @@ export const getNodeJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
             <>
                 <Markdown>
                     {dedent`
-                        You can enable exception autocapture when initializing the PostHog client to automatically capture uncaught exceptions and unhandled rejections in your Node app.
+                        You can enable exception autocapture when initializing the Txlemetry client to automatically capture uncaught exceptions and unhandled rejections in your Node app.
                     `}
                 </Markdown>
                 <CodeBlock
@@ -35,7 +35,7 @@ export const getNodeJSSteps = (ctx: OnboardingComponentsContext): StepDefinition
                 />
                 <Markdown>
                     {dedent`
-                        If you are using the Express framework, you will need to import and call \`setupExpressErrorHandler\` with your PostHog client and Express app. This is because Express handles uncaught exceptions internally meaning exception autocapture will not work by default.
+                        If you are using the Express framework, you will need to import and call \`setupExpressErrorHandler\` with your Txlemetry client and Express app. This is because Express handles uncaught exceptions internally meaning exception autocapture will not work by default.
                     `}
                 </Markdown>
                 <CodeBlock
