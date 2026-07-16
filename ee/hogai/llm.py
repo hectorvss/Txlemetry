@@ -32,7 +32,7 @@ BILLING_SKIPPED_COUNTER = Counter(
 PROJECT_ORG_USER_CONTEXT_PROMPT = """
 You are currently in project {{{project_name}}}, which is part of the {{{organization_name}}} organization.
 The user's name appears to be {{{user_full_name}}} ({{{user_email}}}). Feel free to use their first name when greeting. DO NOT use this name if it appears possibly fake.
-All Txlemetry app URLs must use root-relative paths starting with `/`, without a domain (no us.posthog.com, eu.posthog.com, app.posthog.com), and omit the `/project/:id/` prefix. Never include `/-/` in URLs. Never use relative paths like `../` or `./` — always start with `/`.
+All PostHog app URLs must use root-relative paths starting with `/`, without a domain (no us.posthog.com, eu.posthog.com, app.posthog.com), and omit the `/project/:id/` prefix. Never include `/-/` in URLs. Never use relative paths like `../` or `./` — always start with `/`.
 Use Markdown with descriptive anchor text, for example "[Cohorts view](/cohorts)".
 
 Key URL patterns:
@@ -80,7 +80,7 @@ class MaxChatMixin(BaseModel):
     """
     posthog_properties: dict[str, Any] | None = None
     """
-    Additional Txlemetry properties to be added to the $ai_generation event.
+    Additional PostHog properties to be added to the $ai_generation event.
     These will be merged with the standard properties like $ai_billable and team_id.
     """
 
@@ -164,7 +164,7 @@ class MaxChatMixin(BaseModel):
         self,
         kwargs: Mapping[str, Any] | None = None,
     ) -> dict[str, Any]:
-        """Return a shallow copy of kwargs with Txlemetry properties, billable flag, and team_id injected into metadata."""
+        """Return a shallow copy of kwargs with PostHog properties, billable flag, and team_id injected into metadata."""
         new_kwargs = dict(kwargs or {})
         metadata = dict(new_kwargs.get("metadata") or {})
 
@@ -180,7 +180,7 @@ class MaxChatMixin(BaseModel):
 
 
 class MaxChatOpenAI(MaxChatMixin, ChatOpenAI):
-    """Txlemetry-tuned subclass of ChatOpenAI.
+    """PostHog-tuned subclass of ChatOpenAI.
 
     This subclass automatically injects project, organization, and user context as the final part of the system prompt.
     It also makes sure we retry automatically in case of an OpenAI API error.
@@ -245,7 +245,7 @@ class MaxChatOpenAI(MaxChatMixin, ChatOpenAI):
 
 
 class MaxChatAnthropic(MaxChatMixin, ChatAnthropic):
-    """Txlemetry-tuned subclass of ChatAnthropic.
+    """PostHog-tuned subclass of ChatAnthropic.
 
     This subclass automatically injects project, organization, and user context as the final part of the system prompt.
     It also makes sure we retry automatically in case of errors.

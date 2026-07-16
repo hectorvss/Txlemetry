@@ -92,7 +92,7 @@ def _sanitize_semantic_text(text: str) -> str:
 
 
 class ReadDataWarehouseSchema(BaseModel):
-    """Returns core Txlemetry tables (events, groups, persons, sessions) with their full schemas, plus a list of available data warehouse tables and views (names only)."""
+    """Returns core PostHog tables (events, groups, persons, sessions) with their full schemas, plus a list of available data warehouse tables and views (names only)."""
 
     kind: Literal["data_warehouse_schema"] = "data_warehouse_schema"
 
@@ -265,7 +265,7 @@ class ReadDataTool(HogQLDatabaseMixin, MaxTool):
     name: Literal["read_data"] = "read_data"
     description: str = READ_DATA_PROMPT
     context_prompt_template: str = (
-        "Reads user data created in Txlemetry (data warehouse schema, saved insights, dashboards, billing information)"
+        "Reads user data created in PostHog (data warehouse schema, saved insights, dashboards, billing information)"
     )
 
     # Per-instance cache of warehouse table semantics, keyed by table name. The same tool instance
