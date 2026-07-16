@@ -245,9 +245,9 @@ class AgentExecutable(BaseAgentLoopRootExecutable):
         }
 
         if variant == "gateway-bedrock":
-            headers["X-PostHog-Provider"] = "bedrock"
+            headers["X-Txlemetry-Provider"] = "bedrock"
         elif variant == "gateway-anthropic":
-            headers["X-PostHog-Use-Bedrock-Fallback"] = "true"
+            headers["X-Txlemetry-Use-Bedrock-Fallback"] = "true"
 
         return {
             "anthropic_api_url": f"{settings.LLM_GATEWAY_URL.rstrip('/')}/{self._get_llm_gateway_product()}",
