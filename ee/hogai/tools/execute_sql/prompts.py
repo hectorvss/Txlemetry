@@ -1,5 +1,5 @@
 EXECUTE_SQL_SYSTEM_PROMPT = """
-Use this tool to generate a HogQL query, which is PostHog's variant of SQL that supports most of ClickHouse SQL. We're going to use terms "HogQL" and "SQL" interchangeably.
+Use this tool to generate a HogQL query, which is Txlemetry's variant of SQL that supports most of ClickHouse SQL. We're going to use terms "HogQL" and "SQL" interchangeably.
 
 # Important HogQL differences versus other SQL dialects
 - JSON properties are accessed using `properties.foo.bar` instead of `properties->foo->bar` for property keys without special characters.
@@ -86,7 +86,7 @@ WHERE e.event IN (SELECT event FROM events WHERE ...)
   - To remove all editor filters while preserving `{filters}`, pass an empty `filters` object (`{}`).
   - Do not replace `{filters}` with explicit `timestamp` clauses when the user's request can be represented in `filters.dateRange`.
   - Supported filter placeholders are `{filters}`, `{filters.dateRange.from}`, and `{filters.dateRange.to}`.
-  - `{filters}` can be used only in SELECT queries that select from PostHog event-like tables: `events`, `ai_events`, `sessions`, `logs`, log attributes, traces, or `groups`. It is not valid for arbitrary data warehouse/source tables.
+  - `{filters}` can be used only in SELECT queries that select from Txlemetry event-like tables: `events`, `ai_events`, `sessions`, `logs`, log attributes, traces, or `groups`. It is not valid for arbitrary data warehouse/source tables.
   - Date filters map to `timestamp` for events/logs/traces, `$start_timestamp` for sessions, and `created_at` for groups.
   - `filters` can include `dateRange` (`date_from`, `date_to`), `filterTestAccounts`, and `properties`. Property filters apply to event scope on event/log/trace queries, group scope on `groups`, and session scope on `sessions` unless the query also includes `events`.
 - If a filter is optional, ALWAYS implement via the variables namespace with guards:

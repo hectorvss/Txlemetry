@@ -97,7 +97,7 @@ async def aget_conversation_state(
         return None, True, {}
     except Exception as e:
         # Broad exception handler to gracefully degrade UI instead of 500s.
-        # Captures all errors (context access, graph compilation, validation, etc.) to PostHog.
+        # Captures all errors (context access, graph compilation, validation, etc.) to Txlemetry.
         capture_exception(
             e,
             additional_properties={
